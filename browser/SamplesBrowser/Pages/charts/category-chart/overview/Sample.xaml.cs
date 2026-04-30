@@ -7,4 +7,3 @@ public sealed partial class Sample : UserControl
         this.InitializeComponent();
     }
 }
-

@@ -35,7 +35,7 @@ $scriptDir   = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $repoRoot    = Split-Path -Parent $scriptDir
 
 if (-not $SamplesRoot) { $SamplesRoot = Join-Path $repoRoot "samples" }
-if (-not $BrowserRoot)  { $BrowserRoot  = Join-Path $repoRoot "browser\SamplesBrowser" }
+if (-not $BrowserRoot) { $BrowserRoot = Join-Path $repoRoot "browser\SamplesBrowser" }
 
 $pagesDir    = Join-Path $BrowserRoot "Pages"
 $assetsDir   = Join-Path $BrowserRoot "Assets"
@@ -55,6 +55,15 @@ function ConvertTo-PascalCase([string]$segment) {
     ($segment -split '-') | ForEach-Object {
         if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) }
     } | Join-String -Separator ""
+}
+
+# ── Helper: convert a hyphenated folder name to space-separated title case ───
+# e.g. "category-chart" → "Category Chart"
+
+function ConvertTo-TitleCase([string]$segment) {
+    ($segment -split '-') | ForEach-Object {
+        if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) }
+    } | Join-String -Separator " "
 }
 
 # ── Helper: convert a folder-relative route to a .NET namespace suffix ───────
@@ -115,10 +124,10 @@ foreach ($xamlFile in $sampleFiles) {
     $component = $segments[1]                         # e.g. "category-chart"
     $sampleSeg = $segments[-1]                        # e.g. "overview"
 
-    # Human-readable names (capitalise first letter of each hyphenated word)
-    $groupName     = ($group     -split '-' | ForEach-Object { if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) } }) -join ' '
-    $componentName = ($component -split '-' | ForEach-Object { if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) } }) -join ' '
-    $sampleName    = ($sampleSeg -split '-' | ForEach-Object { if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) } }) -join ' '
+    # Human-readable names (capitalize first letter of each hyphenated word)
+    $groupName     = ConvertTo-TitleCase $group
+    $componentName = ConvertTo-TitleCase $component
+    $sampleName    = ConvertTo-TitleCase $sampleSeg
 
     # .NET namespace suffix inside SamplesBrowser.Pages
     $nsSuffix = Get-Namespace $route    # e.g. "Charts.CategoryChart.Overview"
@@ -159,9 +168,11 @@ foreach ($s in $sampleList) {
     # Replace x:Class="WinUIApp.Sample" with the browser namespace
     $xamlContent = $xamlContent -replace 'x:Class="[^"]*"', "x:Class=`"$($s.Namespace).Sample`""
 
-    # Remove any standalone @page directives (not applicable to XAML, but future-proof)
+    # Normalise trailing whitespace: ensure exactly one newline at end of file
+    $xamlContent = $xamlContent.TrimEnd() + "`n"
+
     $destXaml = Join-Path $destDir "Sample.xaml"
-    Set-Content -Path $destXaml -Value $xamlContent -Encoding UTF8
+    Set-Content -Path $destXaml -Value $xamlContent -NoNewline -Encoding UTF8
     $copiedItems.Add($destXaml)
 
     # ── Sample.xaml.cs ───────────────────────────────────────────────────────
@@ -171,8 +182,11 @@ foreach ($s in $sampleList) {
     $csContent = $csContent -replace 'namespace\s+\S+\s*;', "namespace $($s.Namespace);"
     $csContent = $csContent -replace 'namespace\s+\S+\s*\{', "namespace $($s.Namespace) {"
 
+    # Normalise trailing whitespace: ensure exactly one newline at end of file
+    $csContent = $csContent.TrimEnd() + "`n"
+
     $destCs = Join-Path $destDir "Sample.xaml.cs"
-    Set-Content -Path $destCs -Value $csContent -Encoding UTF8
+    Set-Content -Path $destCs -Value $csContent -NoNewline -Encoding UTF8
     $copiedItems.Add($destCs)
 
     Write-Host "  + $($s.Route)" -ForegroundColor Gray
