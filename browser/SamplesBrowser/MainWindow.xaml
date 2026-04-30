@@ -1,0 +1,39 @@
+<Window
+    x:Class="SamplesBrowser.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SamplesBrowser"
+    Title="IG WinUI Samples">
+
+    <Grid>
+        <NavigationView
+            x:Name="NavView"
+            IsBackButtonVisible="Collapsed"
+            IsSettingsVisible="False"
+            PaneDisplayMode="Left"
+            IsPaneOpen="True"
+            OpenPaneLength="260"
+            SelectionFollowsFocus="Disabled"
+            ItemInvoked="NavView_ItemInvoked"
+            Loaded="NavView_Loaded">
+
+            <!-- Custom pane header with logo and app name -->
+            <NavigationView.PaneHeader>
+                <StackPanel Orientation="Horizontal" Spacing="8" Margin="12,4,0,0">
+                    <FontIcon Glyph="&#xE9F9;" FontSize="20" Foreground="White"/>
+                    <TextBlock
+                        Text="IG WinUI Samples"
+                        Style="{StaticResource BodyTextBlockStyle}"
+                        Foreground="White"
+                        VerticalAlignment="Center"
+                        FontWeight="SemiBold"/>
+                </StackPanel>
+            </NavigationView.PaneHeader>
+
+            <!-- Content frame for displaying samples -->
+            <Frame x:Name="ContentFrame" Navigated="ContentFrame_Navigated"/>
+
+        </NavigationView>
+    </Grid>
+
+</Window>

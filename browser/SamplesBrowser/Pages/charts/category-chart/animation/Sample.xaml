@@ -1,0 +1,39 @@
+<UserControl
+    x:Class="SamplesBrowser.Pages.Charts.CategoryChart.Animation.Sample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0"
+                   Text="Category Chart - Animation"
+                   Style="{StaticResource TitleTextBlockStyle}"
+                   Margin="0,0,0,16"/>
+
+        <Border Grid.Row="1"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                BorderThickness="1"
+                CornerRadius="8"
+                Padding="24">
+            <StackPanel Spacing="12">
+                <TextBlock Text="This sample demonstrates Category Chart animation capabilities."
+                           TextWrapping="Wrap"
+                           Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBlock Text="Charts can animate on load and on data change with customizable easing and duration."
+                           TextWrapping="Wrap"
+                           Style="{StaticResource BodyTextBlockStyle}"/>
+                <Button Content="Animate Chart" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+
+</UserControl>
+
