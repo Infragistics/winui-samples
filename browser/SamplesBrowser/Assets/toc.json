@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "name": "Charts",
+      "components": [
+        {
+          "name": "Category Chart",
+          "folder": "category-chart",
+          "samples": [
+            {
+              "name": "Animation",
+              "route": "charts/category-chart/animation",
+              "showLink": true
+            },
+            {
+              "name": "Overview",
+              "route": "charts/category-chart/overview",
+              "showLink": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Gauges",
+      "components": [
+        {
+          "name": "Radial Gauge",
+          "folder": "radial-gauge",
+          "samples": [
+            {
+              "name": "Overview",
+              "route": "gauges/radial-gauge/overview",
+              "showLink": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
