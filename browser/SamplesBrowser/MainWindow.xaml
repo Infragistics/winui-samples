@@ -5,6 +5,10 @@
     xmlns:local="using:SamplesBrowser"
     Title="IG WinUI Samples">
 
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
     <Grid>
         <NavigationView
             x:Name="NavView"
@@ -17,14 +21,23 @@
             ItemInvoked="NavView_ItemInvoked"
             Loaded="NavView_Loaded">
 
+            <NavigationView.Resources>
+                <!-- Let the window's Mica show through the pane -->
+                <SolidColorBrush x:Key="NavigationViewDefaultPaneBackground" Color="Transparent"/>
+                <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="Transparent"/>
+                <!-- Main content area is pure white -->
+                <SolidColorBrush x:Key="NavigationViewContentBackground" Color="White"/>
+            </NavigationView.Resources>
+
             <!-- Custom pane header with logo and app name -->
             <NavigationView.PaneHeader>
                 <StackPanel Orientation="Horizontal" Spacing="8" Margin="12,4,0,0">
-                    <FontIcon Glyph="&#xE9F9;" FontSize="20" Foreground="White"/>
+                    <FontIcon Glyph="&#xE9F9;" FontSize="20"
+                              Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}"/>
                     <TextBlock
                         Text="IG WinUI Samples"
                         Style="{StaticResource BodyTextBlockStyle}"
-                        Foreground="White"
+                        Foreground="{ThemeResource TextFillColorPrimaryBrush}"
                         VerticalAlignment="Center"
                         FontWeight="SemiBold"/>
                 </StackPanel>

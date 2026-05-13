@@ -1,41 +1,919 @@
-{
-  "groups": [
-    {
-      "name": "Charts",
-      "components": [
-        {
-          "name": "Category Chart",
-          "folder": "category-chart",
-          "samples": [
-            {
-              "name": "Animation",
-              "route": "charts/category-chart/animation",
-              "showLink": true
-            },
-            {
-              "name": "Overview",
-              "route": "charts/category-chart/overview",
-              "showLink": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Gauges",
-      "components": [
-        {
-          "name": "Radial Gauge",
-          "folder": "radial-gauge",
-          "samples": [
-            {
-              "name": "Overview",
-              "route": "gauges/radial-gauge/overview",
-              "showLink": true
-            }
-          ]
-        }
-      ]
-    }
-  ]
+﻿{
+    "groups":  [
+                   {
+                       "name":  "Charts",
+                       "components":  [
+                                          {
+                                              "name":  "Category Chart",
+                                              "folder":  "category-chart",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Annotations All",
+                                                                  "route":  "charts/category-chart/annotations-all",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Annotations Callouts",
+                                                                  "route":  "charts/category-chart/annotations-callouts",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Annotations Crosshairs",
+                                                                  "route":  "charts/category-chart/annotations-crosshairs",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Annotations Custom",
+                                                                  "route":  "charts/category-chart/annotations-custom",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Annotations Final Value",
+                                                                  "route":  "charts/category-chart/annotations-final-value",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Annotations Highlighting",
+                                                                  "route":  "charts/category-chart/annotations-highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Area Chart Multiple Sources",
+                                                                  "route":  "charts/category-chart/area-chart-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Area Chart Single Source",
+                                                                  "route":  "charts/category-chart/area-chart-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Area Chart Styling",
+                                                                  "route":  "charts/category-chart/area-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Gap",
+                                                                  "route":  "charts/category-chart/axis-gap",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Gridlines",
+                                                                  "route":  "charts/category-chart/axis-gridlines",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Inverted",
+                                                                  "route":  "charts/category-chart/axis-inverted",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Labels",
+                                                                  "route":  "charts/category-chart/axis-labels",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Locations",
+                                                                  "route":  "charts/category-chart/axis-locations",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Options",
+                                                                  "route":  "charts/category-chart/axis-options",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Overlap",
+                                                                  "route":  "charts/category-chart/axis-overlap",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Range",
+                                                                  "route":  "charts/category-chart/axis-range",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Tickmarks",
+                                                                  "route":  "charts/category-chart/axis-tickmarks",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Titles",
+                                                                  "route":  "charts/category-chart/axis-titles",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Chart Highlight Filter",
+                                                                  "route":  "charts/category-chart/chart-highlight-filter",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Chart Multiple Sources",
+                                                                  "route":  "charts/category-chart/column-chart-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Chart Single Source",
+                                                                  "route":  "charts/category-chart/column-chart-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Chart Styling",
+                                                                  "route":  "charts/category-chart/column-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Chart With Tooltips",
+                                                                  "route":  "charts/category-chart/column-chart-with-tooltips",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Custom Selection",
+                                                                  "route":  "charts/category-chart/custom-selection",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Aggregations",
+                                                                  "route":  "charts/category-chart/data-aggregations",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Filter",
+                                                                  "route":  "charts/category-chart/data-filter",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Legend",
+                                                                  "route":  "charts/category-chart/data-legend",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Legend Formatting Decimals",
+                                                                  "route":  "charts/category-chart/data-legend-formatting-decimals",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip",
+                                                                  "route":  "charts/category-chart/data-tooltip",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip Formatting Decimals",
+                                                                  "route":  "charts/category-chart/data-tooltip-formatting-decimals",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip Positioning",
+                                                                  "route":  "charts/category-chart/data-tooltip-positioning",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Format Specifiers",
+                                                                  "route":  "charts/category-chart/format-specifiers",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlighting Behavior",
+                                                                  "route":  "charts/category-chart/highlighting-behavior",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlighting Mode",
+                                                                  "route":  "charts/category-chart/highlighting-mode",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Legend Highlighting",
+                                                                  "route":  "charts/category-chart/legend-highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Line Chart Multiple Sources",
+                                                                  "route":  "charts/category-chart/line-chart-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Line Chart Single Source",
+                                                                  "route":  "charts/category-chart/line-chart-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Line Chart Styling",
+                                                                  "route":  "charts/category-chart/line-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Marker Options",
+                                                                  "route":  "charts/category-chart/marker-options",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "charts/category-chart/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Point Chart Multiple Sources",
+                                                                  "route":  "charts/category-chart/point-chart-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Point Chart Single Source",
+                                                                  "route":  "charts/category-chart/point-chart-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Point Chart Styling",
+                                                                  "route":  "charts/category-chart/point-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Selection Matcher",
+                                                                  "route":  "charts/category-chart/selection-matcher",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Selection Modes",
+                                                                  "route":  "charts/category-chart/selection-modes",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Selection Multiple Modes",
+                                                                  "route":  "charts/category-chart/selection-multiple-modes",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Spline Area Multiple Sources",
+                                                                  "route":  "charts/category-chart/spline-area-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Spline Area Single Source",
+                                                                  "route":  "charts/category-chart/spline-area-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Spline Area Styling",
+                                                                  "route":  "charts/category-chart/spline-area-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Spline Multiple Sources",
+                                                                  "route":  "charts/category-chart/spline-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Spline Single Source",
+                                                                  "route":  "charts/category-chart/spline-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Spline Styling",
+                                                                  "route":  "charts/category-chart/spline-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Step Area Multiple Sources",
+                                                                  "route":  "charts/category-chart/step-area-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Step Area Single Source",
+                                                                  "route":  "charts/category-chart/step-area-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Step Area Styling",
+                                                                  "route":  "charts/category-chart/step-area-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Step Line Multiple Sources",
+                                                                  "route":  "charts/category-chart/step-line-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Step Line Single Source",
+                                                                  "route":  "charts/category-chart/step-line-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Step Line Styling",
+                                                                  "route":  "charts/category-chart/step-line-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Value Lines",
+                                                                  "route":  "charts/category-chart/value-lines",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Dashboard Tile",
+                                              "folder":  "dashboard-tile",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Financial Dashboard",
+                                                                  "route":  "charts/dashboard-tile/financial-dashboard",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Gauge Dashboard",
+                                                                  "route":  "charts/dashboard-tile/gauge-dashboard",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Local Data Source Dashboard",
+                                                                  "route":  "charts/dashboard-tile/local-data-source-dashboard",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Map Dashboard",
+                                                                  "route":  "charts/dashboard-tile/map-dashboard",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Pie Dashboard",
+                                                                  "route":  "charts/dashboard-tile/pie-dashboard",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Data Chart",
+                                              "folder":  "data-chart",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Annotations Custom",
+                                                                  "route":  "charts/data-chart/annotations-custom",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Annotations Corner Radius",
+                                                                  "route":  "charts/data-chart/axis-annotations-corner-radius",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Label Rotation",
+                                                                  "route":  "charts/data-chart/axis-label-rotation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Axis Min Max Gap",
+                                                                  "route":  "charts/data-chart/axis-min-max-gap",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Bar Chart Multiple Sources",
+                                                                  "route":  "charts/data-chart/bar-chart-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Bar Chart Overlapping",
+                                                                  "route":  "charts/data-chart/bar-chart-overlapping",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Bar Chart Single Source",
+                                                                  "route":  "charts/data-chart/bar-chart-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Bar Chart Styling",
+                                                                  "route":  "charts/data-chart/bar-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Callout Layer Styling",
+                                                                  "route":  "charts/data-chart/callout-layer-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Chart Highlight Filter",
+                                                                  "route":  "charts/data-chart/chart-highlight-filter",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Chart Highlight Filter Datasource",
+                                                                  "route":  "charts/data-chart/chart-highlight-filter-datasource",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Chart Highlight Filter Multiple Series",
+                                                                  "route":  "charts/data-chart/chart-highlight-filter-multiple-series",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Band Layer",
+                                                                  "route":  "charts/data-chart/data-annotation-band-layer",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Line Layer",
+                                                                  "route":  "charts/data-chart/data-annotation-line-layer",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Multiple With Overlay Text",
+                                                                  "route":  "charts/data-chart/data-annotation-multiple-with-overlay-text",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Multiple With Stocks",
+                                                                  "route":  "charts/data-chart/data-annotation-multiple-with-stocks",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Rect Layer",
+                                                                  "route":  "charts/data-chart/data-annotation-rect-layer",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Slice Layer",
+                                                                  "route":  "charts/data-chart/data-annotation-slice-layer",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Annotation Strip Layer",
+                                                                  "route":  "charts/data-chart/data-annotation-strip-layer",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Legend",
+                                                                  "route":  "charts/data-chart/data-legend",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Legend Grouping",
+                                                                  "route":  "charts/data-chart/data-legend-grouping",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Legend Grouping And Highlighting",
+                                                                  "route":  "charts/data-chart/data-legend-grouping-and-highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Legend Styling",
+                                                                  "route":  "charts/data-chart/data-legend-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip",
+                                                                  "route":  "charts/data-chart/data-tooltip",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip Grouping",
+                                                                  "route":  "charts/data-chart/data-tooltip-grouping",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip Grouping And Highlighting",
+                                                                  "route":  "charts/data-chart/data-tooltip-grouping-and-highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Data Tooltip Styling",
+                                                                  "route":  "charts/data-chart/data-tooltip-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Financial Price Series",
+                                                                  "route":  "charts/data-chart/financial-price-series",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Polar Area Chart",
+                                                                  "route":  "charts/data-chart/polar-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Polar Area Chart Styling",
+                                                                  "route":  "charts/data-chart/polar-area-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Polar Line Chart",
+                                                                  "route":  "charts/data-chart/polar-line-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Polar Scatter Chart",
+                                                                  "route":  "charts/data-chart/polar-scatter-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Polar Spline Area Chart",
+                                                                  "route":  "charts/data-chart/polar-spline-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Polar Spline Chart",
+                                                                  "route":  "charts/data-chart/polar-spline-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Area Chart",
+                                                                  "route":  "charts/data-chart/radial-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Area Chart Styling",
+                                                                  "route":  "charts/data-chart/radial-area-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Column Chart",
+                                                                  "route":  "charts/data-chart/radial-column-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Column Chart Selection",
+                                                                  "route":  "charts/data-chart/radial-column-chart-selection",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Label Mode",
+                                                                  "route":  "charts/data-chart/radial-label-mode",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Line Chart",
+                                                                  "route":  "charts/data-chart/radial-line-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Pie Chart",
+                                                                  "route":  "charts/data-chart/radial-pie-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Pie Proportional Category Angle Axis",
+                                                                  "route":  "charts/data-chart/radial-pie-proportional-category-angle-axis",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Radial Proportional Radial Angle Axis",
+                                                                  "route":  "charts/data-chart/radial-proportional-radial-angle-axis",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Range Area Chart",
+                                                                  "route":  "charts/data-chart/range-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Range Column Chart",
+                                                                  "route":  "charts/data-chart/range-column-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Bubble Chart Fill Scale",
+                                                                  "route":  "charts/data-chart/scatter-bubble-chart-fill-scale",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Bubble Chart Multiple Sources",
+                                                                  "route":  "charts/data-chart/scatter-bubble-chart-multiple-sources",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Bubble Chart Single Source",
+                                                                  "route":  "charts/data-chart/scatter-bubble-chart-single-source",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Bubble Chart Styling",
+                                                                  "route":  "charts/data-chart/scatter-bubble-chart-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Line Chart",
+                                                                  "route":  "charts/data-chart/scatter-line-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Point Chart",
+                                                                  "route":  "charts/data-chart/scatter-point-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scatter Spline Chart",
+                                                                  "route":  "charts/data-chart/scatter-spline-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Selection Matcher",
+                                                                  "route":  "charts/data-chart/selection-matcher",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked 100 Area Chart",
+                                                                  "route":  "charts/data-chart/stacked-100-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked 100 Bar Chart",
+                                                                  "route":  "charts/data-chart/stacked-100-bar-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked 100 Column Chart",
+                                                                  "route":  "charts/data-chart/stacked-100-column-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked 100 Line Chart",
+                                                                  "route":  "charts/data-chart/stacked-100-line-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked 100 Spline Area Chart",
+                                                                  "route":  "charts/data-chart/stacked-100-spline-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked 100 Spline Chart",
+                                                                  "route":  "charts/data-chart/stacked-100-spline-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked Area Chart",
+                                                                  "route":  "charts/data-chart/stacked-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked Bar Chart",
+                                                                  "route":  "charts/data-chart/stacked-bar-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked Column Chart",
+                                                                  "route":  "charts/data-chart/stacked-column-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked Line Chart",
+                                                                  "route":  "charts/data-chart/stacked-line-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked Spline Area Chart",
+                                                                  "route":  "charts/data-chart/stacked-spline-area-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Stacked Spline Chart",
+                                                                  "route":  "charts/data-chart/stacked-spline-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Transition Event",
+                                                                  "route":  "charts/data-chart/transition-event",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Trendline Layer",
+                                                                  "route":  "charts/data-chart/trendline-layer",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Waterfall Chart",
+                                                                  "route":  "charts/data-chart/waterfall-chart",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Data Pie Chart",
+                                              "folder":  "data-pie-chart",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Animation",
+                                                                  "route":  "charts/data-pie-chart/animation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Animation Replay",
+                                                                  "route":  "charts/data-pie-chart/animation-replay",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlight Filter",
+                                                                  "route":  "charts/data-pie-chart/highlight-filter",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlighting",
+                                                                  "route":  "charts/data-pie-chart/highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Legend",
+                                                                  "route":  "charts/data-pie-chart/legend",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Others",
+                                                                  "route":  "charts/data-pie-chart/others",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "charts/data-pie-chart/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Selection",
+                                                                  "route":  "charts/data-pie-chart/selection",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Doughnut Chart",
+                                              "folder":  "doughnut-chart",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Legend",
+                                                                  "route":  "charts/doughnut-chart/legend",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "charts/doughnut-chart/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Rings",
+                                                                  "route":  "charts/doughnut-chart/rings",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Pie Chart",
+                                              "folder":  "pie-chart",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Legend",
+                                                                  "route":  "charts/pie-chart/legend",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Others",
+                                                                  "route":  "charts/pie-chart/others",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "charts/pie-chart/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Styling",
+                                                                  "route":  "charts/pie-chart/styling",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Sparkline",
+                                              "folder":  "sparkline",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Display Area",
+                                                                  "route":  "charts/sparkline/display-area",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Column",
+                                                                  "route":  "charts/sparkline/display-column",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Lines",
+                                                                  "route":  "charts/sparkline/display-lines",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Winloss",
+                                                                  "route":  "charts/sparkline/display-winloss",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Markers",
+                                                                  "route":  "charts/sparkline/markers",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Normal Range",
+                                                                  "route":  "charts/sparkline/normal-range",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Trendlines",
+                                                                  "route":  "charts/sparkline/trendlines",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Unknown Values",
+                                                                  "route":  "charts/sparkline/unknown-values",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Toolbar",
+                                              "folder":  "toolbar",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Actions Built In Category Chart",
+                                                                  "route":  "charts/toolbar/actions-built-in-category-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Actions Built In Data Chart",
+                                                                  "route":  "charts/toolbar/actions-built-in-data-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Color Editor Support",
+                                                                  "route":  "charts/toolbar/color-editor-support",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Custom Tool",
+                                                                  "route":  "charts/toolbar/custom-tool",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Layout Actions For Data Chart",
+                                                                  "route":  "charts/toolbar/layout-actions-for-data-chart",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Layout In Vertical Orientation",
+                                                                  "route":  "charts/toolbar/layout-in-vertical-orientation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Theming",
+                                                                  "route":  "charts/toolbar/theming",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Tree Map",
+                                              "folder":  "tree-map",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Highlighting",
+                                                                  "route":  "charts/tree-map/highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlighting Percent Based",
+                                                                  "route":  "charts/tree-map/highlighting-percent-based",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Layout",
+                                                                  "route":  "charts/tree-map/layout",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "charts/tree-map/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Styling",
+                                                                  "route":  "charts/tree-map/styling",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                   },
+                   {
+                       "name":  "Inputs",
+                       "components":  [
+                                          {
+                                              "name":  "Color Editor",
+                                              "folder":  "color-editor",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "inputs/color-editor/overview",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                   }
+               ]
 }

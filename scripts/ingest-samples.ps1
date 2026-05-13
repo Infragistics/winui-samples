@@ -29,7 +29,7 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
-# ── Resolve paths ────────────────────────────────────────────────────────────
+# ---- Resolve paths ----
 
 $scriptDir   = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $repoRoot    = Split-Path -Parent $scriptDir
@@ -39,7 +39,6 @@ if (-not $BrowserRoot) { $BrowserRoot = Join-Path $repoRoot "browser\SamplesBrow
 
 $pagesDir    = Join-Path $BrowserRoot "Pages"
 $assetsDir   = Join-Path $BrowserRoot "Assets"
-$csprojPath  = Join-Path $BrowserRoot "SamplesBrowser.csproj"
 $tocPath     = Join-Path $assetsDir   "toc.json"
 $registryPath = Join-Path $BrowserRoot "SampleRegistry.cs"
 
@@ -49,31 +48,34 @@ Write-Host "  Samples root : $SamplesRoot"
 Write-Host "  Browser root : $BrowserRoot"
 Write-Host ""
 
-# ── Helper: convert a hyphenated folder segment to PascalCase ────────────────
+# ---- Helper: convert a hyphenated folder segment to PascalCase ----
 
 function ConvertTo-PascalCase([string]$segment) {
-    ($segment -split '-') | ForEach-Object {
+    $parts = @(($segment -split '-') | ForEach-Object {
         if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) }
-    } | Join-String -Separator ""
+    })
+    return ($parts -join "")
 }
 
-# ── Helper: convert a hyphenated folder name to space-separated title case ───
-# e.g. "category-chart" → "Category Chart"
+# ---- Helper: convert a hyphenated folder name to space-separated title case ----
+# e.g. "category-chart" -> "Category Chart"
 
 function ConvertTo-TitleCase([string]$segment) {
-    ($segment -split '-') | ForEach-Object {
+    $parts = @(($segment -split '-') | ForEach-Object {
         if ($_.Length -gt 0) { $_.Substring(0,1).ToUpper() + $_.Substring(1) }
-    } | Join-String -Separator " "
+    })
+    return ($parts -join " ")
 }
 
-# ── Helper: convert a folder-relative route to a .NET namespace suffix ───────
+# ---- Helper: convert a folder-relative route to a .NET namespace suffix ----
 
 function Get-Namespace([string]$route) {
     # route: "charts/category-chart/overview"
-    ($route -split '/') | ForEach-Object { ConvertTo-PascalCase $_ } | Join-String -Separator "."
+    $parts = @(($route -split '/') | ForEach-Object { ConvertTo-PascalCase $_ })
+    return ($parts -join ".")
 }
 
-# ── Clean previously ingested sample pages ───────────────────────────────────
+# ---- Clean previously ingested sample pages ----
 
 Write-Host "Cleaning previously ingested pages ..." -ForegroundColor Yellow
 
@@ -86,7 +88,7 @@ Get-ChildItem -Path $pagesDir -Recurse -Directory | Sort-Object FullName -Descen
 
 Write-Host "  Done." -ForegroundColor Green
 
-# ── Discover samples ─────────────────────────────────────────────────────────
+# ---- Discover samples ----
 
 Write-Host ""
 Write-Host "Scanning for samples in $SamplesRoot ..." -ForegroundColor Yellow
@@ -102,7 +104,7 @@ if ($sampleFiles.Count -eq 0) {
 
 Write-Host "  Found $($sampleFiles.Count) sample(s)." -ForegroundColor Green
 
-# ── Build internal sample list ───────────────────────────────────────────────
+# ---- Build internal sample list ----
 
 $sampleList = [System.Collections.Generic.List[PSCustomObject]]::new()
 
@@ -116,7 +118,7 @@ foreach ($xamlFile in $sampleFiles) {
     # Extract path segments
     $segments = $route -split '/'
     if ($segments.Count -lt 3) {
-        Write-Warning "Skipping '$route' – expected at least 3 path segments (group/component/sample)."
+        Write-Warning "Skipping '$route' - expected at least 3 path segments (group/component/sample)."
         continue
     }
 
@@ -150,19 +152,35 @@ foreach ($xamlFile in $sampleFiles) {
 
 Write-Host "  Processed $($sampleList.Count) sample(s)." -ForegroundColor Green
 
-# ── Copy sample files into browser/Pages/ ────────────────────────────────────
+# ---- Copy sample files into browser/Pages/ ----
 
 Write-Host ""
 Write-Host "Copying sample files ..." -ForegroundColor Yellow
 
 $copiedItems = [System.Collections.Generic.List[string]]::new()
 
+# Per-sample template files (Sample/SampleViewModel) live in the sample's Pages
+# subdir under the browser. Anything else .cs in the sample folder is treated as
+# a shared data class (POCO in the global namespace) — it gets deduped to a
+# single Services/ copy in the browser. Mirrors the Blazor/WC pattern where
+# Data.cs / Data.ts files are pulled out of per-sample folders and shared.
+$servicesDir = Join-Path $BrowserRoot "Services"
+New-Item -ItemType Directory -Path $servicesDir -Force | Out-Null
+$copiedServicesByName = @{}
+
+# Per-sample boilerplate that the standalone sample app needs but the browser
+# doesn't (App.xaml.cs etc. — the browser has its own App/MainWindow).
+$skipPerSampleCs = @(
+    'App.xaml.cs',
+    'MainWindow.xaml.cs'
+)
+
 foreach ($s in $sampleList) {
 
     $destDir = Join-Path $pagesDir ($s.Route -replace '/', '\')
     New-Item -ItemType Directory -Path $destDir -Force | Out-Null
 
-    # ── Sample.xaml ──────────────────────────────────────────────────────────
+    # ---- Sample.xaml ----
     $xamlContent = Get-Content $s.XamlFile -Raw
 
     # Replace x:Class="WinUIApp.Sample" with the browser namespace
@@ -175,7 +193,7 @@ foreach ($s in $sampleList) {
     Set-Content -Path $destXaml -Value $xamlContent -NoNewline -Encoding UTF8
     $copiedItems.Add($destXaml)
 
-    # ── Sample.xaml.cs ───────────────────────────────────────────────────────
+    # ---- Sample.xaml.cs ----
     $csContent = Get-Content $s.CsFile -Raw
 
     # Replace namespace declaration
@@ -189,17 +207,39 @@ foreach ($s in $sampleList) {
     Set-Content -Path $destCs -Value $csContent -NoNewline -Encoding UTF8
     $copiedItems.Add($destCs)
 
+    # ---- Shared data classes -> Services/ (deduped by filename) ----
+    # Anything else .cs in the sample folder is a POCO data class (global
+    # namespace). Multiple samples typically share the same data class — first
+    # one wins; later samples with the same filename are assumed identical and
+    # skipped. If a later sample produces a different file with the same name
+    # the difference is silently lost, same trade-off Blazor's ingest accepts.
+    Get-ChildItem -Path $s.SrcDir -Filter "*.cs" -File | ForEach-Object {
+        $name = $_.Name
+        if ($name -eq "Sample.xaml.cs") { return }
+        if ($skipPerSampleCs -contains $name) { return }
+
+        if ($copiedServicesByName.ContainsKey($name)) { return }
+
+        $destData = Join-Path $servicesDir $name
+        $dataContent = Get-Content $_.FullName -Raw
+        $dataContent = $dataContent.TrimEnd() + "`n"
+        Set-Content -Path $destData -Value $dataContent -NoNewline -Encoding UTF8
+        $copiedServicesByName[$name] = $true
+        $copiedItems.Add($destData)
+    }
+
     Write-Host "  + $($s.Route)" -ForegroundColor Gray
 }
 
 Write-Host "  Copied $($sampleList.Count) sample(s)." -ForegroundColor Green
+Write-Host "  Copied $($copiedServicesByName.Count) shared data class(es) to Services/" -ForegroundColor Green
 
-# ── Generate toc.json ─────────────────────────────────────────────────────────
+# ---- Generate toc.json ----
 
 Write-Host ""
 Write-Host "Generating toc.json ..." -ForegroundColor Yellow
 
-# Build a hierarchy: groups → components → samples
+# Build a hierarchy: groups -> components -> samples
 $groups = [ordered]@{}
 
 foreach ($s in $sampleList) {
@@ -251,7 +291,7 @@ Set-Content -Path $tocPath -Value $tocJson -Encoding UTF8
 
 Write-Host "  Written to $tocPath" -ForegroundColor Green
 
-# ── Generate SampleRegistry.cs ───────────────────────────────────────────────
+# ---- Generate SampleRegistry.cs ----
 
 Write-Host ""
 Write-Host "Generating SampleRegistry.cs ..." -ForegroundColor Yellow
@@ -261,7 +301,7 @@ $entries = foreach ($s in $sampleList) {
 }
 
 $registryContent = @"
-// AUTO-GENERATED by scripts/ingest-samples.ps1 — DO NOT EDIT MANUALLY.
+// AUTO-GENERATED by scripts/ingest-samples.ps1 -- DO NOT EDIT MANUALLY.
 // Run the ingest script to regenerate this file after adding or removing samples.
 
 using System;
@@ -287,58 +327,11 @@ Set-Content -Path $registryPath -Value $registryContent -Encoding UTF8
 
 Write-Host "  Written to $registryPath" -ForegroundColor Green
 
-# ── Update SamplesBrowser.csproj ─────────────────────────────────────────────
+# Note: SamplesBrowser.csproj is NOT modified here. The SDK's implicit Page/
+# Compile globs pick up everything under Pages/ automatically, so the only
+# work this script needs to do for the csproj is leave it alone.
 
-Write-Host ""
-Write-Host "Updating SamplesBrowser.csproj ..." -ForegroundColor Yellow
-
-[xml]$csproj = Get-Content $csprojPath
-
-# Remove any previously generated <ItemGroup> blocks tagged with our label
-$oldGroups = $csproj.Project.ItemGroup | Where-Object {
-    $_.GetAttribute("Label") -eq "IngestedSamples"
-}
-foreach ($og in @($oldGroups)) {
-    $csproj.Project.RemoveChild($og) | Out-Null
-}
-
-if ($sampleList.Count -gt 0) {
-    # Add a new <ItemGroup Label="IngestedSamples"> with Page and Compile items
-    $itemGroup = $csproj.CreateElement("ItemGroup")
-    $itemGroup.SetAttribute("Label", "IngestedSamples")
-
-    foreach ($s in $sampleList) {
-        $relXaml = "Pages\" + ($s.Route -replace '/', '\') + "\Sample.xaml"
-        $relCs   = "Pages\" + ($s.Route -replace '/', '\') + "\Sample.xaml.cs"
-
-        # <Page Include="Pages\...\Sample.xaml" />
-        $pageEl = $csproj.CreateElement("Page")
-        $pageEl.SetAttribute("Include", $relXaml)
-        $subType = $csproj.CreateElement("SubType")
-        $subType.InnerText = "Designer"
-        $generator = $csproj.CreateElement("Generator")
-        $generator.InnerText = "MSBuild:Compile"
-        $pageEl.AppendChild($subType)  | Out-Null
-        $pageEl.AppendChild($generator) | Out-Null
-        $itemGroup.AppendChild($pageEl) | Out-Null
-
-        # <Compile Include="Pages\...\Sample.xaml.cs" DependentUpon="Sample.xaml" />
-        $compileEl = $csproj.CreateElement("Compile")
-        $compileEl.SetAttribute("Include", $relCs)
-        $depOn = $csproj.CreateElement("DependentUpon")
-        $depOn.InnerText = "Sample.xaml"
-        $compileEl.AppendChild($depOn) | Out-Null
-        $itemGroup.AppendChild($compileEl) | Out-Null
-    }
-
-    $csproj.Project.AppendChild($itemGroup) | Out-Null
-}
-
-$csproj.Save($csprojPath)
-
-Write-Host "  Updated $csprojPath" -ForegroundColor Green
-
-# ── Summary ───────────────────────────────────────────────────────────────────
+# ---- Summary ----
 
 Write-Host ""
 Write-Host "=== Done ===" -ForegroundColor Cyan
