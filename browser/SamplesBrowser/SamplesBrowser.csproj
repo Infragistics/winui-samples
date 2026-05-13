@@ -26,34 +26,34 @@
        dev-tools (BuildAndRunGTKTests.ps1 / WinUI sln) before building this. -->
   <ItemGroup>
     <Reference Include="Infragistics.Core">
-      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.dll</HintPath>
+      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics.Core.Charts">
-      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Charts.dll</HintPath>
+      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Charts.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics.Core.DataVisualization">
-      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.DataVisualization.dll</HintPath>
+      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Infragistics.Core.DataGrid">
-      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.DataGrid.dll</HintPath>
+      <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.DataGrid.dll</HintPath>
     </Reference>
 	  <Reference Include="Infragistics.Core.Layouts">
-		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Layouts.dll</HintPath>
+		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Layouts.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Infragistics.Core.Inputs">
-		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Inputs.dll</HintPath>
+		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Inputs.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Infragistics.Core.Gauges">
-		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Gauges.dll</HintPath>
+		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Gauges.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Infragistics.Core.Dashboards">
-		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Dashboards.dll</HintPath>
+		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Dashboards.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Infragistics.Core.Treemap">
-		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Treemap.dll</HintPath>
+		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Treemap.dll</HintPath>
 	  </Reference>
 	  <Reference Include="Infragistics.Core.Sparkline">
-		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\Core\netstandard2.0\Infragistics.Core.Sparkline.dll</HintPath>
+		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Sparkline.dll</HintPath>
 	  </Reference>
     <Reference Include="Infragistics.Core.Maps">
       <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.Maps.dll</HintPath>
