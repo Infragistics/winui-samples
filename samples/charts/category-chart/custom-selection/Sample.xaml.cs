@@ -58,7 +58,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         else
             selectedItem.SelectedValue = selectedItem.DataValue;
 
-        chart.NotifySetItem(selectedIndex, selectedItem, selectedItem);
+        chart.NotifySetItem(selectableData, selectedIndex, selectedItem, selectedItem);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

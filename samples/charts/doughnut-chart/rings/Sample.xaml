@@ -28,7 +28,7 @@
                 RadiusFactor="0.9"
                 Outlines="white"
                 Brushes="#3cbdc9 #9fb328 #f96232 #8a58d6"
-                DataSource="{Binding CalendarSeasons}">
+                ItemsSource="{Binding CalendarSeasons}">
                 </igCharts:RingSeries>
                 <igCharts:RingSeries
                 Name="series2"
@@ -38,7 +38,7 @@
                 RadiusFactor="0.9"
                 Outlines="white"
                 Brushes="#3cbdc9 #3cbdc9 #3cbdc9 #9fb328 #9fb328 #9fb328 #f96232 #f96232 #f96232 #8a58d6 #8a58d6 #8a58d6"
-                DataSource="{Binding CalendarMonths}">
+                ItemsSource="{Binding CalendarMonths}">
                 </igCharts:RingSeries>
             </igCharts:XamDoughnutChart.Series>
         </igCharts:XamDoughnutChart>

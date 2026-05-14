@@ -19,6 +19,7 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7705" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="Simple.OData.Client" Version="6.0.1" />
     <PackageReference Include="SkiaSharp" Version="3.119.2" />
     <PackageReference Include="SkiaSharp.Views.WinUI" Version="3.119.2" />
   </ItemGroup>
@@ -97,6 +98,9 @@
     <Content Include="Assets\toc.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataSources\" />
   </ItemGroup>
   <!-- Sample Page/Compile items are picked up by the SDK's implicit globs;
        ingest-samples.ps1 copies files into Pages/ and the SDK handles the rest. -->

@@ -900,6 +900,202 @@
                                       ]
                    },
                    {
+                       "name":  "Grids",
+                       "components":  [
+                                          {
+                                              "name":  "Data Grid",
+                                              "folder":  "data-grid",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Binding Data Service",
+                                                                  "route":  "grids/data-grid/binding-data-service",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Live Data",
+                                                                  "route":  "grids/data-grid/binding-live-data",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Local Data",
+                                                                  "route":  "grids/data-grid/binding-local-data",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Remote Data",
+                                                                  "route":  "grids/data-grid/binding-remote-data",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Cell Activation",
+                                                                  "route":  "grids/data-grid/cell-activation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Cell Editing",
+                                                                  "route":  "grids/data-grid/cell-editing",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Cell Merging",
+                                                                  "route":  "grids/data-grid/cell-merging",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Cell Selection",
+                                                                  "route":  "grids/data-grid/cell-selection",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Animation",
+                                                                  "route":  "grids/data-grid/column-animation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Auto Generation Employees",
+                                                                  "route":  "grids/data-grid/column-auto-generation-employees",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Auto Generation Real Estates",
+                                                                  "route":  "grids/data-grid/column-auto-generation-real-estates",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Auto Generation Sales",
+                                                                  "route":  "grids/data-grid/column-auto-generation-sales",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Chooser Picker",
+                                                                  "route":  "grids/data-grid/column-chooser-picker",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Chooser Toolbar",
+                                                                  "route":  "grids/data-grid/column-chooser-toolbar",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Filter Expressions",
+                                                                  "route":  "grids/data-grid/column-filter-expressions",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Filter Operands",
+                                                                  "route":  "grids/data-grid/column-filter-operands",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Filtering",
+                                                                  "route":  "grids/data-grid/column-filtering",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Moving",
+                                                                  "route":  "grids/data-grid/column-moving",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Options",
+                                                                  "route":  "grids/data-grid/column-options",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Pinning Picker",
+                                                                  "route":  "grids/data-grid/column-pinning-picker",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Pinning Toolbar",
+                                                                  "route":  "grids/data-grid/column-pinning-toolbar",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Resizing",
+                                                                  "route":  "grids/data-grid/column-resizing",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Scrolling",
+                                                                  "route":  "grids/data-grid/column-scrolling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Sorting",
+                                                                  "route":  "grids/data-grid/column-sorting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Summaries",
+                                                                  "route":  "grids/data-grid/column-summaries",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Column Types",
+                                                                  "route":  "grids/data-grid/column-types",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Load Save Layout",
+                                                                  "route":  "grids/data-grid/load-save-layout",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Localization",
+                                                                  "route":  "grids/data-grid/localization",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "grids/data-grid/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Pager",
+                                                                  "route":  "grids/data-grid/pager",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Performance",
+                                                                  "route":  "grids/data-grid/performance",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Row Group Descriptions",
+                                                                  "route":  "grids/data-grid/row-group-descriptions",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Row Grouping",
+                                                                  "route":  "grids/data-grid/row-grouping",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Row Highlighting",
+                                                                  "route":  "grids/data-grid/row-highlighting",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Row Paging",
+                                                                  "route":  "grids/data-grid/row-paging",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Row Pinning",
+                                                                  "route":  "grids/data-grid/row-pinning",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Row Selection",
+                                                                  "route":  "grids/data-grid/row-selection",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                   },
+                   {
                        "name":  "Inputs",
                        "components":  [
                                           {

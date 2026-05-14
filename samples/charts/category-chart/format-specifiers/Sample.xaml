@@ -18,16 +18,8 @@
           <igCharts:XamDataLegend
           Name="legend"
           Target="{Binding ElementName=chart}"
-          ValueFormatString="{}{0} Billion">
-              <igCharts:XamDataLegend.ValueFormatSpecifiers>
-                  <igCharts:NumberFormatSpecifier
-                  Style="currency"
-                  Currency="USD"
-                  CurrencyDisplay="symbol"
-                  MaximumFractionDigits="2"
-                  MinimumFractionDigits="2">
-                  </igCharts:NumberFormatSpecifier>
-              </igCharts:XamDataLegend.ValueFormatSpecifiers>
+          ValueFormatString="{}{0} Billion"
+          ValueFormatSpecifiers="{Binding numberFormatSpecifier1}">
           </igCharts:XamDataLegend>
         </Grid>
                               </StackPanel>
@@ -40,24 +32,9 @@
         IsVerticalZoomEnabled="false"
         FinalValueAnnotationsPrecision="2"
         DataToolTipValueFormatString="{}{0} Billion"
-        YAxisLabelFormat="{}{0}B">
-            <igCharts:XamCategoryChart.DataToolTipValueFormatSpecifiers>
-                <igCharts:NumberFormatSpecifier
-                Style="currency"
-                Currency="USD"
-                CurrencyDisplay="symbol"
-                MaximumFractionDigits="2"
-                MinimumFractionDigits="2">
-                </igCharts:NumberFormatSpecifier>
-            </igCharts:XamCategoryChart.DataToolTipValueFormatSpecifiers>
-            <igCharts:XamCategoryChart.YAxisLabelFormatSpecifiers>
-                <igCharts:NumberFormatSpecifier
-                Style="currency"
-                Currency="USD"
-                CurrencyDisplay="symbol"
-                MinimumFractionDigits="0">
-                </igCharts:NumberFormatSpecifier>
-            </igCharts:XamCategoryChart.YAxisLabelFormatSpecifiers>
+        DataToolTipValueFormatSpecifiers="{Binding numberFormatSpecifier3}"
+        YAxisLabelFormat="{}{0}B"
+        YAxisLabelFormatSpecifiers="{Binding numberFormatSpecifier5}">
         </igCharts:XamCategoryChart>
       </Grid>
     </Grid>

@@ -35,7 +35,7 @@
                 Outlines="white"
                 RadiusFactor="0.6"
                 StartAngle="30"
-                DataSource="{Binding EnergyGlobalDemand}"
+                ItemsSource="{Binding EnergyGlobalDemand}"
                 Legend="{Binding ElementName=legend}">
                 </igCharts:RingSeries>
             </igCharts:XamDoughnutChart.Series>

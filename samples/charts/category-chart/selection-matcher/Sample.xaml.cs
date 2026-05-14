@@ -75,7 +75,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     	var chart = this.chart;
 
     	ChartSelection selection = new ChartSelection();
-    	selection.Item = ((IList)chart.ItemsSource)[1];
+    	var s = chart.Series.Where(s => ((AnchoredCategorySeries)s).ValueMemberPath == "Hydro").FirstOrDefault();
+    	selection.Item = ((IList)s.ItemsSource)[1];
     	SeriesMatcher matcher = new SeriesMatcher();
     	matcher.MemberPath = "Hydro";
     	matcher.MemberPathType = "ValueMemberPath";
@@ -86,7 +87,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     	SeriesMatcher matcher2 = new SeriesMatcher();
     	ChartSelection selection2 = new ChartSelection();
     	selection2 = new ChartSelection();
-    	selection2.Item = ((IList)chart.ItemsSource)[1];
+    	s = chart.Series.Where(s => ((AnchoredCategorySeries)s).ValueMemberPath == "Wind").FirstOrDefault();
+    	selection2.Item = ((IList)s.ItemsSource)[1];
     	matcher2.MemberPath = "Wind";
     	matcher2.MemberPathType = "ValueMemberPath";
 
