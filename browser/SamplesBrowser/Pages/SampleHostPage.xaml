@@ -5,7 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="White">
+    Background="{StaticResource SamplePageBackground}">
 
     <!--
         This page hosts a sample UserControl.
@@ -13,10 +13,12 @@
         and placed into SampleContent on navigation.
         Only the active sample is instantiated (lazy loading).
     -->
-    <ContentPresenter x:Name="SampleContent"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch"
-                      HorizontalContentAlignment="Stretch"
-                      VerticalContentAlignment="Stretch"/>
+    <Border Padding="{StaticResource SampleContentPadding}">
+        <ContentPresenter x:Name="SampleContent"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          HorizontalContentAlignment="Stretch"
+                          VerticalContentAlignment="Stretch"/>
+    </Border>
 
 </Page>
