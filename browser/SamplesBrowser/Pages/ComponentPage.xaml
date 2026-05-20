@@ -16,9 +16,7 @@
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Stretch">
                         <Image.Source>
-                            <SvgImageSource UriSource="/Assets/Images/hero-banner.svg"
-                                            RasterizePixelWidth="1600"
-                                            RasterizePixelHeight="360"/>
+                            <SvgImageSource UriSource="/Assets/Images/hero-banner.svg"/>
                         </Image.Source>
                     </Image>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center"
