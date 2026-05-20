@@ -14,7 +14,7 @@
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
-      <Grid Grid.Row="1">
+      <Grid Grid.Row="0">
         <igInputs:XamColorEditor
         Name="colorEditor">
         </igInputs:XamColorEditor>

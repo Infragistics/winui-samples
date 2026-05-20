@@ -15,6 +15,7 @@
             IsBackButtonVisible="Collapsed"
             IsSettingsVisible="False"
             PaneDisplayMode="Left"
+            Background="Transparent"
             IsPaneOpen="True"
             OpenPaneLength="260"
             SelectionFollowsFocus="Disabled"

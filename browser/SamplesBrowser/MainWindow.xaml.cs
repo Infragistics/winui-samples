@@ -12,6 +12,12 @@ public sealed partial class MainWindow : Window
     private readonly TocService _tocService = new();
     private readonly Dictionary<NavigationViewItem, string> _sampleRoutes = new();
 
+    // Segoe MDL2 glyphs used for nav items (component header / sample leaf).
+    // Kept as char-cast strings so the source file stays pure ASCII and the
+    // glyph values are unambiguous (no escape-mangling through editor tools).
+    private static readonly string ComponentGlyph = ((char)0xE9F9).ToString();
+    private static readonly string SampleGlyph = ((char)0xE712).ToString();
+
     public MainWindow()
     {
         this.InitializeComponent();
@@ -40,12 +46,12 @@ public sealed partial class MainWindow : Window
 
             foreach (var component in group.Components)
             {
-                // Component item (e.g. "Category Chart") – expands to show samples
+                // Component item (e.g. "Category Chart") - expands to show samples
                 var compItem = new NavigationViewItem
                 {
                     Content = component.Name,
                     SelectsOnInvoked = false,
-                    Icon = new FontIcon { Glyph = "\uE9F9" }
+                    Icon = new FontIcon { Glyph = ComponentGlyph }
                 };
 
                 foreach (var sample in component.Samples)
@@ -56,7 +62,7 @@ public sealed partial class MainWindow : Window
                     {
                         Content = sample.Name,
                         Tag = sample.Route,
-                        Icon = new FontIcon { Glyph = "\uE712" }
+                        Icon = new FontIcon { Glyph = SampleGlyph }
                     };
                     compItem.MenuItems.Add(sampleItem);
                     _sampleRoutes[sampleItem] = sample.Route;
@@ -95,7 +101,7 @@ public sealed partial class MainWindow : Window
             foreach (var comp in group.Components)
                 foreach (var sample in comp.Samples)
                     if (sample.Route == route)
-                        return $"{comp.Name} \u2013 {sample.Name}";
+                        return comp.Name + " - " + sample.Name;
         return route;
     }
 }

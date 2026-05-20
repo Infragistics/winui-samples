@@ -22,6 +22,13 @@
     <PackageReference Include="Simple.OData.Client" Version="6.0.1" />
     <PackageReference Include="SkiaSharp" Version="3.119.2" />
     <PackageReference Include="SkiaSharp.Views.WinUI" Version="3.119.2" />
+    <!-- Win2D is a transitive runtime dep of Infragistics.WinUI.DataVisualization, but
+         our Infragistics refs below use HintPath assemblies (not ProjectReference /
+         PackageReference), so the transitive NuGet graph doesn't reach this project.
+         Declared explicitly so Microsoft.Graphics.Canvas.Interop.dll deploys to the
+         output folder; version must match the one DV.Shared.WinUI was built against
+         (XPlatform/Main/Source/DataVisualization.WinUI/DataVisualization/DV.Shared.WinUI.csproj). -->
+    <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.3.2" />
   </ItemGroup>
   <!-- Infragistics references: point at the dev-tools Build output. Build
        dev-tools (BuildAndRunGTKTests.ps1 / WinUI sln) before building this. -->
