@@ -38,7 +38,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_salesPersonsData == null)
             {
-                _salesPersonsData = new SalesPersonsData();
+                _salesPersonsData = new SalesPersonsData(10000);
             }
             return _salesPersonsData;
         }
@@ -177,7 +177,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             grid.InvalidateVisibleRows();
         }
 
-        Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
+        Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick());
     }
 
     public void RandomizeItem(SalesPerson item)
@@ -188,7 +188,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         item.PercentChange = (item.AvgSale / prevSale) * 100.0;
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
     public void DataGridPerformanceAvgSaleStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var grid = this.grid;
@@ -268,7 +268,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
     public void DataGridPerformanceChangeStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
@@ -318,7 +318,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         border.BorderBrush = color;
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
     public void DataGridPerformancePercentStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
@@ -368,7 +368,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         border.BorderBrush = color;
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
     public void DataGridPerformanceKpiStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);

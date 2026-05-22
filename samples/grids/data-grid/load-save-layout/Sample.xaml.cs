@@ -54,14 +54,18 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
+    public string SavedLayout = "";
+
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridLoadLayout(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
-        if (string.IsNullOrEmpty(DataGridSaveLayout.SavedLayout)) return;
+        if (string.IsNullOrEmpty(this.SavedLayout)) return;
         var grid = this.grid;
         if (grid == null) return;
-        grid.LoadLayout(DataGridSaveLayout.SavedLayout);
+        grid.LoadLayout(this.SavedLayout);
     }
+
+    public string SavedLayout = "";
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridSaveLayout(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)

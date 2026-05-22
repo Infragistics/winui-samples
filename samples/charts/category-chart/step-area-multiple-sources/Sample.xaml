@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,23 +22,30 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        Legend="{Binding ElementName=legend}"
-        Name="chart"
-        ChartType="StepArea"
-        TitleAlignment="Left"
-        TitleLeftMargin="25"
-        TitleTopMargin="10"
-        TitleBottomMargin="10"
-        IsCategoryHighlightingEnabled="false"
-        IsSeriesHighlightingEnabled="true"
-        IsTransitionInEnabled="true"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        YAxisTitle="TWh"
-        CrosshairsSnapToData="true">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          Legend="{Binding ElementName=legend}"
+          Name="chart"
+          ChartType="StepArea"
+          TitleAlignment="Left"
+          TitleLeftMargin="25"
+          TitleTopMargin="10"
+          TitleBottomMargin="10"
+          IsCategoryHighlightingEnabled="false"
+          IsSeriesHighlightingEnabled="true"
+          IsTransitionInEnabled="true"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          YAxisTitle="TWh"
+          CrosshairsSnapToData="true">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

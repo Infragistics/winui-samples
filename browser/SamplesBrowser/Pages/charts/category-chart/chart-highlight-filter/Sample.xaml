@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -34,14 +35,21 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="Column"
-        ItemsSource="{Binding SalesData}"
-        InitialGroups="Month"
-        InitialHighlightFilter="Country ne 'UK'"
-        HighlightedValuesDisplayMode="Hidden">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="Column"
+          ItemsSource="{Binding SalesData}"
+          InitialGroups="Month"
+          InitialHighlightFilter="Country ne 'UK'"
+          HighlightedValuesDisplayMode="Hidden">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

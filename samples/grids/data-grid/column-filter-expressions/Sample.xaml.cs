@@ -57,6 +57,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridApplyFilterExpressions(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
+        var factory = new FilterFactory();
         var grid = this.grid;
         var columnEditor = this.FilterColumnEditor;
         var modeEditor = this.FilterModeEditor;
@@ -73,7 +74,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
 
         var expression = filterText.ToUpper();
-        var column = _factory.Property(filterColumn).ToUpper();
+        var column = factory.Property(filterColumn).ToUpper();
 
         FilterExpression filter;
         switch (filterMode)

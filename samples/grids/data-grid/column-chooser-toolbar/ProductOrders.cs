@@ -1,7 +1,4 @@
-
-namespace Infragistics.Samples
-{
-    //begin async data
+//begin data
     using System;
     using System.Collections.Generic;
 
@@ -125,4 +122,4 @@ namespace Infragistics.Samples
             return "https://static.infragistics.com/xplatform/images/flags/" + country + ".png";
         }
     }
-}
+    //end data

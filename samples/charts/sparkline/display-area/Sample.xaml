@@ -11,17 +11,25 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamSparkline
-        Name="chart"
-        ItemsSource="{Binding SparklineMixedData}"
-        DisplayType="Area"
-        LabelMemberPath="Label"
-        ValueMemberPath="Value">
-        </igCharts:XamSparkline>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamSparkline
+          Name="chart"
+          ItemsSource="{Binding SparklineMixedData}"
+          DisplayType="Area"
+          LabelMemberPath="Label"
+          ValueMemberPath="Value">
+          </igCharts:XamSparkline>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

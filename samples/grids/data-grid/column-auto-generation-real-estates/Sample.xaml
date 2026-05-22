@@ -11,48 +11,56 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igDataGrids:XamDataGrid
-        Name="grid"
-        ItemsSource="{Binding RealEstateData}"
-        AutoGenerateColumns="false"
-        ActivationMode="Cell"
-        Height="100%"
-        Width="100%">
-            <igDataGrids:XamDataGrid.Columns>
-                <igDataGrids:TextColumn
-                Field="ID">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Property">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Rooms">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Baths">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Built">
-                </igDataGrids:TextColumn>
-                <igDataGrids:NumericColumn
-                Field="Price"
-                PositivePrefix="$"
-                ShowGroupingSeparator="true"
-                MaxFractionDigits="0"
-                MinFractionDigits="0">
-                </igDataGrids:NumericColumn>
-                <igDataGrids:TextColumn
-                Field="City">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Country">
-                </igDataGrids:TextColumn>
-            </igDataGrids:XamDataGrid.Columns>
-        </igDataGrids:XamDataGrid>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igDataGrids:XamDataGrid
+          Name="grid"
+          ItemsSource="{Binding RealEstateData}"
+          AutoGenerateColumns="false"
+          ActivationMode="Cell"
+          Height="100%"
+          Width="100%">
+              <igDataGrids:XamDataGrid.Columns>
+                  <igDataGrids:TextColumn
+                  Field="ID">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Property">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Rooms">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Baths">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Built">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:NumericColumn
+                  Field="Price"
+                  PositivePrefix="$"
+                  ShowGroupingSeparator="true"
+                  MaxFractionDigits="0"
+                  MinFractionDigits="0">
+                  </igDataGrids:NumericColumn>
+                  <igDataGrids:TextColumn
+                  Field="City">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Country">
+                  </igDataGrids:TextColumn>
+              </igDataGrids:XamDataGrid.Columns>
+          </igDataGrids:XamDataGrid>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

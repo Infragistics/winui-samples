@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -45,14 +46,21 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        IsSeriesHighlightingEnabled="true"
-        ChartType="Line"
-        MarkerTypes="{Binding markerTypes1}"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        ComputedPlotAreaMarginMode="Series">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          IsSeriesHighlightingEnabled="true"
+          ChartType="Line"
+          MarkerTypes="{Binding markerTypes1}"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          ComputedPlotAreaMarginMode="Series">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

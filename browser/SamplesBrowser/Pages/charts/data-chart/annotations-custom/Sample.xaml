@@ -11,63 +11,71 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                ItemsSource="{Binding CountryRenewableElectricity}"
-                Label="Year">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:LineSeries
-                Name="lineSeries1"
-                Title="Electricity"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding CountryRenewableElectricity}"
-                ValueMemberPath="America">
-                </igCharts:LineSeries>
-                <igCharts:CalloutLayer
-                Name="CalloutLayer1"
-                ItemsSource="{Binding CountryRenewableCallouts}"
-                XMemberPath="Index"
-                YMemberPath="Value"
-                LabelMemberPath="Label"
-                CalloutPaddingLeft="20"
-                CalloutPaddingRight="20"
-                CalloutPaddingBottom="10"
-                CalloutPaddingTop="10"
-                CalloutCornerRadius="5">
-                </igCharts:CalloutLayer>
-                <igCharts:FinalValueLayer
-                Name="FinalValueLayer"
-                AxisAnnotationBackgroundCornerRadius="10"
-                AxisAnnotationPaddingBottom="10"
-                AxisAnnotationPaddingTop="10"
-                AxisAnnotationPaddingLeft="10"
-                AxisAnnotationPaddingRight="10">
-                </igCharts:FinalValueLayer>
-                <igCharts:CrosshairLayer
-                Name="CrosshairLayer"
-                IsAxisAnnotationEnabled="true"
-                YAxisAnnotationInterpolatedValuePrecision="0"
-                XAxisAnnotationBackgroundCornerRadius="10"
-                YAxisAnnotationBackgroundCornerRadius="10">
-                </igCharts:CrosshairLayer>
-                <igCharts:DataToolTipLayer
-                Name="Tooltips">
-                </igCharts:DataToolTipLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  ItemsSource="{Binding CountryRenewableElectricity}"
+                  Label="Year">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:LineSeries
+                  Name="lineSeries1"
+                  Title="Electricity"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding CountryRenewableElectricity}"
+                  ValueMemberPath="America">
+                  </igCharts:LineSeries>
+                  <igCharts:CalloutLayer
+                  Name="CalloutLayer1"
+                  ItemsSource="{Binding CountryRenewableCallouts}"
+                  XMemberPath="Index"
+                  YMemberPath="Value"
+                  LabelMemberPath="Label"
+                  CalloutPaddingLeft="20"
+                  CalloutPaddingRight="20"
+                  CalloutPaddingBottom="10"
+                  CalloutPaddingTop="10"
+                  CalloutCornerRadius="5">
+                  </igCharts:CalloutLayer>
+                  <igCharts:FinalValueLayer
+                  Name="FinalValueLayer"
+                  AxisAnnotationBackgroundCornerRadius="10"
+                  AxisAnnotationPaddingBottom="10"
+                  AxisAnnotationPaddingTop="10"
+                  AxisAnnotationPaddingLeft="10"
+                  AxisAnnotationPaddingRight="10">
+                  </igCharts:FinalValueLayer>
+                  <igCharts:CrosshairLayer
+                  Name="CrosshairLayer"
+                  IsAxisAnnotationEnabled="true"
+                  YAxisAnnotationInterpolatedValuePrecision="0"
+                  XAxisAnnotationBackgroundCornerRadius="10"
+                  YAxisAnnotationBackgroundCornerRadius="10">
+                  </igCharts:CrosshairLayer>
+                  <igCharts:DataToolTipLayer
+                  Name="Tooltips">
+                  </igCharts:DataToolTipLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

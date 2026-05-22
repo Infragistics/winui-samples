@@ -26,11 +26,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_multipleStocks == null)
             {
-                MultipleStocks.Fetch().ContinueWith((t) =>
-                {
-                    _multipleStocks = t.Result;
-                    DispatcherQueue.TryEnqueue(() => OnPropertyChanged("MultipleStocks"));
-                });
+                MultipleStocks.Fetch().ContinueWith((t) => { _multipleStocks = t.Result; OnPropertyChanged("MultipleStocks"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
             }
             return _multipleStocks;
         }

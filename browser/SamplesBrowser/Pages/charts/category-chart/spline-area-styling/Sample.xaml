@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,24 +22,31 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="SplineArea"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        Legend="{Binding ElementName=legend}"
-        YAxisTitle="TWh"
-        IsTransitionInEnabled="true"
-        IsVerticalZoomEnabled="false"
-        IsHorizontalZoomEnabled="false"
-        MarkerTypes="{Binding markerTypes1}"
-        MarkerBrushes="white"
-        MarkerOutlines="#8ce7d9 #ee5879 #735656"
-        Brushes="#8ce7d9 #ee5879 #735656"
-        Outlines="#8ce7d9 #ee5879 #735656"
-        ComputedPlotAreaMarginMode="Series"
-        HighlightingMode="FadeOthersSpecific"
-        HighlightingBehavior="NearestItemsAndSeries">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="SplineArea"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          Legend="{Binding ElementName=legend}"
+          YAxisTitle="TWh"
+          IsTransitionInEnabled="true"
+          IsVerticalZoomEnabled="false"
+          IsHorizontalZoomEnabled="false"
+          MarkerTypes="{Binding markerTypes1}"
+          MarkerBrushes="white"
+          MarkerOutlines="#8ce7d9 #ee5879 #735656"
+          Brushes="#8ce7d9 #ee5879 #735656"
+          Outlines="#8ce7d9 #ee5879 #735656"
+          ComputedPlotAreaMarginMode="Series"
+          HighlightingMode="FadeOthersSpecific"
+          HighlightingBehavior="NearestItemsAndSeries">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

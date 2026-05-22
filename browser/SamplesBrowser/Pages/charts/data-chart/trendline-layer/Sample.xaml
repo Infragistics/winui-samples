@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -26,52 +27,59 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        ComputedPlotAreaMarginMode="Series">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                ItemsSource="{Binding CountryRenewableElectricity}"
-                LabelLocation="OutsideBottom"
-                Label="Year">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                LabelLocation="OutsideLeft">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:LineSeries
-                Name="lineSeries1"
-                Title="EU Energy"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                MarkerType="Circle"
-                ItemsSource="{Binding CountryRenewableElectricity}"
-                ValueMemberPath="Europe"
-                ShowDefaultTooltip="true">
-                </igCharts:LineSeries>
-                <igCharts:TrendLineLayer
-                Name="trendLine1"
-                Title="Logarithmic Trend"
-                UseIndex="true"
-                TrendLineType="LogarithmicFit"
-                TrendLinePeriod="10"
-                UseLegend="true"
-                LegendItemBadgeMode="MatchSeries">
-                </igCharts:TrendLineLayer>
-                <igCharts:TrendLineLayer
-                Name="trendLine2"
-                Title="Cubic Trend"
-                UseIndex="true"
-                TrendLineType="CubicFit"
-                TrendLinePeriod="10"
-                UseLegend="true"
-                LegendItemBadgeMode="MatchSeries">
-                </igCharts:TrendLineLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          ComputedPlotAreaMarginMode="Series">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  ItemsSource="{Binding CountryRenewableElectricity}"
+                  LabelLocation="OutsideBottom"
+                  Label="Year">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  LabelLocation="OutsideLeft">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:LineSeries
+                  Name="lineSeries1"
+                  Title="EU Energy"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  MarkerType="Circle"
+                  ItemsSource="{Binding CountryRenewableElectricity}"
+                  ValueMemberPath="Europe"
+                  ShowDefaultTooltip="true">
+                  </igCharts:LineSeries>
+                  <igCharts:TrendLineLayer
+                  Name="trendLine1"
+                  Title="Logarithmic Trend"
+                  UseIndex="true"
+                  TrendLineType="LogarithmicFit"
+                  TrendLinePeriod="10"
+                  UseLegend="true"
+                  LegendItemBadgeMode="MatchSeries">
+                  </igCharts:TrendLineLayer>
+                  <igCharts:TrendLineLayer
+                  Name="trendLine2"
+                  Title="Cubic Trend"
+                  UseIndex="true"
+                  TrendLineType="CubicFit"
+                  TrendLinePeriod="10"
+                  UseLegend="true"
+                  LegendItemBadgeMode="MatchSeries">
+                  </igCharts:TrendLineLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

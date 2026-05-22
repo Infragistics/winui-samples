@@ -11,46 +11,54 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:ProportionalCategoryAngleAxis
-                Name="angleAxis"
-                ItemsSource="{Binding RadialProportionalData}"
-                Label="Label"
-                ValueMemberPath="Value"
-                Gap="0"
-                OthersCategoryText="Others"
-                OthersCategoryThreshold="55"
-                OthersCategoryType="Number">
-                </igCharts:ProportionalCategoryAngleAxis>
-                <igCharts:NumericRadiusAxis
-                Name="radiusAxis"
-                MinimumValue="0"
-                MaximumValue="100">
-                </igCharts:NumericRadiusAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:RadialPieSeries
-                Name="RadialPieSeries1"
-                ItemsSource="{Binding RadialProportionalData}"
-                AngleAxis="{Binding ElementName=angleAxis}"
-                ValueAxis="{Binding ElementName=radiusAxis}"
-                ValueMemberPath="Value"
-                ShowDefaultTooltip="false"
-                UseItemWiseColors="true"
-                LegendRadialLabelMode="LabelAndValueAndPercentage"
-                MarkerType="None"
-                Title="Categories">
-                </igCharts:RadialPieSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:ProportionalCategoryAngleAxis
+                  Name="angleAxis"
+                  ItemsSource="{Binding RadialProportionalData}"
+                  Label="Label"
+                  ValueMemberPath="Value"
+                  Gap="0"
+                  OthersCategoryText="Others"
+                  OthersCategoryThreshold="55"
+                  OthersCategoryType="Number">
+                  </igCharts:ProportionalCategoryAngleAxis>
+                  <igCharts:NumericRadiusAxis
+                  Name="radiusAxis"
+                  MinimumValue="0"
+                  MaximumValue="100">
+                  </igCharts:NumericRadiusAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:RadialPieSeries
+                  Name="RadialPieSeries1"
+                  ItemsSource="{Binding RadialProportionalData}"
+                  AngleAxis="{Binding ElementName=angleAxis}"
+                  ValueAxis="{Binding ElementName=radiusAxis}"
+                  ValueMemberPath="Value"
+                  ShowDefaultTooltip="false"
+                  UseItemWiseColors="true"
+                  LegendRadialLabelMode="LabelAndValueAndPercentage"
+                  MarkerType="None"
+                  Title="Categories">
+                  </igCharts:RadialPieSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

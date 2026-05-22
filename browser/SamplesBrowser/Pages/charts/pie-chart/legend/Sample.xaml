@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,18 +22,25 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamPieChart
-        Name="chart"
-        ValueMemberPath="Value"
-        LabelMemberPath="Summary"
-        LabelsPosition="OutsideEnd"
-        LegendLabelMemberPath="Category"
-        Outlines="white"
-        RadiusFactor="0.7"
-        LabelExtent="30"
-        ItemsSource="{Binding EnergyGlobalDemand}"
-        Legend="{Binding ElementName=legend}">
-        </igCharts:XamPieChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamPieChart
+          Name="chart"
+          ValueMemberPath="Value"
+          LabelMemberPath="Summary"
+          LabelsPosition="OutsideEnd"
+          LegendLabelMemberPath="Category"
+          Outlines="white"
+          RadiusFactor="0.7"
+          LabelExtent="30"
+          ItemsSource="{Binding EnergyGlobalDemand}"
+          Legend="{Binding ElementName=legend}">
+          </igCharts:XamPieChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

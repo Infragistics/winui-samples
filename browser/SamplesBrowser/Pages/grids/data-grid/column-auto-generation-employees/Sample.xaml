@@ -11,46 +11,54 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igDataGrids:XamDataGrid
-        Name="grid"
-        ItemsSource="{Binding EmployeesSalesData}"
-        AutoGenerateColumns="false"
-        ActivationMode="Cell"
-        
-        >
-            <igDataGrids:XamDataGrid.Columns>
-                <igDataGrids:TextColumn
-                Field="ID">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Name">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Street">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="City">
-                </igDataGrids:TextColumn>
-                <igDataGrids:ImageColumn
-                Field="Photo"
-                IsEditable="false">
-                </igDataGrids:ImageColumn>
-                <igDataGrids:DateTimeColumn
-                Field="Birthday">
-                </igDataGrids:DateTimeColumn>
-                <igDataGrids:NumericColumn
-                Field="Salary"
-                PositivePrefix="$"
-                ShowGroupingSeparator="true"
-                MaxFractionDigits="0"
-                MinFractionDigits="0">
-                </igDataGrids:NumericColumn>
-            </igDataGrids:XamDataGrid.Columns>
-        </igDataGrids:XamDataGrid>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igDataGrids:XamDataGrid
+          Name="grid"
+          ItemsSource="{Binding EmployeesSalesData}"
+          AutoGenerateColumns="false"
+          ActivationMode="Cell"
+          
+          >
+              <igDataGrids:XamDataGrid.Columns>
+                  <igDataGrids:TextColumn
+                  Field="ID">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Name">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Street">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="City">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:ImageColumn
+                  Field="Photo"
+                  IsEditable="false">
+                  </igDataGrids:ImageColumn>
+                  <igDataGrids:DateTimeColumn
+                  Field="Birthday">
+                  </igDataGrids:DateTimeColumn>
+                  <igDataGrids:NumericColumn
+                  Field="Salary"
+                  PositivePrefix="$"
+                  ShowGroupingSeparator="true"
+                  MaxFractionDigits="0"
+                  MinFractionDigits="0">
+                  </igDataGrids:NumericColumn>
+              </igDataGrids:XamDataGrid.Columns>
+          </igDataGrids:XamDataGrid>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

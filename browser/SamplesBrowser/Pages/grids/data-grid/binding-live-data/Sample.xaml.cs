@@ -13,8 +13,8 @@ using Infragistics.Controls.Grids;
 using System.Windows;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
-using Windows.UI;
 using Microsoft.UI;
+using Windows.UI;
 
 namespace SamplesBrowser.Pages.Grids.DataGrid.BindingLiveData;
 
@@ -70,7 +70,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     public bool IsUpdatingAllPrices = false;
     public bool IsUpdatingSomePrices = false;
     public bool UseHeatBackground = true;
-    public bool UseRowGrouping = true;
     public Random Random = new Random();
 
     //WPF: System.Action
@@ -232,16 +231,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             grid.InvalidateVisibleRows();
         }
 
-        Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
+        Task.Delay(Frequency).ContinueWith((t) => OnTimerTick());
     }
 
-    public void OnGridGroupingRemove()
-    {
-        var grid = this.grid;
-        if (grid == null) return;
-        grid.GroupDescriptions.Clear();
-    }
-
+    
     public void OnGridGroupingAdd()
     {
         var grid = this.grid;
@@ -252,80 +245,95 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
     }
 
+    public bool LiveSomePricesDisabled = false;
+    public bool LiveAllPricesDisabled = false;
+   
+
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
-    private bool LiveSomePricesDisabled = false;
-    private bool LiveAllPricesDisabled = false;
     public void DataGridToggleLiveSomePrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
-        if (LiveSomePricesDisabled) return;
+        if (this.LiveSomePricesDisabled) return;
 
-        IsUpdatingAllPrices = false;
-        IsUpdatingSomePrices = !IsUpdatingSomePrices;
+        this.IsUpdatingAllPrices = false;
+        this.IsUpdatingSomePrices = !this.IsUpdatingSomePrices;
 
         var liveSomeEditor = this.LiveSomePricesEditor;
 
-        if (IsTimerTicking)
+        if (this.IsTimerTicking)
         {
-            IsTimerTicking = false;
+            this.IsTimerTicking = false;
             if (liveSomeEditor != null) liveSomeEditor.PrimitiveValue = "Live Prices";
-            LiveSomePricesDisabled = false;
-            LiveAllPricesDisabled = false;
+            this.LiveSomePricesDisabled = false;
+            this.LiveAllPricesDisabled = false;
         }
         else
         {
-            StartTicking();
+            this.StartTicking();
             if (liveSomeEditor != null) liveSomeEditor.PrimitiveValue = "Stop Prices";
-            LiveSomePricesDisabled = false;
-            LiveAllPricesDisabled = true;
+            this.LiveSomePricesDisabled = false;
+            this.LiveAllPricesDisabled = true;
         }
     }
+
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridToggleLiveAllPrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         if (LiveAllPricesDisabled) return;
 
-        IsUpdatingAllPrices = !IsUpdatingAllPrices;
-        IsUpdatingSomePrices = false;
+        this.IsUpdatingAllPrices = !this.IsUpdatingAllPrices;
+        this.IsUpdatingSomePrices = false;
 
         var liveAllEditor = this.LiveAllPricesEditor;
         var liveSomeEditor = this.LiveSomePricesEditor;
 
-        if (IsTimerTicking)
+        if (this.IsTimerTicking)
         {
-            IsTimerTicking = false;
+            this.IsTimerTicking = false;
             if (liveAllEditor != null) liveAllEditor.PrimitiveValue = "Live All Prices";
             LiveAllPricesDisabled = false;
             LiveSomePricesDisabled = false;
         }
         else
         {
-            StartTicking();
+            this.StartTicking();
             if (liveAllEditor != null) liveAllEditor.PrimitiveValue = "Stop All Prices";
             LiveAllPricesDisabled = false;
             LiveSomePricesDisabled = true;
         }
     }
 
+    public bool UseRowGrouping = true;
+
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridApplyLiveDataGrouping(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
-        UseRowGrouping = args.NewValue is bool b && b;
-        if (UseRowGrouping)
-            OnGridGroupingAdd();
+        this.UseRowGrouping = args.NewValue is bool b && b;
+        if (this.UseRowGrouping)
+            this.OnGridGroupingAdd();
         else
-            OnGridGroupingRemove();
+            this.OnGridGroupingRemove();
     }
 
+    public void OnGridGroupingRemove()
+    {
+        var grid = this.grid;
+        if (grid == null) return;
+        grid.GroupDescriptions.Clear();
+    }
+
+    
+
+   
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridToggleHeat(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
-        UseHeatBackground = args.NewValue is bool b && b;
+        this.UseHeatBackground = args.NewValue is bool b && b;
         var grid = this.grid;
         if (grid != null) grid.InvalidateVisibleRows();
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
     public void DataGridPriceStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var grid = this.grid;

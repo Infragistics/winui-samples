@@ -11,59 +11,67 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igDataGrids:XamDataGrid
-        Name="grid"
-        ItemsSource="{Binding EmployeesSalesData}"
-        AutoGenerateColumns="false"
-        DefaultColumnMinWidth="100"
-        IsColumnOptionsEnabled="true"
-        FilterUIType="FilterRow"
-        
-        >
-            <igDataGrids:XamDataGrid.Columns>
-                <igDataGrids:TextColumn
-                Field="Country"
-                HeaderText="Code-behind Filter*">
-                    <igDataGrids:TextColumn.Width>
-                        <igDataGrids:ColumnWidth
-                        IsStarSized="true"
-                        Value="1"
-                        MinimumWidth="170">
-                        </igDataGrids:ColumnWidth>
-                    </igDataGrids:TextColumn.Width>
-                </igDataGrids:TextColumn>
-                <igDataGrids:NumericColumn
-                Field="Age"
-                HeaderText="Custom Class Filter**">
-                </igDataGrids:NumericColumn>
-                <igDataGrids:NumericColumn
-                Field="Sales"
-                HeaderText="In-line Filter***"
-                PositivePrefix="$"
-                ShowGroupingSeparator="true">
-                    <igDataGrids:NumericColumn.Width>
-                        <igDataGrids:ColumnWidth
-                        IsStarSized="true"
-                        Value="1"
-                        MinimumWidth="120">
-                        </igDataGrids:ColumnWidth>
-                    </igDataGrids:NumericColumn.Width>
-                    <igDataGrids:NumericColumn.FilterOperands>
-                        <igDataGrids:FilterOperand
-                        EditorType="Numeric"
-                        IsInputRequired="false"
-                        DisplayName="(Custom) In-Line Filter"
-                        FilterRequested="DataGridFilterSalesLessThanOrEqual300k"
-                        >
-                        </igDataGrids:FilterOperand>
-                    </igDataGrids:NumericColumn.FilterOperands>
-                </igDataGrids:NumericColumn>
-            </igDataGrids:XamDataGrid.Columns>
-        </igDataGrids:XamDataGrid>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igDataGrids:XamDataGrid
+          Name="grid"
+          ItemsSource="{Binding EmployeesSalesData}"
+          AutoGenerateColumns="false"
+          DefaultColumnMinWidth="100"
+          IsColumnOptionsEnabled="true"
+          FilterUIType="FilterRow"
+          
+          >
+              <igDataGrids:XamDataGrid.Columns>
+                  <igDataGrids:TextColumn
+                  Field="Country"
+                  HeaderText="Code-behind Filter*">
+                      <igDataGrids:TextColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="170">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:TextColumn.Width>
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:NumericColumn
+                  Field="Age"
+                  HeaderText="Custom Class Filter**">
+                  </igDataGrids:NumericColumn>
+                  <igDataGrids:NumericColumn
+                  Field="Sales"
+                  HeaderText="In-line Filter***"
+                  PositivePrefix="$"
+                  ShowGroupingSeparator="true">
+                      <igDataGrids:NumericColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="120">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:NumericColumn.Width>
+                      <igDataGrids:NumericColumn.FilterOperands>
+                          <igDataGrids:FilterOperand
+                          EditorType="Numeric"
+                          IsInputRequired="false"
+                          DisplayName="(Custom) In-Line Filter"
+                          FilterRequested="DataGridFilterSalesLessThanOrEqual300k"
+                          >
+                          </igDataGrids:FilterOperand>
+                      </igDataGrids:NumericColumn.FilterOperands>
+                  </igDataGrids:NumericColumn>
+              </igDataGrids:XamDataGrid.Columns>
+          </igDataGrids:XamDataGrid>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

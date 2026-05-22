@@ -900,6 +900,274 @@
                                       ]
                    },
                    {
+                       "name":  "Gauges",
+                       "components":  [
+                                          {
+                                              "name":  "Bullet Graph",
+                                              "folder":  "bullet-graph",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Animation",
+                                                                  "route":  "gauges/bullet-graph/animation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Background",
+                                                                  "route":  "gauges/bullet-graph/background",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlight Needle",
+                                                                  "route":  "gauges/bullet-graph/highlight-needle",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Labels",
+                                                                  "route":  "gauges/bullet-graph/labels",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Measures",
+                                                                  "route":  "gauges/bullet-graph/measures",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Ranges",
+                                                                  "route":  "gauges/bullet-graph/ranges",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scale",
+                                                                  "route":  "gauges/bullet-graph/scale",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Tickmarks",
+                                                                  "route":  "gauges/bullet-graph/tickmarks",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Filled",
+                                                                  "route":  "gauges/bullet-graph/type-filled",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Horizontal",
+                                                                  "route":  "gauges/bullet-graph/type-horizontal",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Reversed",
+                                                                  "route":  "gauges/bullet-graph/type-reversed",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Segmented",
+                                                                  "route":  "gauges/bullet-graph/type-segmented",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Vertical",
+                                                                  "route":  "gauges/bullet-graph/type-vertical",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Linear Gauge",
+                                              "folder":  "linear-gauge",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Animation",
+                                                                  "route":  "gauges/linear-gauge/animation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Backing",
+                                                                  "route":  "gauges/linear-gauge/backing",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlight Needle",
+                                                                  "route":  "gauges/linear-gauge/highlight-needle",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Labels",
+                                                                  "route":  "gauges/linear-gauge/labels",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Needle",
+                                                                  "route":  "gauges/linear-gauge/needle",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Ranges",
+                                                                  "route":  "gauges/linear-gauge/ranges",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Sample Template",
+                                                                  "route":  "gauges/linear-gauge/sample-template",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scale",
+                                                                  "route":  "gauges/linear-gauge/scale",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Tickmarks",
+                                                                  "route":  "gauges/linear-gauge/tickmarks",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Curved",
+                                                                  "route":  "gauges/linear-gauge/type-curved",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Filled",
+                                                                  "route":  "gauges/linear-gauge/type-filled",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Horizontal",
+                                                                  "route":  "gauges/linear-gauge/type-horizontal",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Multi Range",
+                                                                  "route":  "gauges/linear-gauge/type-multi-range",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Multi Scale",
+                                                                  "route":  "gauges/linear-gauge/type-multi-scale",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Segmented",
+                                                                  "route":  "gauges/linear-gauge/type-segmented",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Vertical",
+                                                                  "route":  "gauges/linear-gauge/type-vertical",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          },
+                                          {
+                                              "name":  "Radial Gauge",
+                                              "folder":  "radial-gauge",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Animation",
+                                                                  "route":  "gauges/radial-gauge/animation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Backing",
+                                                                  "route":  "gauges/radial-gauge/backing",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Highlight Needle",
+                                                                  "route":  "gauges/radial-gauge/highlight-needle",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Labels",
+                                                                  "route":  "gauges/radial-gauge/labels",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Needle",
+                                                                  "route":  "gauges/radial-gauge/needle",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Optical Scaling",
+                                                                  "route":  "gauges/radial-gauge/optical-scaling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Ranges",
+                                                                  "route":  "gauges/radial-gauge/ranges",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Sample Template",
+                                                                  "route":  "gauges/radial-gauge/sample-template",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Scale",
+                                                                  "route":  "gauges/radial-gauge/scale",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Tickmarks",
+                                                                  "route":  "gauges/radial-gauge/tickmarks",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Title Styling",
+                                                                  "route":  "gauges/radial-gauge/title-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Column",
+                                                                  "route":  "gauges/radial-gauge/type-column",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Curved",
+                                                                  "route":  "gauges/radial-gauge/type-curved",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Direction",
+                                                                  "route":  "gauges/radial-gauge/type-direction",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Full",
+                                                                  "route":  "gauges/radial-gauge/type-full",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Half",
+                                                                  "route":  "gauges/radial-gauge/type-half",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Quatre",
+                                                                  "route":  "gauges/radial-gauge/type-quatre",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Ring",
+                                                                  "route":  "gauges/radial-gauge/type-ring",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Segmented",
+                                                                  "route":  "gauges/radial-gauge/type-segmented",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Semi",
+                                                                  "route":  "gauges/radial-gauge/type-semi",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                   },
+                   {
                        "name":  "Grids",
                        "components":  [
                                           {
@@ -1105,6 +1373,137 @@
                                                               {
                                                                   "name":  "Overview",
                                                                   "route":  "inputs/color-editor/overview",
+                                                                  "showLink":  true
+                                                              }
+                                                          ]
+                                          }
+                                      ]
+                   },
+                   {
+                       "name":  "Maps",
+                       "components":  [
+                                          {
+                                              "name":  "Geo Map",
+                                              "folder":  "geo-map",
+                                              "samples":  [
+                                                              {
+                                                                  "name":  "Binding Data Csv",
+                                                                  "route":  "maps/geo-map/binding-data-csv",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Data Json Points",
+                                                                  "route":  "maps/geo-map/binding-data-json-points",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Multiple Shapes",
+                                                                  "route":  "maps/geo-map/binding-multiple-shapes",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Shp Points",
+                                                                  "route":  "maps/geo-map/binding-shp-points",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Shp Polygons",
+                                                                  "route":  "maps/geo-map/binding-shp-polygons",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Binding Shp Polylines",
+                                                                  "route":  "maps/geo-map/binding-shp-polylines",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display All Imagery",
+                                                                  "route":  "maps/geo-map/display-all-imagery",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Bing Imagery",
+                                                                  "route":  "maps/geo-map/display-bing-imagery",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Esri Imagery",
+                                                                  "route":  "maps/geo-map/display-esri-imagery",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Heat Imagery",
+                                                                  "route":  "maps/geo-map/display-heat-imagery",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Display Osm Imagery",
+                                                                  "route":  "maps/geo-map/display-osm-imagery",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Geo Symbol Map With Callouts",
+                                                                  "route":  "maps/geo-map/geo-symbol-map-with-callouts",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Marker Template",
+                                                                  "route":  "maps/geo-map/marker-template",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Marker Type",
+                                                                  "route":  "maps/geo-map/marker-type",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Navigation",
+                                                                  "route":  "maps/geo-map/navigation",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Overview",
+                                                                  "route":  "maps/geo-map/overview",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Sample Template",
+                                                                  "route":  "maps/geo-map/sample-template",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Shape Styling",
+                                                                  "route":  "maps/geo-map/shape-styling",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Synchronization",
+                                                                  "route":  "maps/geo-map/synchronization",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Scatter Bubble Series",
+                                                                  "route":  "maps/geo-map/type-scatter-bubble-series",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Scatter Density Series",
+                                                                  "route":  "maps/geo-map/type-scatter-density-series",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Scatter Symbol Series",
+                                                                  "route":  "maps/geo-map/type-scatter-symbol-series",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Shape Polygon Series",
+                                                                  "route":  "maps/geo-map/type-shape-polygon-series",
+                                                                  "showLink":  true
+                                                              },
+                                                              {
+                                                                  "name":  "Type Shape Polyline Series",
+                                                                  "route":  "maps/geo-map/type-shape-polyline-series",
                                                                   "showLink":  true
                                                               }
                                                           ]

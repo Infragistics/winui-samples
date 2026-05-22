@@ -85,8 +85,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
+    public Random _random = new Random();
+
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
-    Random _random = new Random();
     public void DataGridReloadSalaryData(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;

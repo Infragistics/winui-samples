@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                         <Grid>
@@ -53,21 +54,28 @@
         </Grid>
               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="Line"
-        IsHorizontalZoomEnabled="true"
-        IsVerticalZoomEnabled="true"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        Legend="{Binding ElementName=legend}"
-        YAxisTitle="TWh"
-        YAxisTitleLeftMargin="10"
-        YAxisTitleRightMargin="5"
-        YAxisLabelLeftMargin="0"
-        YAxisLabelLocation="OutsideRight"
-        IsTransitionInEnabled="true">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="Line"
+          IsHorizontalZoomEnabled="true"
+          IsVerticalZoomEnabled="true"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          Legend="{Binding ElementName=legend}"
+          YAxisTitle="TWh"
+          YAxisTitleLeftMargin="10"
+          YAxisTitleRightMargin="5"
+          YAxisLabelLeftMargin="0"
+          YAxisLabelLocation="OutsideRight"
+          IsTransitionInEnabled="true">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

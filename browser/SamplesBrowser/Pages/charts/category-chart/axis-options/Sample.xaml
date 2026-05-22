@@ -11,48 +11,56 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding OlympicMedalsTopCountries}"
-        ChartType="Line"
-        Thickness="3"
-        ComputedPlotAreaMarginMode="Series"
-        XAxisLabelTopMargin="5"
-        XAxisLabelTextColor="gray"
-        YAxisLabelLocation="OutsideRight"
-        YAxisLabelRightMargin="0"
-        YAxisLabelTextColor="gray"
-        XAxisTitle="Olympic Games"
-        XAxisTitleTextColor="gray"
-        XAxisTitleAngle="0"
-        YAxisTitle="Total Medals"
-        YAxisTitleTextColor="gray"
-        YAxisTitleAngle="90"
-        YAxisTitleLeftMargin="5"
-        XAxisTickLength="10"
-        XAxisTickStrokeThickness="0.5"
-        XAxisTickStroke="black"
-        YAxisTickLength="10"
-        YAxisTickStrokeThickness="0.5"
-        YAxisTickStroke="black"
-        YAxisMinimumValue="50"
-        YAxisMaximumValue="150"
-        XAxisInterval="1"
-        XAxisMajorStroke="gray"
-        XAxisMajorStrokeThickness="0.5"
-        YAxisInterval="25"
-        YAxisMajorStroke="black"
-        YAxisMajorStrokeThickness="1"
-        YAxisMinorInterval="5"
-        YAxisMinorStroke="gray"
-        YAxisMinorStrokeThickness="0.5"
-        XAxisGap="0.125"
-        XAxisOverlap="0">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding OlympicMedalsTopCountries}"
+          ChartType="Line"
+          Thickness="3"
+          ComputedPlotAreaMarginMode="Series"
+          XAxisLabelTopMargin="5"
+          XAxisLabelTextColor="gray"
+          YAxisLabelLocation="OutsideRight"
+          YAxisLabelRightMargin="0"
+          YAxisLabelTextColor="gray"
+          XAxisTitle="Olympic Games"
+          XAxisTitleTextColor="gray"
+          XAxisTitleAngle="0"
+          YAxisTitle="Total Medals"
+          YAxisTitleTextColor="gray"
+          YAxisTitleAngle="90"
+          YAxisTitleLeftMargin="5"
+          XAxisTickLength="10"
+          XAxisTickStrokeThickness="0.5"
+          XAxisTickStroke="black"
+          YAxisTickLength="10"
+          YAxisTickStrokeThickness="0.5"
+          YAxisTickStroke="black"
+          YAxisMinimumValue="50"
+          YAxisMaximumValue="150"
+          XAxisInterval="1"
+          XAxisMajorStroke="gray"
+          XAxisMajorStrokeThickness="0.5"
+          YAxisInterval="25"
+          YAxisMajorStroke="black"
+          YAxisMajorStrokeThickness="1"
+          YAxisMinorInterval="5"
+          YAxisMinorStroke="gray"
+          YAxisMinorStrokeThickness="0.5"
+          XAxisGap="0.125"
+          XAxisOverlap="0">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

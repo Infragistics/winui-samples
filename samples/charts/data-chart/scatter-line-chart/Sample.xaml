@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,54 +22,61 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        Legend="{Binding ElementName=legend}">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:NumericXAxis
-                Name="xAxis"
-                Title="Life Expectancy (in years)"
-                MinimumValue="72"
-                MaximumValue="84"
-                Interval="2">
-                </igCharts:NumericXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                Title="Health Expenditure per Capita"
-                AbbreviateLargeNumbers="true"
-                MinimumValue="1000"
-                MaximumValue="6000"
-                Interval="1000">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:ScatterLineSeries
-                Name="ScatterLineSeries1"
-                Title="Germany"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                XMemberPath="LifeExpectancy"
-                YMemberPath="HealthExpense"
-                ItemsSource="{Binding HealthDataForGermany}"
-                MarkerType="Circle"
-                ShowDefaultTooltip="true">
-                </igCharts:ScatterLineSeries>
-                <igCharts:ScatterLineSeries
-                Name="ScatterLineSeries2"
-                Title="France"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                XMemberPath="LifeExpectancy"
-                YMemberPath="HealthExpense"
-                ItemsSource="{Binding HealthDataForFrance}"
-                MarkerType="Circle"
-                ShowDefaultTooltip="true">
-                </igCharts:ScatterLineSeries>
-                <igCharts:DataToolTipLayer
-                Name="dataToolTipLayer">
-                </igCharts:DataToolTipLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          Legend="{Binding ElementName=legend}">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:NumericXAxis
+                  Name="xAxis"
+                  Title="Life Expectancy (in years)"
+                  MinimumValue="72"
+                  MaximumValue="84"
+                  Interval="2">
+                  </igCharts:NumericXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  Title="Health Expenditure per Capita"
+                  AbbreviateLargeNumbers="true"
+                  MinimumValue="1000"
+                  MaximumValue="6000"
+                  Interval="1000">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:ScatterLineSeries
+                  Name="ScatterLineSeries1"
+                  Title="Germany"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  XMemberPath="LifeExpectancy"
+                  YMemberPath="HealthExpense"
+                  ItemsSource="{Binding HealthDataForGermany}"
+                  MarkerType="Circle"
+                  ShowDefaultTooltip="true">
+                  </igCharts:ScatterLineSeries>
+                  <igCharts:ScatterLineSeries
+                  Name="ScatterLineSeries2"
+                  Title="France"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  XMemberPath="LifeExpectancy"
+                  YMemberPath="HealthExpense"
+                  ItemsSource="{Binding HealthDataForFrance}"
+                  MarkerType="Circle"
+                  ShowDefaultTooltip="true">
+                  </igCharts:ScatterLineSeries>
+                  <igCharts:DataToolTipLayer
+                  Name="dataToolTipLayer">
+                  </igCharts:DataToolTipLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

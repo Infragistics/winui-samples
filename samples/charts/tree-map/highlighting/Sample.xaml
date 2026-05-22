@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -35,27 +36,34 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamTreemap
-        Name="treemap"
-        ItemsSource="{Binding CountyHierarchicalData}"
-        ParentIdMemberPath="Parent"
-        IdMemberPath="Name"
-        LabelMemberPath="Name"
-        ValueMemberPath="Population"
-        FillScaleMode="Value"
-        FillScaleMinimumValue="0"
-        FillScaleMaximumValue="1500000000"
-        FillBrushes="#4e62cf #8a58d6"
-        IsFillScaleLogarithmic="true"
-        RootTitle="Countries"
-        HeaderDisplayMode="Overlay"
-        ParentNodeBottomPadding="0"
-        ParentNodeLeftPadding="0"
-        ParentNodeRightPadding="0"
-        ParentNodeTopPadding="0"
-        Outline="black"
-        StrokeThickness="1">
-        </igCharts:XamTreemap>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamTreemap
+          Name="treemap"
+          ItemsSource="{Binding CountyHierarchicalData}"
+          ParentIdMemberPath="Parent"
+          IdMemberPath="Name"
+          LabelMemberPath="Name"
+          ValueMemberPath="Population"
+          FillScaleMode="Value"
+          FillScaleMinimumValue="0"
+          FillScaleMaximumValue="1500000000"
+          FillBrushes="#4e62cf #8a58d6"
+          IsFillScaleLogarithmic="true"
+          RootTitle="Countries"
+          HeaderDisplayMode="Overlay"
+          ParentNodeBottomPadding="0"
+          ParentNodeLeftPadding="0"
+          ParentNodeRightPadding="0"
+          ParentNodeTopPadding="0"
+          Outline="black"
+          StrokeThickness="1">
+          </igCharts:XamTreemap>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

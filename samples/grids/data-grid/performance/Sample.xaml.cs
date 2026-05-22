@@ -36,7 +36,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_salesPersonsData == null)
             {
-                SalesPersonsData.Fetch().ContinueWith((t) => {_salesPersonsData = t.Result;  OnPropertyChanged("SalesPersonsData"); });
+                SalesPersonsData.Fetch().ContinueWith((t) => { _salesPersonsData = t.Result; OnPropertyChanged("SalesPersonsData"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
             }
             return _salesPersonsData;
         }
@@ -75,7 +75,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         if (!IsTimerTicking)
         {
             IsTimerTicking = true;
-            Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick());
+            Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
         }
     }
 
@@ -86,14 +86,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var grid = this.grid;
         if (grid == null)
         {
-            Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick());
+            Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
 
-        var data = grid.DataSource as List<SalesPerson>;
+        var data = grid.ItemsSource as List<SalesPerson>;
         if (data == null)
         {
-            Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick());
+            Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
 
@@ -186,8 +186,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         item.PercentChange = (item.AvgSale / prevSale) * 100.0;
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
-    public void DataGridPerformanceAvgSaleStyleKey(object sender, CellStyleKeyRequestedEventArgs args)
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
+    public void DataGridPerformanceAvgSaleStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var grid = this.grid;
         var row = grid.ActualDataSource.GetItemAtIndex(args.RowNumber) as SalesPerson;
@@ -266,8 +266,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
-    public void DataGridPerformanceChangeStyleKey(object sender, CellStyleKeyRequestedEventArgs args)
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
+    public void DataGridPerformanceChangeStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
         if (value >= 0)
@@ -316,8 +316,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         border.BorderBrush = color;
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
-    public void DataGridPerformancePercentStyleKey(object sender, CellStyleKeyRequestedEventArgs args)
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
+    public void DataGridPerformancePercentStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
         if (value >= 0)
@@ -366,8 +366,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         border.BorderBrush = color;
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
-    public void DataGridPerformanceKpiStyleKey(object sender, CellStyleKeyRequestedEventArgs args)
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
+    public void DataGridPerformanceKpiStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
         if (value < 20.0)

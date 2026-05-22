@@ -11,25 +11,33 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="SplineArea"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        YAxisTitle="TWh"
-        YAxisTitleLeftMargin="10"
-        YAxisTitleRightMargin="5"
-        YAxisLabelLeftMargin="0"
-        ToolTipType="Category"
-        IsTransitionInEnabled="true"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        ComputedPlotAreaMarginMode="Series">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="SplineArea"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          YAxisTitle="TWh"
+          YAxisTitleLeftMargin="10"
+          YAxisTitleRightMargin="5"
+          YAxisLabelLeftMargin="0"
+          ToolTipType="Category"
+          IsTransitionInEnabled="true"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          ComputedPlotAreaMarginMode="Series">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

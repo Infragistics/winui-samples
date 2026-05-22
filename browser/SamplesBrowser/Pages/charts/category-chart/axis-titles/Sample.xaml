@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,23 +22,30 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        ChartType="Line"
-        Legend="{Binding ElementName=legend}"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        ComputedPlotAreaMarginMode="Series"
-        XAxisTitle="Year"
-        XAxisTitleTextColor="gray"
-        XAxisTitleAngle="0"
-        YAxisTitle="Trillions of Watt-hours (Twh)"
-        YAxisTitleTextColor="gray"
-        YAxisTitleAngle="90"
-        YAxisTitleLeftMargin="5">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          ChartType="Line"
+          Legend="{Binding ElementName=legend}"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          ComputedPlotAreaMarginMode="Series"
+          XAxisTitle="Year"
+          XAxisTitleTextColor="gray"
+          XAxisTitleAngle="0"
+          YAxisTitle="Trillions of Watt-hours (Twh)"
+          YAxisTitleTextColor="gray"
+          YAxisTitleAngle="90"
+          YAxisTitleLeftMargin="5">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

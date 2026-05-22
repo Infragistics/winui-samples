@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -44,34 +45,41 @@
         </Grid>
                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        ComputedPlotAreaMarginMode="Series"
-        IsVerticalZoomEnabled="true"
-        IsHorizontalZoomEnabled="true"
-        Name="chart">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                ItemsSource="{Binding CountryRenewableElectricity}"
-                Label="Year">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                Title="TWh"
-                LabelLocation="OutsideRight">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:LineSeries
-                Name="lineSeries1"
-                Title="Electricity"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding CountryRenewableElectricity}"
-                ValueMemberPath="America">
-                </igCharts:LineSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          ComputedPlotAreaMarginMode="Series"
+          IsVerticalZoomEnabled="true"
+          IsHorizontalZoomEnabled="true"
+          Name="chart">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  ItemsSource="{Binding CountryRenewableElectricity}"
+                  Label="Year">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  Title="TWh"
+                  LabelLocation="OutsideRight">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:LineSeries
+                  Name="lineSeries1"
+                  Title="Electricity"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding CountryRenewableElectricity}"
+                  ValueMemberPath="America">
+                  </igCharts:LineSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

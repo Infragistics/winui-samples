@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -45,35 +46,42 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        IsHorizontalZoomEnabled="true"
-        IsVerticalZoomEnabled="true"
-        AutoMarginAndAngleUpdateMode="SizeChangingAndZoom"
-        ShouldConsiderAutoRotationForInitialLabels="true"
-        ShouldAutoExpandMarginForInitialLabels="true">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                ItemsSource="{Binding TemperatureAverageDataLongLabels}"
-                EnhancedIntervalPreferMoreCategoryLabels="true"
-                UseEnhancedIntervalManagement="true"
-                Label="Month">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:ColumnSeries
-                Name="colSeries1"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding TemperatureAverageDataLongLabels}"
-                ValueMemberPath="Temperature">
-                </igCharts:ColumnSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          IsHorizontalZoomEnabled="true"
+          IsVerticalZoomEnabled="true"
+          AutoMarginAndAngleUpdateMode="SizeChangingAndZoom"
+          ShouldConsiderAutoRotationForInitialLabels="true"
+          ShouldAutoExpandMarginForInitialLabels="true">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  ItemsSource="{Binding TemperatureAverageDataLongLabels}"
+                  EnhancedIntervalPreferMoreCategoryLabels="true"
+                  UseEnhancedIntervalManagement="true"
+                  Label="Month">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:ColumnSeries
+                  Name="colSeries1"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding TemperatureAverageDataLongLabels}"
+                  ValueMemberPath="Temperature">
+                  </igCharts:ColumnSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

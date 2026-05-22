@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,23 +22,30 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding EnergyRenewableConsumption}"
-        ChartType="Column"
-        Legend="{Binding ElementName=legend}"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        IsSeriesHighlightingEnabled="true"
-        Brushes="#9de772 #8b5bb1 #6db1ff #ee5879 #f8a15f"
-        Outlines="white"
-        XAxisMajorStroke="lightgray"
-        XAxisGap="0.5"
-        CrosshairsDisplayMode="None"
-        IsCategoryHighlightingEnabled="false"
-        HighlightingMode="FadeOthersSpecific"
-        HighlightingBehavior="NearestItemsAndSeries">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding EnergyRenewableConsumption}"
+          ChartType="Column"
+          Legend="{Binding ElementName=legend}"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          IsSeriesHighlightingEnabled="true"
+          Brushes="#9de772 #8b5bb1 #6db1ff #ee5879 #f8a15f"
+          Outlines="white"
+          XAxisMajorStroke="lightgray"
+          XAxisGap="0.5"
+          CrosshairsDisplayMode="None"
+          IsCategoryHighlightingEnabled="false"
+          HighlightingMode="FadeOthersSpecific"
+          HighlightingBehavior="NearestItemsAndSeries">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

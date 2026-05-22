@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,56 +22,63 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="Chart"
-        Legend="{Binding ElementName=legend}">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryYAxis
-                Name="yAxis"
-                Label="Franchise"
-                UseEnhancedIntervalManagement="true"
-                EnhancedIntervalPreferMoreCategoryLabels="true"
-                ItemsSource="{Binding HighestGrossingMovies}"
-                IsInverted="true"
-                Gap="0.5"
-                Overlap="-0.1">
-                </igCharts:CategoryYAxis>
-                <igCharts:NumericXAxis
-                Name="xAxis"
-                Title="Billions of U.S. Dollars">
-                </igCharts:NumericXAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:CategoryHighlightLayer
-                Name="CategoryHighlightLayer">
-                </igCharts:CategoryHighlightLayer>
-                <igCharts:BarSeries
-                Name="BarSeries1"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                Title="Total Revenue of Franchise"
-                ValueMemberPath="TotalRevenue"
-                ItemsSource="{Binding HighestGrossingMovies}"
-                ShowDefaultTooltip="true"
-                IsTransitionInEnabled="true"
-                IsHighlightingEnabled="true">
-                </igCharts:BarSeries>
-                <igCharts:BarSeries
-                Name="BarSeries2"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                Title="Highest Grossing Movie in Series"
-                ValueMemberPath="HighestGrossing"
-                ItemsSource="{Binding HighestGrossingMovies}"
-                ShowDefaultTooltip="true"
-                IsTransitionInEnabled="true"
-                IsHighlightingEnabled="true">
-                </igCharts:BarSeries>
-                <igCharts:DataToolTipLayer
-                Name="Tooltips">
-                </igCharts:DataToolTipLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="Chart"
+          Legend="{Binding ElementName=legend}">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryYAxis
+                  Name="yAxis"
+                  Label="Franchise"
+                  UseEnhancedIntervalManagement="true"
+                  EnhancedIntervalPreferMoreCategoryLabels="true"
+                  ItemsSource="{Binding HighestGrossingMovies}"
+                  IsInverted="true"
+                  Gap="0.5"
+                  Overlap="-0.1">
+                  </igCharts:CategoryYAxis>
+                  <igCharts:NumericXAxis
+                  Name="xAxis"
+                  Title="Billions of U.S. Dollars">
+                  </igCharts:NumericXAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:CategoryHighlightLayer
+                  Name="CategoryHighlightLayer">
+                  </igCharts:CategoryHighlightLayer>
+                  <igCharts:BarSeries
+                  Name="BarSeries1"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  Title="Total Revenue of Franchise"
+                  ValueMemberPath="TotalRevenue"
+                  ItemsSource="{Binding HighestGrossingMovies}"
+                  ShowDefaultTooltip="true"
+                  IsTransitionInEnabled="true"
+                  IsHighlightingEnabled="true">
+                  </igCharts:BarSeries>
+                  <igCharts:BarSeries
+                  Name="BarSeries2"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  Title="Highest Grossing Movie in Series"
+                  ValueMemberPath="HighestGrossing"
+                  ItemsSource="{Binding HighestGrossingMovies}"
+                  ShowDefaultTooltip="true"
+                  IsTransitionInEnabled="true"
+                  IsHighlightingEnabled="true">
+                  </igCharts:BarSeries>
+                  <igCharts:DataToolTipLayer
+                  Name="Tooltips">
+                  </igCharts:DataToolTipLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

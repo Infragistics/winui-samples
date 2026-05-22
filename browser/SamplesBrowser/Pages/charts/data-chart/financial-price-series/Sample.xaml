@@ -11,50 +11,58 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        ShouldAutoExpandMarginForInitialLabels="true"
-        ComputedPlotAreaMarginMode="Series"
-        IsVerticalZoomEnabled="true"
-        IsHorizontalZoomEnabled="true">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                ItemsSource="{Binding Stock2Years}"
-                LabelLocation="OutsideBottom"
-                Label="Month"
-                Interval="1"
-                LabelExtent="30">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                LabelLocation="OutsideRight">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:FinancialPriceSeries
-                Name="series1"
-                Title="Stock Price"
-                DisplayType="Candlestick"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding Stock2Years}"
-                OpenMemberPath="Open"
-                HighMemberPath="High"
-                LowMemberPath="Low"
-                CloseMemberPath="Close"
-                VolumeMemberPath="Volume"
-                ShowDefaultTooltip="true">
-                </igCharts:FinancialPriceSeries>
-                <igCharts:DataToolTipLayer
-                Name="Tooltip">
-                </igCharts:DataToolTipLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          ShouldAutoExpandMarginForInitialLabels="true"
+          ComputedPlotAreaMarginMode="Series"
+          IsVerticalZoomEnabled="true"
+          IsHorizontalZoomEnabled="true">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  ItemsSource="{Binding Stock2Years}"
+                  LabelLocation="OutsideBottom"
+                  Label="Month"
+                  Interval="1"
+                  LabelExtent="30">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  LabelLocation="OutsideRight">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:FinancialPriceSeries
+                  Name="series1"
+                  Title="Stock Price"
+                  DisplayType="Candlestick"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding Stock2Years}"
+                  OpenMemberPath="Open"
+                  HighMemberPath="High"
+                  LowMemberPath="Low"
+                  CloseMemberPath="Close"
+                  VolumeMemberPath="Volume"
+                  ShowDefaultTooltip="true">
+                  </igCharts:FinancialPriceSeries>
+                  <igCharts:DataToolTipLayer
+                  Name="Tooltip">
+                  </igCharts:DataToolTipLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

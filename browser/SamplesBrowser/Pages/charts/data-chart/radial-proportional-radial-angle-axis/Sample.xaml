@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,41 +22,48 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        Legend="{Binding ElementName=legend}"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:ProportionalCategoryAngleAxis
-                Name="angleAxis"
-                ItemsSource="{Binding EnergyRenewableConsumption}"
-                Label="Location"
-                ValueMemberPath="Hydro"
-                Gap="0">
-                </igCharts:ProportionalCategoryAngleAxis>
-                <igCharts:NumericRadiusAxis
-                Name="radiusAxis"
-                MinimumValue="0"
-                MaximumValue="100">
-                </igCharts:NumericRadiusAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:RadialPieSeries
-                Name="RadialPieSeries1"
-                ItemsSource="{Binding EnergyRenewableConsumption}"
-                AngleAxis="{Binding ElementName=angleAxis}"
-                ValueAxis="{Binding ElementName=radiusAxis}"
-                ValueMemberPath="Hydro"
-                ShowDefaultTooltip="false"
-                UseItemWiseColors="true"
-                Title="Hydro Consumption">
-                </igCharts:RadialPieSeries>
-                <igCharts:DataToolTipLayer
-                Name="dataToolTipLayer">
-                </igCharts:DataToolTipLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          Legend="{Binding ElementName=legend}"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:ProportionalCategoryAngleAxis
+                  Name="angleAxis"
+                  ItemsSource="{Binding EnergyRenewableConsumption}"
+                  Label="Location"
+                  ValueMemberPath="Hydro"
+                  Gap="0">
+                  </igCharts:ProportionalCategoryAngleAxis>
+                  <igCharts:NumericRadiusAxis
+                  Name="radiusAxis"
+                  MinimumValue="0"
+                  MaximumValue="100">
+                  </igCharts:NumericRadiusAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:RadialPieSeries
+                  Name="RadialPieSeries1"
+                  ItemsSource="{Binding EnergyRenewableConsumption}"
+                  AngleAxis="{Binding ElementName=angleAxis}"
+                  ValueAxis="{Binding ElementName=radiusAxis}"
+                  ValueMemberPath="Hydro"
+                  ShowDefaultTooltip="false"
+                  UseItemWiseColors="true"
+                  Title="Hydro Consumption">
+                  </igCharts:RadialPieSeries>
+                  <igCharts:DataToolTipLayer
+                  Name="dataToolTipLayer">
+                  </igCharts:DataToolTipLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

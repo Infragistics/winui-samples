@@ -90,7 +90,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         if (!IsTimerTicking)
         {
             IsTimerTicking = true;
-            Task.Delay(Frequency).ContinueWith((t) => OnTimerTick());
+            Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
         }
     }
 
@@ -101,14 +101,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var grid = this.grid;
         if (grid == null)
         {
-            Task.Delay(Frequency).ContinueWith((t) => OnTimerTick());
+            Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
 
         var data = grid.DataSource as List<PortfolioDataItem>;
         if (data == null)
         {
-            Task.Delay(Frequency).ContinueWith((t) => OnTimerTick());
+            Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
 
@@ -245,35 +245,57 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var grid = this.grid;
         if (grid == null) return;
 
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+    }
+
+    public bool LiveSomePricesDisabled = false;
+    public bool LiveAllPricesDisabled = false;
+    public bool IsUpdatingAllPrices = false;
+    public bool IsUpdatingSomePrices = false;
+    public bool IsTimerTicking = false;
+
+    public void StartTicking()
+    {
+        if (!this.IsTimerTicking) this.IsTimerTicking = true;
     }
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridToggleLiveSomePrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
-        if (DataGridToggleLiveAllPrices.LiveSomePricesDisabled) return;
+        if (this.LiveSomePricesDisabled) return;
 
-        DataGridLiveDataTickerOnViewInit.IsUpdatingAllPrices = false;
-        DataGridLiveDataTickerOnViewInit.IsUpdatingSomePrices = !DataGridLiveDataTickerOnViewInit.IsUpdatingSomePrices;
+        this.IsUpdatingAllPrices = false;
+        this.IsUpdatingSomePrices = !this.IsUpdatingSomePrices;
 
         var liveSomeEditor = this.LiveSomePricesEditor;
 
-        if (DataGridLiveDataTickerOnViewInit.IsTimerTicking)
+        if (this.IsTimerTicking)
         {
-            DataGridLiveDataTickerOnViewInit.IsTimerTicking = false;
+            this.IsTimerTicking = false;
             if (liveSomeEditor != null) liveSomeEditor.PrimitiveValue = "Live Prices";
-            DataGridToggleLiveAllPrices.LiveSomePricesDisabled = false;
-            DataGridToggleLiveAllPrices.LiveAllPricesDisabled = false;
+            this.LiveSomePricesDisabled = false;
+            this.LiveAllPricesDisabled = false;
         }
         else
         {
-            DataGridLiveDataTickerOnViewInit.StartTicking();
+            this.StartTicking();
             if (liveSomeEditor != null) liveSomeEditor.PrimitiveValue = "Stop Prices";
-            DataGridToggleLiveAllPrices.LiveSomePricesDisabled = false;
-            DataGridToggleLiveAllPrices.LiveAllPricesDisabled = true;
+            this.LiveSomePricesDisabled = false;
+            this.LiveAllPricesDisabled = true;
         }
+    }
+
+    public bool LiveAllPricesDisabled = false;
+    public bool LiveSomePricesDisabled = false;
+    public bool IsUpdatingAllPrices = false;
+    public bool IsUpdatingSomePrices = false;
+    public bool IsTimerTicking = false;
+
+    public void StartTicking()
+    {
+        if (!this.IsTimerTicking) this.IsTimerTicking = true;
     }
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
@@ -281,48 +303,68 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     {
         if (LiveAllPricesDisabled) return;
 
-        DataGridLiveDataTickerOnViewInit.IsUpdatingAllPrices = !DataGridLiveDataTickerOnViewInit.IsUpdatingAllPrices;
-        DataGridLiveDataTickerOnViewInit.IsUpdatingSomePrices = false;
+        this.IsUpdatingAllPrices = !this.IsUpdatingAllPrices;
+        this.IsUpdatingSomePrices = false;
 
         var liveAllEditor = this.LiveAllPricesEditor;
         var liveSomeEditor = this.LiveSomePricesEditor;
 
-        if (DataGridLiveDataTickerOnViewInit.IsTimerTicking)
+        if (this.IsTimerTicking)
         {
-            DataGridLiveDataTickerOnViewInit.IsTimerTicking = false;
+            this.IsTimerTicking = false;
             if (liveAllEditor != null) liveAllEditor.PrimitiveValue = "Live All Prices";
             LiveAllPricesDisabled = false;
             LiveSomePricesDisabled = false;
         }
         else
         {
-            DataGridLiveDataTickerOnViewInit.StartTicking();
+            this.StartTicking();
             if (liveAllEditor != null) liveAllEditor.PrimitiveValue = "Stop All Prices";
             LiveAllPricesDisabled = false;
             LiveSomePricesDisabled = true;
         }
     }
 
+    public bool UseRowGrouping = true;
+
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridApplyLiveDataGrouping(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
-        DataGridLiveDataTickerOnViewInit.UseRowGrouping = args.NewValue is bool b && b;
-        if (DataGridLiveDataTickerOnViewInit.UseRowGrouping)
-            DataGridLiveDataTickerOnViewInit.OnGridGroupingAdd();
+        this.UseRowGrouping = args.NewValue is bool b && b;
+        if (this.UseRowGrouping)
+            this.OnGridGroupingAdd();
         else
-            DataGridLiveDataTickerOnViewInit.OnGridGroupingRemove();
+            this.OnGridGroupingRemove();
     }
+
+    public void OnGridGroupingRemove()
+    {
+        var grid = this.grid;
+        if (grid == null) return;
+        grid.GroupDescriptions.Clear();
+    }
+
+    public void OnGridGroupingAdd()
+    {
+        var grid = this.grid;
+        if (grid == null) return;
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = ListSortDirection.Descending });
+    }
+
+    public bool UseHeatBackground = true;
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridToggleHeat(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
-        DataGridLiveDataTickerOnViewInit.UseHeatBackground = args.NewValue is bool b && b;
+        this.UseHeatBackground = args.NewValue is bool b && b;
         var grid = this.grid;
         if (grid != null) grid.InvalidateVisibleRows();
     }
 
-    //WPF: Infragistics.Controls.Grids.CellStyleKeyRequestedEventHandler
-    public void DataGridPriceStyleKey(object sender, CellStyleKeyRequestedEventArgs args)
+    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
+    public void DataGridPriceStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var grid = this.grid;
         var row = grid.ActualDataSource.GetItemAtIndex(args.RowNumber) as PortfolioDataItem;

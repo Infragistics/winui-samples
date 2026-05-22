@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -40,19 +41,26 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ComputedPlotAreaMarginMode="Series"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        Legend="{Binding ElementName=legend}"
-        ChartType="Line"
-        YAxisTitle="Labels Location"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        XAxisInterval="1"
-        YAxisLabelLocation="OutsideRight">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ComputedPlotAreaMarginMode="Series"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          Legend="{Binding ElementName=legend}"
+          ChartType="Line"
+          YAxisTitle="Labels Location"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          XAxisInterval="1"
+          YAxisLabelLocation="OutsideRight">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

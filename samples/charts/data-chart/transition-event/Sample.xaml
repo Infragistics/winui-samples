@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -36,50 +37,57 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                Label="Category"
-                Interval="1"
-                ItemsSource="{Binding CompanyIncomeData}"
-                Overlap="1">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                Title="Millions of Dollars"
-                TitleLeftMargin="10"
-                TitleAngle="-90"
-                MinimumValue="0"
-                MaximumValue="60">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:WaterfallSeries
-                Name="WaterfallSeries1"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding CompanyIncomeData}"
-                ValueMemberPath="Costs"
-                ShowDefaultTooltip="true"
-                IsTransitionInEnabled="true">
-                </igCharts:WaterfallSeries>
-                <igCharts:WaterfallSeries
-                Name="WaterfallSeries2"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding CompanyIncomeData}"
-                Brush="#7446b9"
-                Outline="#7446b9"
-                ValueMemberPath="NetIncome"
-                ShowDefaultTooltip="true"
-                IsTransitionInEnabled="true">
-                </igCharts:WaterfallSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  Label="Category"
+                  Interval="1"
+                  ItemsSource="{Binding CompanyIncomeData}"
+                  Overlap="1">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  Title="Millions of Dollars"
+                  TitleLeftMargin="10"
+                  TitleAngle="-90"
+                  MinimumValue="0"
+                  MaximumValue="60">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:WaterfallSeries
+                  Name="WaterfallSeries1"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding CompanyIncomeData}"
+                  ValueMemberPath="Costs"
+                  ShowDefaultTooltip="true"
+                  IsTransitionInEnabled="true">
+                  </igCharts:WaterfallSeries>
+                  <igCharts:WaterfallSeries
+                  Name="WaterfallSeries2"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding CompanyIncomeData}"
+                  Brush="#7446b9"
+                  Outline="#7446b9"
+                  ValueMemberPath="NetIncome"
+                  ShowDefaultTooltip="true"
+                  IsTransitionInEnabled="true">
+                  </igCharts:WaterfallSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

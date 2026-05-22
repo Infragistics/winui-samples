@@ -11,49 +11,57 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igDataGrids:XamDataGrid
-        Name="grid"
-        ItemsSource="{Binding ProductOrders}"
-        AutoGenerateColumns="false"
-        ActivationMode="Cell"
-        
-        >
-            <igDataGrids:XamDataGrid.Columns>
-                <igDataGrids:TextColumn
-                Field="ProductID">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="ProductName">
-                </igDataGrids:TextColumn>
-                <igDataGrids:NumericColumn
-                Field="ProductPrice">
-                </igDataGrids:NumericColumn>
-                <igDataGrids:TextColumn
-                Field="City">
-                </igDataGrids:TextColumn>
-                <igDataGrids:TextColumn
-                Field="Country">
-                </igDataGrids:TextColumn>
-                <igDataGrids:ImageColumn
-                Field="CountryFlag"
-                IsEditable="false">
-                </igDataGrids:ImageColumn>
-                <igDataGrids:DateTimeColumn
-                Field="OrderDate">
-                </igDataGrids:DateTimeColumn>
-                <igDataGrids:NumericColumn
-                Field="Profit"
-                PositivePrefix="$"
-                ShowGroupingSeparator="true"
-                MaxFractionDigits="0"
-                MinFractionDigits="0">
-                </igDataGrids:NumericColumn>
-            </igDataGrids:XamDataGrid.Columns>
-        </igDataGrids:XamDataGrid>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igDataGrids:XamDataGrid
+          Name="grid"
+          ItemsSource="{Binding ProductOrders}"
+          AutoGenerateColumns="false"
+          ActivationMode="Cell"
+          
+          >
+              <igDataGrids:XamDataGrid.Columns>
+                  <igDataGrids:TextColumn
+                  Field="ProductID">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="ProductName">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:NumericColumn
+                  Field="ProductPrice">
+                  </igDataGrids:NumericColumn>
+                  <igDataGrids:TextColumn
+                  Field="City">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="Country">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:ImageColumn
+                  Field="CountryFlag"
+                  IsEditable="false">
+                  </igDataGrids:ImageColumn>
+                  <igDataGrids:DateTimeColumn
+                  Field="OrderDate">
+                  </igDataGrids:DateTimeColumn>
+                  <igDataGrids:NumericColumn
+                  Field="Profit"
+                  PositivePrefix="$"
+                  ShowGroupingSeparator="true"
+                  MaxFractionDigits="0"
+                  MinFractionDigits="0">
+                  </igDataGrids:NumericColumn>
+              </igDataGrids:XamDataGrid.Columns>
+          </igDataGrids:XamDataGrid>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

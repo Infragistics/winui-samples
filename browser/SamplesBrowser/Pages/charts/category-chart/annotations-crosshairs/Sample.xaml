@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -41,26 +42,33 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="Column"
-        ComputedPlotAreaMarginMode="Series"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        IncludedProperties="{Binding includedProperties1}"
-        ItemsSource="{Binding TemperatureAnnotatedData}"
-        CrosshairsDisplayMode="Both"
-        CrosshairsAnnotationYAxisPrecision="0"
-        CrosshairsAnnotationXAxisBackground="black"
-        CrosshairsAnnotationYAxisBackground="dodgerblue"
-        CrosshairsLineHorizontalStroke="dodgerblue"
-        CrosshairsLineVerticalStroke="black"
-        CrosshairsLineThickness="2"
-        CrosshairsSnapToData="true"
-        YAxisMaximumValue="35"
-        YAxisLabelLocation="OutsideRight"
-        IsTransitionInEnabled="false">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="Column"
+          ComputedPlotAreaMarginMode="Series"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          IncludedProperties="{Binding includedProperties1}"
+          ItemsSource="{Binding TemperatureAnnotatedData}"
+          CrosshairsDisplayMode="Both"
+          CrosshairsAnnotationYAxisPrecision="0"
+          CrosshairsAnnotationXAxisBackground="black"
+          CrosshairsAnnotationYAxisBackground="dodgerblue"
+          CrosshairsLineHorizontalStroke="dodgerblue"
+          CrosshairsLineVerticalStroke="black"
+          CrosshairsLineThickness="2"
+          CrosshairsSnapToData="true"
+          YAxisMaximumValue="35"
+          YAxisLabelLocation="OutsideRight"
+          IsTransitionInEnabled="false">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

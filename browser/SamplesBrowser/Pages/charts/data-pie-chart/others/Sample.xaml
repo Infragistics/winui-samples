@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -50,12 +51,19 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataPieChart
-        Name="chart"
-        ItemsSource="{Binding DataPieData}"
-        OthersCategoryType="Number"
-        OthersCategoryThreshold="15">
-        </igCharts:XamDataPieChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataPieChart
+          Name="chart"
+          ItemsSource="{Binding DataPieData}"
+          OthersCategoryType="Number"
+          OthersCategoryThreshold="15">
+          </igCharts:XamDataPieChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,25 +22,32 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDoughnutChart
-        Name="chart"
-        AllowSliceExplosion="true">
-            <igCharts:XamDoughnutChart.Series>
-                <igCharts:RingSeries
-                Name="series"
-                LabelMemberPath="Summary"
-                LabelsPosition="OutsideEnd"
-                LabelExtent="30"
-                ValueMemberPath="Value"
-                LegendLabelMemberPath="Category"
-                Outlines="white"
-                RadiusFactor="0.6"
-                StartAngle="30"
-                ItemsSource="{Binding EnergyGlobalDemand}"
-                Legend="{Binding ElementName=legend}">
-                </igCharts:RingSeries>
-            </igCharts:XamDoughnutChart.Series>
-        </igCharts:XamDoughnutChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDoughnutChart
+          Name="chart"
+          AllowSliceExplosion="true">
+              <igCharts:XamDoughnutChart.Series>
+                  <igCharts:RingSeries
+                  Name="series"
+                  LabelMemberPath="Summary"
+                  LabelsPosition="OutsideEnd"
+                  LabelExtent="30"
+                  ValueMemberPath="Value"
+                  LegendLabelMemberPath="Category"
+                  Outlines="white"
+                  RadiusFactor="0.6"
+                  StartAngle="30"
+                  ItemsSource="{Binding EnergyGlobalDemand}"
+                  Legend="{Binding ElementName=legend}">
+                  </igCharts:RingSeries>
+              </igCharts:XamDoughnutChart.Series>
+          </igCharts:XamDoughnutChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

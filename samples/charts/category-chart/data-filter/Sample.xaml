@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -44,16 +45,23 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding ContinentsBirthRate}"
-        Legend="{Binding ElementName=legend}"
-        ChartType="Column"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        CrosshairsDisplayMode="None"
-        YAxisLabelFormat="{}{0}M">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding ContinentsBirthRate}"
+          Legend="{Binding ElementName=legend}"
+          ChartType="Column"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          CrosshairsDisplayMode="None"
+          YAxisLabelFormat="{}{0}M">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

@@ -11,14 +11,22 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igDashboards:XamDashboardTile
-        Name="dashboard"
-        ItemsSource="{Binding MultipleStocks}">
-        </igDashboards:XamDashboardTile>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igDashboards:XamDashboardTile
+          Name="dashboard"
+          ItemsSource="{Binding MultipleStocks}">
+          </igDashboards:XamDashboardTile>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

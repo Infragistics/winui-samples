@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -44,22 +45,29 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        Legend="{Binding ElementName=legend}"
-        ChartType="Line"
-        ComputedPlotAreaMarginMode="Series"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        XAxisTickLength="10"
-        XAxisTickStrokeThickness="1"
-        XAxisTickStroke="gray"
-        YAxisTickLength="0"
-        YAxisTickStrokeThickness="0"
-        YAxisTickStroke="#00000000">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          Legend="{Binding ElementName=legend}"
+          ChartType="Line"
+          ComputedPlotAreaMarginMode="Series"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          XAxisTickLength="10"
+          XAxisTickStrokeThickness="1"
+          XAxisTickStroke="gray"
+          YAxisTickLength="0"
+          YAxisTickStrokeThickness="0"
+          YAxisTickStroke="#00000000">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,56 +22,63 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        Legend="{Binding ElementName=legend}"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        MarkerBrushes="white"
-        MarkerOutlines="#8ce7d9 #ee5879"
-        Brushes="#8ce7d9 #ee5879"
-        Outlines="#8ce7d9 #ee5879">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryAngleAxis
-                Name="angleAxis"
-                ItemsSource="{Binding FootballPlayerStats}"
-                Label="Attribute">
-                </igCharts:CategoryAngleAxis>
-                <igCharts:NumericRadiusAxis
-                Name="radiusAxis"
-                InnerRadiusExtentScale="0.1"
-                Interval="2"
-                MinimumValue="0"
-                MaximumValue="10">
-                </igCharts:NumericRadiusAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:RadialAreaSeries
-                Name="RadialAreaSeries1"
-                ItemsSource="{Binding FootballPlayerStats}"
-                AngleAxis="{Binding ElementName=angleAxis}"
-                ValueAxis="{Binding ElementName=radiusAxis}"
-                ValueMemberPath="Ronaldo"
-                ShowDefaultTooltip="true"
-                AreaFillOpacity="0.5"
-                Thickness="3"
-                Title="Ronaldo"
-                MarkerType="Circle">
-                </igCharts:RadialAreaSeries>
-                <igCharts:RadialAreaSeries
-                Name="RadialAreaSeries2"
-                ItemsSource="{Binding FootballPlayerStats}"
-                AngleAxis="{Binding ElementName=angleAxis}"
-                ValueAxis="{Binding ElementName=radiusAxis}"
-                ValueMemberPath="Messi"
-                ShowDefaultTooltip="true"
-                AreaFillOpacity="0.5"
-                Thickness="3"
-                Title="Messi"
-                MarkerType="Circle">
-                </igCharts:RadialAreaSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          Legend="{Binding ElementName=legend}"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          MarkerBrushes="white"
+          MarkerOutlines="#8ce7d9 #ee5879"
+          Brushes="#8ce7d9 #ee5879"
+          Outlines="#8ce7d9 #ee5879">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryAngleAxis
+                  Name="angleAxis"
+                  ItemsSource="{Binding FootballPlayerStats}"
+                  Label="Attribute">
+                  </igCharts:CategoryAngleAxis>
+                  <igCharts:NumericRadiusAxis
+                  Name="radiusAxis"
+                  InnerRadiusExtentScale="0.1"
+                  Interval="2"
+                  MinimumValue="0"
+                  MaximumValue="10">
+                  </igCharts:NumericRadiusAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:RadialAreaSeries
+                  Name="RadialAreaSeries1"
+                  ItemsSource="{Binding FootballPlayerStats}"
+                  AngleAxis="{Binding ElementName=angleAxis}"
+                  ValueAxis="{Binding ElementName=radiusAxis}"
+                  ValueMemberPath="Ronaldo"
+                  ShowDefaultTooltip="true"
+                  AreaFillOpacity="0.5"
+                  Thickness="3"
+                  Title="Ronaldo"
+                  MarkerType="Circle">
+                  </igCharts:RadialAreaSeries>
+                  <igCharts:RadialAreaSeries
+                  Name="RadialAreaSeries2"
+                  ItemsSource="{Binding FootballPlayerStats}"
+                  AngleAxis="{Binding ElementName=angleAxis}"
+                  ValueAxis="{Binding ElementName=radiusAxis}"
+                  ValueMemberPath="Messi"
+                  ShowDefaultTooltip="true"
+                  AreaFillOpacity="0.5"
+                  Thickness="3"
+                  Title="Messi"
+                  MarkerType="Circle">
+                  </igCharts:RadialAreaSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

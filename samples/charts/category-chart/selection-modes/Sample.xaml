@@ -11,27 +11,35 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="Column"
-        ItemsSource="{Binding TemperatureAverageData}"
-        YAxisTitle="Temperature in Degrees Celsius"
-        YAxisTitleLeftMargin="10"
-        YAxisTitleRightMargin="5"
-        YAxisLabelLeftMargin="0"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        CrosshairsDisplayMode="None"
-        ToolTipType="None"
-        SelectionMode="SelectionColorFill"
-        SelectionBehavior="Auto"
-        SelectionBrush="purple"
-        FocusBrush="purple">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="Column"
+          ItemsSource="{Binding TemperatureAverageData}"
+          YAxisTitle="Temperature in Degrees Celsius"
+          YAxisTitleLeftMargin="10"
+          YAxisTitleRightMargin="5"
+          YAxisLabelLeftMargin="0"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          CrosshairsDisplayMode="None"
+          ToolTipType="None"
+          SelectionMode="SelectionColorFill"
+          SelectionBehavior="Auto"
+          SelectionBrush="purple"
+          FocusBrush="purple">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,87 +22,94 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        Legend="{Binding ElementName=legend}">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:NumericXAxis
-                Name="xAxis"
-                IsLogarithmic="true"
-                AbbreviateLargeNumbers="true"
-                Title="Population">
-                </igCharts:NumericXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                Title="GDP per Capita"
-                MaximumValue="1000000"
-                TitleLeftMargin="10"
-                IsLogarithmic="true"
-                AbbreviateLargeNumbers="true">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:BubbleSeries
-                Name="bubbleSeries1"
-                Title="African Countries"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                XMemberPath="Population"
-                YMemberPath="GDP"
-                RadiusMemberPath="WorkedHours"
-                XMemberAsLegendLabel="Population"
-                YMemberAsLegendLabel="GDP"
-                RadiusMemberAsLegendLabel="Work Hours"
-                ItemsSource="{Binding CountryStatsAfrica}"
-                MarkerType="Circle"
-                ShowDefaultTooltip="true">
-                    <igCharts:BubbleSeries.RadiusScale>
-                        <igCharts:SizeScale
-                        IsLogarithmic="false"
-                        MinimumValue="10"
-                        MaximumValue="80">
-                        </igCharts:SizeScale>
-                    </igCharts:BubbleSeries.RadiusScale>
-                </igCharts:BubbleSeries>
-                <igCharts:BubbleSeries
-                Name="bubbleSeries2"
-                Title="European Countries"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                XMemberPath="Population"
-                YMemberPath="GDP"
-                RadiusMemberPath="WorkedHours"
-                XMemberAsLegendLabel="Population"
-                YMemberAsLegendLabel="GDP"
-                RadiusMemberAsLegendLabel="Work Hours"
-                ItemsSource="{Binding CountryStatsEurope}"
-                MarkerType="Circle"
-                ShowDefaultTooltip="true">
-                    <igCharts:BubbleSeries.RadiusScale>
-                        <igCharts:SizeScale
-                        IsLogarithmic="false"
-                        MinimumValue="10"
-                        MaximumValue="80">
-                        </igCharts:SizeScale>
-                    </igCharts:BubbleSeries.RadiusScale>
-                </igCharts:BubbleSeries>
-                <igCharts:DataToolTipLayer
-                Name="dataToolTipLayer"
-                ValueRowMarginTop="1"
-                LabelTextMarginTop="1"
-                TitleTextMarginTop="1"
-                UnitsTextMarginTop="1"
-                ValueRowMarginBottom="1"
-                LabelTextMarginBottom="1"
-                TitleTextMarginBottom="1"
-                UnitsTextMarginBottom="1"
-                UnitsTextMarginRight="5"
-                ValueTextMarginLeft="10"
-                LabelTextMarginLeft="1"
-                LayoutMode="Vertical">
-                </igCharts:DataToolTipLayer>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          Legend="{Binding ElementName=legend}">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:NumericXAxis
+                  Name="xAxis"
+                  IsLogarithmic="true"
+                  AbbreviateLargeNumbers="true"
+                  Title="Population">
+                  </igCharts:NumericXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  Title="GDP per Capita"
+                  MaximumValue="1000000"
+                  TitleLeftMargin="10"
+                  IsLogarithmic="true"
+                  AbbreviateLargeNumbers="true">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:BubbleSeries
+                  Name="bubbleSeries1"
+                  Title="African Countries"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  XMemberPath="Population"
+                  YMemberPath="GDP"
+                  RadiusMemberPath="WorkedHours"
+                  XMemberAsLegendLabel="Population"
+                  YMemberAsLegendLabel="GDP"
+                  RadiusMemberAsLegendLabel="Work Hours"
+                  ItemsSource="{Binding CountryStatsAfrica}"
+                  MarkerType="Circle"
+                  ShowDefaultTooltip="true">
+                      <igCharts:BubbleSeries.RadiusScale>
+                          <igCharts:SizeScale
+                          IsLogarithmic="false"
+                          MinimumValue="10"
+                          MaximumValue="80">
+                          </igCharts:SizeScale>
+                      </igCharts:BubbleSeries.RadiusScale>
+                  </igCharts:BubbleSeries>
+                  <igCharts:BubbleSeries
+                  Name="bubbleSeries2"
+                  Title="European Countries"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  XMemberPath="Population"
+                  YMemberPath="GDP"
+                  RadiusMemberPath="WorkedHours"
+                  XMemberAsLegendLabel="Population"
+                  YMemberAsLegendLabel="GDP"
+                  RadiusMemberAsLegendLabel="Work Hours"
+                  ItemsSource="{Binding CountryStatsEurope}"
+                  MarkerType="Circle"
+                  ShowDefaultTooltip="true">
+                      <igCharts:BubbleSeries.RadiusScale>
+                          <igCharts:SizeScale
+                          IsLogarithmic="false"
+                          MinimumValue="10"
+                          MaximumValue="80">
+                          </igCharts:SizeScale>
+                      </igCharts:BubbleSeries.RadiusScale>
+                  </igCharts:BubbleSeries>
+                  <igCharts:DataToolTipLayer
+                  Name="dataToolTipLayer"
+                  ValueRowMarginTop="1"
+                  LabelTextMarginTop="1"
+                  TitleTextMarginTop="1"
+                  UnitsTextMarginTop="1"
+                  ValueRowMarginBottom="1"
+                  LabelTextMarginBottom="1"
+                  TitleTextMarginBottom="1"
+                  UnitsTextMarginBottom="1"
+                  UnitsTextMarginRight="5"
+                  ValueTextMarginLeft="10"
+                  LabelTextMarginLeft="1"
+                  LayoutMode="Vertical">
+                  </igCharts:DataToolTipLayer>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

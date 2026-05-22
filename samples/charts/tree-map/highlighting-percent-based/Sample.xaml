@@ -11,30 +11,38 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamTreemap
-        Name="treemap"
-        ItemsSource="{Binding CountryTopUrbanPopData}"
-        ParentIdMemberPath="Parent"
-        IdMemberPath="Name"
-        LabelMemberPath="Name"
-        ValueMemberPath="Population"
-        HighlightedValueMemberPath="UrbanPopulation"
-        HighlightedValuesDisplayMode="Overlay"
-        FillBrushes="#fc4100 #ffc55a #00215e #2c4e80"
-        RootTitle="Continents"
-        HeaderDisplayMode="Auto"
-        IsFillScaleLogarithmic="true"
-        LabelVerticalAlignment="Top"
-        ParentNodeTopMargin="10"
-        FillScaleMode="Value"
-        TextColor="black"
-        FontSize="25"
-        FontWeight="Bold">
-        </igCharts:XamTreemap>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamTreemap
+          Name="treemap"
+          ItemsSource="{Binding CountryTopUrbanPopData}"
+          ParentIdMemberPath="Parent"
+          IdMemberPath="Name"
+          LabelMemberPath="Name"
+          ValueMemberPath="Population"
+          HighlightedValueMemberPath="UrbanPopulation"
+          HighlightedValuesDisplayMode="Overlay"
+          FillBrushes="#fc4100 #ffc55a #00215e #2c4e80"
+          RootTitle="Continents"
+          HeaderDisplayMode="Auto"
+          IsFillScaleLogarithmic="true"
+          LabelVerticalAlignment="Top"
+          ParentNodeTopMargin="10"
+          FillScaleMode="Value"
+          TextColor="black"
+          FontSize="25"
+          FontWeight="Bold">
+          </igCharts:XamTreemap>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

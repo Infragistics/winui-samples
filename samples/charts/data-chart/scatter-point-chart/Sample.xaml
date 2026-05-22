@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,49 +22,56 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        Name="chart"
-        Legend="{Binding ElementName=legend}">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:NumericXAxis
-                Name="xAxis"
-                Title="Death Rate (per 1,000 people)"
-                MinimumValue="5"
-                MaximumValue="15">
-                </igCharts:NumericXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                Title="Birth Rate (per 1,000 people)"
-                MinimumValue="0"
-                MaximumValue="50"
-                Interval="10">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:ScatterSeries
-                Name="scatterSeries1"
-                Title="Europe"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                XMemberPath="DeathRate"
-                YMemberPath="BirthRate"
-                ItemsSource="{Binding CountryDemographicEurope}"
-                MarkerType="Circle"
-                ShowDefaultTooltip="true">
-                </igCharts:ScatterSeries>
-                <igCharts:ScatterSeries
-                Name="scatterSeries2"
-                Title="Africa"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                XMemberPath="DeathRate"
-                YMemberPath="BirthRate"
-                ItemsSource="{Binding CountryDemographicAfrican}"
-                MarkerType="Circle"
-                ShowDefaultTooltip="true">
-                </igCharts:ScatterSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          Name="chart"
+          Legend="{Binding ElementName=legend}">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:NumericXAxis
+                  Name="xAxis"
+                  Title="Death Rate (per 1,000 people)"
+                  MinimumValue="5"
+                  MaximumValue="15">
+                  </igCharts:NumericXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  Title="Birth Rate (per 1,000 people)"
+                  MinimumValue="0"
+                  MaximumValue="50"
+                  Interval="10">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:ScatterSeries
+                  Name="scatterSeries1"
+                  Title="Europe"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  XMemberPath="DeathRate"
+                  YMemberPath="BirthRate"
+                  ItemsSource="{Binding CountryDemographicEurope}"
+                  MarkerType="Circle"
+                  ShowDefaultTooltip="true">
+                  </igCharts:ScatterSeries>
+                  <igCharts:ScatterSeries
+                  Name="scatterSeries2"
+                  Title="Africa"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  XMemberPath="DeathRate"
+                  YMemberPath="BirthRate"
+                  ItemsSource="{Binding CountryDemographicAfrican}"
+                  MarkerType="Circle"
+                  ShowDefaultTooltip="true">
+                  </igCharts:ScatterSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

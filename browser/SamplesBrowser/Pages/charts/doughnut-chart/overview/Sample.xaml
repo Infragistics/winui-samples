@@ -11,23 +11,31 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDoughnutChart
-        Name="chart">
-            <igCharts:XamDoughnutChart.Series>
-                <igCharts:RingSeries
-                Name="series"
-                LabelMemberPath="Summary"
-                ValueMemberPath="Value"
-                LegendLabelMemberPath="Category"
-                Outlines="white"
-                ItemsSource="{Binding CompanyMarketShares}">
-                </igCharts:RingSeries>
-            </igCharts:XamDoughnutChart.Series>
-        </igCharts:XamDoughnutChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDoughnutChart
+          Name="chart">
+              <igCharts:XamDoughnutChart.Series>
+                  <igCharts:RingSeries
+                  Name="series"
+                  LabelMemberPath="Summary"
+                  ValueMemberPath="Value"
+                  LegendLabelMemberPath="Category"
+                  Outlines="white"
+                  ItemsSource="{Binding CompanyMarketShares}">
+                  </igCharts:RingSeries>
+              </igCharts:XamDoughnutChart.Series>
+          </igCharts:XamDoughnutChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

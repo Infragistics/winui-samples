@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -84,30 +85,37 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ComputedPlotAreaMarginMode="Series"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        ChartType="Line"
-        Legend="{Binding ElementName=legend}"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        XAxisStroke="#919191"
-        XAxisStrokeThickness="2"
-        XAxisInterval="1"
-        XAxisMajorStroke="#474747"
-        XAxisMajorStrokeThickness="0.5"
-        YAxisStroke="gray"
-        YAxisStrokeThickness="2"
-        YAxisInterval="20"
-        YAxisMajorStroke="darkslategray"
-        YAxisMajorStrokeThickness="1"
-        YAxisMinorInterval="5"
-        YAxisMinorStroke="gray"
-        YAxisMinorStrokeThickness="0.5"
-        Thickness="2">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ComputedPlotAreaMarginMode="Series"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          ChartType="Line"
+          Legend="{Binding ElementName=legend}"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          XAxisStroke="#919191"
+          XAxisStrokeThickness="2"
+          XAxisInterval="1"
+          XAxisMajorStroke="#474747"
+          XAxisMajorStrokeThickness="0.5"
+          YAxisStroke="gray"
+          YAxisStrokeThickness="2"
+          YAxisInterval="20"
+          YAxisMajorStroke="darkslategray"
+          YAxisMajorStrokeThickness="1"
+          YAxisMinorInterval="5"
+          YAxisMinorStroke="gray"
+          YAxisMinorStrokeThickness="0.5"
+          Thickness="2">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

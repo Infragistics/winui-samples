@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -83,27 +84,34 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamSparkline
-        Name="chart"
-        ItemsSource="{Binding SparklineProfitData}"
-        DisplayType="Line"
-        LabelMemberPath="Label"
-        ValueMemberPath="Value"
-        MarkerVisibility="Visible"
-        HighMarkerVisibility="Visible"
-        LowMarkerVisibility="Visible"
-        FirstMarkerVisibility="Visible"
-        LastMarkerVisibility="Visible"
-        NegativeMarkerVisibility="Visible"
-        MarkerSize="10"
-        FirstMarkerSize="10"
-        LastMarkerSize="10"
-        LowMarkerSize="10"
-        HighMarkerSize="10"
-        NegativeMarkerSize="10"
-        Minimum="0"
-        Maximum="60">
-        </igCharts:XamSparkline>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamSparkline
+          Name="chart"
+          ItemsSource="{Binding SparklineProfitData}"
+          DisplayType="Line"
+          LabelMemberPath="Label"
+          ValueMemberPath="Value"
+          MarkerVisibility="Visible"
+          HighMarkerVisibility="Visible"
+          LowMarkerVisibility="Visible"
+          FirstMarkerVisibility="Visible"
+          LastMarkerVisibility="Visible"
+          NegativeMarkerVisibility="Visible"
+          MarkerSize="10"
+          FirstMarkerSize="10"
+          LastMarkerSize="10"
+          LowMarkerSize="10"
+          HighMarkerSize="10"
+          NegativeMarkerSize="10"
+          Minimum="0"
+          Maximum="60">
+          </igCharts:XamSparkline>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

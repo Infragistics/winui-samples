@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -64,27 +65,34 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        IncludedProperties="{Binding includedProperties1}"
-        ChartType="Line"
-        ComputedPlotAreaMarginMode="Series"
-        Legend="{Binding ElementName=legend}"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        TopMargin="20"
-        XAxisLabelAngle="0"
-        XAxisLabelTextColor="gray"
-        XAxisLabelTextStyle="10pt 'Titillium Web'"
-        XAxisLabelTopMargin="5"
-        YAxisLabelAngle="0"
-        YAxisLabelTextColor="gray"
-        YAxisLabelTextStyle="10pt 'Titillium Web'"
-        YAxisLabelRightMargin="5"
-        YAxisLabelLocation="OutsideRight"
-        TitleTopMargin="10">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          IncludedProperties="{Binding includedProperties1}"
+          ChartType="Line"
+          ComputedPlotAreaMarginMode="Series"
+          Legend="{Binding ElementName=legend}"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          TopMargin="20"
+          XAxisLabelAngle="0"
+          XAxisLabelTextColor="gray"
+          XAxisLabelTextStyle="10pt 'Titillium Web'"
+          XAxisLabelTopMargin="5"
+          YAxisLabelAngle="0"
+          YAxisLabelTextColor="gray"
+          YAxisLabelTextStyle="10pt 'Titillium Web'"
+          YAxisLabelRightMargin="5"
+          YAxisLabelLocation="OutsideRight"
+          TitleTopMargin="10">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

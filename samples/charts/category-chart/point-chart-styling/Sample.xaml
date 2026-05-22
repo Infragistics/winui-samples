@@ -11,6 +11,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                         <Grid>
@@ -21,25 +22,32 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ItemsSource="{Binding CountryRenewableElectricity}"
-        ChartType="Point"
-        Legend="{Binding ElementName=legend}"
-        MarkerOutlines="#8ce7d9 #ee5879 #735656"
-        MarkerBrushes="white"
-        MarkerTypes="{Binding markerTypes1}"
-        Brushes="#8ce7d9 #ee5879 #735656"
-        Outlines="#8ce7d9 #ee5879 #735656"
-        YAxisTitle="TWh"
-        YAxisTitleLeftMargin="10"
-        YAxisLabelLeftMargin="0"
-        Thickness="2"
-        ComputedPlotAreaMarginMode="Series"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        CrosshairsSnapToData="true">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ItemsSource="{Binding CountryRenewableElectricity}"
+          ChartType="Point"
+          Legend="{Binding ElementName=legend}"
+          MarkerOutlines="#8ce7d9 #ee5879 #735656"
+          MarkerBrushes="white"
+          MarkerTypes="{Binding markerTypes1}"
+          Brushes="#8ce7d9 #ee5879 #735656"
+          Outlines="#8ce7d9 #ee5879 #735656"
+          YAxisTitle="TWh"
+          YAxisTitleLeftMargin="10"
+          YAxisLabelLeftMargin="0"
+          Thickness="2"
+          ComputedPlotAreaMarginMode="Series"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          CrosshairsSnapToData="true">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

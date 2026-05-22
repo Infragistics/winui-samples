@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -46,22 +47,29 @@
         </Grid>
                               </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamCategoryChart
-        Name="chart"
-        ChartType="Column"
-        ItemsSource="{Binding EnergyRenewableConsumption}"
-        Legend="{Binding ElementName=legend}"
-        YAxisTitleLeftMargin="10"
-        YAxisTitleRightMargin="5"
-        YAxisLabelLeftMargin="0"
-        IsHorizontalZoomEnabled="false"
-        IsVerticalZoomEnabled="false"
-        CrosshairsDisplayMode="None"
-        SelectionMode="SelectionColorFill"
-        SelectionBehavior="PerSeriesAndDataItemGlobalSingleSelect"
-        SelectionBrush="orange"
-        FocusBrush="orange">
-        </igCharts:XamCategoryChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamCategoryChart
+          Name="chart"
+          ChartType="Column"
+          ItemsSource="{Binding EnergyRenewableConsumption}"
+          Legend="{Binding ElementName=legend}"
+          YAxisTitleLeftMargin="10"
+          YAxisTitleRightMargin="5"
+          YAxisLabelLeftMargin="0"
+          IsHorizontalZoomEnabled="false"
+          IsVerticalZoomEnabled="false"
+          CrosshairsDisplayMode="None"
+          SelectionMode="SelectionColorFill"
+          SelectionBehavior="PerSeriesAndDataItemGlobalSingleSelect"
+          SelectionBrush="orange"
+          FocusBrush="orange">
+          </igCharts:XamCategoryChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

@@ -1,18 +1,18 @@
-﻿
-namespace Infragistics.Samples
-{
-    //begin async data
-    using Infragistics.Controls.DataSource;
+﻿//begin data
+#if !TESTING
+using Infragistics.Controls.DataSource;
+#endif
 
-    public class NorthwindOrders
+    public class NorthwindOrders: ODataVirtualDataSource
     {
-        public static ODataVirtualDataSource GetSource()
+#if !TESTING
+        public NorthwindOrders()
         {
-            var vds = new ODataVirtualDataSource();
-            vds.BaseUri = "https://services.odata.org/V4/Northwind/Northwind.svc";
-            vds.EntitySet = "Orders";
-            vds.PageSizeRequested = 200;
-            return vds;
+            //var vds = new ODataVirtualDataSource();
+            this.BaseUri = "https://services.odata.org/V4/Northwind/Northwind.svc";
+            this.EntitySet = "Orders";
+            this.PageSizeRequested = 200;
         }
+#endif
     }
-}
+    //end data

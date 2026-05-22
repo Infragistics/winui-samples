@@ -12,6 +12,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
         <RowDefinition />
+        <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
                 <Grid>
@@ -34,34 +35,41 @@
         </Grid>
                                       </StackPanel>
       <Grid Grid.Row="1">
-        <igCharts:XamDataChart
-        ShouldAutoExpandMarginForInitialLabels="true"
-        ComputedPlotAreaMarginMode="Series"
-        HighlightedValuesDisplayMode="Hidden"
-        Name="chart">
-            <igCharts:XamDataChart.Axes>
-                <igCharts:CategoryXAxis
-                Name="xAxis"
-                ItemsSource="{Binding OlympicMedalsTopCountriesWithTotals}"
-                Label="Year">
-                </igCharts:CategoryXAxis>
-                <igCharts:NumericYAxis
-                Name="yAxis"
-                MinimumValue="0"
-                MaximumValue="400">
-                </igCharts:NumericYAxis>
-            </igCharts:XamDataChart.Axes>
-            <igCharts:XamDataChart.Series>
-                <igCharts:ColumnSeries
-                Name="ColumnSeries1"
-                XAxis="{Binding ElementName=xAxis}"
-                YAxis="{Binding ElementName=yAxis}"
-                ItemsSource="{Binding OlympicMedalsTopCountriesWithTotals}"
-                ValueMemberPath="Total"
-                HighlightedValueMemberPath="America">
-                </igCharts:ColumnSeries>
-            </igCharts:XamDataChart.Series>
-        </igCharts:XamDataChart>
-      </Grid>
-    </Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1">
+          <igCharts:XamDataChart
+          ShouldAutoExpandMarginForInitialLabels="true"
+          ComputedPlotAreaMarginMode="Series"
+          HighlightedValuesDisplayMode="Hidden"
+          Name="chart">
+              <igCharts:XamDataChart.Axes>
+                  <igCharts:CategoryXAxis
+                  Name="xAxis"
+                  ItemsSource="{Binding OlympicMedalsTopCountriesWithTotals}"
+                  Label="Year">
+                  </igCharts:CategoryXAxis>
+                  <igCharts:NumericYAxis
+                  Name="yAxis"
+                  MinimumValue="0"
+                  MaximumValue="400">
+                  </igCharts:NumericYAxis>
+              </igCharts:XamDataChart.Axes>
+              <igCharts:XamDataChart.Series>
+                  <igCharts:ColumnSeries
+                  Name="ColumnSeries1"
+                  XAxis="{Binding ElementName=xAxis}"
+                  YAxis="{Binding ElementName=yAxis}"
+                  ItemsSource="{Binding OlympicMedalsTopCountriesWithTotals}"
+                  ValueMemberPath="Total"
+                  HighlightedValueMemberPath="America">
+                  </igCharts:ColumnSeries>
+              </igCharts:XamDataChart.Series>
+          </igCharts:XamDataChart>
+        </Grid>
+              </Grid>
+          </Grid>
 </UserControl>

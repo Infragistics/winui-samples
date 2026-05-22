@@ -63,6 +63,23 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         grid.ActualColumns[1].FilterOperands.Add(new CustomAgeFilter());
     }
 
+    public class CustomAgeFilter : FilterOperand
+    {
+        public CustomAgeFilter()
+        {
+            DisplayName = "Filter As Class";
+            IsInputRequired = false;
+            EditorType = EditorType.Numeric;
+            FilterRequested += OnFilter;
+        }
+
+        private void OnFilter(object sender, GridCustomFilterRequestedEventArgs args)
+        {
+            var prop = args.FilterFactory.Property(args.Column.Field);
+            args.Expression = prop.IsEqualTo(30);
+        }
+    }
+
     //WPF: Infragistics.Controls.Grids.GridCustomFilterRequestedEventHandler
     public void DataGridFilterSalesLessThanOrEqual300k(object sender, GridCustomFilterRequestedEventArgs args)
     {
