@@ -33,7 +33,8 @@ internal static class ComponentIconHelper
         var n when n.Contains("toolbar")        => $"{LineBase}icon-toolbar-line.svg",
         var n when n.Contains("tree")           => $"{LineBase}icon-treemap-line.svg",
         var n when n.Contains("color")          => $"{LineBase}icon-color-line.svg",
-        _                                       => $"{LineBase}icon-datachart-line.svg"
+        var n when n.Contains("data grid")      => $"{LineBase}icon-datagrid-line.svg",
+        _                                       => $"{LineBase}icon-component-line.svg"
     });
 
     public static string NavGlyphForComponent(string name) => name.ToLowerInvariant() switch
@@ -48,6 +49,7 @@ internal static class ComponentIconHelper
         var n when n.Contains("toolbar")        => "\uEC7A", // ToolBox
         var n when n.Contains("tree")           => "\uF246", // Treemap
         var n when n.Contains("color")          => "\uE790", // ColorSwatch
+        var n when n.Contains("data grid")      => "\uF232", // DataGrid
         _                                       => "\uF0E2"
     };
 
@@ -63,6 +65,7 @@ internal static class ComponentIconHelper
         var n when n.Contains("toolbar")        => "icon-toolbar-inverted.svg",
         var n when n.Contains("tree")           => "icon-treemap-inverted.svg",
         var n when n.Contains("color")          => "icon-color-inverted.svg",
+        var n when n.Contains("data grid")      => "icon-datagrid-inverted.svg",
         _                                       => "icon-component-inverted.svg"
     };
 }
