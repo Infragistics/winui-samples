@@ -17,6 +17,10 @@ internal static class ComponentIconHelper
     private const string RadialGaugePathData =
         "M 8 0.5 C 3.8637894 0.5 0.5 3.8637894 0.5 8 C 0.5 12.13622 3.8637903 15.5 8 15.5 C 12.136219 15.5 15.5 12.136219 15.5 8 C 15.5 3.8637903 12.13622 0.5 8 0.5 z M 8 1.5 C 11.59578 1.5 14.5 4.4042297 14.5 8 C 14.5 11.595781 11.595781 14.5 8 14.5 C 4.4042297 14.5 1.5 11.59578 1.5 8 C 1.5 4.4042306 4.4042306 1.5 8 1.5 z M 8.4472656 2.3730469 C 5.0992842 2.3730469 2.3730469 5.0973311 2.3730469 8.4453125 A 0.5 0.5 0 0 0 2.8730469 8.9453125 A 0.5 0.5 0 0 0 3.3730469 8.4453125 C 3.3730469 5.6377739 5.639727 3.3730469 8.4472656 3.3730469 A 0.5 0.5 0 0 0 8.9472656 2.8730469 A 0.5 0.5 0 0 0 8.4472656 2.3730469 z M 11.466797 4.5019531 A 0.5 0.5 0 0 0 11.169922 4.625 L 8.6640625 6.8222656 C 8.4449598 6.6979172 8.2675081 6.5 8 6.5 C 7.1774966 6.5 6.5 7.1774966 6.5 8 C 6.5 8.8225034 7.1774966 9.5 8 9.5 C 8.8225034 9.5 9.5 8.8225034 9.5 8 C 9.5 7.8330284 9.3968426 7.7060177 9.3457031 7.5546875 L 11.830078 5.375 A 0.5 0.5 0 0 0 11.875 4.6699219 A 0.5 0.5 0 0 0 11.466797 4.5019531 z M 8 7.5 C 8.1627527 7.5 8.3006052 7.574803 8.3925781 7.6914062 C 8.4600108 7.7768922 8.5 7.880652 8.5 8 C 8.5 8.2820966 8.2820966 8.5 8 8.5 C 7.7179034 8.5 7.5 8.2820966 7.5 8 C 7.5 7.7179034 7.7179034 7.5 8 7.5 z ";
 
+    private const string LinearGaugePathData =
+    "m 4.3085938,0.50195312 c -0.1040644,0.00657 -0.4991932,0.0614195 -0.1484376,0.50390628 0.5517683,0.696069 1.0175782,1.2871094 1.0175782,1.2871094 0,0 0.3138218,0.4612033 0.6894531,-0.00391 L 6.9042969,0.91601562 c 0,0 0.2804816,-0.40925209 -0.2558594,-0.41015624 l -2.3164063,-0.003906 c 0,0 -0.00857,-9.3834e-4 -0.023437,-2.6e-7 z M 3.5273438,1.9921875 A 0.51171875,0.50585938 0 0 0 3.4375,2 H 1.5898438 C 1.0048237,2 0.5195313,2.4872456 0.5195313,3.0722656 v 2.4003906 c 0,0.5850202 0.4852924,1.0722657 1.0703125,1.0722657 H 14.470703 c 0.58502,0 1.070313,-0.4872455 1.070313,-1.0722657 V 3.0722656 C 15.541016,2.4872456 15.055723,2 14.470703,2 H 9.341797 C 9.312787,1.99487 9.282487,1.99219 9.251957,1.99219 H 7.5058594 C 7.2256134,1.992185 7,2.2178008 7,2.4980469 7,2.778293 7.2256134,3.0039062 7.5058594,3.0039062 H 9.251953 c 0.0215,0 0.04172,-0.00133 0.0625,-0.00391 h 0.675781 v 2.4296875 c 0,0.039308 0.0035,0.078474 0.01172,0.1152344 H 6.0097656 V 4.0585938 c 0,-0.2895157 -0.233922,-0.5214844 -0.5234375,-0.5214844 -0.2895155,0 -0.5214844,0.2319688 -0.5214843,0.5214844 v 1.4863281 h -3.375 c -0.048317,0 -0.070312,-0.023948 -0.070313,-0.072266 V 3.0722656 C 1.5195312,3.0239484 1.5415266,3 1.5898438,3 h 1.875 a 0.51171875,0.50585938 0 0 0 0.0625,0.00391 A 0.51171875,0.50585938 0 0 0 3.5898438,3 h 0.042969 C 3.6315228,2.99795 3.6301728,2.99621 3.6289028,2.99414 A 0.51171875,0.50585938 0 0 0 4.0390625,2.4980469 0.51171875,0.50585938 0 0 0 3.5273438,1.9921875 Z M 11.027344,3 h 3.443359 c 0.04832,0 0.07031,0.023948 0.07031,0.072266 v 2.4003906 c 0,0.048317 -0.022,0.072266 -0.07031,0.072266 h -3.457031 c 0.0082,-0.036761 0.01367,-0.075926 0.01367,-0.1152344 z m 0.673828,4.9921875 -2.316406,0.00391 c -0.536341,9.04e-4 -0.25586,0.4101562 -0.25586,0.4101562 l 1.03711,1.3730469 c 0.375631,0.4651094 0.689453,0.00391 0.689453,0.00391 0,0 0.46581,-0.5910404 1.017578,-1.2871093 0.350756,-0.4424873 -0.04437,-0.4973363 -0.148438,-0.5039063 -0.01484,-9.383e-4 -0.02344,0 -0.02344,0 z M 6.78125,9.4824219 c -0.03053,0 -0.060834,0.00268 -0.089844,0.00781 H 1.5625 c -0.58502,0 -1.0703125,0.4872466 -1.0703125,1.0722651 v 2.400391 c 0,0.58502 0.4852925,1.072265 1.0703125,1.072265 h 12.880859 c 0.58502,0 1.070313,-0.487245 1.070313,-1.072265 V 10.5625 c 0,-0.585019 -0.485293,-1.0722631 -1.070313,-1.0722656 h -1.847656 a 0.51171875,0.50585938 0 0 0 -0.08984,-0.00781 0.51171875,0.50585938 0 0 0 -0.511718,0.5058593 0.51171875,0.50585938 0 0 0 0.410156,0.4960943 c -0.0013,0.0021 -0.0026,0.0039 -0.0039,0.0059 h 0.04297 a 0.51171875,0.50585938 0 0 0 0.0625,0.0039 0.51171875,0.50585938 0 0 0 0.0625,-0.0039 h 1.875 c 0.04831,0 0.07031,0.02395 0.07031,0.07227 v 2.400391 c 0,0.04832 -0.02199,0.07226 -0.07031,0.07226 h -3.375 v -1.486328 c 0,-0.289517 -0.231968,-0.521484 -0.521484,-0.521484 -0.289515,0 -0.523437,0.231968 -0.523437,0.521484 v 1.486328 h -3.9922 c 0.00822,-0.03676 0.011719,-0.07592 0.011719,-0.115234 V 10.490234 H 6.71875 c 0.02078,0.0026 0.041,0.0039 0.0625,0.0039 h 1.746094 c 0.280246,0 0.505859,-0.225614 0.505859,-0.5058598 0,-0.2802461 -0.225613,-0.5058618 -0.505859,-0.5058593 z M 1.5625,10.490234 h 3.4433594 v 2.429688 c 0,0.0393 0.00547,0.07847 0.013672,0.115234 H 1.5625 c -0.04831,0 -0.070312,-0.02395 -0.070312,-0.07226 V 10.5625 c 0,-0.04832 0.021993,-0.07227 0.070312,-0.07227 z";
+
+
     public static IconElement NavIconForComponent(string name)
     {
         var n = name.ToLowerInvariant();
@@ -32,6 +36,10 @@ internal static class ComponentIconHelper
             return new PathIcon { Data = (Geometry)Microsoft.UI.Xaml.Markup.XamlReader.Load(
                 $"<Geometry xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>{RadialGaugePathData}</Geometry>") };
 
+        if (n.Contains("linear gauge") || n.Contains("lineargauge"))
+            return new PathIcon { Data = (Geometry)Microsoft.UI.Xaml.Markup.XamlReader.Load(
+                $"<Geometry xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'>{LinearGaugePathData}</Geometry>") };
+
         return new FontIcon { Glyph = NavGlyphForComponent(name), FontSize = 16 };
     }
 
@@ -45,9 +53,11 @@ internal static class ComponentIconHelper
         var n when n.Contains("pie")            => $"{LineBase}icon-pie-line.svg",
         var n when n.Contains("sparkline")      => $"{LineBase}icon-sparkline-line.svg",
         var n when n.Contains("bullet")         => $"{LineBase}icon-bulletgraph-line.svg",
+        var n when n.Contains("linear gauge")   => $"{LineBase}icon-lineargauge-line.svg",
         var n when n.Contains("radial gauge")   => $"{LineBase}icon-radialgauge-line.svg",
         var n when n.Contains("toolbar")        => $"{LineBase}icon-toolbar-line.svg",
         var n when n.Contains("tree")           => $"{LineBase}icon-treemap-line.svg",
+        var n when n.Contains("geo map")        => $"{LineBase}icon-geomap-line.svg",
         var n when n.Contains("color")          => $"{LineBase}icon-color-line.svg",
         _                                       => $"{LineBase}icon-datachart-line.svg"
     });
@@ -63,8 +73,11 @@ internal static class ComponentIconHelper
         var n when n.Contains("sparkline")      => "\uEB66", // Sparkline / trend line
         var n when n.Contains("bullet")         => "\uEB4C", // ProgressBar
         var n when n.Contains("radial gauge")   => "\uEA18", // Dial / gauge
+        var n when n.Contains("linear gauge")   => "\uEA18", // Dial / gauge
+        var n when n.Contains("geo map")        => "\uE800", // Globe / map
         var n when n.Contains("toolbar")        => "\uEC7A", // ToolBox
         var n when n.Contains("tree")           => "\uF246", // Treemap
+        var n when n.Contains("geomap")         => "\uE800", // Geomap
         var n when n.Contains("color")          => "\uE790", // ColorSwatch
         _                                       => "\uF0E2"
     };
@@ -80,8 +93,10 @@ internal static class ComponentIconHelper
         var n when n.Contains("sparkline")      => "icon-sparkline-inverted.svg",
         var n when n.Contains("bullet")         => "icon-bulletgraph-inverted.svg",
         var n when n.Contains("radial gauge")   => "icon-radialgauge-inverted.svg",
+        var n when n.Contains("linear gauge")   => "icon-lineargauge-inverted.svg",
         var n when n.Contains("toolbar")        => "icon-toolbar-inverted.svg",
         var n when n.Contains("tree")           => "icon-treemap-inverted.svg",
+        var n when n.Contains("geo map")        => "icon-geomap-inverted.svg",
         var n when n.Contains("color")          => "icon-color-inverted.svg",
         _                                       => "icon-component-inverted.svg"
     };
