@@ -230,7 +230,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             grid.InvalidateVisibleRows();
         }
 
-        Task.Delay(Frequency).ContinueWith((t) => OnTimerTick());
+        Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
     }
 
     public void OnGridGroupingRemove()

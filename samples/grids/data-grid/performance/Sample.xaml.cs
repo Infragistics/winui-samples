@@ -175,7 +175,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             grid.InvalidateVisibleRows();
         }
 
-        Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick());
+        Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
     }
 
     public void RandomizeItem(SalesPerson item)
