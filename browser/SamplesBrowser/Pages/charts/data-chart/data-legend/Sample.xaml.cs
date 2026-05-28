@@ -6,6 +6,7 @@ namespace SamplesBrowser.Pages.Charts.DataChart.DataLegend;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedColumns1 { get; } = new string[] { "BirthRate", "DeathRate" };
 
     public Sample()
     {

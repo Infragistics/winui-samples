@@ -24,8 +24,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamRadialGauge
           Name="gauge"
-          
-          
           IsNeedleDraggingEnabled="true"
           IsNeedleDraggingConstrained="true"
           NeedleShape="NeedleWithBulb"

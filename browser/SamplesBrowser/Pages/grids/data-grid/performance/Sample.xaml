@@ -32,9 +32,7 @@
           SelectionMode="MultipleRow"
           HeaderClickAction="SortByMultipleColumnsTriState"
           ColumnShowingAnimationMode="Auto"
-          ColumnHidingAnimationMode="Auto"
-          
-          >
+          ColumnHidingAnimationMode="Auto">
               <igDataGrids:XamDataGrid.GroupDescriptions>
                   <igDataGrids:ColumnGroupDescription
                   Field="Territory">

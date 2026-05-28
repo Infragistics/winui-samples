@@ -72,7 +72,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
     private void AddSelection()
     {
-    	//var chart = this.chart;
+    	var chart = this.chart;
 
     	//ChartSelection selection = new ChartSelection();
     	//var s = chart.Series.Where(s => ((AnchoredCategorySeries)s).ValueMemberPath == "Hydro").FirstOrDefault();

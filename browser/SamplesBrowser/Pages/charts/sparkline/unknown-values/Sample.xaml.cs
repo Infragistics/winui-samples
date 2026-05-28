@@ -8,6 +8,8 @@ namespace SamplesBrowser.Pages.Charts.Sparkline.UnknownValues;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "LinearInterpolate", "DontPlot" };
+    public string[] dropDownValues1 { get; } = new string[] { "LinearInterpolate", "DontPlot" };
 
     public Sample()
     {

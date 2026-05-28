@@ -6,6 +6,7 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] allowedPositions1 { get; } = new string[] {  };
 
     public Sample()
     {

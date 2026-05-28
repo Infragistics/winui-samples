@@ -59,7 +59,6 @@
           <igGauges:XamBulletGraph
           Name="gauge"
           Height="80px"
-          Width="100%"
           Orientation="Horizontal"
           TransitionDuration="1000"
           MinimumValue="0"

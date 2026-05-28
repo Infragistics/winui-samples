@@ -6,6 +6,8 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.AreaChartStyling;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedProperties1 { get; } = new string[] { "Year", "Europe", "China", "America" };
+    public string[] markerTypes1 { get; } = new string[] {  };
 
     public Sample()
     {

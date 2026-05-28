@@ -69,9 +69,7 @@
           AutoGenerateColumns="false"
           DefaultColumnMinWidth="100"
           IsColumnOptionsEnabled="true"
-          FilterUIType="ColumnOptions"
-          Height="100%"
-          Width="100%">
+          FilterUIType="ColumnOptions">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

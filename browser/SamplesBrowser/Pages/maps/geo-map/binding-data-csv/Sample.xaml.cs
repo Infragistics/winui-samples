@@ -10,7 +10,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.UI.Xaml.Media;
+using Windows.UI;
 using Microsoft.UI;
+using Windows.Foundation;
 
 namespace SamplesBrowser.Pages.Maps.GeoMap.BindingDataCsv;
 
@@ -42,24 +44,24 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     //WPF: System.Action
     public async void MapBindingDataCsvOnViewInit()
     {
-        //var map = this.map;
-        //var url = "https://static.infragistics.com/xplatform/data/UsaCitiesPopulation.csv";
-        //var client = new HttpClient();
-        //var csv = await client.GetStringAsync(url);
-        //var csvLines = csv.Split('\n');
-        //var geoLocations = new List<WorldPlaceCsv>();
-        //for (int i = 1; i < csvLines.Length; i++)
-        //{
-        //    var columns = csvLines[i].Split(',');
-        //    if (columns.Length < 4) continue;
-        //    geoLocations.Add(new WorldPlaceCsv
-        //    {
-        //        Name = columns[0],
-        //        Latitude = double.Parse(columns[1]),
-        //        Longitude = double.Parse(columns[2]),
-        //        Population = double.Parse(columns[3])
-        //    });
-        //}
+        var map = this.map;
+        var url = "https://static.infragistics.com/xplatform/data/UsaCitiesPopulation.csv";
+        var client = new HttpClient();
+        var csv = await client.GetStringAsync(url);
+        var csvLines = csv.Split('\n');
+        var geoLocations = new List<WorldPlaceCsv>();
+        for (int i = 1; i < csvLines.Length; i++)
+        {
+            var columns = csvLines[i].Split(',');
+            if (columns.Length < 4) continue;
+            geoLocations.Add(new WorldPlaceCsv
+            {
+                Name = columns[0],
+                Latitude = double.Parse(columns[1]),
+                Longitude = double.Parse(columns[2]),
+                Population = double.Parse(columns[3])
+            });
+        }
         //var series = new GeographicHighDensityScatterSeries
         //{
         //    Name = "hdSeries",
@@ -75,8 +77,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         //};
         //map.Series.Add(series);
 
-        //var geoBounds = new Rect(-130, 15, Math.Abs(-130 + 65), Math.Abs(50 - 15));
-        //map.ZoomToGeographic(geoBounds);
+        var geoBounds = new Rect(-130, 15, Math.Abs(-130 + 65), Math.Abs(50 - 15));
+        map.ZoomToGeographic(geoBounds);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

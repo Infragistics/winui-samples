@@ -13,6 +13,8 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Country", "Product", "Month", "Year" };
+    public string[] dropDownValues1 { get; } = new string[] { "Country", "Product", "Month", "Year" };
 
     public Sample()
     {

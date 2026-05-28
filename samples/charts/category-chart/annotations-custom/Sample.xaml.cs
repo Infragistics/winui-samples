@@ -8,6 +8,8 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedProperties1 { get; } = new string[] { "Month", "Temperature" };
+    public string[] calloutsAllowedPositions1 { get; } = new string[] {  };
 
     public Sample()
     {

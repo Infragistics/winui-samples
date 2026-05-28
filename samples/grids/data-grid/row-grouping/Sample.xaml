@@ -27,9 +27,7 @@
           ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
           IsGroupCollapsable="true"
-          IsGroupByAreaVisible="true"
-          Height="100%"
-          Width="100%">
+          IsGroupByAreaVisible="true">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

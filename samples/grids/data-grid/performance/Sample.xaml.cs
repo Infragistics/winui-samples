@@ -10,6 +10,8 @@ using Infragistics.Controls.Grids;
 using System.Windows;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using Microsoft.UI;
 
 namespace Sample;
 
@@ -36,7 +38,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_salesPersonsData == null)
             {
-                SalesPersonsData.Fetch().ContinueWith((t) => { _salesPersonsData = t.Result; OnPropertyChanged("SalesPersonsData"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+                SalesPersonsData.Fetch().ContinueWith((t) => {_salesPersonsData = t.Result;  OnPropertyChanged("SalesPersonsData"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
             }
             return _salesPersonsData;
         }

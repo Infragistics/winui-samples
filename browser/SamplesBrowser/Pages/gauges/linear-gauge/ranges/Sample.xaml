@@ -25,7 +25,6 @@
           <igGauges:XamLinearGauge
           Name="gauge"
           Height="80px"
-          
           MinimumValue="0"
           Value="50"
           MaximumValue="100"

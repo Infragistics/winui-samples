@@ -60,9 +60,7 @@
           Name="grid"
           ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
-          DefaultColumnMinWidth="120"
-          Height="100%"
-          Width="100%">
+          DefaultColumnMinWidth="120">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="ID"

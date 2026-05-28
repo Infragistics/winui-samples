@@ -34,9 +34,7 @@
           ItemsSource="{Binding ProductOrders}"
           AutoGenerateColumns="false"
           DefaultColumnMinWidth="120"
-          IsColumnOptionsEnabled="true"
-          Height="100%"
-          Width="100%">
+          IsColumnOptionsEnabled="true">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="ProductID"

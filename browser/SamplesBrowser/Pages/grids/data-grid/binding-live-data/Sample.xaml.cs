@@ -13,8 +13,8 @@ using Infragistics.Controls.Grids;
 using System.Windows;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
-using Microsoft.UI;
 using Windows.UI;
+using Microsoft.UI;
 
 namespace SamplesBrowser.Pages.Grids.DataGrid.BindingLiveData;
 
@@ -70,6 +70,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     public bool IsUpdatingAllPrices = false;
     public bool IsUpdatingSomePrices = false;
     public bool UseHeatBackground = true;
+    public bool UseRowGrouping = true;
     public Random Random = new Random();
 
     //WPF: System.Action
@@ -234,7 +235,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    
+    public void OnGridGroupingRemove()
+    {
+        var grid = this.grid;
+        if (grid == null) return;
+        grid.GroupDescriptions.Clear();
+    }
+
     public void OnGridGroupingAdd()
     {
         var grid = this.grid;
@@ -245,9 +252,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
     }
 
-    public bool LiveSomePricesDisabled = false;
-    public bool LiveAllPricesDisabled = false;
-   
+    // LiveSomePricesDisabled / LiveAllPricesDisabled are owned by
+    // DataGridToggleLiveAllPrices; IsUpdatingAllPrices, IsUpdatingSomePrices,
+    // IsTimerTicking and StartTicking are owned by
+    // DataGridLiveDataTickerOnViewInit. These handlers are merged into one
+    // sample class and only ever used together.
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridToggleLiveSomePrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
@@ -275,6 +284,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
+    // IsUpdatingAllPrices, IsUpdatingSomePrices, IsTimerTicking and StartTicking
+    // are owned by DataGridLiveDataTickerOnViewInit; these handlers are merged
+    // into one sample class and only ever used together.
+    public bool LiveAllPricesDisabled = false;
+    public bool LiveSomePricesDisabled = false;
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridToggleLiveAllPrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
@@ -303,7 +317,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    public bool UseRowGrouping = true;
+    // UseRowGrouping, OnGridGroupingAdd and OnGridGroupingRemove are owned by
+    // DataGridLiveDataTickerOnViewInit; these handlers are merged into one
+    // sample class and only ever used together.
 
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridApplyLiveDataGrouping(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
@@ -315,16 +331,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             this.OnGridGroupingRemove();
     }
 
-    public void OnGridGroupingRemove()
-    {
-        var grid = this.grid;
-        if (grid == null) return;
-        grid.GroupDescriptions.Clear();
-    }
+    // UseHeatBackground is owned by DataGridLiveDataTickerOnViewInit; these
+    // handlers are merged into one sample class and only ever used together.
 
-    
-
-   
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void DataGridToggleHeat(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {

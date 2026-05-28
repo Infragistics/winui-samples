@@ -8,6 +8,7 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.AnnotationsCallouts;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedProperties1 { get; } = new string[] { "Month", "Temperature" };
 
     public Sample()
     {

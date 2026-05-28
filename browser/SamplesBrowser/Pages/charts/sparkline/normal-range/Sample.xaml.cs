@@ -8,6 +8,12 @@ namespace SamplesBrowser.Pages.Charts.Sparkline.NormalRange;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Visible", "Collapsed" };
+    public string[] dropDownValues1 { get; } = new string[] { "Visible", "Collapsed" };
+    public string[] dropDownNames2 { get; } = new string[] { "0", "10", "15", "20", "25", "30" };
+    public string[] dropDownValues2 { get; } = new string[] { "0", "10", "15", "20", "25", "30" };
+    public string[] dropDownNames3 { get; } = new string[] { "0", "10", "15", "20", "25", "30" };
+    public string[] dropDownValues3 { get; } = new string[] { "0", "10", "15", "20", "25", "30" };
 
     public Sample()
     {

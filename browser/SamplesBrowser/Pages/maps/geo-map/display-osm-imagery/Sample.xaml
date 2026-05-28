@@ -25,11 +25,10 @@
                 <Grid Grid.Column="1">
           <igMaps:XamGeographicMap
           Name="map"
-          
-          
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
-                  <igMaps:OpenStreetMapImagery>
+                  <igMaps:OpenStreetMapImagery
+                  >
                   </igMaps:OpenStreetMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>
           </igMaps:XamGeographicMap>

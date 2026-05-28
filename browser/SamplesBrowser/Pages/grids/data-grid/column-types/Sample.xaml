@@ -27,9 +27,7 @@
           ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
           RowHeight="50"
-          ActivationMode="Cell"
-          
-          >
+          ActivationMode="Cell">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:ImageColumn
                   Field="Photo"

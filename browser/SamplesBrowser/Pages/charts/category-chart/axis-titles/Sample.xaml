@@ -39,9 +39,13 @@
           ComputedPlotAreaMarginMode="Series"
           XAxisTitle="Year"
           XAxisTitleTextColor="gray"
+          XAxisTitleFontFamily="Titillium Web"
+          XAxisTitleFontSize="10"
           XAxisTitleAngle="0"
           YAxisTitle="Trillions of Watt-hours (Twh)"
           YAxisTitleTextColor="gray"
+          YAxisTitleFontFamily="Titillium Web"
+          YAxisTitleFontSize="10"
           YAxisTitleAngle="90"
           YAxisTitleLeftMargin="5">
           </igCharts:XamCategoryChart>

@@ -26,9 +26,7 @@
           Name="grid"
           ItemsSource="{Binding FinancialDataService}"
           AutoGenerateColumns="false"
-          ActivationMode="Cell"
-          Height="100%"
-          Width="100%">
+          ActivationMode="Cell">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Category">

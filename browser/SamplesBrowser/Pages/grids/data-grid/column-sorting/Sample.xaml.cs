@@ -8,6 +8,8 @@ namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnSorting;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "SortByMultipleColumns", "SortByMultipleColumnsTriState", "SortByOneColumnOnly", "SortByOneColumnOnlyTriState" };
+    public string[] dropDownValues1 { get; } = new string[] { "SortByMultipleColumns", "SortByMultipleColumnsTriState", "SortByOneColumnOnly", "SortByOneColumnOnlyTriState" };
 
     public Sample()
     {

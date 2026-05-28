@@ -72,9 +72,7 @@
           SelectionMode="SingleRow"
           CornerRadiusTopLeft="0"
           CornerRadiusTopRight="0"
-          ColumnMovingAnimationMode="Auto"
-          Height="100%"
-          Width="100%">
+          ColumnMovingAnimationMode="Auto">
               <igDataGrids:XamDataGrid.GroupDescriptions>
                   <igDataGrids:ColumnGroupDescription
                   Field="Country"

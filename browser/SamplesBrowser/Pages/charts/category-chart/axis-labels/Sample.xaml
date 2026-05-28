@@ -83,9 +83,13 @@
           TopMargin="20"
           XAxisLabelAngle="0"
           XAxisLabelTextColor="gray"
+          XAxisLabelFontFamily="Titillium Web"
+          XAxisLabelFontSize="10"
           XAxisLabelTopMargin="5"
           YAxisLabelAngle="0"
           YAxisLabelTextColor="gray"
+          YAxisLabelFontFamily="Titillium Web"
+          YAxisLabelFontSize="10"
           YAxisLabelRightMargin="5"
           YAxisLabelLocation="OutsideRight"
           TitleTopMargin="10">

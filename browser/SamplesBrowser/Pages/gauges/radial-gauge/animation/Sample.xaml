@@ -65,8 +65,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamRadialGauge
           Name="gauge"
-          
-          
           TransitionDuration="1000"
           MinimumValue="0"
           MaximumValue="50"

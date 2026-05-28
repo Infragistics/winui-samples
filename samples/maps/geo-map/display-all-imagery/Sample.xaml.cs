@@ -12,6 +12,8 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "OpenStreetMaps", "WorldStreetMap (ESRI)", "WorldTopographicMap (ESRI)", "WorldImageryMap (ESRI)", "WorldOceansMap (ESRI)", "WorldNationalGeoMap (ESRI)", "WorldTerrainMap (ESRI)", "WorldLightGrayMap (ESRI)", "WorldShadedReliefMap (ESRI)", "WorldPhysicalMap (ESRI)" };
+    public string[] dropDownValues1 { get; } = new string[] { "OpenStreetMaps", "WorldStreetMap", "WorldTopographicMap", "WorldImageryMap", "WorldOceansMap", "WorldNationalGeoMap", "WorldTerrainMap", "WorldLightGrayMap", "WorldShadedReliefMap", "WorldPhysicalMap" };
 
     public Sample()
     {

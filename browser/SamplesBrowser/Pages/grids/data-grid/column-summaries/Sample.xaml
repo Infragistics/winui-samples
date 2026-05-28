@@ -63,9 +63,7 @@
           IsGroupCollapsable="true"
           GroupHeaderDisplayMode="Combined"
           SummaryScope="Root"
-          GroupSummaryDisplayMode="RowBottom"
-          
-          >
+          GroupSummaryDisplayMode="RowBottom">
               <igDataGrids:XamDataGrid.GroupDescriptions>
                   <igDataGrids:ColumnGroupDescription
                   Field="ProductName"

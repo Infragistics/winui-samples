@@ -18,7 +18,6 @@
           <igGauges:XamLinearGauge
           Name="gauge1"
           Height="120px"
-          
           Value="80"
           MinimumValue="0"
           MaximumValue="100"
@@ -107,7 +106,6 @@
           <igGauges:XamLinearGauge
           Name="gauge2"
           Height="120px"
-          
           Value="50"
           MinimumValue="0"
           MaximumValue="100"
@@ -190,7 +188,6 @@
         <igGauges:XamLinearGauge
         Name="gauge3"
         Height="120px"
-        
         Value="30"
         MinimumValue="0"
         MaximumValue="100"

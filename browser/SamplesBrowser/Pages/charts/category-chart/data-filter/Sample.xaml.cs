@@ -12,6 +12,8 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.DataFilter;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020" };
+    public string[] dropDownValues1 { get; } = new string[] { "1950", "1960", "1970", "1980", "1990", "2000", "2010", "2020" };
 
     public Sample()
     {

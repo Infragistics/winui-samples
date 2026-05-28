@@ -117,9 +117,7 @@
           ColumnExchangingAnimationMode="Crossfade"
           ColumnHidingAnimationMode="FadeOut"
           ColumnMovingAnimationMode="SlideOver"
-          ColumnPropertyUpdatingAnimationMode="Interpolate"
-          Height="100%"
-          Width="100%">
+          ColumnPropertyUpdatingAnimationMode="Interpolate">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

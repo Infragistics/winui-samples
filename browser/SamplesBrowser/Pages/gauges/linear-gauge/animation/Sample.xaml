@@ -59,7 +59,6 @@
           <igGauges:XamLinearGauge
           Name="gauge"
           Height="80px"
-          
           TransitionDuration="1000"
           MinimumValue="0"
           MaximumValue="100"

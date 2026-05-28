@@ -74,9 +74,7 @@
           DefaultColumnMinWidth="100"
           ColumnMovingMode="Deferred"
           ColumnMovingSeparatorWidth="2"
-          ColumnMovingAnimationMode="Auto"
-          Height="100%"
-          Width="100%">
+          ColumnMovingAnimationMode="Auto">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

@@ -24,7 +24,6 @@
                 <Grid Grid.Column="0">
           <igGauges:XamBulletGraph
           Name="graph1"
-          Height="100%"
           Width="120px"
           Orientation="Vertical"
           BackingBrush="#00000000"
@@ -85,7 +84,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamBulletGraph
           Name="graph2"
-          Height="100%"
           Width="120px"
           Orientation="Vertical"
           BackingBrush="#00000000"
@@ -146,7 +144,6 @@
                 <Grid Grid.Column="2">
           <igGauges:XamBulletGraph
           Name="graph3"
-          Height="100%"
           Width="120px"
           Orientation="Vertical"
           BackingBrush="#00000000"

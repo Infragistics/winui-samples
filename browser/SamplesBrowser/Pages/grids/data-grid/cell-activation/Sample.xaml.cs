@@ -8,6 +8,10 @@ namespace SamplesBrowser.Pages.Grids.DataGrid.CellActivation;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Edit", "MoveDown", "MoveLeft", "MoveRight", "MoveUp", "None" };
+    public string[] dropDownValues1 { get; } = new string[] { "Edit", "MoveDown", "MoveLeft", "MoveRight", "MoveUp", "None" };
+    public string[] dropDownNames2 { get; } = new string[] { "MoveDown", "MoveLeft", "MoveRight", "MoveUp", "None" };
+    public string[] dropDownValues2 { get; } = new string[] { "MoveDown", "MoveLeft", "MoveRight", "MoveUp", "None" };
 
     public Sample()
     {

@@ -84,7 +84,7 @@
                   EndLabelXDisplayMode="Hidden"
                   StartLabelYDisplayMode="Hidden"
                   EndLabelYDisplayMode="Hidden"
-                  ActualAreaFillOpacity="0.1"
+                  AreaFillOpacity="0.1"
                   Brush="purple"
                   Outline="purple"
                   OverlayTextColor="purple"

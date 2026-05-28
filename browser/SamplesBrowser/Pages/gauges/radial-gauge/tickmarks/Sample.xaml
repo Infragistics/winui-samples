@@ -24,8 +24,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamRadialGauge
           Name="gauge"
-          
-          
           TickStartExtent="0.5"
           TickEndExtent="0.57"
           TickStrokeThickness="2"

@@ -24,8 +24,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamRadialGauge
           Name="gauge"
-          
-          
           TransitionDuration="500"
           MinimumValue="100"
           MaximumValue="200"

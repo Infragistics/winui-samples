@@ -8,6 +8,10 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Deferred", "None" };
+    public string[] dropDownValues1 { get; } = new string[] { "Deferred", "None" };
+    public string[] dropDownNames2 { get; } = new string[] { "Auto", "SlideOver", "None" };
+    public string[] dropDownValues2 { get; } = new string[] { "Auto", "SlideOver", "None" };
 
     public Sample()
     {

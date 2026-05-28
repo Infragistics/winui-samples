@@ -12,6 +12,10 @@ namespace SamplesBrowser.Pages.Grids.DataGrid.CellEditing;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "None", "Cell", "CellBatch", "Row" };
+    public string[] dropDownValues1 { get; } = new string[] { "None", "Cell", "CellBatch", "Row" };
+    public string[] dropDownNames2 { get; } = new string[] { "SingleClick", "DoubleClick" };
+    public string[] dropDownValues2 { get; } = new string[] { "SingleClick", "DoubleClick" };
 
     public Sample()
     {

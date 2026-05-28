@@ -43,7 +43,8 @@
                   StartAngleOffset="-90"
                   Interval="30"
                   MinimumValue="0"
-                  MaximumValue="360">
+                  MaximumValue="360"
+                  >
                   </igCharts:NumericAngleAxis>
                   <igCharts:NumericRadiusAxis
                   Name="radiusAxis"

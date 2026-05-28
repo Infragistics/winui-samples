@@ -25,9 +25,7 @@
           <igDataGrids:XamDataGrid
           Name="grid"
           ItemsSource="{Binding ProductOrders}"
-          AutoGenerateColumns="false"
-          
-          >
+          AutoGenerateColumns="false">
               <igDataGrids:XamDataGrid.GroupDescriptions>
                   <igDataGrids:ColumnGroupDescription
                   Field="Status"

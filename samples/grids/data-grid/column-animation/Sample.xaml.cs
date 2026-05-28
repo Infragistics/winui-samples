@@ -13,6 +13,16 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Auto", "None", "SlideFromLeft", "SlideFromRight", "SlideFromTop", "SlideFromBottom", "FadeIn", "SlideFromLeftAndFadeIn", "SlideFromRightAndFadeIn", "SlideFromTopAndFadeIn", "SlideFromBottomAndFadeIn" };
+    public string[] dropDownValues1 { get; } = new string[] { "Auto", "None", "SlideFromLeft", "SlideFromRight", "SlideFromTop", "SlideFromBottom", "FadeIn", "SlideFromLeftAndFadeIn", "SlideFromRightAndFadeIn", "SlideFromTopAndFadeIn", "SlideFromBottomAndFadeIn" };
+    public string[] dropDownNames2 { get; } = new string[] { "Auto", "None", "SlideToLeft", "SlideToRight", "SlideToTop", "SlideToBottom", "Crossfade", "SlideToLeftAndCrossfade", "SlideToRightAndCrossfade", "SlideToTopAndCrossfade", "SlideToBottomAndCrossfade" };
+    public string[] dropDownValues2 { get; } = new string[] { "Auto", "None", "SlideToLeft", "SlideToRight", "SlideToTop", "SlideToBottom", "Crossfade", "SlideToLeftAndCrossfade", "SlideToRightAndCrossfade", "SlideToTopAndCrossfade", "SlideToBottomAndCrossfade" };
+    public string[] dropDownNames3 { get; } = new string[] { "Auto", "None", "SlideToLeft", "SlideToRight", "SlideToTop", "SlideToBottom", "FadeOut", "SlideToLeftAndFadeOut", "SlideToRightAndFadeOut", "SlideToTopAndFadeOut", "SlideToBottomAndFadeOut" };
+    public string[] dropDownValues3 { get; } = new string[] { "Auto", "None", "SlideToLeft", "SlideToRight", "SlideToTop", "SlideToBottom", "FadeOut", "SlideToLeftAndFadeOut", "SlideToRightAndFadeOut", "SlideToTopAndFadeOut", "SlideToBottomAndFadeOut" };
+    public string[] dropDownNames4 { get; } = new string[] { "Auto", "None", "Interpolate", "InterpolateDeep" };
+    public string[] dropDownValues4 { get; } = new string[] { "Auto", "None", "Interpolate", "InterpolateDeep" };
+    public string[] dropDownNames5 { get; } = new string[] { "Auto", "None", "SlideOver" };
+    public string[] dropDownValues5 { get; } = new string[] { "Auto", "None", "SlideOver" };
 
     public Sample()
     {

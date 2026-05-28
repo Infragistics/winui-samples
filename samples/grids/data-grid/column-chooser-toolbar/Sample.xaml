@@ -33,9 +33,7 @@
           <igDataGrids:XamDataGrid
           Name="grid"
           ItemsSource="{Binding ProductOrders}"
-          AutoGenerateColumns="false"
-          Height="100%"
-          Width="100%">
+          AutoGenerateColumns="false">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="ProductID"

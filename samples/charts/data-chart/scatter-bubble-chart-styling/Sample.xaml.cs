@@ -6,6 +6,7 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedColumns1 { get; } = new string[] { "X", "Y", "Radius" };
 
     public Sample()
     {

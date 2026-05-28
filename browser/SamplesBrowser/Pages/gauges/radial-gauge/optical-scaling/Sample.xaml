@@ -56,8 +56,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamRadialGauge
           Name="gauge"
-          
-          
           OpticalScalingEnabled="true"
           OpticalScalingSize="500"
           SubtitleText="MPH"

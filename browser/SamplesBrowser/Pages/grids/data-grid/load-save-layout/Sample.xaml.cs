@@ -65,7 +65,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         grid.LoadLayout(this.SavedLayout);
     }
 
-
+    
     //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridSaveLayout(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {

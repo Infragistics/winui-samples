@@ -18,7 +18,6 @@
           <igGauges:XamRadialGauge
           Name="gauge1"
           Height="250px"
-          
           MinimumValue="0"
           MaximumValue="360"
           Value="30"
@@ -65,7 +64,6 @@
           <igGauges:XamRadialGauge
           Name="gauge2"
           Height="250px"
-          
           MinimumValue="0"
           MaximumValue="360"
           Value="270"

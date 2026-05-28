@@ -12,6 +12,10 @@ namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnFilterExpressions;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Name", "Street", "City", "Country" };
+    public string[] dropDownValues1 { get; } = new string[] { "Name", "Street", "City", "Country" };
+    public string[] dropDownNames2 { get; } = new string[] { "Contains", "StartsWith", "EndsWith" };
+    public string[] dropDownValues2 { get; } = new string[] { "Contains", "StartsWith", "EndsWith" };
 
     public Sample()
     {

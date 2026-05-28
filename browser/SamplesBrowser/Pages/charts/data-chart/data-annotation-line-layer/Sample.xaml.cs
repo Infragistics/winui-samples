@@ -6,6 +6,7 @@ namespace SamplesBrowser.Pages.Charts.DataChart.DataAnnotationLineLayer;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedColumns1 { get; } = new string[] { "High", "Low", "Open", "Close" };
 
     public Sample()
     {

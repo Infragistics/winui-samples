@@ -6,6 +6,7 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.PointChartStyling;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] markerTypes1 { get; } = new string[] {  };
 
     public Sample()
     {

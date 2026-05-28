@@ -63,9 +63,7 @@
           ActivationMode="Cell"
           EditMode="Cell"
           EnterBehavior="Edit"
-          EnterBehaviorAfterEdit="MoveDown"
-          
-          >
+          EnterBehaviorAfterEdit="MoveDown">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

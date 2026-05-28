@@ -12,6 +12,11 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" };
+    public string[] dropDownValues1 { get; } = new string[] { "0", "10", "20", "30", "40", "50", "60", "70", "80", "90", "100" };
+    public string[] dropDownNames2 { get; } = new string[] { "100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200" };
+    public string[] dropDownValues2 { get; } = new string[] { "100", "110", "120", "130", "140", "150", "160", "170", "180", "190", "200" };
+    public string[] includedProperties1 { get; } = new string[] { "Year", "Europe", "China", "America" };
 
     public Sample()
     {

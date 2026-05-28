@@ -51,9 +51,7 @@
           AutoGenerateColumns="false"
           DefaultColumnMinWidth="100"
           IsColumnOptionsEnabled="true"
-          HeaderClickAction="SortByMultipleColumnsTriState"
-          
-          >
+          HeaderClickAction="SortByMultipleColumnsTriState">
               <igDataGrids:XamDataGrid.SortDescriptions>
                   <igDataGrids:ColumnSortDescription
                   Field="Property"

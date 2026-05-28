@@ -28,9 +28,7 @@
           AutoGenerateColumns="false"
           DefaultColumnMinWidth="100"
           IsColumnOptionsEnabled="true"
-          FilterUIType="FilterRow"
-          
-          >
+          FilterUIType="FilterRow">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Country"

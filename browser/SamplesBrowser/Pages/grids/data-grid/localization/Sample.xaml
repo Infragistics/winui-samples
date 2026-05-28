@@ -31,9 +31,7 @@
           IsGroupCollapsable="true"
           ActivationMode="Cell"
           SummaryScope="Root"
-          SelectionMode="SingleRow"
-          
-          >
+          SelectionMode="SingleRow">
               <igDataGrids:XamDataGrid.GroupDescriptions>
                   <igDataGrids:ColumnGroupDescription
                   Field="Country"

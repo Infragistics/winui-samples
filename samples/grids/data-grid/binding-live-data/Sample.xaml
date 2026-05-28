@@ -75,9 +75,7 @@
           HeaderClickAction="SortByMultipleColumnsTriState"
           ActivationMode="Cell"
           DefaultColumnMinWidth="100"
-          IsRowHoverEnabled="false"
-          Height="100%"
-          Width="100%">
+          IsRowHoverEnabled="false">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="ID"

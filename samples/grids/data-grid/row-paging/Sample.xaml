@@ -35,9 +35,7 @@
           CornerRadiusTopLeft="0"
           CornerRadiusTopRight="0"
           IsPagerVisible="true"
-          PageSize="10"
-          Height="100%"
-          Width="100%">
+          PageSize="10">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:ImageColumn
                   Field="Photo"

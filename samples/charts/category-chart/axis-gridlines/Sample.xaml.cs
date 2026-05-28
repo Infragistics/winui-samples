@@ -8,6 +8,17 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownValues1 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownNames2 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownValues2 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownNames3 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownValues3 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownNames4 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownValues4 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownNames5 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] dropDownValues5 { get; } = new string[] { "gray", "darkslategray", "salmon", "cornflowerblue", "darkgreen" };
+    public string[] includedProperties1 { get; } = new string[] { "Year", "Europe", "China", "America" };
 
     public Sample()
     {

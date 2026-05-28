@@ -6,6 +6,7 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.AreaChartSingleSource;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] includedProperties1 { get; } = new string[] { "Year", "Europe" };
 
     public Sample()
     {

@@ -51,9 +51,7 @@
           AutoGenerateColumns="false"
           ActivationMode="Cell"
           HeaderClickAction="SortByMultipleColumnsTriState"
-          MergedCellMode="Always"
-          
-          >
+          MergedCellMode="Always">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Category">

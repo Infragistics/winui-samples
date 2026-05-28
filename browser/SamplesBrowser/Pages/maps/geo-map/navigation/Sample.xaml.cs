@@ -15,6 +15,8 @@ namespace SamplesBrowser.Pages.Maps.GeoMap.Navigation;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Australia", "Caribbean", "Egypt", "European", "Hawaii", "Japan", "Poland", "SouthAfrica", "UnitedKingdom", "UnitedStates", "Uruguay" };
+    public string[] dropDownValues1 { get; } = new string[] { "Australia", "Caribbean", "Egypt", "European", "Hawaii", "Japan", "Poland", "SouthAfrica", "UnitedKingdom", "UnitedStates", "Uruguay" };
 
     public Sample()
     {

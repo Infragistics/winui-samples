@@ -5,12 +5,12 @@ using System.ComponentModel;
 using System.Windows;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using Microsoft.UI;
 using Microsoft.UI.Xaml.Shapes;
 using Infragistics.Controls.Grids;
-using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Documents;
-using Windows.UI;
 
 namespace SamplesBrowser.Pages.Grids.DataGrid.Overview;
 

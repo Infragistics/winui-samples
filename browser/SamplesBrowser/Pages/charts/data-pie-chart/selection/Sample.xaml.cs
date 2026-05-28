@@ -8,6 +8,8 @@ namespace SamplesBrowser.Pages.Charts.DataPieChart.Selection;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "PerDataItemSingleSelect", "PerDataItemMultiSelect" };
+    public string[] dropDownValues1 { get; } = new string[] { "PerDataItemSingleSelect", "PerDataItemMultiSelect" };
 
     public Sample()
     {

@@ -86,9 +86,7 @@
           ActivationMode="Cell"
           SelectionMode="SingleRow"
           SelectionBehavior="ModifierBased"
-          IsColumnOptionsEnabled="true"
-          
-          >
+          IsColumnOptionsEnabled="true">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

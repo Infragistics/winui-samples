@@ -8,6 +8,7 @@ namespace SamplesBrowser.Pages.Charts.TreeMap.Highlighting;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownValues1 { get; } = new string[] { "Brighten", "FadeOthers" };
 
     public Sample()
     {

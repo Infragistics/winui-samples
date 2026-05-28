@@ -4,6 +4,8 @@ using System.ComponentModel;
 
 using Infragistics.Portable.Description;
 using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using Microsoft.UI;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Gauges;

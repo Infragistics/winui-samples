@@ -60,9 +60,7 @@
           DefaultColumnMinWidth="100"
           IsColumnOptionsEnabled="true"
           IsRowHoverEnabled="true"
-          SelectionMode="MultipleRow"
-          
-          >
+          SelectionMode="MultipleRow">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Name">

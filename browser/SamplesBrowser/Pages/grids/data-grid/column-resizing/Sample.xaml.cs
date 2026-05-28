@@ -8,6 +8,10 @@ namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnResizing;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "Deferred", "Immediate", "None" };
+    public string[] dropDownValues1 { get; } = new string[] { "Deferred", "Immediate", "None" };
+    public string[] dropDownNames2 { get; } = new string[] { "Auto", "Interpolate", "None" };
+    public string[] dropDownValues2 { get; } = new string[] { "Auto", "Interpolate", "None" };
 
     public Sample()
     {

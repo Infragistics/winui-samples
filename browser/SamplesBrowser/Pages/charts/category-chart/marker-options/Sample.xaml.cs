@@ -12,6 +12,9 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.MarkerOptions;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownValues1 { get; } = new string[] { "Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
+    public string[] dropDownNames1 { get; } = new string[] { "Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
+    public string[] markerTypes1 { get; } = new string[] {  };
 
     public Sample()
     {

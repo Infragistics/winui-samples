@@ -50,9 +50,7 @@
           ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
           IsGroupCollapsable="true"
-          GroupHeaderDisplayMode="Combined"
-          
-          >
+          GroupHeaderDisplayMode="Combined">
               <igDataGrids:XamDataGrid.GroupDescriptions>
                   <igDataGrids:ColumnGroupDescription
                   Field="Country"

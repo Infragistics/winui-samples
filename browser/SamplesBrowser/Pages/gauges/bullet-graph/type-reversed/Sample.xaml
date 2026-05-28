@@ -18,7 +18,6 @@
           <igGauges:XamBulletGraph
           Name="graph1"
           Height="120px"
-          
           Orientation="Horizontal"
           BackingBrush="#00000000"
           BackingOutline="#00000000"
@@ -85,7 +84,6 @@
           <igGauges:XamBulletGraph
           Name="graph2"
           Height="120px"
-          
           Orientation="Horizontal"
           BackingBrush="#00000000"
           BackingOutline="#00000000"

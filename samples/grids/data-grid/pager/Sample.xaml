@@ -27,9 +27,7 @@
           ItemsSource="{Binding ProductOrders}"
           AutoGenerateColumns="false"
           IsPagerVisible="true"
-          PageSize="20"
-          Height="100%"
-          Width="100%">
+          PageSize="20">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="ProductID"

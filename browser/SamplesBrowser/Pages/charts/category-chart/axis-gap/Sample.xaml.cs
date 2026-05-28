@@ -8,6 +8,9 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.AxisGap;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] dropDownNames1 { get; } = new string[] { "1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0" };
+    public string[] dropDownValues1 { get; } = new string[] { "1.5", "1.3", "1.0", "0.6", "0.5", "0.4", "0.3", "0.2", "0.1", "0" };
+    public string[] includedProperties1 { get; } = new string[] { "Year", "Europe", "China", "America" };
 
     public Sample()
     {

@@ -24,8 +24,6 @@
                 <Grid Grid.Column="1">
           <igGauges:XamRadialGauge
           Name="gauge"
-          Height="100%"
-          Width="100%"
           ScaleStartAngle="135"
           ScaleEndAngle="45"
           ScaleBrush="dodgerblue"

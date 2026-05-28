@@ -6,6 +6,8 @@ namespace SamplesBrowser.Pages.Charts.DataChart.BarChartOverlapping;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
+    public string[] allowedPositions1 { get; } = new string[] {  };
+    public string[] allowedPositions2 { get; } = new string[] {  };
 
     public Sample()
     {

@@ -25,8 +25,6 @@
                 <Grid Grid.Column="1">
           <igMaps:XamGeographicMap
           Name="map"
-          Height="100%"
-          Width="100%"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicProportionalSymbolSeries

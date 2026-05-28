@@ -34,36 +34,36 @@
                   Outline="black"
                   Thickness="1"
                   Brush="#d10700">
-                      <igMaps:GeographicShapeSeries.ItemsSource>
+                      <igMaps:GeographicShapeSeries.ShapefileDataSource>
                           <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/world_region_asia.shp"
                           DatabaseSource="https://static.infragistics.com/xplatform/shapes/world_region_asia.dbf">
                           </ig:ShapeDataSource>
-                      </igMaps:GeographicShapeSeries.ItemsSource>
+                      </igMaps:GeographicShapeSeries.ShapefileDataSource>
                   </igMaps:GeographicShapeSeries>
                   <igMaps:GeographicShapeSeries
                   Name="EuropeShape"
                   Outline="black"
                   Thickness="1"
                   Brush="#04b530">
-                            <igMaps:GeographicShapeSeries.ItemsSource>
+                            <igMaps:GeographicShapeSeries.ShapefileDataSource>
                           <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/world_region_europe.shp"
                           DatabaseSource="https://static.infragistics.com/xplatform/shapes/world_region_europe.dbf">
                           </ig:ShapeDataSource>
-                      </igMaps:GeographicShapeSeries.ItemsSource>
+                      </igMaps:GeographicShapeSeries.ShapefileDataSource>
                   </igMaps:GeographicShapeSeries>
                   <igMaps:GeographicShapeSeries
                   Name="AmericanShape"
                   Outline="black"
                   Thickness="1"
                   Brush="#0073d1">
-                            <igMaps:GeographicShapeSeries.ItemsSource>
+                            <igMaps:GeographicShapeSeries.ShapefileDataSource>
                           <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/world_region_north_america.shp"
                           DatabaseSource="https://static.infragistics.com/xplatform/shapes/world_region_north_america.dbf">
                           </ig:ShapeDataSource>
-                      </igMaps:GeographicShapeSeries.ItemsSource>
+                      </igMaps:GeographicShapeSeries.ShapefileDataSource>
                   </igMaps:GeographicShapeSeries>
               </igMaps:XamGeographicMap.Series>
           </igMaps:XamGeographicMap>
