@@ -40,17 +40,17 @@
 	<!-- Infragistics references: using NuGet packages (version 26.1.762).
        Local file references kept commented out below for now. -->
 	<ItemGroup>
-		<PackageReference Include="Infragistics.WinUI.Core.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Charts.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.DataVisualization.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.DataGrid.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Layouts.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Inputs.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Gauges.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Dashboards.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.TreeMap.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Sparkline.Trial" Version="26.1.1000-alpha.11" />
-		<PackageReference Include="Infragistics.WinUI.Maps.Trial" Version="26.1.1000-alpha.11" />
+		<PackageReference Include="Infragistics.WinUI.Core.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Charts.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.DataVisualization.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.DataGrid.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Layouts.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Inputs.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Gauges.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Dashboards.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.TreeMap.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Sparkline.Trial" Version="26.1.1000-alpha.12" />
+		<PackageReference Include="Infragistics.WinUI.Maps.Trial" Version="26.1.1000-alpha.12" />
 	</ItemGroup>
 
 	 <!--Local dev-tools build references: kept here for quick toggle back to
