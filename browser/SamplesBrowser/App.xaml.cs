@@ -17,6 +17,7 @@ public partial class App : Application
     protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
     {
         Infragistics.Core.WinUIPlatformRegistration.Register();
+        Infragistics.SkiaSharpRenderer.Use();
         XamDataGrid.IsCanvasModeDisabled = true;
         WinUIDataChartDashboardTileFeature.Register();
         WinUIPieChartDashboardTileFeature.Register();

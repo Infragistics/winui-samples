@@ -20,6 +20,7 @@
 		<Content Remove="Assets\Images\hero-banner.svg" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="Infragistics.WinUI.SkiaSharp.Trial" Version="26.1.1000-alpha.12" />
 		<PackageReference Include="Microsoft.Data.Edm" Version="5.8.5" />
 		<PackageReference Include="Microsoft.Data.OData" Version="5.8.5" />
 		<PackageReference Include="Microsoft.OData.Core" Version="7.9.4" />
