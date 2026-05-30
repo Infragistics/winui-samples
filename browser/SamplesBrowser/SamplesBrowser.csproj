@@ -22,8 +22,13 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Data.Edm" Version="5.8.5" />
 		<PackageReference Include="Microsoft.Data.OData" Version="5.8.5" />
-		<PackageReference Include="Microsoft.OData.Core" Version="7.9.4" />
-		<PackageReference Include="Microsoft.OData.Edm" Version="7.9.4" />
+		<!-- Microsoft.OData.Core / Edm must be >= 7.10.0 because
+		     Simple.OData.Client 6.0.1's V4 adapter was compiled against the
+		     7.10.0.0 strong-name. Pinning to 7.9.4 caused
+		     ODataVirtualDataSource samples to throw ReflectionTypeLoadException
+		     when Simple.OData.Client tried to load its V4 adapter at runtime. -->
+		<PackageReference Include="Microsoft.OData.Core" Version="7.10.0" />
+		<PackageReference Include="Microsoft.OData.Edm" Version="7.10.0" />
 		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260209005" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
 		<PackageReference Include="Simple.OData.Client" Version="6.0.1" />
