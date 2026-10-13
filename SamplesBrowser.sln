@@ -1,14 +1,14 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.37216.2 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesBrowser", "SamplesBrowser.csproj", "{C737DCE8-F6D5-8699-6042-BAE3D41D2135}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SamplesBrowser", "browser\SamplesBrowser\SamplesBrowser.csproj", "{C737DCE8-F6D5-8699-6042-BAE3D41D2135}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|ARM64 = Debug|ARM64
 		Debug|x64 = Debug|x64
+		Debug|ARM64 = Debug|ARM64
 		Debug|x86 = Debug|x86
 		Release|ARM64 = Release|ARM64
 		Release|x64 = Release|x64
