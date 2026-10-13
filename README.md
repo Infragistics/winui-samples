@@ -57,3 +57,33 @@ The `browser/SamplesBrowser/` project provides a tree-navigation interface that 
 - Windows App SDK 1.5 or later
 - .NET 8
 - Windows 10 version 1809 (build 17763) or later
+## Viewing sample source
+
+Open a sample in the browser and select **Source**. File tabs show the individual
+sample's original `Sample.xaml`, `Sample.xaml.cs`, and its data/view-model/helper
+files. Source is captured before browser namespace rewriting and data deduplication.
+The viewer provides Shiki syntax highlighting, line numbers, scrolling, keyboard
+file navigation, Copy, and light/dark colors matching the application. Returning to
+**Sample** retains the live sample instance.
+
+Install the build-time dependencies once with Node.js 20 or later:
+
+```powershell
+npm.cmd ci --prefix scripts/source-viewer
+```
+
+Both the ingest script and normal builds generate the source assets. Generated HTML
+lives under `browser/SamplesBrowser/Assets/Source/` and is excluded from Git; the
+build packages it as application content. The generator refreshes only changed
+samples. A standalone regeneration and its tests can be run with:
+
+```powershell
+node scripts/source-viewer/generate-source.mjs
+npm.cmd test --prefix scripts/source-viewer
+```
+
+Each source document contains its own highlighting, CSS and viewer script, so source
+viewing works offline and does not load Shiki or a CDN at runtime. The WebView is
+created only when Source is opened. Keep the generator, viewer template, tests and
+`SampleHostPage` files synchronized between `uno-samples` and `winui-samples`.
+Shiki is MIT licensed; its notice is in `scripts/source-viewer/LICENSE-shiki.txt`.

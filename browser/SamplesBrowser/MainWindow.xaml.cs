@@ -212,7 +212,7 @@ public sealed partial class MainWindow : Window
                 SetHeader(GetSampleTitle(route));
                 HomePanel.Visibility    = Visibility.Collapsed;
                 ContentFrame.Visibility = Visibility.Visible;
-                ContentFrame.Navigate(typeof(Pages.SampleHostPage), factory);
+                ContentFrame.Navigate(typeof(Pages.SampleHostPage), new Pages.SampleHostParameter { Route = route, Factory = factory });
             }
         }
     }
@@ -232,7 +232,7 @@ public sealed partial class MainWindow : Window
         if (SampleRegistry.Samples.TryGetValue(route, out var factory))
         {
             SetHeader(GetSampleTitle(route));
-            ContentFrame.Navigate(typeof(Pages.SampleHostPage), factory);
+            ContentFrame.Navigate(typeof(Pages.SampleHostPage), new Pages.SampleHostParameter { Route = route, Factory = factory });
         }
     }
 

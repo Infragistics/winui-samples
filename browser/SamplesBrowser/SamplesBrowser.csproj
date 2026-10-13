@@ -225,4 +225,15 @@
 	</ItemGroup>
 	<!-- Sample Page/Compile items are picked up by the SDK's implicit globs;
        ingest-samples.ps1 copies files into Pages/ and the SDK handles the rest. -->
+  <ItemGroup>
+    <Content Remove="Assets\Source\**\*.*" />
+    <Content Include="Assets\Source\**\*.html" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <Target Name="GenerateSampleSource" BeforeTargets="PrepareForBuild" Condition="'$(DesignTimeBuild)' != 'true'">
+    <Exec Command="node &quot;$(MSBuildProjectDirectory)\..\..\scripts\source-viewer\generate-source.mjs&quot;" />
+    <ItemGroup>
+      <Content Remove="Assets\Source\**\*.html" />
+      <Content Include="Assets\Source\**\*.html" CopyToOutputDirectory="PreserveNewest" />
+    </ItemGroup>
+  </Target>
 </Project>
