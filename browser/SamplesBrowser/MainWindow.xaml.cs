@@ -28,6 +28,7 @@ internal sealed class HomeComponentCardItem
 public sealed partial class MainWindow : Window
 {
     private readonly TocService _tocService = new();
+    private bool _initialized;
     private readonly Dictionary<NavigationViewItem, string> _sampleRoutes = new();
     private readonly Dictionary<NavigationViewItem, Services.TocGroup> _groupItems = new();
 
@@ -68,12 +69,23 @@ public sealed partial class MainWindow : Window
 
     private async void NavView_Loaded(object sender, RoutedEventArgs e)
     {
-        await _tocService.LoadAsync();
-        BuildNavigation();
-        ShowHome();
+        if (_initialized) return;
+        _initialized = true;
+        NavView.IsEnabled = false;
+        try
+        {
+            await System.Threading.Tasks.Task.WhenAll(
+                _tocService.LoadAsync(), ComponentAssemblyPreloader.Ready);
+            BuildNavigation();
+            ShowHome();
+        }
+        finally
+        {
+            StartupProgress.IsActive = false;
+            StartupOverlay.Visibility = Visibility.Collapsed;
+            NavView.IsEnabled = true;
+        }
     }
-
-
 
     private void BuildNavigation()
     {

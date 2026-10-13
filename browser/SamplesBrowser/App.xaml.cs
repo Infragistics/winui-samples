@@ -24,6 +24,7 @@ public partial class App : Application
         WinUIRadialGaugeDashboardTileFeature.Register();
         WinUILinearGaugeDashboardTileFeature.Register();
         WinUIGeographicMapDashboardTileFeature.Register();
+        Services.ComponentAssemblyPreloader.Start();
 
         _window = new MainWindow();
         _window.Activate();
