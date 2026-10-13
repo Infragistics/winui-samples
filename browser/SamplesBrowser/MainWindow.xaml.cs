@@ -209,7 +209,6 @@ public sealed partial class MainWindow : Window
             if (item.Tag is string route &&
                 SampleRegistry.Samples.TryGetValue(route, out var factory))
             {
-                SetHeader(GetSampleTitle(route));
                 HomePanel.Visibility    = Visibility.Collapsed;
                 ContentFrame.Visibility = Visibility.Visible;
                 ContentFrame.Navigate(typeof(Pages.SampleHostPage), new Pages.SampleHostParameter { Route = route, Factory = factory });
@@ -223,6 +222,11 @@ public sealed partial class MainWindow : Window
             ? NavigationViewBackButtonVisible.Visible
             : NavigationViewBackButtonVisible.Collapsed;
 
+        if (e.Content is Pages.SampleHostPage sample && e.Parameter is Pages.SampleHostParameter parameter)
+            SetHeader(sample, parameter.Route);
+        else
+            NavView.Header = null;
+
         if (e.Content is Pages.ComponentPage cp)
             cp.SampleSelected += OnComponentPageSampleSelected;
     }
@@ -231,18 +235,14 @@ public sealed partial class MainWindow : Window
     {
         if (SampleRegistry.Samples.TryGetValue(route, out var factory))
         {
-            SetHeader(GetSampleTitle(route));
             ContentFrame.Navigate(typeof(Pages.SampleHostPage), new Pages.SampleHostParameter { Route = route, Factory = factory });
         }
     }
 
-    private void SetHeader(string title)
+    private void SetHeader(Pages.SampleHostPage sample, string route)
     {
-        NavView.Header = new TextBlock
-        {
-            Text  = title,
-            Style = (Style)Application.Current.Resources["NavHeaderTextStyle"],
-        };
+        NavView.Header = sample.CreateHeader(GetSampleTitle(route),
+            (Style)Application.Current.Resources["NavHeaderTextStyle"]);
     }
 
     private string GetSampleTitle(string route)

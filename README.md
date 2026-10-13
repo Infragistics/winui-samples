@@ -60,12 +60,12 @@ The `browser/SamplesBrowser/` project provides a tree-navigation interface that 
 - Windows 10 version 1809 (build 17763) or later
 ## Viewing sample source
 
-Open a sample in the browser and select **Source**. File tabs show the individual
+Open a sample and turn on the **Source** toggle at the right of its title.
+Turn it off to return to the live sample. File tabs show the individual
 sample's original `Sample.xaml`, `Sample.xaml.cs`, and its data/view-model/helper
 files. Source is captured from the standalone samples before browser namespace rewriting and data deduplication.
 The viewer provides Shiki syntax highlighting, line numbers, scrolling, keyboard
-file navigation, Copy, and light/dark colors matching the application. Returning to
-**Sample** retains the live sample instance.
+file navigation, Copy, and light/dark colors matching the application. Returning to the live sample retains its instance.
 
 Open `SamplesBrowser.sln` at the repository root, build, and run. Source capture runs
 automatically using the .NET SDK already required by the sample browser. No Node.js,
