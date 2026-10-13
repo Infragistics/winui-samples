@@ -76,6 +76,7 @@ public sealed partial class MainWindow : Window
         {
             await System.Threading.Tasks.Task.WhenAll(
                 _tocService.LoadAsync(), ComponentAssemblyPreloader.Ready);
+            await ComponentControlWarmup.RunAsync(WarmupHost);
             BuildNavigation();
             ShowHome();
         }
