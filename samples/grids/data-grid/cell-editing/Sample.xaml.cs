@@ -9,6 +9,7 @@ using Infragistics.Controls.Grids;
 using Infragistics.Controls.DataSource;
 using Infragistics.Core.Controls.DataSource.Transactions;
 using Microsoft.UI.Xaml.Controls;
+using Infragistics.Controls;
 
 namespace Sample;
 

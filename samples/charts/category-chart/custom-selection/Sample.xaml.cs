@@ -4,6 +4,7 @@ using System.ComponentModel;
 
 using Infragistics.Controls.Charts;
 using System.Collections;
+using Infragistics.Controls;
 
 namespace Sample;
 

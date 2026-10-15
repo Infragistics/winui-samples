@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.UI.Xaml;
+using Infragistics.Controls;
 
 namespace Sample;
 

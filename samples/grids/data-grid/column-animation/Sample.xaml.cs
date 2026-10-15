@@ -8,6 +8,7 @@ using Infragistics.Controls.Grids;
 using Infragistics.Controls.Layouts;
 using System;
 using System.Collections.Generic;
+using Infragistics.Controls;
 
 namespace Sample;
 

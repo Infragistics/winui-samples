@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Controls.Charts;
+using Infragistics.Controls;
 
 namespace Sample;
 

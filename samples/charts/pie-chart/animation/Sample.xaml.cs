@@ -8,6 +8,7 @@ using Infragistics.Controls.Charts;
 using Infragistics.Controls.Layouts;
 using System;
 using Microsoft.UI.Xaml;
+using Infragistics.Controls;
 
 namespace Sample;
 

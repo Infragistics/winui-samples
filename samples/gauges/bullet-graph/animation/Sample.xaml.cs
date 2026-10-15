@@ -9,6 +9,7 @@ using Windows.UI;
 using Microsoft.UI;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Gauges;
+using Infragistics.Controls;
 
 namespace Sample;
 

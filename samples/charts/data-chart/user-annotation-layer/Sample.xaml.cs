@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Markup;
+using Infragistics.Controls;
 
 namespace Sample;
 

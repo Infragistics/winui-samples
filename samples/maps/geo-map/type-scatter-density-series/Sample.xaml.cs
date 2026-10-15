@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
 namespace Sample;
 

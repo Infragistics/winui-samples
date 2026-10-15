@@ -8,6 +8,8 @@ using Infragistics.Controls.Maps;
 using System;
 using Infragistics.Controls.Layouts;
 using System.Collections.Generic;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
 namespace Sample;
 

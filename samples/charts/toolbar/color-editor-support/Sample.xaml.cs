@@ -7,6 +7,7 @@ using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Markup;
+using Infragistics.Controls;
 
 namespace Sample;
 

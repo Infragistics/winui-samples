@@ -1,3 +1,6 @@
+using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using Microsoft.UI;
 //begin data
     using System;
     using System.Collections.Generic;

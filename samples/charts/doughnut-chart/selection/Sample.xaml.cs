@@ -7,6 +7,7 @@ using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
 using System.Collections;
+using Infragistics.Controls;
 
 namespace Sample;
 

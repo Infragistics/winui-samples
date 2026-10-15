@@ -5,6 +5,7 @@ using System.ComponentModel;
 using Infragistics.Controls;
 using Infragistics.Controls.Layouts;
 using Infragistics.Core.Controls;
+using Infragistics.Controls.Charts;
 
 namespace Sample;
 

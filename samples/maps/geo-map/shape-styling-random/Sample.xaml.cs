@@ -7,6 +7,10 @@ using Infragistics.Controls.Maps;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Microsoft.UI.Xaml.Media;
+using Windows.UI;
+using Microsoft.UI;
 
 namespace Sample;
 

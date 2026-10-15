@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Shapes;
 using Infragistics.Controls.Grids;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Documents;
+using Infragistics.Controls;
 
 namespace Sample;
 

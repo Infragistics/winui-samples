@@ -4,6 +4,8 @@ using System.ComponentModel;
 
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
 namespace Sample;
 
