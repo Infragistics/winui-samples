@@ -185,10 +185,14 @@ foreach ($s in $sampleList) {
     New-Item -ItemType Directory -Path $destDir -Force | Out-Null
 
     # ---- Sample.xaml ----
-    $xamlContent = Get-Content $s.XamlFile -Raw
+    $xamlContent = Get-Content $s.XamlFile -Raw -Encoding UTF8
 
     # Replace x:Class="WinUIApp.Sample" with the browser namespace
     $xamlContent = $xamlContent -replace 'x:Class="[^"]*"', "x:Class=`"$($s.Namespace).Sample`""
+
+    # Code-behind types (converters etc.) move to the page namespace along with the class,
+    # so the sample's local: xmlns has to follow them.
+    $xamlContent = $xamlContent -replace 'xmlns:local="using:[^"]*"', "xmlns:local=`"using:$($s.Namespace)`""
 
     # Normalise trailing whitespace: ensure exactly one newline at end of file
     $xamlContent = $xamlContent.TrimEnd() + "`n"
@@ -198,7 +202,7 @@ foreach ($s in $sampleList) {
     $copiedItems.Add($destXaml)
 
     # ---- Sample.xaml.cs ----
-    $csContent = Get-Content $s.CsFile -Raw
+    $csContent = Get-Content $s.CsFile -Raw -Encoding UTF8
 
     # Replace namespace declaration
     $csContent = $csContent -replace 'namespace\s+\S+\s*;', "namespace $($s.Namespace);"
@@ -225,7 +229,7 @@ foreach ($s in $sampleList) {
         if ($copiedServicesByName.ContainsKey($name)) { return }
 
         $destData = Join-Path $servicesDir $name
-        $dataContent = Get-Content $_.FullName -Raw
+        $dataContent = Get-Content $_.FullName -Raw -Encoding UTF8
         $dataContent = $dataContent.TrimEnd() + "`n"
         Set-Content -Path $destData -Value $dataContent -NoNewline -Encoding UTF8
         $copiedServicesByName[$name] = $true
