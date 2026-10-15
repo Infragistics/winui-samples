@@ -69,7 +69,7 @@ public static class SmokeRunner
                 var finished = await Task.WhenAny(loaded.Task, Task.Delay(10000));
                 if (finished != loaded.Task) _log.WriteLine($"NOLOAD\t{route}");
                 await Task.Delay(settleMs);
-                if (!string.IsNullOrEmpty(shots)) await CaptureAsync(host, Path.Combine(shots, route.Replace('/', '__') + ".png"));
+                if (!string.IsNullOrEmpty(shots)) await CaptureAsync(host, Path.Combine(shots, route.Replace("/", "__") + ".png"));
                 _log.WriteLine($"OK\t{route}\t{(DateTime.UtcNow - started).TotalMilliseconds:F0}ms");
             }
             catch (Exception ex)
