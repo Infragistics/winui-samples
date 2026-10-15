@@ -208,6 +208,20 @@ foreach ($s in $sampleList) {
     $csContent = $csContent -replace 'namespace\s+\S+\s*;', "namespace $($s.Namespace);"
     $csContent = $csContent -replace 'namespace\s+\S+\s*\{', "namespace $($s.Namespace) {"
 
+    # Sibling sample routes become namespaces (e.g. maps/geo-map/marker-type ->
+    # ...GeoMap.MarkerType) that would shadow product types of the same name. Usings declared
+    # inside the file-scoped namespace take precedence over those, so move them below it.
+    $nsLine = "namespace $($s.Namespace);"
+    if ($csContent.Contains($nsLine)) {
+        $usingPattern = '(?m)^using\s+[\w.=\s]+;[ \t]*\r?\n'
+        $usings = ([regex]::Matches($csContent.Substring(0, $csContent.IndexOf($nsLine)), $usingPattern) | ForEach-Object { $_.Value.TrimEnd() }) -join "`n"
+        if ($usings) {
+            $head = [regex]::Replace($csContent.Substring(0, $csContent.IndexOf($nsLine)), $usingPattern, '')
+            $tail = $csContent.Substring($csContent.IndexOf($nsLine) + $nsLine.Length)
+            $csContent = $head.TrimStart() + $nsLine + "`n`n" + $usings + "`n" + $tail
+        }
+    }
+
     # Normalise trailing whitespace: ensure exactly one newline at end of file
     $csContent = $csContent.TrimEnd() + "`n"
 
