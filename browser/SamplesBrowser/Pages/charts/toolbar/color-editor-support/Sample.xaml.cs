@@ -1,14 +1,15 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.Toolbar.ColorEditorSupport;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Markup;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Charts.Toolbar.ColorEditorSupport;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

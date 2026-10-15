@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.BindingRemoteData;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Grids;
 
-
-namespace SamplesBrowser.Pages.Grids.DataGrid.BindingRemoteData;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

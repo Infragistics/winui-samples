@@ -1,10 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnFilterOperands;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Controls.Grids;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnFilterOperands;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

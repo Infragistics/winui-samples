@@ -1,14 +1,14 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.RowPinning;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using System;
 using System.Collections;
 using System.Threading;
 using Infragistics.Controls;
 using Infragistics.Controls.Grids;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.RowPinning;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

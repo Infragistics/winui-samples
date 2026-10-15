@@ -1,7 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Maps.GeoMap.BindingDataJsonPoints;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Controls.Charts;
 using Infragistics.Controls.Maps;
 using Newtonsoft.Json.Linq;
@@ -12,8 +13,8 @@ using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Maps.GeoMap.BindingDataJsonPoints;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

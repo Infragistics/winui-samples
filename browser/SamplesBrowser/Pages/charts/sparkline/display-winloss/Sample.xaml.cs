@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.Sparkline.DisplayWinloss;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
-
-namespace SamplesBrowser.Pages.Charts.Sparkline.DisplayWinloss;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1552,11 +1552,6 @@
                                                                   "showLink":  true
                                                               },
                                                               {
-                                                                  "name":  "Binding Shp File",
-                                                                  "route":  "maps/geo-map/binding-shp-file",
-                                                                  "showLink":  true
-                                                              },
-                                                              {
                                                                   "name":  "Binding Shp Points",
                                                                   "route":  "maps/geo-map/binding-shp-points",
                                                                   "showLink":  true

@@ -1,7 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.CellEditing;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
@@ -9,8 +10,8 @@ using Infragistics.Controls.Grids;
 using Infragistics.Controls.DataSource;
 using Infragistics.Core.Controls.DataSource.Transactions;
 using Microsoft.UI.Xaml.Controls;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.CellEditing;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1,9 +1,13 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.Toolbar.ActionsBuiltInCategoryChart;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
+using Infragistics.Controls.Grids;
+using Infragistics.Controls.Layouts;
 
-
-namespace SamplesBrowser.Pages.Charts.Toolbar.ActionsBuiltInCategoryChart;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

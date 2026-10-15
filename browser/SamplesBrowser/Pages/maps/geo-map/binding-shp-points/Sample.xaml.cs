@@ -1,9 +1,12 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Maps.GeoMap.BindingShpPoints;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
+using Infragistics.Controls.Maps;
 
-
-namespace SamplesBrowser.Pages.Maps.GeoMap.BindingShpPoints;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1,12 +1,13 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.Toolbar.LayoutActionsForDataChart;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Charts.Toolbar.LayoutActionsForDataChart;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

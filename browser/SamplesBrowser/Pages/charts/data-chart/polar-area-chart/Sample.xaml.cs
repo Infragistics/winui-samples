@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.DataChart.PolarAreaChart;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
-
-namespace SamplesBrowser.Pages.Charts.DataChart.PolarAreaChart;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

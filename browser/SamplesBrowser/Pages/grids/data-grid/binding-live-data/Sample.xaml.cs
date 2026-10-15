@@ -1,7 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.BindingLiveData;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using System;
@@ -15,8 +16,8 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.BindingLiveData;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
@@ -247,9 +248,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var grid = this.grid;
         if (grid == null) return;
     
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
     }
     
     

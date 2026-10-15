@@ -303,7 +303,6 @@ public static class SampleRegistry
         { "maps/geo-map/binding-data-model", () => new Pages.Maps.GeoMap.BindingDataModel.Sample() },
         { "maps/geo-map/binding-multiple-shapes", () => new Pages.Maps.GeoMap.BindingMultipleShapes.Sample() },
         { "maps/geo-map/binding-multiple-sources", () => new Pages.Maps.GeoMap.BindingMultipleSources.Sample() },
-        { "maps/geo-map/binding-shp-file", () => new Pages.Maps.GeoMap.BindingShpFile.Sample() },
         { "maps/geo-map/binding-shp-points", () => new Pages.Maps.GeoMap.BindingShpPoints.Sample() },
         { "maps/geo-map/binding-shp-polygons", () => new Pages.Maps.GeoMap.BindingShpPolygons.Sample() },
         { "maps/geo-map/binding-shp-polylines", () => new Pages.Maps.GeoMap.BindingShpPolylines.Sample() },

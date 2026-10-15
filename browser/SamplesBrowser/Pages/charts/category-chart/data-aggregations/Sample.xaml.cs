@@ -1,7 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.CategoryChart.DataAggregations;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls;
@@ -9,7 +10,6 @@ using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
 using System;
 
-namespace SamplesBrowser.Pages.Charts.CategoryChart.DataAggregations;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

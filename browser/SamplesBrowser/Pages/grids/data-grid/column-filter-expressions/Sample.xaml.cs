@@ -1,16 +1,19 @@
-﻿using Microsoft.UI.Xaml;
+﻿#if !TESTING
+#endif
+
+namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnFilterExpressions;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
-#if !TESTING
 using Infragistics.Controls.DataSource;
-#endif
+using Infragistics.Core.Controls.DataSource;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnFilterExpressions;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

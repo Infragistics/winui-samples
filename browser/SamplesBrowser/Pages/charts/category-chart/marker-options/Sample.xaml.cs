@@ -1,14 +1,15 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.CategoryChart.MarkerOptions;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
 using System;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Charts.CategoryChart.MarkerOptions;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.DashboardTile.FinancialDashboard;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Dashboards;
 
-
-namespace SamplesBrowser.Pages.Charts.DashboardTile.FinancialDashboard;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1,15 +1,16 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnAnimation;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Grids;
 using Infragistics.Controls.Layouts;
 using System;
 using System.Collections.Generic;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnAnimation;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1,11 +1,13 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.TreeMap.HighlightingPercentBased;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
-namespace SamplesBrowser.Pages.Charts.TreeMap.HighlightingPercentBased;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

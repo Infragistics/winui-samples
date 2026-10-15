@@ -1,13 +1,14 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.RowSelection;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.RowSelection;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

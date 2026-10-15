@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnOptions;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Grids;
 
-
-namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnOptions;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

@@ -1,7 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Gauges.RadialGauge.Animation;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Microsoft.UI.Xaml.Media;
@@ -9,8 +10,8 @@ using Windows.UI;
 using Microsoft.UI;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Gauges;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Gauges.RadialGauge.Animation;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
@@ -58,7 +59,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.ScaleStartAngle = 180;
         gauge.ScaleEndAngle = 270;
         gauge.ScaleBrush = new SolidColorBrush(Colors.Transparent);
-        gauge.ScaleSweepDirection = SweepDirection.Clockwise;
+        gauge.ScaleSweepDirection = Infragistics.Core.Graphics.Media.SweepDirection.Clockwise;
     
         gauge.BackingOutline = new SolidColorBrush(Colors.White);
         gauge.BackingBrush = new SolidColorBrush(Colors.White);
@@ -97,7 +98,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.ScaleStartAngle = 180;
         gauge.ScaleEndAngle = 0;
         gauge.ScaleBrush = new SolidColorBrush(Colors.Transparent);
-        gauge.ScaleSweepDirection = SweepDirection.Clockwise;
+        gauge.ScaleSweepDirection = Infragistics.Core.Graphics.Media.SweepDirection.Clockwise;
     
         gauge.BackingOutline = new SolidColorBrush(Colors.White);
         gauge.BackingBrush = new SolidColorBrush(Colors.White);
@@ -142,7 +143,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.ScaleEndAngle = 45;
         gauge.ScaleBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0x0B, 0x8F, 0xED));
         gauge.ScaleOversweepShape = RadialGaugeScaleOversweepShape.Auto;
-        gauge.ScaleSweepDirection = SweepDirection.Clockwise;
+        gauge.ScaleSweepDirection = Infragistics.Core.Graphics.Media.SweepDirection.Clockwise;
         gauge.ScaleEndExtent = 0.825;
         gauge.ScaleStartExtent = 0.775;
     
@@ -218,7 +219,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.ScaleEndAngle = 60;
         gauge.ScaleBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xD6, 0xD6, 0xD6));
         gauge.ScaleOversweepShape = RadialGaugeScaleOversweepShape.Fitted;
-        gauge.ScaleSweepDirection = SweepDirection.Clockwise;
+        gauge.ScaleSweepDirection = Infragistics.Core.Graphics.Media.SweepDirection.Clockwise;
         gauge.ScaleEndExtent = 0.57;
         gauge.ScaleStartExtent = 0.5;
     

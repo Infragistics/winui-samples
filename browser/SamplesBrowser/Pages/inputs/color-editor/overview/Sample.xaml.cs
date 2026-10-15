@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Inputs.ColorEditor.Overview;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Inputs;
 
-
-namespace SamplesBrowser.Pages.Inputs.ColorEditor.Overview;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

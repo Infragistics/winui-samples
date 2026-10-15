@@ -1,7 +1,8 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Grids.DataGrid.Performance;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using System;
@@ -13,8 +14,8 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Grids.DataGrid.Performance;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

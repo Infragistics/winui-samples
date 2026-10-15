@@ -1,11 +1,14 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.CategoryChart.FormatSpecifiers;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
+using Infragistics.Controls.Layouts;
 
-namespace SamplesBrowser.Pages.Charts.CategoryChart.FormatSpecifiers;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
@@ -19,8 +22,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 var numberFormatSpecifier1 = new FormatSpecifierCollection();
                 var numberFormatSpecifier2 = new NumberFormatSpecifier();
                 numberFormatSpecifier2.Style = "currency";
-                numberFormatSpecifier2.Currency = "USD";
-                numberFormatSpecifier2.CurrencyDisplay = "symbol";
                 numberFormatSpecifier2.MaximumFractionDigits = 2;
                 numberFormatSpecifier2.MinimumFractionDigits = 2;
                 
@@ -40,8 +41,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 var numberFormatSpecifier3 = new FormatSpecifierCollection();
                 var numberFormatSpecifier4 = new NumberFormatSpecifier();
                 numberFormatSpecifier4.Style = "currency";
-                numberFormatSpecifier4.Currency = "USD";
-                numberFormatSpecifier4.CurrencyDisplay = "symbol";
                 numberFormatSpecifier4.MaximumFractionDigits = 2;
                 numberFormatSpecifier4.MinimumFractionDigits = 2;
                 
@@ -61,8 +60,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 var numberFormatSpecifier5 = new FormatSpecifierCollection();
                 var numberFormatSpecifier6 = new NumberFormatSpecifier();
                 numberFormatSpecifier6.Style = "currency";
-                numberFormatSpecifier6.Currency = "USD";
-                numberFormatSpecifier6.CurrencyDisplay = "symbol";
                 numberFormatSpecifier6.MinimumFractionDigits = 0;
                 
                 numberFormatSpecifier5.Add(numberFormatSpecifier6);

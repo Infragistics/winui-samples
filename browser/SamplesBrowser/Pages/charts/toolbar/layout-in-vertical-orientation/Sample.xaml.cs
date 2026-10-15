@@ -1,9 +1,12 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.Toolbar.LayoutInVerticalOrientation;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
+using Infragistics.Controls.Layouts;
 
-
-namespace SamplesBrowser.Pages.Charts.Toolbar.LayoutInVerticalOrientation;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

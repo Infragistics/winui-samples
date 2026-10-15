@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Gauges.LinearGauge.Ranges;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Gauges;
 
-
-namespace SamplesBrowser.Pages.Gauges.LinearGauge.Ranges;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

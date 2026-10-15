@@ -1,15 +1,17 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Maps.GeoMap.Navigation;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Maps;
 using System;
 using Infragistics.Controls.Layouts;
 using System.Collections.Generic;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
 
-namespace SamplesBrowser.Pages.Maps.GeoMap.Navigation;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

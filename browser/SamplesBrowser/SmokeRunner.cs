@@ -42,8 +42,9 @@ public static class SmokeRunner
         var window = new Window { Title = "Samples smoke" };
         var host = new Grid { Width = 1200, Height = 800 };
         window.Content = host;
-        window.Activate();
-        window.AppWindow.Resize(new Windows.Graphics.SizeInt32(1260, 880));
+        // Off-screen and never activated, so the run does not take focus from the desktop.
+        window.AppWindow.MoveAndResize(new Windows.Graphics.RectInt32(-6000, 0, 1260, 880));
+        window.AppWindow.Show(false);
         _ = RunAsync(window, host, shots, filter, settleMs);
         return true;
     }

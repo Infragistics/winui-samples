@@ -1,11 +1,12 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.CategoryChart.CustomSelection;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Controls.Charts;
 using System.Collections;
+using Infragistics.Controls;
 
-namespace SamplesBrowser.Pages.Charts.CategoryChart.CustomSelection;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

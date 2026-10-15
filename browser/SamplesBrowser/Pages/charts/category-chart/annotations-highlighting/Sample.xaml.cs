@@ -1,11 +1,14 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Charts.CategoryChart.AnnotationsHighlighting;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
+using Infragistics.Controls;
+using Infragistics.Controls.Charts;
+using Infragistics.Controls.Layouts;
 
-namespace SamplesBrowser.Pages.Charts.CategoryChart.AnnotationsHighlighting;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {

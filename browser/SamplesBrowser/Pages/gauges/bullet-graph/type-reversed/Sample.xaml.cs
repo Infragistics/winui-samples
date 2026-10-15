@@ -1,9 +1,11 @@
-﻿using Microsoft.UI.Xaml;
+﻿namespace SamplesBrowser.Pages.Gauges.BulletGraph.TypeReversed;
+
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
+using Infragistics.Controls;
+using Infragistics.Controls.Gauges;
 
-
-namespace SamplesBrowser.Pages.Gauges.BulletGraph.TypeReversed;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
