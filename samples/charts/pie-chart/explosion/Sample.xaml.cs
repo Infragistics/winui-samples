@@ -8,7 +8,7 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
-    public IndexCollection explodedSlices1 { get; } = new IndexCollection { Int32.1, Int32.2 };
+    public IndexCollection explodedSlices1 { get; } = new IndexCollection { 1, 2 };
 
     public Sample()
     {
