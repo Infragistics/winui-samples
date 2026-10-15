@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,20 +30,20 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericAngleAxis
-                  Name="angleAxis"
+                  x:Name="angleAxis"
                   StartAngleOffset="-90"
                   Interval="30"
                   MinimumValue="0"
                   MaximumValue="360">
                   </igCharts:NumericAngleAxis>
                   <igCharts:NumericRadiusAxis
-                  Name="radiusAxis"
+                  x:Name="radiusAxis"
                   RadiusExtentScale="0.9"
                   InnerRadiusExtentScale="0.1"
                   Interval="25"
@@ -53,7 +53,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:PolarAreaSeries
-                  Name="PolarAreaSeries1"
+                  x:Name="PolarAreaSeries1"
                   ItemsSource="{Binding BoatSailingData}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   RadiusAxis="{Binding ElementName=radiusAxis}"
@@ -66,7 +66,7 @@
                   MarkerType="Circle">
                   </igCharts:PolarAreaSeries>
                   <igCharts:PolarAreaSeries
-                  Name="PolarAreaSeries2"
+                  x:Name="PolarAreaSeries2"
                   ItemsSource="{Binding BoatSailingData}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   RadiusAxis="{Binding ElementName=radiusAxis}"
@@ -79,7 +79,7 @@
                   MarkerType="Circle">
                   </igCharts:PolarAreaSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

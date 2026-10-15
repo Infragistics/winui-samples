@@ -4,13 +4,11 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
+using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Maps;
 using System;
-using Infragistics.Controls.Layouts;
+using Infragistics.Controls.Description;
 using System.Collections.Generic;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -27,11 +25,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.MapNavigationOnViewInit();
         };
     }
-
 
     private ComponentRenderer _componentRenderer = null;
     public ComponentRenderer Renderer
@@ -56,8 +52,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var region = new Infragistics.Controls.IGRect(-134.5, 16.0, 70.0, 37.0);
         map.ZoomToGeographic(region);
     }
-    
-    
+
     public Dictionary<string, Infragistics.Controls.IGRect> MapRegions = new Dictionary<string, Infragistics.Controls.IGRect>
     {
         { "Australia", new Infragistics.Controls.IGRect(81.5, -52.0, 98.0, 56.0) },
@@ -72,7 +67,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         { "UnitedStates", new Infragistics.Controls.IGRect(-134.5, 16.0, 70.0, 37.0) },
         { "Uruguay", new Infragistics.Controls.IGRect(-62.1, -35.7, 10.6, 7.0) }
     };
-    
+
     public void EditorChangeMapRegion(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var map = this.map;
@@ -84,7 +79,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

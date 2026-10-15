@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamRadialGauge
-          Name="gauge"
+          x:Name="gauge"
           ScaleStartAngle="135"
           ScaleEndAngle="45"
           ScaleBrush="#dddddd"

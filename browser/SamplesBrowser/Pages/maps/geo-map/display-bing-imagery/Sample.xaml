@@ -18,10 +18,11 @@
       <StackPanel>
         <Grid>
           <igMaps:XamGeographicMap
-          Name="aerialMap"
+          x:Name="aerialMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:BingMapsMapImagery
+                  x:Name="aerialImagery"
                   ApiKey="REPLACE_WITH_BING_KEY"
                   ImageryStyle="AerialWithLabels">
                   </igMaps:BingMapsMapImagery>
@@ -37,10 +38,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="roadMap"
+          x:Name="roadMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:BingMapsMapImagery
+                  x:Name="roadImagery"
                   ApiKey="REPLACE_WITH_BING_KEY"
                   ImageryStyle="Road">
                   </igMaps:BingMapsMapImagery>

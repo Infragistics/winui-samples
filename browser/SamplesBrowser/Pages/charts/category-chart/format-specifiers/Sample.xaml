@@ -18,10 +18,9 @@
       <StackPanel>
         <Grid>
           <igCharts:XamDataLegend
-          Name="legend"
+          x:Name="legend"
           Target="{Binding ElementName=chart}"
-          ValueFormatString="{}{0} Billion"
-          ValueFormatSpecifiers="{Binding numberFormatSpecifier1}">
+          ValueFormatString="{}{0} Billion">
           </igCharts:XamDataLegend>
         </Grid>
       </StackPanel>
@@ -33,16 +32,14 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding HighestGrossingMovies}"
           ChartType="Column"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false"
           FinalValueAnnotationsPrecision="2"
           DataToolTipValueFormatString="{}{0} Billion"
-          DataToolTipValueFormatSpecifiers="{Binding numberFormatSpecifier3}"
-          YAxisLabelFormat="{}{0}B"
-          YAxisLabelFormatSpecifiers="{Binding numberFormatSpecifier5}">
+          YAxisLabelFormat="{}{0}B">
           </igCharts:XamCategoryChart>
         </Grid>
       </Grid>

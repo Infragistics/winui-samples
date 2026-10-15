@@ -23,21 +23,21 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisInverted"
-                  Name="XAxisInvertedEditor"
+                  x:Name="XAxisInvertedEditor"
                   Label="X Axis - Inverted"
                   ShouldOverrideDefaultEditor="true"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisInverted"
-                  Name="YAxisInvertedEditor"
+                  x:Name="YAxisInvertedEditor"
                   Label="Y Axis - Inverted"
                   ShouldOverrideDefaultEditor="true"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -51,7 +51,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Line"
           ComputedPlotAreaMarginMode="Series"
           IsHorizontalZoomEnabled="false"

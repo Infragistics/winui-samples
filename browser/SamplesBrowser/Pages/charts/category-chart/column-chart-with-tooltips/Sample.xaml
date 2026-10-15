@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ToolTipType"
-                  Name="ToolTipTypeEditor"
+                  x:Name="ToolTipTypeEditor"
                   Label="ToolTip Type: "
                   PrimitiveValue="Data">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -36,7 +36,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend">
+          x:Name="legend">
           </igCharts:Legend>
         </Grid>
       </StackPanel>
@@ -48,7 +48,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Column"
           Legend="{Binding ElementName=legend}"
           ItemsSource="{Binding HighestGrossingMovies}"

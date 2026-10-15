@@ -4,9 +4,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -21,7 +18,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -32,12 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_onlineTrafficHighlightTotals == null)
             {
-                _onlineTrafficHighlightTotals = new OnlineTrafficHighlightTotals(); 
+                _onlineTrafficHighlightTotals = new OnlineTrafficHighlightTotals();
             }
             return _onlineTrafficHighlightTotals;
         }
     }
-    
+
     private OnlineTrafficHighlightDesktopOnly _onlineTrafficHighlightDesktopOnly = null;
     public OnlineTrafficHighlightDesktopOnly OnlineTrafficHighlightDesktopOnly
     {
@@ -45,7 +41,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_onlineTrafficHighlightDesktopOnly == null)
             {
-                _onlineTrafficHighlightDesktopOnly = new OnlineTrafficHighlightDesktopOnly(); 
+                _onlineTrafficHighlightDesktopOnly = new OnlineTrafficHighlightDesktopOnly();
             }
             return _onlineTrafficHighlightDesktopOnly;
         }
@@ -66,9 +62,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -23,29 +23,29 @@
           DescriptionType="Treemap"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="LayoutType"
-                  Name="LayoutTypeEditor"
+                  x:Name="LayoutTypeEditor"
                   PrimitiveValue="Squarified"
                   Label="Layout">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="LayoutOrientation"
-                  Name="LayoutOrientationEditor"
+                  x:Name="LayoutOrientationEditor"
                   PrimitiveValue="Vertical"
                   Label="Orientation">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HeaderDisplayMode"
-                  Name="HeaderDisplayModeEditor"
+                  x:Name="HeaderDisplayModeEditor"
                   PrimitiveValue="Overlay"
                   Label="Headers">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="LabelVerticalAlignment"
-                  Name="LabelVerticalAlignmentEditor"
+                  x:Name="LabelVerticalAlignmentEditor"
                   PrimitiveValue="Center"
                   Label="Labels">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -61,7 +61,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamTreemap
-          Name="treemap"
+          x:Name="treemap"
           ItemsSource="{Binding CountyHierarchicalData}"
           RootTitle="Countries"
           ParentIdMemberPath="Parent"

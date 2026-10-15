@@ -24,19 +24,19 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Label="Category"
                   Interval="1"
                   ItemsSource="{Binding CompanyIncomeData}"
                   Overlap="1">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="Millions of Dollars"
                   TitleAngle="90"
                   TitleLeftMargin="10"
@@ -46,7 +46,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:WaterfallSeries
-                  Name="WaterfallSeries1"
+                  x:Name="WaterfallSeries1"
                   Title="Value"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -56,7 +56,7 @@
                   IsTransitionInEnabled="true">
                   </igCharts:WaterfallSeries>
                   <igCharts:WaterfallSeries
-                  Name="WaterfallSeries2"
+                  x:Name="WaterfallSeries2"
                   Title="Value"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"

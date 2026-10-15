@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamTreemap
-          Name="treemap"
+          x:Name="treemap"
           ItemsSource="{Binding CountryTopUrbanPopData}"
           ParentIdMemberPath="Parent"
           IdMemberPath="Name"

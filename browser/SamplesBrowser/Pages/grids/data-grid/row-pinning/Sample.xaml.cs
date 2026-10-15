@@ -22,7 +22,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.DataGridPinSampleEmployeesOnViewInit();
         };
     }
@@ -34,15 +33,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData(); 
+                _employeesSalesData = new EmployeesSalesData();
             }
             return _employeesSalesData;
         }
     }
 
-
     private Timer _timer;
-    
+
     public void DataGridPinSampleEmployeesOnViewInit()
     {
         _timer = new Timer((state) =>
@@ -51,7 +49,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             _timer.Dispose();
         }, null, 100, Timeout.Infinite);
     }
-    
+
     private void PinRows()
     {
         var grid = this.grid;
@@ -61,7 +59,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

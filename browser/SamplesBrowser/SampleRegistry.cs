@@ -259,7 +259,6 @@ public static class SampleRegistry
         { "gauges/radial-gauge/type-ring", () => new Pages.Gauges.RadialGauge.TypeRing.Sample() },
         { "gauges/radial-gauge/type-segmented", () => new Pages.Gauges.RadialGauge.TypeSegmented.Sample() },
         { "gauges/radial-gauge/type-semi", () => new Pages.Gauges.RadialGauge.TypeSemi.Sample() },
-        { "grids/data-grid/accessibility", () => new Pages.Grids.DataGrid.Accessibility.Sample() },
         { "grids/data-grid/binding-data-service", () => new Pages.Grids.DataGrid.BindingDataService.Sample() },
         { "grids/data-grid/binding-live-data", () => new Pages.Grids.DataGrid.BindingLiveData.Sample() },
         { "grids/data-grid/binding-local-data", () => new Pages.Grids.DataGrid.BindingLocalData.Sample() },

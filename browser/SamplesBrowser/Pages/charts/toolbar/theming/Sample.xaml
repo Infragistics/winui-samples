@@ -23,11 +23,11 @@
           DescriptionType="Toolbar"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="BaseTheme"
-                  Name="BaseThemeEditor"
+                  x:Name="BaseThemeEditor"
                   Label="Theme"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -38,7 +38,7 @@
         </Grid>
         <Grid>
           <igLayouts:XamToolbar
-          Name="toolbar"
+          x:Name="toolbar"
           Target="{Binding ElementName=chart}"
           Orientation="Horizontal"
           BaseTheme="Default">
@@ -56,22 +56,22 @@
           ComputedPlotAreaMarginMode="Series"
           IsVerticalZoomEnabled="true"
           IsHorizontalZoomEnabled="true"
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CountryRenewableElectricity}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="TWh"
                   LabelLocation="OutsideRight">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="lineSeries1"
+                  x:Name="lineSeries1"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"

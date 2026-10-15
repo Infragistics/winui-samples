@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -27,29 +27,29 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CrosshairsDisplayMode"
-                  Name="CrosshairsDisplayModeEditor"
+                  x:Name="CrosshairsDisplayModeEditor"
                   Label="Crosshairs: "
                   PrimitiveValue="Both">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HighlightingMode"
-                  Name="HighlightingModeEditor"
+                  x:Name="HighlightingModeEditor"
                   Label="Highlighting: "
                   PrimitiveValue="BrightenSpecific">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AutoCalloutsVisible"
-                  Name="CalloutsVisibleEditor"
+                  x:Name="CalloutsVisibleEditor"
                   Label="Callouts: "
                   ShouldOverrideDefaultEditor="true"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="FinalValueAnnotationsVisible"
-                  Name="FinalValueAnnotationsEditor"
+                  x:Name="FinalValueAnnotationsEditor"
                   Label="Final Value: "
                   ShouldOverrideDefaultEditor="true"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -63,7 +63,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Column"
           ComputedPlotAreaMarginMode="Series"
           IsHorizontalZoomEnabled="false"

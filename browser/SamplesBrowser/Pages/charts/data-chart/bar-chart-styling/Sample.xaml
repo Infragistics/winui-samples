@@ -24,19 +24,19 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="Chart"
+          x:Name="Chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Label="Shop"
                   ItemsSource="{Binding OnlineShoppingSearches}"
                   IsInverted="true"
                   Gap="0.75">
                   </igCharts:CategoryYAxis>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Interval="20"
                   MaximumValue="80"
                   MinimumValue="0"
@@ -45,10 +45,10 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:CategoryHighlightLayer
-                  Name="CategoryHighlightLayer">
+                  x:Name="CategoryHighlightLayer">
                   </igCharts:CategoryHighlightLayer>
                   <igCharts:BarSeries
-                  Name="BarSeries1"
+                  x:Name="BarSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ValueMemberPath="Percent"
@@ -63,7 +63,7 @@
                   MarkerType="Hidden">
                   </igCharts:BarSeries>
                   <igCharts:CalloutLayer
-                  Name="CalloutLayer1"
+                  x:Name="CalloutLayer1"
                   IsAutoCalloutBehaviorEnabled="true"
                   AllowedPositions="{Binding allowedPositions1}"
                   CalloutTextColor="#85068a"
@@ -72,7 +72,7 @@
                   ItemsSource="{Binding OnlineShoppingSearches}">
                   </igCharts:CalloutLayer>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltips">
+                  x:Name="Tooltips">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

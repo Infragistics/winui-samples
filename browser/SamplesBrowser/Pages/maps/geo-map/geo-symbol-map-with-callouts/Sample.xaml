@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -31,12 +31,12 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="GeoMap"
+          x:Name="GeoMap"
           Zoomable="true"
           Legend="{Binding ElementName=legend}">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicSymbolSeries
-                  Name="GeographicSymbolSeries1"
+                  x:Name="GeographicSymbolSeries1"
                   Title="World Capitals Above 2 Million People"
                   LatitudeMemberPath="Y"
                   LongitudeMemberPath="X"
@@ -47,7 +47,7 @@
                   ShowDefaultTooltip="true">
                   </igMaps:GeographicSymbolSeries>
                   <igCharts:CalloutLayer
-                  Name="CalloutLayer1"
+                  x:Name="CalloutLayer1"
                   ItemsSource="{Binding WorldCapitals2M}"
                   XMemberPath="X"
                   YMemberPath="Y"

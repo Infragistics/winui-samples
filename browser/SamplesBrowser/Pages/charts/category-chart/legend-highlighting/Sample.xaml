@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend">
+          x:Name="legend">
           </igCharts:Legend>
         </Grid>
       </StackPanel>
@@ -29,7 +29,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           ChartType="Column"
           ItemsSource="{Binding HighestGrossingMovies}"

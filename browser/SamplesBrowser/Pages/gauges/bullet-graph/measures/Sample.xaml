@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamBulletGraph
-          Name="gauge"
+          x:Name="gauge"
           Height="80px"
           Width="400px"
           ValueBrush="dodgerblue"

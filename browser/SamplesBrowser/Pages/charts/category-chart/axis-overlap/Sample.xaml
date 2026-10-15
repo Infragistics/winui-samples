@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisOverlap"
-                  Name="XAxisOverlap"
+                  x:Name="XAxisOverlap"
                   Label="X Axis - Overlap"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -41,7 +41,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -54,7 +54,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding HighestGrossingMovies}"
           ChartType="Column"
           CrosshairsSnapToData="true"

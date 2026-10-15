@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igGauges:XamRadialGauge
-          Name="gauge1"
+          x:Name="gauge1"
           Height="250px"
           MinimumValue="0"
           MaximumValue="360"
@@ -25,8 +25,8 @@
           Interval="15"
           LabelInterval="15"
           LabelExtent="0.575"
+          FontFamily="Verdana,Arial"
           FontSize="11"
-          FontFamily="Verdana"
           TransitionDuration="500"
           ScaleStartAngle="-90"
           ScaleEndAngle="270"
@@ -65,14 +65,14 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamRadialGauge
-          Name="gauge2"
+          x:Name="gauge2"
           Height="250px"
           MinimumValue="0"
           MaximumValue="360"
           Value="270"
           Interval="45"
+          FontFamily="Verdana,Arial"
           FontSize="15"
-          FontFamily="Verdana"
           LabelExtent="0.75"
           LabelInterval="45"
           TransitionDuration="500"

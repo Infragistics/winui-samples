@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisLabelAngle"
-                  Name="XAxisLabelAngleEditor"
+                  x:Name="XAxisLabelAngleEditor"
                   Label="X Axis Label Angle"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -37,7 +37,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisLabelAngle"
-                  Name="YAxisLabelAngleEditor"
+                  x:Name="YAxisLabelAngleEditor"
                   Label="Y Axis Label Angle"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,7 +47,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisLabelTextColor"
-                  Name="XAxisLabelTextColorEditor"
+                  x:Name="XAxisLabelTextColorEditor"
                   Label="X Axis Label Color"
                   ValueType="EnumValue"
                   ShouldOverrideDefaultEditor="true"
@@ -60,7 +60,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -73,7 +73,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding CountryRenewableElectricity}"
           IncludedProperties="{Binding includedProperties1}"
           ChartType="Line"

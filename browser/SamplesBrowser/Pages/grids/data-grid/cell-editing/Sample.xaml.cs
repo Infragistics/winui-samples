@@ -4,13 +4,13 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
+using Infragistics.Controls.Description;
 using Infragistics.Controls.Grids;
+using Infragistics.Core.Controls.DataSource;
 using Infragistics.Controls.DataSource;
 using Infragistics.Core.Controls.DataSource.Transactions;
 using Microsoft.UI.Xaml.Controls;
-using Infragistics.Controls;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -29,7 +29,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -40,7 +39,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData(); 
+                _employeesSalesData = new EmployeesSalesData();
             }
             return _employeesSalesData;
         }
@@ -67,22 +66,19 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var grid = this.grid;
         grid.CommitEdits();
     }
-    
-    
+
     public void DataGridUndoEdit(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
         grid.Undo();
     }
-    
-    
+
     public void DataGridRedoEdit(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
         grid.Redo();
     }
-    
-    
+
     /// <summary>A cell left empty is refused with a message; anything else is taken.</summary>
     public void DataGridValidateCellEdit(object sender, GridCellValueChangingEventArgs args)
     {
@@ -98,8 +94,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             grid.AcceptEdit(args.EditID);
         }
     }
-    
-    
+
     /// <summary>Only an update is committed; anything else the grid proposes is refused.</summary>
     public void DataGridCommitUpdatesOnly(object sender, GridDataCommittingEventArgs args)
     {
@@ -113,8 +108,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             grid.RejectCommit(args.CommitID);
         }
     }
-    
-    
+
     public void DataGridDeleteRowButtonTemplate(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
@@ -137,13 +131,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             };
             content.Content = button;
         }
-    
+
         button.IsEnabled = !args.CellInfo.IsDeleted;
         button.Tag = args.CellInfo.RowItem;
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

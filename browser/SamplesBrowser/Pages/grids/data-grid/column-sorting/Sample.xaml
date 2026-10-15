@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=grid}"
           DescriptionType="DataGrid"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HeaderClickAction"
-                  Name="HeaderClickActionEditor"
+                  x:Name="HeaderClickActionEditor"
                   Label="Header Click Action"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,9 +47,9 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDataGrids:XamDataGrid
-          Name="grid"
-          ItemsSource="{Binding RealEstateData}"
           AutoGenerateColumns="false"
+          x:Name="grid"
+          ItemsSource="{Binding RealEstateData}"
           DefaultColumnMinWidth="100"
           IsColumnOptionsEnabled="true"
           HeaderClickAction="SortByMultipleColumnsTriState">
@@ -62,73 +62,37 @@
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="ID"
+                  Width="*>110"
                   HorizontalAlignment="Center">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="110">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
                   Field="Property"
-                  HeaderText="Property">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="150">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="Property"
+                  Width="*>150">
                   </igDataGrids:TextColumn>
                   <igDataGrids:ImageColumn
                   Field="CountryFlag"
                   HeaderText="Country"
+                  Width="*>160"
                   IsEditable="false"
                   ContentOpacity="1"
                   HorizontalAlignment="Center"
                   PaddingTop="5"
                   PaddingBottom="5">
-                      <igDataGrids:ImageColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="160">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:ImageColumn.Width>
                   </igDataGrids:ImageColumn>
                   <igDataGrids:TextColumn
-                  Field="City">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="150">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  Field="City"
+                  Width="*>150">
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Price"
+                  Width="*>130"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="130">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:NumericColumn
-                  Field="Rooms">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="110">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
+                  Field="Rooms"
+                  Width="*>110">
                   </igDataGrids:NumericColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>

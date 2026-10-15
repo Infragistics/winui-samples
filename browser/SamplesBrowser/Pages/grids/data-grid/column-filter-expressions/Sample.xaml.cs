@@ -7,12 +7,11 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
+using Infragistics.Controls.Description;
 using Infragistics.Controls.Grids;
-using Infragistics.Controls.DataSource;
 using Infragistics.Core.Controls.DataSource;
-using Infragistics.Controls;
+using Infragistics.Controls.DataSource;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -31,7 +30,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -42,7 +40,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData(); 
+                _employeesSalesData = new EmployeesSalesData();
             }
             return _employeesSalesData;
         }
@@ -72,20 +70,20 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             var columnEditor = this.FilterColumnEditor;
             var modeEditor = this.FilterModeEditor;
             var textEditor = this.FilterTextEditor;
-    
+
             var filterColumn = columnEditor.PrimitiveValue as string;
             var filterMode = modeEditor.PrimitiveValue as string;
             var filterText = (textEditor.PrimitiveValue as string) ?? "";
-    
+
             grid.FilterExpressions.Clear();
             if (filterText == "")
             {
                 return;
             }
-    
+
             var expression = filterText.ToUpper();
             var column = factory.Property(filterColumn).ToUpper();
-    
+
             FilterExpression filter;
             switch (filterMode)
             {
@@ -94,13 +92,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 case "EndsWith":   filter = column.EndsWith(expression);   break;
                 default:           filter = column.Contains(expression);   break;
             }
-    
+
             grid.FilterExpressions.Add(filter);
     #endif
         }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -7,7 +7,6 @@ using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
-using Infragistics.Controls;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -22,7 +21,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -33,7 +31,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyGlobalDemand == null)
             {
-                _energyGlobalDemand = new EnergyGlobalDemand(); 
+                _energyGlobalDemand = new EnergyGlobalDemand();
             }
             return _energyGlobalDemand;
         }
@@ -60,11 +58,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     {
         var chart = this.chart;
         chart.ReplayTransitionIn();
-            
+
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

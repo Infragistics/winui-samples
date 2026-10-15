@@ -4,70 +4,11 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls;
-using Infragistics.Controls.Charts;
-using Infragistics.Controls.Layouts;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
-    private FormatSpecifierCollection _numberFormatSpecifier1 = null;
-    public FormatSpecifierCollection numberFormatSpecifier1
-    {
-        get
-        {
-            if (_numberFormatSpecifier1 == null)
-            {
-                var numberFormatSpecifier1 = new FormatSpecifierCollection();
-                var numberFormatSpecifier2 = new NumberFormatSpecifier();
-                numberFormatSpecifier2.Style = "currency";
-                numberFormatSpecifier2.MaximumFractionDigits = 2;
-                numberFormatSpecifier2.MinimumFractionDigits = 2;
-                
-                numberFormatSpecifier1.Add(numberFormatSpecifier2);
-                _numberFormatSpecifier1 = numberFormatSpecifier1;
-            }
-            return _numberFormatSpecifier1;
-        }
-    }
-    private FormatSpecifierCollection _numberFormatSpecifier3 = null;
-    public FormatSpecifierCollection numberFormatSpecifier3
-    {
-        get
-        {
-            if (_numberFormatSpecifier3 == null)
-            {
-                var numberFormatSpecifier3 = new FormatSpecifierCollection();
-                var numberFormatSpecifier4 = new NumberFormatSpecifier();
-                numberFormatSpecifier4.Style = "currency";
-                numberFormatSpecifier4.MaximumFractionDigits = 2;
-                numberFormatSpecifier4.MinimumFractionDigits = 2;
-                
-                numberFormatSpecifier3.Add(numberFormatSpecifier4);
-                _numberFormatSpecifier3 = numberFormatSpecifier3;
-            }
-            return _numberFormatSpecifier3;
-        }
-    }
-    private FormatSpecifierCollection _numberFormatSpecifier5 = null;
-    public FormatSpecifierCollection numberFormatSpecifier5
-    {
-        get
-        {
-            if (_numberFormatSpecifier5 == null)
-            {
-                var numberFormatSpecifier5 = new FormatSpecifierCollection();
-                var numberFormatSpecifier6 = new NumberFormatSpecifier();
-                numberFormatSpecifier6.Style = "currency";
-                numberFormatSpecifier6.MinimumFractionDigits = 0;
-                
-                numberFormatSpecifier5.Add(numberFormatSpecifier6);
-                _numberFormatSpecifier5 = numberFormatSpecifier5;
-            }
-            return _numberFormatSpecifier5;
-        }
-    }
 
     public Sample()
     {
@@ -77,7 +18,20 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
-
+            var numberFormatSpecifier2 = new NumberFormatSpecifier();
+            numberFormatSpecifier2.Style = "currency";
+            numberFormatSpecifier2.MaximumFractionDigits = 2;
+            numberFormatSpecifier2.MinimumFractionDigits = 2;
+            legend.ValueFormatSpecifiers = new object[] { numberFormatSpecifier2 };
+            var numberFormatSpecifier4 = new NumberFormatSpecifier();
+            numberFormatSpecifier4.Style = "currency";
+            numberFormatSpecifier4.MaximumFractionDigits = 2;
+            numberFormatSpecifier4.MinimumFractionDigits = 2;
+            chart.DataToolTipValueFormatSpecifiers = new object[] { numberFormatSpecifier4 };
+            var numberFormatSpecifier6 = new NumberFormatSpecifier();
+            numberFormatSpecifier6.Style = "currency";
+            numberFormatSpecifier6.MinimumFractionDigits = 0;
+            chart.YAxisLabelFormatSpecifiers = new object[] { numberFormatSpecifier6 };
 
         };
     }
@@ -89,7 +43,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_highestGrossingMovies == null)
             {
-                _highestGrossingMovies = new HighestGrossingMovies(); 
+                _highestGrossingMovies = new HighestGrossingMovies();
             }
             return _highestGrossingMovies;
         }
@@ -113,9 +67,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

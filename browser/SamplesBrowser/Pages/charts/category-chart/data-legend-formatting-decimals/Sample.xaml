@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:XamDataLegend
-          Name="legend"
+          x:Name="legend"
           Target="{Binding ElementName=chart}"
           ValueFormatMode="Decimal"
           ValueFormatMinFractions="1"
@@ -33,7 +33,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Column"
           ItemsSource="{Binding HighestGrossingMovies}"
           XAxisInterval="1"

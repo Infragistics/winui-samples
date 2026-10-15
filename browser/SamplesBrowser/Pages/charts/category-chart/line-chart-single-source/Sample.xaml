@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Line"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false"

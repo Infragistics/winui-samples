@@ -4,11 +4,10 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
+using Infragistics.Controls.Description;
 using System;
-using Infragistics.Controls;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -28,7 +27,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -39,7 +37,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity(); 
+                _countryRenewableElectricity = new CountryRenewableElectricity();
             }
             return _countryRenewableElectricity;
         }
@@ -63,13 +61,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public void EditorChangeUpdateYAxisMinimumValue(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {        
+    {
         var yAxisMinimumVal = args.NewValue;
         var chart = this.chart;
         chart.YAxisMinimumValue = Convert.ToDouble(yAxisMinimumVal);
     }
-    
-    
+
     public void EditorChangeUpdateYAxisMaximumValue(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var yAxisMaximumVal = args.NewValue;
@@ -78,7 +75,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

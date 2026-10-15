@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igCharts:ItemLegend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:ItemLegend>
         </Grid>
@@ -31,7 +31,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyGlobalDemand}"
           Legend="{Binding ElementName=legend}">
           </igCharts:XamDataPieChart>

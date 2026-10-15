@@ -25,10 +25,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
           <igMaps:XamGeographicMap
-          Name="streetMap"
+          x:Name="streetMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:ArcGISOnlineMapImagery
+                  x:Name="streetMapImagery"
                   MapServerUri="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer">
                   </igMaps:ArcGISOnlineMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>
@@ -36,10 +37,11 @@
         </Grid>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="oceansMap"
+          x:Name="oceansMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:ArcGISOnlineMapImagery
+                  x:Name="oceansMapImagery"
                   MapServerUri="https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer">
                   </igMaps:ArcGISOnlineMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>
@@ -47,10 +49,11 @@
         </Grid>
         <Grid Grid.Column="2">
           <igMaps:XamGeographicMap
-          Name="topographicMap"
+          x:Name="topographicMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:ArcGISOnlineMapImagery
+                  x:Name="topographicMapImagery"
                   MapServerUri="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">
                   </igMaps:ArcGISOnlineMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>

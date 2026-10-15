@@ -19,7 +19,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="editor"
+          x:Name="editor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=map}"
           DescriptionType="GeographicMap"
@@ -28,7 +28,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="MapRegion"
-                  Name="MapRegion"
+                  x:Name="MapRegion"
                   Label="Map Region"
                   ValueType="EnumValue"
                   ShouldOverrideDefaultEditor="true"
@@ -49,7 +49,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="map"
+          x:Name="map"
           Zoomable="true">
           </igMaps:XamGeographicMap>
         </Grid>

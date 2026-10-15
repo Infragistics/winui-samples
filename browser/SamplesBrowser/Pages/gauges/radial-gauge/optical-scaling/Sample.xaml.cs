@@ -8,7 +8,6 @@ using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Gauges;
 using System;
-using Infragistics.Controls;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -23,10 +22,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
-
 
     private ComponentRenderer _componentRenderer = null;
     public ComponentRenderer Renderer
@@ -50,8 +47,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         if (gauge == null) return;
         gauge.OpticalScalingEnabled = args.NewValue is bool b && b;
     }
-    
-    
+
     public void RadialGaugeSetSize(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var gauge = this.gauge;
@@ -62,7 +58,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisStroke"
-                  Name="XAxisStroke"
+                  x:Name="XAxisStroke"
                   Label="X Axis Stroke"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -37,7 +37,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisMajorStroke"
-                  Name="XAxisMajorStroke"
+                  x:Name="XAxisMajorStroke"
                   Label="X Axis Major Stroke"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,7 +47,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisStroke"
-                  Name="YAxisStroke"
+                  x:Name="YAxisStroke"
                   Label="Y Axis Stroke"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -57,7 +57,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisMajorStroke"
-                  Name="YAxisMajorStroke"
+                  x:Name="YAxisMajorStroke"
                   Label="Y Axis Major Stroke"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -67,7 +67,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisMinorStroke"
-                  Name="YAxisMinorStroke"
+                  x:Name="YAxisMinorStroke"
                   Label="Y Axis Minor Stroke"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -80,7 +80,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -93,7 +93,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ComputedPlotAreaMarginMode="Series"
           ItemsSource="{Binding CountryRenewableElectricity}"
           IncludedProperties="{Binding includedProperties1}"

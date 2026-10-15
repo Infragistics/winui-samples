@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=treemap}"
           DescriptionType="Treemap"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HighlightingMode"
-                  Name="HighlightedModeEditor"
+                  x:Name="HighlightedModeEditor"
                   Label="Highlighting Mode: "
                   PrimitiveValue="Brighten"
                   DropDownValues="{Binding dropDownValues1}">
@@ -44,7 +44,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamTreemap
-          Name="treemap"
+          x:Name="treemap"
           ItemsSource="{Binding CountyHierarchicalData}"
           ParentIdMemberPath="Parent"
           IdMemberPath="Name"

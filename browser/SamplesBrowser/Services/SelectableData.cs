@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 public class SelectableDataItem : INotifyPropertyChanged
 {
     private string _category;
@@ -22,7 +22,7 @@ public class SelectableDataItem : INotifyPropertyChanged
         get { return _selectedValue; }
         set { _selectedValue = value; OnPropertyChanged("SelectedValue"); }
     }
-    
+
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string name)
     {

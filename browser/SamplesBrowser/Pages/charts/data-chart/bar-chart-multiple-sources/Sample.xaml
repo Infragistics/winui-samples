@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,11 +30,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="Chart"
+          x:Name="Chart"
           Legend="{Binding ElementName=legend}">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Label="Franchise"
                   UseEnhancedIntervalManagement="true"
                   EnhancedIntervalPreferMoreCategoryLabels="true"
@@ -44,16 +44,16 @@
                   Overlap="-0.1">
                   </igCharts:CategoryYAxis>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Title="Billions of U.S. Dollars">
                   </igCharts:NumericXAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:CategoryHighlightLayer
-                  Name="CategoryHighlightLayer">
+                  x:Name="CategoryHighlightLayer">
                   </igCharts:CategoryHighlightLayer>
                   <igCharts:BarSeries
-                  Name="BarSeries1"
+                  x:Name="BarSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   Title="Total Revenue of Franchise"
@@ -64,7 +64,7 @@
                   IsHighlightingEnabled="true">
                   </igCharts:BarSeries>
                   <igCharts:BarSeries
-                  Name="BarSeries2"
+                  x:Name="BarSeries2"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   Title="Highest Grossing Movie in Series"
@@ -75,7 +75,7 @@
                   IsHighlightingEnabled="true">
                   </igCharts:BarSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltips">
+                  x:Name="Tooltips">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

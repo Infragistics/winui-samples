@@ -1310,11 +1310,6 @@
                                               "folder":  "data-grid",
                                               "samples":  [
                                                               {
-                                                                  "name":  "Accessibility",
-                                                                  "route":  "grids/data-grid/accessibility",
-                                                                  "showLink":  true
-                                                              },
-                                                              {
                                                                   "name":  "Binding Data Service",
                                                                   "route":  "grids/data-grid/binding-data-service",
                                                                   "showLink":  true

@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=gauge}"
           DescriptionType="RadialGauge"
@@ -26,15 +26,15 @@
           IsWrappingEnabled="true">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="OpticalScalingEditor"
+                  x:Name="OpticalScalingEditor"
                   Label="Optical Scaling"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="true"
+                  PrimitiveValue="True"
                   Changed="RadialGaugeToggleOpticalScaling">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="GaugeSizeEditor"
+                  x:Name="GaugeSizeEditor"
                   Label="Resize Gauge"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -56,7 +56,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamRadialGauge
-          Name="gauge"
+          x:Name="gauge"
           OpticalScalingEnabled="true"
           OpticalScalingSize="500"
           SubtitleText="MPH"

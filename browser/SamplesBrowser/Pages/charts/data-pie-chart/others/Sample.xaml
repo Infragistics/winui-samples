@@ -23,18 +23,18 @@
           DescriptionType="DataPieChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="OthersCategoryType"
-                  Name="OthersCategoryTypeEditor"
+                  x:Name="OthersCategoryTypeEditor"
                   Label="Others Type: "
                   PrimitiveValue="Number"
                   ValueType="EnumValue">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="OthersCategoryThreshold"
-                  Name="OthersCategoryThresholdEditor"
+                  x:Name="OthersCategoryThresholdEditor"
                   Label="Others Threshold: "
                   ValueType="Slider"
                   Min="0"
@@ -43,7 +43,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="OthersCategoryText"
-                  Name="OthersCategoryTextEditor"
+                  x:Name="OthersCategoryTextEditor"
                   Label="Others Text: "
                   ValueType="StringValue">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -59,7 +59,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding DataPieData}"
           OthersCategoryType="Number"
           OthersCategoryThreshold="15">

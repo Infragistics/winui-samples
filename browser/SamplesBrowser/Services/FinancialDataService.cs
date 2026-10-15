@@ -25,21 +25,21 @@
             foreach (var json in arr)
             {
                 var item = new FinancialDataDetails();
-                item.Category = json.Value<string>("Category"); 
-                item.Type = json.Value<string>("Type"); 
-                item.Contract = json.Value<string>("Contract"); 
-                item.Settlement = json.Value<string>("Settlement"); 
-                item.Region = json.Value<string>("Region"); 
-                item.Country = json.Value<string>("Country"); 
-                item.Risk = json.Value<string>("Risk"); 
-                item.Sector = json.Value<string>("Sector"); 
-                item.Issuer = json.Value<string>("Issuer"); 
-                item.Maturity = json.Value<string>("Maturity"); 
-                item.IndGroup = json.Value<string>("IndGroup"); 
-                item.IndSector = json.Value<string>("IndSector"); 
-                item.IndCategory = json.Value<string>("IndCategory"); 
-                item.CpnTyp = json.Value<string>("CpnTyp"); 
-                item.Cpn = json.Value<string>("Cpn"); 
+                item.Category = json.Value<string>("Category");
+                item.Type = json.Value<string>("Type");
+                item.Contract = json.Value<string>("Contract");
+                item.Settlement = json.Value<string>("Settlement");
+                item.Region = json.Value<string>("Region");
+                item.Country = json.Value<string>("Country");
+                item.Risk = json.Value<string>("Risk");
+                item.Sector = json.Value<string>("Sector");
+                item.Issuer = json.Value<string>("Issuer");
+                item.Maturity = json.Value<string>("Maturity");
+                item.IndGroup = json.Value<string>("IndGroup");
+                item.IndSector = json.Value<string>("IndSector");
+                item.IndCategory = json.Value<string>("IndCategory");
+                item.CpnTyp = json.Value<string>("CpnTyp");
+                item.Cpn = json.Value<string>("Cpn");
 
                 item.Spread = json.Value<double>("Spread");
                 item.Open = json.Value<double>("Open");

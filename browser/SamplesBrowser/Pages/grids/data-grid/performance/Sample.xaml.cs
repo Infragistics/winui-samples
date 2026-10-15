@@ -4,7 +4,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,7 +13,6 @@ using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
-using Infragistics.Controls;
 
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -28,7 +26,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
-
 
             this.DataGridPerformanceTickerOnViewInit();
         };
@@ -68,12 +65,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     public bool IsTimerTicking = false;
     public Random Random = new Random();
     public int ToChangePerInterval = 200;
-    
+
     public void DataGridPerformanceTickerOnViewInit()
     {
         StartTicking();
     }
-    
+
     public void StartTicking()
     {
         if (!IsTimerTicking)
@@ -82,31 +79,31 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
         }
     }
-    
+
     public void OnTimerTick()
     {
         if (!IsTimerTicking) return;
-    
+
         var grid = this.grid;
         if (grid == null)
         {
             Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
-    
+
         var data = grid.ItemsSource as List<SalesPerson>;
         if (data == null)
         {
             Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
-    
+
         var now = DateTime.Now;
         var intervalElapsed = (now - LastDataUpdate).TotalMilliseconds > Interval;
-    
+
         var toChangeIndexes = new Dictionary<int, bool>();
         var useClear = false;
-    
+
         var sortingByAvgSale = false;
         for (var i = 0; i < grid.SortDescriptions.Count; i++)
         {
@@ -116,7 +113,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 sortingByAvgSale = true;
             }
         }
-    
+
         if (intervalElapsed)
         {
             LastDataUpdate = now;
@@ -130,7 +127,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 toChangeIndexes[index] = true;
             }
         }
-    
+
         for (var i = 0; i < data.Count; i++)
         {
             var item = data[i];
@@ -149,7 +146,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                     RandomizeItem(item);
                     grid.NotifySetItem(i, oldItem, item);
                 }
-    
+
                 if (item.Change > 0)
                 {
                     item.AvgSaleHeat = 1;
@@ -173,15 +170,15 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 }
             }
         }
-    
+
         if (!sortingByAvgSale || !intervalElapsed)
         {
             grid.InvalidateVisibleRows();
         }
-    
+
         Task.Delay(TimerStep).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
     }
-    
+
     public void RandomizeItem(SalesPerson item)
     {
         item.Change = Random.NextDouble() * 40.0 - 20.0;
@@ -189,8 +186,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         item.AvgSale += item.Change;
         item.PercentChange = (item.AvgSale / prevSale) * 100.0;
     }
-    
-    
+
     public void DataGridPerformanceAvgSaleStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var grid = this.grid;
@@ -204,22 +200,21 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             args.StyleKey = "priceShiftDown";
         }
     }
-    
-    
+
     public void DataGridPerformanceAvgSaleCellUpdating(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
         var item = args.CellInfo.RowItem as SalesPerson;
         if (item == null) return;
-    
+
         var priceShiftUp = item.Change >= 0;
         var color = priceShiftUp
             ? new SolidColorBrush(Color.FromArgb(0xFF, 0x4E, 0xB8, 0x62))
             : new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x13, 0x4A));
-    
+
         StackPanel panel;
         TextBlock priceText;
-    
+
         if (content.Content is StackPanel existing)
         {
             panel = existing;
@@ -237,17 +232,16 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             panel.Children.Add(priceText);
             content.Content = panel;
         }
-    
+
         priceText.Text = "$" + System.Math.Round(System.Convert.ToDouble(args.CellInfo.Value), 2).ToString("F2");
         priceText.Foreground = color;
     }
-    
-    
+
     public void DataGridPerformanceAvgSaleDataBound(object sender, DataBindingEventArgs args)
     {
         var item = args.CellInfo.RowItem as SalesPerson;
         if (item == null) return;
-    
+
         if (item.AvgSaleHeat > 0)
         {
             var p = item.AvgSaleHeat;
@@ -269,8 +263,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             args.CellInfo.Background = new SolidColorBrush(Colors.White);
         }
     }
-    
-    
+
     public void DataGridPerformanceChangeStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
@@ -283,8 +276,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             args.StyleKey = "priceAmountDown";
         }
     }
-    
-    
+
     public void DataGridPerformanceChangeCellUpdating(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
@@ -293,10 +285,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var color = priceShiftUp
             ? new SolidColorBrush(Color.FromArgb(0xFF, 0x4E, 0xB8, 0x62))
             : new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x13, 0x4A));
-    
+
         Border border;
         TextBlock text;
-    
+
         if (content.Content is Border existing)
         {
             border = existing;
@@ -315,12 +307,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             };
             content.Content = border;
         }
-    
+
         text.Text = value.ToString("F2");
         border.BorderBrush = color;
     }
-    
-    
+
     public void DataGridPerformancePercentStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
@@ -333,8 +324,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             args.StyleKey = "pricePercentDown";
         }
     }
-    
-    
+
     public void DataGridPerformancePercentCellUpdating(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
@@ -343,10 +333,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var color = priceShiftUp
             ? new SolidColorBrush(Color.FromArgb(0xFF, 0x4E, 0xB8, 0x62))
             : new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x13, 0x4A));
-    
+
         Border border;
         TextBlock text;
-    
+
         if (content.Content is Border existing)
         {
             border = existing;
@@ -365,12 +355,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             };
             content.Content = border;
         }
-    
+
         text.Text = value.ToString("F2") + "%";
         border.BorderBrush = color;
     }
-    
-    
+
     public void DataGridPerformanceKpiStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
@@ -383,8 +372,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             args.StyleKey = "kpi_green";
         }
     }
-    
-    
+
     public void DataGridPerformanceKpiDataBound(object sender, DataBindingEventArgs args)
     {
         var value = System.Convert.ToDouble(args.ResolvedValue);
@@ -399,7 +387,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

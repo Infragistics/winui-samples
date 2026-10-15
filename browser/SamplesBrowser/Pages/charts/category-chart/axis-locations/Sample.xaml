@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="false"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisLabelLocation"
-                  Name="YAxisLabelLocation"
+                  x:Name="YAxisLabelLocation"
                   Label="Y Axis - Label Location"
                   PrimitiveValue="OutsideRight">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -36,7 +36,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -49,7 +49,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ComputedPlotAreaMarginMode="Series"
           ItemsSource="{Binding CountryRenewableElectricity}"
           IncludedProperties="{Binding includedProperties1}"

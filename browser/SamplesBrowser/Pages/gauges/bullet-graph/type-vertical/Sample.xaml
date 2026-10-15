@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
           <igGauges:XamBulletGraph
-          Name="graph1"
+          x:Name="graph1"
           Width="120px"
           Orientation="Vertical"
           BackingBrush="#00000000"
@@ -84,7 +84,7 @@
         </Grid>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamBulletGraph
-          Name="graph2"
+          x:Name="graph2"
           Width="120px"
           Orientation="Vertical"
           BackingBrush="#00000000"
@@ -144,7 +144,7 @@
         </Grid>
         <Grid Grid.Column="2">
           <igGauges:XamBulletGraph
-          Name="graph3"
+          x:Name="graph3"
           Width="120px"
           Orientation="Vertical"
           BackingBrush="#00000000"

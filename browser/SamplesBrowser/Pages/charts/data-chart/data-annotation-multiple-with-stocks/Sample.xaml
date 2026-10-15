@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
           IsVerticalZoomEnabled="false"
@@ -43,7 +43,7 @@
           Title="This Data Chart has multiple Data Annotation Layers bound to data that annotates important events and patterns in stock prices.">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxisBottom"
+                  x:Name="xAxisBottom"
                   ItemsSource="{Binding StockTesla}"
                   Label="Index"
                   TickLength="0"
@@ -58,7 +58,7 @@
                   LabelAngle="90">
                   </igCharts:CategoryXAxis>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   LabelLeftMargin="0"
@@ -67,7 +67,7 @@
                   LabelBottomMargin="5">
                   </igCharts:CategoryXAxis>
                   <igCharts:CategoryXAxis
-                  Name="xAxisTop"
+                  x:Name="xAxisTop"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   TickLength="0"
@@ -81,7 +81,7 @@
                   LabelBottomMargin="5">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisLeft"
+                  x:Name="yAxisLeft"
                   LabelLocation="OutsideLeft"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -94,7 +94,7 @@
                   MaximumValue="550">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisRight"
+                  x:Name="yAxisRight"
                   LabelLocation="OutsideRight"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -109,7 +109,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:FinancialPriceSeries
-                  Name="series1"
+                  x:Name="series1"
                   Title="Stock Price"
                   DisplayType="Candlestick"
                   XAxis="{Binding ElementName=xAxis}"
@@ -122,12 +122,12 @@
                   ShowDefaultTooltip="false">
                   </igCharts:FinancialPriceSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltip"
+                  x:Name="Tooltip"
                   IncludedColumns="{Binding includedColumns1}"
                   LayoutMode="Vertical">
                   </igCharts:DataToolTipLayer>
                   <igCharts:DataAnnotationStripLayer
-                  Name="StripLayer"
+                  x:Name="StripLayer"
                   ItemsSource="{Binding AnnotationStripData}"
                   TargetAxis="{Binding ElementName=xAxisTop}"
                   CenterLabelMemberPath="Label"
@@ -142,7 +142,7 @@
                   OverlayTextMemberPath="Label">
                   </igCharts:DataAnnotationStripLayer>
                   <igCharts:DataAnnotationLineLayer
-                  Name="LineLayer52WeekRange"
+                  x:Name="LineLayer52WeekRange"
                   ItemsSource="{Binding AnnotationLineData1}"
                   TargetAxis="{Binding ElementName=yAxisRight}"
                   CenterLabelXDisplayMode="Hidden"
@@ -165,7 +165,7 @@
                   EndValueYMemberPath="EndY">
                   </igCharts:DataAnnotationLineLayer>
                   <igCharts:DataAnnotationLineLayer
-                  Name="LineLayerGrowthAndDecline"
+                  x:Name="LineLayerGrowthAndDecline"
                   ItemsSource="{Binding AnnotationLineData2}"
                   TargetAxis="{Binding ElementName=xAxis}"
                   CenterLabelXDisplayMode="Hidden"
@@ -186,7 +186,7 @@
                   EndValueYMemberPath="EndY">
                   </igCharts:DataAnnotationLineLayer>
                   <igCharts:DataAnnotationSliceLayer
-                  Name="SliceLayerStockSplit"
+                  x:Name="SliceLayerStockSplit"
                   ItemsSource="{Binding AnnotationSliceStockSplitData}"
                   TargetAxis="{Binding ElementName=xAxisBottom}"
                   Brush="dodgerblue"
@@ -200,7 +200,7 @@
                   OverlayTextLocation="Hidden">
                   </igCharts:DataAnnotationSliceLayer>
                   <igCharts:DataAnnotationSliceLayer
-                  Name="SliceLayerEarningsMissAnnotations"
+                  x:Name="SliceLayerEarningsMissAnnotations"
                   ItemsSource="{Binding AnnotationSliceEarningsMissData}"
                   TargetAxis="{Binding ElementName=xAxisBottom}"
                   Brush="red"
@@ -214,7 +214,7 @@
                   OverlayTextLocation="Hidden">
                   </igCharts:DataAnnotationSliceLayer>
                   <igCharts:DataAnnotationSliceLayer
-                  Name="SliceLayerEarningsBeatAnnotations"
+                  x:Name="SliceLayerEarningsBeatAnnotations"
                   ItemsSource="{Binding AnnotationSliceEarningsBeatData}"
                   TargetAxis="{Binding ElementName=xAxisBottom}"
                   Brush="green"

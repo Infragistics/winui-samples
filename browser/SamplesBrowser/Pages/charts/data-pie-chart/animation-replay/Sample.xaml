@@ -23,7 +23,7 @@
           DescriptionType="DataPieChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ReplayTransitionIn"
@@ -31,7 +31,7 @@
                   PrimitiveValue="Replay Animation"
                   ValueType="Button"
                   ButtonClicked="EditorButtonReplayTransitionInDomain"
-                  Name="propertyEditorPropertyDescription1">
+                  x:Name="propertyEditorPropertyDescription1">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -45,7 +45,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyGlobalDemand}"
           TransitionInMode="Auto"
           TransitionInDuration="1000"

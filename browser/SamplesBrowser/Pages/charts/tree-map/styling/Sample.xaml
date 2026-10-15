@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamTreemap
-          Name="treemap"
+          x:Name="treemap"
           ItemsSource="{Binding CountyHierarchicalData}"
           ParentIdMemberPath="Parent"
           CustomValueMemberPath="Parent"
@@ -44,49 +44,49 @@
           StrokeThickness="1">
               <igCharts:XamTreemap.StyleMappings>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling1"
+                  x:Name="styling1"
                   Value="Africa"
                   Fill="#735656"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling2"
+                  x:Name="styling2"
                   Value="Europe"
                   Fill="#61ab37"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling3"
+                  x:Name="styling3"
                   Value="Asia"
                   Fill="#8b5bb1"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling4"
+                  x:Name="styling4"
                   Value="North America"
                   Fill="#5fbaac"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling5"
+                  x:Name="styling5"
                   Value="South America"
                   Fill="#ee5879"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling6"
+                  x:Name="styling6"
                   Value="Middle East"
                   Fill="#6db1ff"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling7"
+                  x:Name="styling7"
                   Value="Central America"
                   Fill="#f7d262"
                   MappingMode="CustomValue">
                   </igCharts:TreemapNodeStyleMapping>
                   <igCharts:TreemapNodeStyleMapping
-                  Name="styling8"
+                  x:Name="styling8"
                   Value="Oceania"
                   Fill="#a8a8b7"
                   MappingMode="CustomValue">

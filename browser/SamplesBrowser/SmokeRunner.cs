@@ -58,7 +58,15 @@ public static class SmokeRunner
         var report = Environment.GetEnvironmentVariable("SAMPLES_SMOKE");
         var attempted = new HashSet<string>();
         string lastBegun = null;
-        var previous = File.Exists(report) ? File.ReadAllLines(report) : new string[0];
+        // The report is already open for appending, so read it through a shared stream.
+        var previous = new List<string>();
+        if (File.Exists(report))
+        {
+            using var stream = new FileStream(report, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            using var reader = new StreamReader(stream);
+            string read;
+            while ((read = reader.ReadLine()) != null) previous.Add(read);
+        }
         foreach (var line in previous)
         {
             var parts = line.Split('\t');

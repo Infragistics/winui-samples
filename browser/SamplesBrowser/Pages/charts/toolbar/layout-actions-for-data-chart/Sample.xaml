@@ -23,37 +23,37 @@
           </Grid.ColumnDefinitions>
           <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="10 0 0 0">
             <igLayouts:XamToolbar
-            Name="toolbar"
+            x:Name="toolbar"
             Target="{Binding ElementName=chart}"
             Orientation="Horizontal"
             OnCommand="ToolbarToggleAnnotations">
                 <igLayouts:XamToolbar.Actions>
                     <igLayouts:ToolActionIconMenu
-                    Name="MenuForSubPanelTool"
+                    x:Name="MenuForSubPanelTool"
                     IconCollectionName="ChartToolbarIcons"
                     IconName="analyze">
                         <igLayouts:ToolActionIconMenu.Actions>
                             <igLayouts:ToolActionGroupHeader
-                            Name="SubPanelGroup"
+                            x:Name="SubPanelGroup"
                             CloseOnExecute="true"
                             Title="Visualizations"
                             Subtitle="Layers">
                             </igLayouts:ToolActionGroupHeader>
                             <igLayouts:ToolActionSubPanel
-                            Name="CustomSubPanelTools">
+                            x:Name="CustomSubPanelTools">
                                 <igLayouts:ToolActionSubPanel.Actions>
                                     <igLayouts:ToolActionCheckbox
-                                    Name="EnableTooltipsLabel"
+                                    x:Name="EnableTooltipsLabel"
                                     Title="Enable Tooltips"
                                     CommandId="EnableTooltips">
                                     </igLayouts:ToolActionCheckbox>
                                     <igLayouts:ToolActionCheckbox
-                                    Name="EnableCrosshairsLabel"
+                                    x:Name="EnableCrosshairsLabel"
                                     Title="Enable Crosshairs"
                                     CommandId="EnableCrosshairs">
                                     </igLayouts:ToolActionCheckbox>
                                     <igLayouts:ToolActionCheckbox
-                                    Name="EnableFinalValuesLabel"
+                                    x:Name="EnableFinalValuesLabel"
                                     Title="Enable Final Values"
                                     CommandId="EnableFinalValues">
                                     </igLayouts:ToolActionCheckbox>
@@ -62,7 +62,7 @@
                         </igLayouts:ToolActionIconMenu.Actions>
                     </igLayouts:ToolActionIconMenu>
                     <igLayouts:ToolActionLabel
-                    Name="zoomResetLabel"
+                    x:Name="zoomResetLabel"
                     Title="Reset"
                     AfterId="ZoomOut"
                     IconName="reset"
@@ -71,17 +71,17 @@
                     IsHighlighted="true">
                     </igLayouts:ToolActionLabel>
                     <igLayouts:ToolActionLabel
-                    Name="zoomResetHidden"
+                    x:Name="zoomResetHidden"
                     OverlayId="ZoomReset"
                     Visibility="Collapsed">
                     </igLayouts:ToolActionLabel>
                     <igLayouts:ToolActionIconMenu
-                    Name="AnalyzeMenu"
+                    x:Name="AnalyzeMenu"
                     OverlayId="AnalyzeMenu"
                     Visibility="Collapsed">
                     </igLayouts:ToolActionIconMenu>
                     <igLayouts:ToolActionLabel
-                    Name="CopyMenu"
+                    x:Name="CopyMenu"
                     OverlayId="CopyMenu"
                     Visibility="Collapsed">
                     </igLayouts:ToolActionLabel>
@@ -101,22 +101,22 @@
           ComputedPlotAreaMarginMode="Series"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CountryRenewableElectricity}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="TWh"
                   LabelLocation="OutsideRight">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="lineSeries1"
+                  x:Name="lineSeries1"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -124,7 +124,7 @@
                   ValueMemberPath="America">
                   </igCharts:LineSeries>
                   <igCharts:LineSeries
-                  Name="LineSeries2"
+                  x:Name="LineSeries2"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -132,7 +132,7 @@
                   ValueMemberPath="Europe">
                   </igCharts:LineSeries>
                   <igCharts:LineSeries
-                  Name="LineSeries3"
+                  x:Name="LineSeries3"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"

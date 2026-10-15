@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=gauge}"
           DescriptionType="RadialGauge"
@@ -26,28 +26,28 @@
           IsWrappingEnabled="true">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge1Button"
+                  x:Name="AnimateToGauge1Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #1"
                   ButtonClicked="RadialGaugeAnimateToGauge1">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge2Button"
+                  x:Name="AnimateToGauge2Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #2"
                   ButtonClicked="RadialGaugeAnimateToGauge2">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge3Button"
+                  x:Name="AnimateToGauge3Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #3"
                   ButtonClicked="RadialGaugeAnimateToGauge3">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge4Button"
+                  x:Name="AnimateToGauge4Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #4"
@@ -65,7 +65,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamRadialGauge
-          Name="gauge"
+          x:Name="gauge"
           TransitionDuration="1000"
           MinimumValue="0"
           MaximumValue="50"
@@ -73,8 +73,8 @@
           Interval="5"
           LabelInterval="5"
           LabelExtent="0.71"
+          FontFamily="Verdana,Arial"
           FontSize="15"
-          FontFamily="Verdana"
           IsNeedleDraggingEnabled="true"
           NeedleEndExtent="0.5"
           NeedleShape="Triangle"

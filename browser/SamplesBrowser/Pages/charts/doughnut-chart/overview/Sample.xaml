@@ -24,10 +24,10 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDoughnutChart
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDoughnutChart.Series>
                   <igCharts:RingSeries
-                  Name="series"
+                  x:Name="series"
                   LabelMemberPath="Summary"
                   ValueMemberPath="Value"
                   LegendLabelMemberPath="Category"

@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamLinearGauge
-          Name="gauge"
+          x:Name="gauge"
           Height="80px"
           Width="400px"
           MinimumValue="0"
@@ -36,8 +36,8 @@
           LabelsPreTerminal="0"
           LabelsPostInitial="0"
           FontBrush="dodgerblue"
-          FontSize="11"
-          FontFamily="Verdana">
+          FontFamily="Verdana"
+          FontSize="11">
           </igGauges:XamLinearGauge>
         </Grid>
       </Grid>

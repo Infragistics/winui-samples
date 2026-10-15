@@ -24,19 +24,19 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericAngleAxis
-                  Name="angleAxis"
+                  x:Name="angleAxis"
                   StartAngleOffset="-90"
                   Interval="30"
                   MinimumValue="0"
                   MaximumValue="360">
                   </igCharts:NumericAngleAxis>
                   <igCharts:NumericRadiusAxis
-                  Name="radiusAxis"
+                  x:Name="radiusAxis"
                   RadiusExtentScale="0.9"
                   InnerRadiusExtentScale="0.1"
                   Interval="25"
@@ -46,7 +46,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:PolarScatterSeries
-                  Name="PolarScatterSeries1"
+                  x:Name="PolarScatterSeries1"
                   ItemsSource="{Binding BoatSailingData}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   RadiusAxis="{Binding ElementName=radiusAxis}"
@@ -57,7 +57,7 @@
                   MarkerType="Circle">
                   </igCharts:PolarScatterSeries>
                   <igCharts:PolarScatterSeries
-                  Name="PolarScatterSeries2"
+                  x:Name="PolarScatterSeries2"
                   ItemsSource="{Binding BoatSailingData}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   RadiusAxis="{Binding ElementName=radiusAxis}"
@@ -68,7 +68,7 @@
                   MarkerType="Circle">
                   </igCharts:PolarScatterSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

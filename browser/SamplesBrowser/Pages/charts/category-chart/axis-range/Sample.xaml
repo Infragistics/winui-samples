@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisMinimumValueHandler"
-                  Name="YAxisMinimumValue"
+                  x:Name="YAxisMinimumValue"
                   Label="Y Axis Minimum Value"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -38,7 +38,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="YAxisMaximumValueHandler"
-                  Name="YAxisMaximumValue"
+                  x:Name="YAxisMaximumValue"
                   Label="Y Axis Maximum Value"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -52,7 +52,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -65,7 +65,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding CountryRenewableElectricity}"
           IncludedProperties="{Binding includedProperties1}"
           Legend="{Binding ElementName=legend}"

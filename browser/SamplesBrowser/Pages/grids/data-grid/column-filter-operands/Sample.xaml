@@ -24,23 +24,17 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDataGrids:XamDataGrid
-          Name="grid"
-          ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
+          x:Name="grid"
+          ItemsSource="{Binding EmployeesSalesData}"
           DefaultColumnMinWidth="100"
           IsColumnOptionsEnabled="true"
           FilterUIType="FilterRow">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Country"
-                  HeaderText="Code-behind Filter*">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="170">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="Code-behind Filter*"
+                  Width="*>170">
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Age"
@@ -49,15 +43,9 @@
                   <igDataGrids:NumericColumn
                   Field="Sales"
                   HeaderText="In-line Filter***"
+                  Width="*>120"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>

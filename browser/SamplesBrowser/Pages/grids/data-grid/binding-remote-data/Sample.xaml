@@ -24,102 +24,54 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDataGrids:XamDataGrid
-          Name="grid"
-          ItemsSource="{Binding NorthwindOrders}"
           AutoGenerateColumns="false"
+          x:Name="grid"
+          ItemsSource="{Binding NorthwindOrders}"
           IsColumnOptionsEnabled="true">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="OrderID"
                   HeaderText="ID"
+                  Width="*>90"
                   HorizontalAlignment="Center">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="90">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:DateTimeColumn
                   Field="OrderDate"
-                  HeaderText="Order Date">
-                      <igDataGrids:DateTimeColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="130">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:DateTimeColumn.Width>
+                  HeaderText="Order Date"
+                  Width="*>130">
                   </igDataGrids:DateTimeColumn>
                   <igDataGrids:TextColumn
                   Field="ShipName"
-                  HeaderText="Name">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="185">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="Name"
+                  Width="*>185">
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Freight"
                   HeaderText="Freight"
+                  Width="*>115"
                   PositivePrefix="$"
                   MinFractionDigits="2">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="115">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:DateTimeColumn
                   Field="ShippedDate"
                   HeaderText="Ship Date"
+                  Width="*>125"
                   HorizontalAlignment="Right">
-                      <igDataGrids:DateTimeColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="125">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:DateTimeColumn.Width>
                   </igDataGrids:DateTimeColumn>
                   <igDataGrids:TextColumn
                   Field="ShipAddress"
-                  HeaderText="Shipping Address">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="250">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="Shipping Address"
+                  Width="*>250">
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
                   Field="ShipCity"
-                  HeaderText="City">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="130">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="City"
+                  Width="*>130">
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
                   Field="ShipCountry"
-                  HeaderText="Country">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="110">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="Country"
+                  Width="*>110">
                   </igDataGrids:TextColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>

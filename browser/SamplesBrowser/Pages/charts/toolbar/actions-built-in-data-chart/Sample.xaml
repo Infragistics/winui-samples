@@ -23,7 +23,7 @@
           </Grid.ColumnDefinitions>
           <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="10 0 0 0">
             <igLayouts:XamToolbar
-            Name="toolbar"
+            x:Name="toolbar"
             Target="{Binding ElementName=chart}"
             Orientation="Horizontal">
             </igLayouts:XamToolbar>
@@ -41,22 +41,22 @@
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
           ComputedPlotAreaMarginMode="Series"
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CountryRenewableElectricity}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="TWh"
                   LabelLocation="OutsideRight">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="lineSeries1"
+                  x:Name="lineSeries1"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -64,7 +64,7 @@
                   ValueMemberPath="America">
                   </igCharts:LineSeries>
                   <igCharts:LineSeries
-                  Name="LineSeries2"
+                  x:Name="LineSeries2"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -72,7 +72,7 @@
                   ValueMemberPath="Europe">
                   </igCharts:LineSeries>
                   <igCharts:LineSeries
-                  Name="LineSeries3"
+                  x:Name="LineSeries3"
                   Title="Electricity"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -80,7 +80,7 @@
                   ValueMemberPath="China">
                   </igCharts:LineSeries>
                   <igCharts:DataToolTipLayer
-                  Name="tooltipLayer">
+                  x:Name="tooltipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

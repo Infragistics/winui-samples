@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -27,16 +27,16 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CrosshairsDisplayMode"
-                  Name="CrosshairsDisplayModeEditor"
+                  x:Name="CrosshairsDisplayModeEditor"
                   Label="Crosshairs Display Mode: "
                   PrimitiveValue="Both">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CrosshairsSnapToData"
-                  Name="CrosshairsSnapToDataEditor"
+                  x:Name="CrosshairsSnapToDataEditor"
                   Label="Crosshairs Snap to Data"
                   ShouldOverrideDefaultEditor="true"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -50,7 +50,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Column"
           ComputedPlotAreaMarginMode="Series"
           IsHorizontalZoomEnabled="false"

@@ -24,12 +24,12 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           PlotAreaMarginBottom="50"
           Title="This sample demonstrates the DataAnnotationSliceLayer with overlay text compared against the value layers in the DataChart.">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   LabelLeftMargin="0"
@@ -38,7 +38,7 @@
                   LabelBottomMargin="15">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   LabelExtent="60"
                   LabelHorizontalAlignment="Center"
                   LabelLeftMargin="0"
@@ -51,7 +51,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="series1"
+                  x:Name="series1"
                   Title="Stock Price"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -62,7 +62,7 @@
                   Brush="black">
                   </igCharts:LineSeries>
                   <igCharts:ValueOverlay
-                  Name="valueOverlay"
+                  x:Name="valueOverlay"
                   Value="435"
                   Brush="green"
                   IsAxisAnnotationEnabled="true"
@@ -73,7 +73,7 @@
                   OverlayTextLocation="OutsideBottomCenter">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueLayer
-                  Name="valueLayer"
+                  x:Name="valueLayer"
                   ValueMode="Average"
                   Brush="purple"
                   Thickness="2"
@@ -84,7 +84,7 @@
                   OverlayTextLocation="OutsideBottomCenter">
                   </igCharts:ValueLayer>
                   <igCharts:DataAnnotationSliceLayer
-                  Name="AnnoLayer"
+                  x:Name="AnnoLayer"
                   ItemsSource="{Binding AnnotationSliceMultiOverlayData}"
                   TargetAxis="{Binding ElementName=yAxis}"
                   Brush="green"

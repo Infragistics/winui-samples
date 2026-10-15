@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
           IsVerticalZoomEnabled="false"
@@ -43,7 +43,7 @@
           Title="This Data Chart demonstrates the DataAnnotationRectLayer bound to data that annotates bearish patterns in stock prices.">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   LabelLeftMargin="0"
@@ -52,14 +52,14 @@
                   LabelBottomMargin="10">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   MinimumValue="0"
                   MaximumValue="550">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:FinancialPriceSeries
-                  Name="series1"
+                  x:Name="series1"
                   Title="Stock Price"
                   DisplayType="Candlestick"
                   XAxis="{Binding ElementName=xAxis}"
@@ -72,12 +72,12 @@
                   ShowDefaultTooltip="false">
                   </igCharts:FinancialPriceSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltip"
+                  x:Name="Tooltip"
                   IncludedColumns="{Binding includedColumns1}"
                   LayoutMode="Vertical">
                   </igCharts:DataToolTipLayer>
                   <igCharts:DataAnnotationRectLayer
-                  Name="RectLayer"
+                  x:Name="RectLayer"
                   ItemsSource="{Binding AnnotationRectData}"
                   TargetAxis="{Binding ElementName=xAxis}"
                   CenterLabelXDisplayMode="Hidden"

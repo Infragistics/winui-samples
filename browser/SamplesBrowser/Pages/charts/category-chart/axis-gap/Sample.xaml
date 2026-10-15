@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisGap"
-                  Name="XAxisGap"
+                  x:Name="XAxisGap"
                   Label="X Axis - Gap"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -38,7 +38,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="XAxisMaximumGap"
-                  Name="XAxisMaximumGap"
+                  x:Name="XAxisMaximumGap"
                   Label="Maximum Gap"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -58,7 +58,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding CountryRenewableElectricity}"
           IncludedProperties="{Binding includedProperties1}"
           ChartType="Column"

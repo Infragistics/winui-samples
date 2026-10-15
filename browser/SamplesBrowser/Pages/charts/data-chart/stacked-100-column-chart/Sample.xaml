@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,25 +30,25 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding OnlineTrafficByDevice}"
                   Label="Category"
                   Gap="0.75">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   MinimumValue="0">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:Stacked100ColumnSeries
-                  Name="stacked100ColumnSeries"
+                  x:Name="stacked100ColumnSeries"
                   ItemsSource="{Binding OnlineTrafficByDevice}"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -56,24 +56,24 @@
                   AreaFillOpacity="1">
                       <igCharts:Stacked100ColumnSeries.Series>
                           <igCharts:StackedFragmentSeries
-                          Name="s1"
+                          x:Name="s1"
                           ValueMemberPath="Desktop"
                           Title="Desktop">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="s2"
+                          x:Name="s2"
                           ValueMemberPath="Mobile"
                           Title="Mobile">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="s3"
+                          x:Name="s3"
                           ValueMemberPath="Tablet"
                           Title="Tablet">
                           </igCharts:StackedFragmentSeries>
                       </igCharts:Stacked100ColumnSeries.Series>
                   </igCharts:Stacked100ColumnSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

@@ -23,11 +23,11 @@
           DescriptionType="Sparkline"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="NormalRangeVisibility"
-                  Name="NormalRangeVisibilityEditor"
+                  x:Name="NormalRangeVisibilityEditor"
                   Label="Normal Range Visibility"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -37,7 +37,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="NormalRangeMinimum"
-                  Name="NormalRangeMinimumEditor"
+                  x:Name="NormalRangeMinimumEditor"
                   Label="Normal Range Minimum"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,7 +47,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="NormalRangeMaximum"
-                  Name="NormalRangeMaximumEditor"
+                  x:Name="NormalRangeMaximumEditor"
                   Label="Normal Range Maximum"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -67,7 +67,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamSparkline
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SparklineMixedData}"
           DisplayType="Area"
           LabelMemberPath="Label"

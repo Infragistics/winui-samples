@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="0">
           <igGauges:XamLinearGauge
-          Name="gauge1"
+          x:Name="gauge1"
           Width="120px"
           Orientation="Vertical"
           Value="80"
@@ -106,7 +106,7 @@
         </Grid>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamLinearGauge
-          Name="gauge2"
+          x:Name="gauge2"
           Width="120px"
           Orientation="Vertical"
           Value="60"
@@ -188,7 +188,7 @@
         </Grid>
         <Grid Grid.Column="2">
           <igGauges:XamLinearGauge
-          Name="gauge3"
+          x:Name="gauge3"
           Width="120px"
           Orientation="Vertical"
           Value="40"

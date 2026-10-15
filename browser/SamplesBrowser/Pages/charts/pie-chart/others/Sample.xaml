@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:ItemLegend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:ItemLegend>
         </Grid>
@@ -30,7 +30,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamPieChart
-          Name="chart"
+          x:Name="chart"
           LabelMemberPath="Summary"
           LabelsPosition="OutsideEnd"
           LabelExtent="30"
