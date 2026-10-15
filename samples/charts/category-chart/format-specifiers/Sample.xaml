@@ -20,8 +20,7 @@
           <igCharts:XamDataLegend
           x:Name="legend"
           Target="{Binding ElementName=chart}"
-          ValueFormatString="{}{0} Billion"
-          ValueFormatSpecifiers="{Binding numberFormatSpecifier1}">
+          ValueFormatString="{}{0} Billion">
           </igCharts:XamDataLegend>
         </Grid>
       </StackPanel>
@@ -40,9 +39,7 @@
           IsVerticalZoomEnabled="false"
           FinalValueAnnotationsPrecision="2"
           DataToolTipValueFormatString="{}{0} Billion"
-          DataToolTipValueFormatSpecifiers="{Binding numberFormatSpecifier3}"
-          YAxisLabelFormat="{}{0}B"
-          YAxisLabelFormatSpecifiers="{Binding numberFormatSpecifier5}">
+          YAxisLabelFormat="{}{0}B">
           </igCharts:XamCategoryChart>
         </Grid>
       </Grid>
