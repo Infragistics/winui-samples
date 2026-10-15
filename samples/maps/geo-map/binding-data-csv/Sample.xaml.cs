@@ -77,7 +77,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         //};
         //map.Series.Add(series);
 
-        var geoBounds = new Rect(-130, 15, Math.Abs(-130 + 65), Math.Abs(50 - 15));
+        var geoBounds = new Infragistics.Controls.IGRect(-130, 15, Math.Abs(-130 + 65), Math.Abs(50 - 15));
         map.ZoomToGeographic(geoBounds);
     }
 
