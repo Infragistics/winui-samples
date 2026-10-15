@@ -2,6 +2,7 @@
 // this class, which instantiates every registered sample in turn, waits for it to load and settle,
 // records exceptions (synchronous, dispatcher and unhandled), optionally captures a PNG, and exits.
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -52,8 +53,23 @@ public static class SmokeRunner
     private static async Task RunAsync(Window window, Grid host, string shots, string filter, int settleMs)
     {
         await Task.Delay(1000);
+        // Resumable: a page that took the process down left a BEGIN with nothing after it. Record it as
+        // a crash and carry on from the next page instead of retrying it.
+        var report = Environment.GetEnvironmentVariable("SAMPLES_SMOKE");
+        var attempted = new HashSet<string>();
+        string lastBegun = null;
+        var previous = File.Exists(report) ? File.ReadAllLines(report) : new string[0];
+        foreach (var line in previous)
+        {
+            var parts = line.Split('\t');
+            if (parts.Length < 2) continue;
+            if (parts[0] == "BEGIN") { attempted.Add(parts[1]); lastBegun = parts[1]; }
+            else if (parts[1] == lastBegun && (parts[0] == "OK" || parts[0] == "FAIL" || parts[0] == "CRASH")) { lastBegun = null; }
+        }
+        if (lastBegun != null) _log.WriteLine($"CRASH\t{lastBegun}");
         var routes = SampleRegistry.Samples.Keys.OrderBy(k => k, StringComparer.Ordinal)
-            .Where(r => string.IsNullOrEmpty(filter) || r.Contains(filter)).ToList();
+            .Where(r => string.IsNullOrEmpty(filter) || r.Contains(filter))
+            .Where(r => !attempted.Contains(r)).ToList();
         foreach (var route in routes)
         {
             _current = route;
