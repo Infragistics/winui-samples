@@ -1,10 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
-using Infragistics.Controls.Maps;
-
 
 namespace Sample;
 
@@ -20,7 +16,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -31,12 +26,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldFlights == null)
             {
-                _worldFlights = new WorldFlights(); 
+                _worldFlights = new WorldFlights();
             }
             return _worldFlights;
         }
     }
-    
+
     private WorldGridlines _worldGridlines = null;
     public WorldGridlines WorldGridlines
     {
@@ -44,12 +39,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldGridlines == null)
             {
-                _worldGridlines = new WorldGridlines(); 
+                _worldGridlines = new WorldGridlines();
             }
             return _worldGridlines;
         }
     }
-    
+
     private WorldAirports _worldAirports = null;
     public WorldAirports WorldAirports
     {
@@ -57,16 +52,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldAirports == null)
             {
-                _worldAirports = new WorldAirports(); 
+                _worldAirports = new WorldAirports();
             }
             return _worldAirports;
         }
     }
 
-
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

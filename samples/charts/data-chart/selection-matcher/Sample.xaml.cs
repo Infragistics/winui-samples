@@ -21,7 +21,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.SelectionMatcherOnViewInit();
         };
     }
@@ -33,15 +32,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyRenewableConsumption == null)
             {
-                _energyRenewableConsumption = new EnergyRenewableConsumption(); 
+                _energyRenewableConsumption = new EnergyRenewableConsumption();
             }
             return _energyRenewableConsumption;
         }
     }
 
-
     private Timer _timer;
-    
+
     public void SelectionMatcherOnViewInit()
     {
     	_timer = new Timer((state) =>
@@ -50,7 +48,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     		_timer.Dispose();
     	}, null, 100, Timeout.Infinite);
     }
-    
+
     private void AddSelection()
     {
     	var chart = this.chart;
@@ -58,30 +56,30 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     	var data = (IList)((object)chart is XamCategoryChart categoryChart
     		? categoryChart.ItemsSource
     		: ((XamDataChart)(object)chart).Series[0].ItemsSource);
-    
+
     	ChartSelection selection = new ChartSelection();
     	selection.Item = data[1];
     	SeriesMatcher matcher = new SeriesMatcher();
     	matcher.MemberPath = "Hydro";
     	matcher.MemberPathType = "ValueMemberPath";
     	selection.Matcher = matcher;
-    
+
     	chart.SelectedSeriesItems.Add(selection);
-    
+
     	SeriesMatcher matcher2 = new SeriesMatcher();
     	ChartSelection selection2 = new ChartSelection();
     	selection2 = new ChartSelection();
     	selection2.Item = data[1];
     	matcher2.MemberPath = "Wind";
     	matcher2.MemberPathType = "ValueMemberPath";
-    
+
     	selection2.Matcher = matcher2;
-    
+
     	chart.SelectedSeriesItems.Add(selection2);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,19 +30,19 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding ContinentsBirthRate}"
                   Label="Year"
                   Gap="0.75">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   MinimumValue="0"
                   MaximumValue="140"
                   Interval="20"
@@ -53,7 +53,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:StackedSplineAreaSeries
-                  Name="stackedSplineAreaSeries"
+                  x:Name="stackedSplineAreaSeries"
                   ItemsSource="{Binding ContinentsBirthRate}"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -61,34 +61,34 @@
                   MarkerType="Circle">
                       <igCharts:StackedSplineAreaSeries.Series>
                           <igCharts:StackedFragmentSeries
-                          Name="s1"
+                          x:Name="s1"
                           ValueMemberPath="Asia"
                           Title="Asia">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="s2"
+                          x:Name="s2"
                           ValueMemberPath="Africa"
                           Title="Africa">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="s3"
+                          x:Name="s3"
                           ValueMemberPath="Europe"
                           Title="Europe">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="s4"
+                          x:Name="s4"
                           ValueMemberPath="NorthAmerica"
                           Title="North America">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="s5"
+                          x:Name="s5"
                           ValueMemberPath="SouthAmerica"
                           Title="South America">
                           </igCharts:StackedFragmentSeries>
                       </igCharts:StackedSplineAreaSeries.Series>
                   </igCharts:StackedSplineAreaSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

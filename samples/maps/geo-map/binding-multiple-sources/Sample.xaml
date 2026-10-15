@@ -25,25 +25,25 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="geoMap"
+          x:Name="geoMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicPolylineSeries
-                  Name="lineSeries"
+                  x:Name="lineSeries"
                   ItemsSource="{Binding WorldFlights}"
                   ShapeMemberPath="Points"
                   ShapeStroke="rgba(196, 14, 14, 0.05)"
                   ShapeStrokeThickness="4">
                   </igMaps:GeographicPolylineSeries>
                   <igMaps:GeographicPolylineSeries
-                  Name="gridSeries"
+                  x:Name="gridSeries"
                   ItemsSource="{Binding WorldGridlines}"
                   ShapeMemberPath="Points"
                   ShapeStroke="Gray"
                   ShapeStrokeThickness="1">
                   </igMaps:GeographicPolylineSeries>
                   <igMaps:GeographicSymbolSeries
-                  Name="symbolSeries"
+                  x:Name="symbolSeries"
                   ItemsSource="{Binding WorldAirports}"
                   LatitudeMemberPath="Lat"
                   LongitudeMemberPath="Lon"

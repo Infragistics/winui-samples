@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:XamDataLegend
-          Name="legend"
+          x:Name="legend"
           Target="{Binding ElementName=chart}"
           HeaderRowVisible="true"
           SummaryType="None"
@@ -35,23 +35,23 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           ComputedPlotAreaMarginMode="Series">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CountryRenewableElectricity}"
                   LabelLocation="OutsideBottom"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   LabelLocation="OutsideLeft">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="lineSeries1"
+                  x:Name="lineSeries1"
                   Title="EU Energy"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -61,7 +61,7 @@
                   ShowDefaultTooltip="true">
                   </igCharts:LineSeries>
                   <igCharts:TrendLineLayer
-                  Name="trendLine1"
+                  x:Name="trendLine1"
                   Title="Logarithmic Trend"
                   UseIndex="true"
                   TrendLineType="LogarithmicFit"
@@ -70,7 +70,7 @@
                   LegendItemBadgeMode="MatchSeries">
                   </igCharts:TrendLineLayer>
                   <igCharts:TrendLineLayer
-                  Name="trendLine2"
+                  x:Name="trendLine2"
                   Title="Cubic Trend"
                   UseIndex="true"
                   TrendLineType="CubicFit"

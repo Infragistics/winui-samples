@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.UI.Xaml.Media;
-using Infragistics.Controls;
+using Infragistics.Core;
 
 namespace Sample;
 
@@ -24,18 +24,15 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.MapBindingDataModelOnViewInit();
         };
     }
-
-
 
     public void MapBindingDataModelOnViewInit()
     {
         var geoMap = this.geoMap;
         geoMap.UpdateZoomWindow(new Infragistics.Controls.IGRect(0.2, 0.1, 0.6, 0.6));
-    
+
         var CityDAL = new WorldCity() { Lat = 32.763, Lon = -96.663, Country = "US", Name = "Dallas" };
         var CitySYD = new WorldCity() { Lat = -33.889, Lon = 151.028, Country = "Australia", Name = "Sydney" };
         var CityNZL = new WorldCity() { Lat = -36.848, Lon = 174.763, Country = "New Zealand", Name = "Auckland" };
@@ -50,7 +47,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var CityMOS = new WorldCity() { Lat = 55.75, Lon = 37.7, Country = "Russia", Name = "Moscow" };
         var CityROM = new WorldCity() { Lat = 41.88, Lon = 12.52, Country = "Italy", Name = "Roma" };
         var CityLAX = new WorldCity() { Lat = 34.0, Lon = -118.25, Country = "US", Name = "Los Angeles" };
-    
+
         var flights = new List<FlightInfo>() {
             new FlightInfo() { Origin = CityDAL, Dest = CitySNG, Color = "Green" },
             new FlightInfo() { Origin = CityMOS, Dest = CityNZL, Color = "Red" },
@@ -60,7 +57,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             new FlightInfo() { Origin = CityNYC, Dest = CityQTR, Color = "Purple" },
             new FlightInfo() { Origin = CityLAX, Dest = CitySYD, Color = "Gray" }
         };
-    
+
         // the route first, so that the cities at either end of it draw on top
         foreach (var flight in flights)
         {
@@ -68,7 +65,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             AddFlightCities(geoMap, flight);
         }
     }
-    
+
     /// <summary>The flight itself, as a great circle path between its two cities.</summary>
     public void AddFlightRoute(XamGeographicMap geoMap, FlightInfo flight)
     {
@@ -84,7 +81,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 Time = geoDistance / 850
             }
         };
-    
+
         var lineSeries = new GeographicPolylineSeries();
         lineSeries.ItemsSource = geoRoutes;
         lineSeries.ShapeMemberPath = "Points";
@@ -93,12 +90,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         lineSeries.ShapeStroke = BrushFromName(flight.Color);
         geoMap.Series.Add(lineSeries);
     }
-    
+
     /// <summary>The cities at either end, in the flight's own colour.</summary>
     public void AddFlightCities(XamGeographicMap geoMap, FlightInfo flight)
     {
         var geoLocations = new List<WorldCity>() { flight.Origin, flight.Dest };
-    
+
         var symbolSeries = new GeographicSymbolSeries();
         symbolSeries.ItemsSource = geoLocations;
         symbolSeries.MarkerType = Infragistics.Controls.Charts.MarkerType.Circle;
@@ -117,7 +114,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)
@@ -127,3 +124,243 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 }
 
+public class GeoLocation
+{
+    public double Lat { get; set; }
+    public double Lon { get; set; }
+}
+
+public class WorldCity
+{
+    public double Lat { get; set; }
+    public double Lon { get; set; }
+    public double Pop { get; set; }
+    public string Country { get; set; }
+    public string Name { get; set; }
+    public bool Cap { get; set; }
+}
+
+public static class WorldUtils
+{
+    public static List<List<Point>> CalcPaths(GeoLocation origin, GeoLocation dest)
+    {
+        int interval = 200;
+        var paths = new List<List<Point>>() { new List<Point>() };
+        int pathID = 0;
+        double distance = WorldUtils.CalcDistance(origin, dest);
+
+        if (distance <= interval)
+        {
+            paths[pathID].Add(new Point() { X = dest.Lon, Y = dest.Lat });
+        }
+        else
+        {
+            GeoLocation current = origin;
+            GeoLocation previous = origin;
+
+            for(int dist = interval; dist <= distance; dist += interval)
+            {
+                previous = current;
+
+                paths[pathID].Add(new Point() { X = current.Lon, Y = current.Lat });
+
+                double bearing = WorldUtils.CalcBearing(current, dest);
+                current = WorldUtils.CalcDestination(current, bearing, interval);
+
+                if (previous.Lon > 150 && current.Lon < -150)
+                {
+                    paths[pathID].Add(new Point() { X = 180, Y = current.Lat });
+                    paths.Add(new List<Point>());
+                    pathID++;
+                    current = new GeoLocation() { Lon = -180, Lat = current.Lat };
+                }
+                else if(previous.Lon < -150 && current.Lon > 150)
+                {
+                    paths[pathID].Add(new Point() { X = -180, Y = current.Lat });
+                    paths.Add(new List<Point>());
+                    pathID++;
+                    current = new GeoLocation() { Lon = 180, Lat = current.Lat };
+                }
+            }
+
+            paths[pathID].Add(new Point() { X = dest.Lon, Y = dest.Lat });
+
+        }
+
+        return paths;
+
+    }
+
+    public static double CalcBearing(GeoLocation origin, GeoLocation dest)
+    {
+        origin = WorldUtils.ToRadianLocation(origin);
+        dest = WorldUtils.ToRadianLocation(dest);
+
+        double range = (dest.Lon - origin.Lon);
+
+        double y = Math.Sin(range) * Math.Cos(dest.Lat);
+        double x = Math.Cos(origin.Lat) * Math.Sin(dest.Lat) - Math.Sin(origin.Lat) * Math.Cos(dest.Lat) * Math.Cos(range);
+        double angle = Math.Atan2(y, x);
+
+        return WorldUtils.ToDegreesNormalized(angle);
+    }
+
+    public static GeoLocation CalcDestination(GeoLocation origin, double bearing, double distance)
+    {
+        double radius = 6371.0;
+
+        origin = WorldUtils.ToRadianLocation(origin);
+        bearing = WorldUtils.ToRadians(bearing);
+
+        distance = distance / radius;
+
+        double lat = Math.Asin(Math.Sin(origin.Lat) * Math.Cos(distance) +
+           Math.Cos(origin.Lat) * Math.Sin(distance) * Math.Cos(bearing));
+        double x = Math.Sin(bearing) * Math.Sin(distance) * Math.Cos(origin.Lat);
+        double y = Math.Cos(distance) - Math.Sin(origin.Lat) * Math.Sin(origin.Lat);
+        double lon = origin.Lon + Math.Atan2(x, y);
+        // normalize lon to coordinate between -180º and +180º
+        lon = (lon + 3 * Math.PI) % (2 * Math.PI) - Math.PI;
+
+        lon = WorldUtils.ToDegrees(lon);
+        lat = WorldUtils.ToDegrees(lat);
+
+        return new GeoLocation() { Lat = lat, Lon = lon };
+    }
+
+    public static double CalcDistance(GeoLocation origin, GeoLocation dest)
+    {
+        origin = WorldUtils.ToRadianLocation(origin);
+        dest = WorldUtils.ToRadianLocation(dest);
+
+        double sinProd = Math.Sin(origin.Lat) * Math.Sin(dest.Lat);
+        double cosProd = Math.Cos(origin.Lat) * Math.Cos(dest.Lat);
+        double lonDelta = (dest.Lon - origin.Lon);
+
+        double angle = Math.Acos(sinProd + cosProd * Math.Cos(lonDelta));
+        double distance = angle * 6371.0;
+        return distance;
+    }
+
+    public static GeoLocation ToRadianLocation(GeoLocation geoPoint)
+    {
+        double x = WorldUtils.ToRadians(geoPoint.Lon);
+        double y = WorldUtils.ToRadians(geoPoint.Lat);
+
+        return new GeoLocation() { Lon = x, Lat = y };
+    }
+
+    public static double ToRadians(double degrees)
+    {
+        return degrees * Math.PI / 180;
+    }
+
+    public static double ToDegrees(double radians)
+    {
+        return (radians * 180.0 / Math.PI);
+    }
+
+    public static double ToDegreesNormalized(double radians)
+    {
+        double degrees = WorldUtils.ToDegrees(radians);
+        degrees = (degrees + 360) % 360;
+        return degrees;
+    }
+
+    public static string ToStringLat(double latitude)
+    {
+        string str = Math.Abs(latitude) + "°";
+        return latitude > 0 ? str + "N" : str + "S";
+    }
+
+    public static string ToStringLon(double coordinate)
+    {
+        double val = Math.Abs(coordinate);
+        string str = val.ToString();
+        return coordinate > 0 ? str + "°E" : str + "°W";
+    }
+
+    public static string ToStringAbbr(double value)
+    {
+        if (value > 1000000000000)
+        {
+            return (value / 1000000000000).ToString("N1") + " T";
+    }
+        else if (value > 1000000000)
+        {
+            return (value / 1000000000).ToString("N1") + " B";
+      }
+        else if (value > 1000000)
+        {
+            return (value / 1000000).ToString("N1") + " M";
+      }
+        else if (value > 1000)
+        {
+            return (value / 1000).ToString("N1") + " K";
+      }
+        return value.ToString("N0");
+    }
+
+    public static double GetLongitude(GeoLocation location)
+    {
+        return location.Lon;
+    }
+
+    public static double GetLatitude(GeoLocation location)
+    {
+        return location.Lat;
+    }
+
+    public static Infragistics.Controls.IGRect GetBounds(List<GeoLocation> locations)
+    {
+        double minLat = 90;
+        double maxLat = -90;
+        double minLon = 180;
+        double maxLon = -180;
+
+        foreach(GeoLocation gl in locations)
+        {
+            double curLon = WorldUtils.GetLongitude(gl);
+            double curLat = WorldUtils.GetLatitude(gl);
+
+            if (!double.IsNaN(curLon))
+            {
+                minLon = Math.Min(minLon, curLon);
+                maxLon = Math.Max(maxLon, curLon);
+            }
+
+            if (!double.IsNaN(curLat))
+            {
+                minLat = Math.Min(minLat, curLat);
+                maxLat = Math.Min(maxLat, curLat);
+            }
+        }
+
+        Infragistics.Controls.IGRect geoBounds = new Infragistics.Controls.IGRect(minLon, minLat, Math.Abs(maxLon - minLon), Math.Abs(maxLat - minLat));
+        return geoBounds;
+    }
+
+    public static List<Point> GetNightShapes()
+    {
+        List<Point> line = new List<Point>();
+
+        for(int lon = -180; lon <= 180; lon += 1)
+        {
+            double x = lon;
+            double y = 75 * Math.Cos(lon * Math.PI / 180);
+            line.Add(new Point(x, y));
+        }
+
+        return line;
+    }
+}
+
+public class FlightInfo
+{
+    public WorldCity Origin { get; set; }
+    public WorldCity Dest { get; set; }
+    public double Distance { get; set; }
+    public double Time { get; set; }
+    public List<List<Point>> Points { get; set; }
+    public string Color { get; set; }
+}

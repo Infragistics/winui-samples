@@ -25,12 +25,12 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="map"
+          x:Name="map"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicShapeSeries
-                  Name="GeographicShapeSeries1"
-                  Brush="#4d929292"
+                  x:Name="GeographicShapeSeries1"
+                  Brush="#4c929292"
                   Outline="black"
                   Thickness="1">
                       <igMaps:GeographicShapeSeries.ShapefileDataSource>

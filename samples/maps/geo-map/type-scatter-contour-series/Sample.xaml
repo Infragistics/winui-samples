@@ -25,11 +25,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="geoMap"
+          x:Name="geoMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicContourLineSeries
-                  Name="contourSeries"
+                  x:Name="contourSeries"
                   ItemsSource="{Binding WorldTemperatures}"
                   LongitudeMemberPath="Lon"
                   LatitudeMemberPath="Lat"
@@ -37,7 +37,7 @@
                   Thickness="4">
                       <igMaps:GeographicContourLineSeries.FillScale>
                           <igCharts:ValueBrushScale
-                          Brushes="#802092fc #800ec20e #80fc7820 #80fc2020"
+                          Brushes="#7f2092fc #7f0ec20e #7ffc7820 #7ffc2020"
                           MinimumValue="0"
                           MaximumValue="30">
                           </igCharts:ValueBrushScale>

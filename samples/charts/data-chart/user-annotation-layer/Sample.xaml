@@ -23,32 +23,32 @@
           DescriptionType="DataChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AnnotationLabel"
-                  Name="AnnotationLabel"
+                  x:Name="AnnotationLabel"
                   Label="Label"
                   ValueType="StringValue"
                   PrimitiveValue="Enter Label">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AnnotationDetails"
-                  Name="AnnotationDetails"
+                  x:Name="AnnotationDetails"
                   Label="Details"
                   ValueType="StringValue"
                   PrimitiveValue="Enter Details">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AnnotationBadgeColor"
-                  Name="AnnotationBadgeColor"
+                  x:Name="AnnotationBadgeColor"
                   Label="Badge Color"
                   ValueType="StringValue"
                   PrimitiveValue="black">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AnnotationMainColor"
-                  Name="AnnotationMainColor"
+                  x:Name="AnnotationMainColor"
                   Label="Main Color"
                   ValueType="StringValue"
                   PrimitiveValue="black">
@@ -59,7 +59,7 @@
                   ValueType="Button"
                   PrimitiveValue="Done"
                   ButtonClicked="EditorButtonFinishUserAnnotation"
-                  Name="propertyEditorPropertyDescription1">
+                  x:Name="propertyEditorPropertyDescription1">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CancelAnnotation"
@@ -67,14 +67,14 @@
                   ValueType="Button"
                   PrimitiveValue="Cancel"
                   ButtonClicked="EditorButtonCancelUserAnnotation"
-                  Name="propertyEditorPropertyDescription2">
+                  x:Name="propertyEditorPropertyDescription2">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
         </Grid>
         <Grid>
           <igLayouts:XamToolbar
-          Name="toolbar"
+          x:Name="toolbar"
           Target="{Binding ElementName=chart}"
           Orientation="Horizontal">
           </igLayouts:XamToolbar>
@@ -88,7 +88,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
           ComputedPlotAreaMarginMode="Series"
@@ -97,18 +97,18 @@
           UserAnnotationToolTipContentUpdating="DataChartUserAnnotationTooltip">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CountryRenewableElectricity}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="TWh">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="lineSeries1"
+                  x:Name="lineSeries1"
                   Title="America"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -116,7 +116,7 @@
                   ValueMemberPath="America">
                   </igCharts:LineSeries>
                   <igCharts:LineSeries
-                  Name="lineSeries2"
+                  x:Name="lineSeries2"
                   Title="Europe"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -124,7 +124,7 @@
                   ValueMemberPath="Europe">
                   </igCharts:LineSeries>
                   <igCharts:LineSeries
-                  Name="lineSeries3"
+                  x:Name="lineSeries3"
                   Title="China"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"

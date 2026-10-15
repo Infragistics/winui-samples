@@ -25,11 +25,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="geoMap"
+          x:Name="geoMap"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicShapeSeries
-                  Name="GeographicShapeSeries1"
+                  x:Name="GeographicShapeSeries1"
                   IsCustomShapeStyleAllowed="true"
                   AssigningShapeStyle="ShapeFileStyling">
                   </igMaps:GeographicShapeSeries>

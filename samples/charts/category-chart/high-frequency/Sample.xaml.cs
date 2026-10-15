@@ -3,14 +3,13 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Charts;
+using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.UI.Xaml;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -27,11 +26,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.CategoryChartHighFrequencyOnViewInit();
         };
     }
-
 
     private ComponentRenderer _componentRenderer = null;
     public ComponentRenderer Renderer
@@ -54,34 +51,30 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         CategoryChartFrequency.Generate(this.chart);
         CategoryChartFrequency.RestartTimer(this.chart);
     }
-    
-    
+
     public void EditorButtonToggleHighFrequency(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         CategoryChartFrequency.Toggle();
     }
-    
-    
+
     public void EditorChangeHighFrequencyRefresh(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         CategoryChartFrequency.RefreshMilliseconds = System.Convert.ToInt32(args.NewValue);
         CategoryChartFrequency.RestartTimer(this.chart);
     }
-    
-    
+
     public void EditorChangeHighFrequencyPoints(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         CategoryChartFrequency.Points = System.Convert.ToInt32(args.NewValue);
     }
-    
-    
+
     public void EditorButtonGenerateHighFrequencyData(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         CategoryChartFrequency.Generate(this.chart);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)
@@ -156,7 +149,6 @@ public static class CategoryChartFrequency
         timer.Tick += (s, e) => Tick();
         timer.Start();
     }
-
 
     private static void Tick()
     {

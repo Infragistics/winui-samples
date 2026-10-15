@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=gauge}"
           DescriptionType="BulletGraph"
@@ -26,21 +26,21 @@
           IsWrappingEnabled="true">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge1Button"
+                  x:Name="AnimateToGauge1Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #1"
                   ButtonClicked="BulletGraphAnimateToGauge1">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge2Button"
+                  x:Name="AnimateToGauge2Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #2"
                   ButtonClicked="BulletGraphAnimateToGauge2">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="AnimateToGauge3Button"
+                  x:Name="AnimateToGauge3Button"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Gauge Animation #3"
@@ -58,7 +58,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamBulletGraph
-          Name="gauge"
+          x:Name="gauge"
           Height="80px"
           Orientation="Horizontal"
           TransitionDuration="1000"

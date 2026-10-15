@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyRenewableGeneration}"
           IncludedProperties="{Binding includedProperties1}"
           ChartType="Line"

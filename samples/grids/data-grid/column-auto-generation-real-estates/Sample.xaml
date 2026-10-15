@@ -24,9 +24,9 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDataGrids:XamDataGrid
-          Name="grid"
-          ItemsSource="{Binding RealEstateData}"
           AutoGenerateColumns="false"
+          x:Name="grid"
+          ItemsSource="{Binding RealEstateData}"
           ActivationMode="Cell">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn

@@ -24,12 +24,12 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDoughnutChart
-          Name="chart"
+          x:Name="chart"
           AllowSliceExplosion="false"
           AllowSliceSelection="false">
               <igCharts:XamDoughnutChart.Series>
                   <igCharts:RingSeries
-                  Name="series1"
+                  x:Name="series1"
                   LabelMemberPath="Label"
                   ValueMemberPath="Value"
                   LabelsPosition="Center"
@@ -39,7 +39,7 @@
                   ItemsSource="{Binding CalendarSeasons}">
                   </igCharts:RingSeries>
                   <igCharts:RingSeries
-                  Name="series2"
+                  x:Name="series2"
                   LabelMemberPath="Label"
                   ValueMemberPath="Value"
                   LabelsPosition="Center"

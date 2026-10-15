@@ -11,7 +11,7 @@ namespace Sample
         public string Company { get; set; }
         public string Summary { get; set; }
     }
-    
+
     public class LocalData
         : List<LocalDataItem>
     {

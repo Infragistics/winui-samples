@@ -23,17 +23,17 @@
           DescriptionType="DataPieChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="TransitionInMode"
-                  Name="TransitionInModeEditor"
+                  x:Name="TransitionInModeEditor"
                   Label="Transition In Animation: "
                   PrimitiveValue="Auto">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="TransitionInSpeedType"
-                  Name="TransitionInSpeedTypeEditor"
+                  x:Name="TransitionInSpeedTypeEditor"
                   Label="Transition In Speed Type: "
                   PrimitiveValue="Random">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -49,7 +49,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyGlobalDemand}"
           TransitionInMode="FromZero"
           TransitionInDuration="1000"

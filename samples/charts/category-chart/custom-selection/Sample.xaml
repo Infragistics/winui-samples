@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:XamDataLegend
-          Name="legend"
+          x:Name="legend"
           SummaryType="None"
           ValueFormatMaxFractions="0"
           Target="{Binding ElementName=chart}">
@@ -32,7 +32,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SelectableData}"
           ChartType="Column"
           XAxisOverlap="1"

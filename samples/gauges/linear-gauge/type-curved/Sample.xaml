@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamLinearGauge
-          Name="gauge"
+          x:Name="gauge"
           Height="120px"
           MinimumValue="0"
           MaximumValue="100"

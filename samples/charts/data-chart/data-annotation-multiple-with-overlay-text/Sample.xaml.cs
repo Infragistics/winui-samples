@@ -1,9 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
-
 
 namespace Sample;
 
@@ -19,7 +16,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -30,12 +26,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_stockTesla == null)
             {
-                _stockTesla = new StockTesla(); 
+                _stockTesla = new StockTesla();
             }
             return _stockTesla;
         }
     }
-    
+
     private AnnotationSliceMultiOverlayData _annotationSliceMultiOverlayData = null;
     public AnnotationSliceMultiOverlayData AnnotationSliceMultiOverlayData
     {
@@ -43,16 +39,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceMultiOverlayData == null)
             {
-                _annotationSliceMultiOverlayData = new AnnotationSliceMultiOverlayData(); 
+                _annotationSliceMultiOverlayData = new AnnotationSliceMultiOverlayData();
             }
             return _annotationSliceMultiOverlayData;
         }
     }
 
-
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

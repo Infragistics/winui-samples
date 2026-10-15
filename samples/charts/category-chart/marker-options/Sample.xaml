@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -27,13 +27,13 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ChartType"
-                  Name="ChartTypeEditor"
+                  x:Name="ChartTypeEditor"
                   Label="Chart Type"
                   PrimitiveValue="Line">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="MarkerTypeHandler"
-                  Name="MarkerTypeEditor"
+                  x:Name="MarkerTypeEditor"
                   Label="Marker Type"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -54,7 +54,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           IsSeriesHighlightingEnabled="true"
           ChartType="Line"
           MarkerTypes="{Binding markerTypes1}"

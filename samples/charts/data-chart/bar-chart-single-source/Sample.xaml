@@ -24,12 +24,12 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="Chart"
+          x:Name="Chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Label="Shop"
                   UseEnhancedIntervalManagement="true"
                   EnhancedIntervalPreferMoreCategoryLabels="true"
@@ -39,16 +39,16 @@
                   Overlap="-0.1">
                   </igCharts:CategoryYAxis>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   LabelFormat="{}{0}%">
                   </igCharts:NumericXAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:CategoryHighlightLayer
-                  Name="CategoryHighlightLayer">
+                  x:Name="CategoryHighlightLayer">
                   </igCharts:CategoryHighlightLayer>
                   <igCharts:BarSeries
-                  Name="BarSeries1"
+                  x:Name="BarSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ValueMemberPath="Percent"
@@ -58,7 +58,7 @@
                   IsHighlightingEnabled="true">
                   </igCharts:BarSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltips">
+                  x:Name="Tooltips">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

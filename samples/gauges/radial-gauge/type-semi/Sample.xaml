@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamRadialGauge
-          Name="gauge"
+          x:Name="gauge"
           TransitionDuration="500"
           MinimumValue="0"
           MaximumValue="80"
@@ -32,8 +32,8 @@
           Interval="10"
           LabelExtent="0.6"
           LabelInterval="10"
+          FontFamily="Verdana,Arial"
           FontSize="15"
-          FontFamily="Verdana"
           ScaleStartAngle="135"
           ScaleEndAngle="45"
           ScaleBrush="#0b8fed"

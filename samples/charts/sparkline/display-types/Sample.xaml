@@ -23,11 +23,11 @@
           DescriptionType="Sparkline"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="DisplayType"
-                  Name="DisplayType"
+                  x:Name="DisplayType"
                   Label="Display Type"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,7 +47,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamSparkline
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SparklineWaveData}"
           DisplayType="Line"
           Minimum="-1"

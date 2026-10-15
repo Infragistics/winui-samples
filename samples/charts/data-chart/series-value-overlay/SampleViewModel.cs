@@ -10,7 +10,7 @@ namespace Sample
         public double Label { get; set; }
         public double Value { get; set; }
     }
-    
+
     public class LocalData
         : List<LocalDataItem>
     {

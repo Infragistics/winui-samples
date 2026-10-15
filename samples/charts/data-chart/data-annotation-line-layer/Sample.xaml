@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
           IsVerticalZoomEnabled="false"
@@ -43,7 +43,7 @@
           Title="The Data Chart demonstrates the DataAnnotationLineLayer bound to data that annotates stock growth and decline patterns.">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   LabelLeftMargin="0"
@@ -52,7 +52,7 @@
                   LabelBottomMargin="15">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisLeft"
+                  x:Name="yAxisLeft"
                   LabelLocation="OutsideLeft"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -65,7 +65,7 @@
                   MaximumValue="550">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisRight"
+                  x:Name="yAxisRight"
                   LabelLocation="OutsideRight"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -80,7 +80,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:FinancialPriceSeries
-                  Name="series1"
+                  x:Name="series1"
                   Title="Stock Price"
                   DisplayType="Candlestick"
                   XAxis="{Binding ElementName=xAxis}"
@@ -93,12 +93,12 @@
                   ShowDefaultTooltip="false">
                   </igCharts:FinancialPriceSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltip"
+                  x:Name="Tooltip"
                   IncludedColumns="{Binding includedColumns1}"
                   LayoutMode="Vertical">
                   </igCharts:DataToolTipLayer>
                   <igCharts:DataAnnotationLineLayer
-                  Name="LineLayer52WeekRange"
+                  x:Name="LineLayer52WeekRange"
                   ItemsSource="{Binding AnnotationLineData1}"
                   TargetAxis="{Binding ElementName=yAxisRight}"
                   CenterLabelXDisplayMode="Hidden"
@@ -121,7 +121,7 @@
                   EndValueYMemberPath="EndY">
                   </igCharts:DataAnnotationLineLayer>
                   <igCharts:DataAnnotationLineLayer
-                  Name="LineLayerGrowthAndDecline"
+                  x:Name="LineLayerGrowthAndDecline"
                   ItemsSource="{Binding AnnotationLineData2}"
                   TargetAxis="{Binding ElementName=xAxis}"
                   CenterLabelXDisplayMode="Hidden"

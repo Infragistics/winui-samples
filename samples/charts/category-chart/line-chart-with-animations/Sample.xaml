@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="TransitionInMode"
-                  Name="TransitionInMode"
+                  x:Name="TransitionInMode"
                   Label="Transition Type"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -38,7 +38,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="TransitionInDuration"
-                  Name="TransitionInDuration"
+                  x:Name="TransitionInDuration"
                   Label="Transition Duration"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -54,7 +54,7 @@
                   ValueType="Button"
                   PrimitiveValue="Reload Chart"
                   ButtonClicked="EditorButtonReplayTransitionInDomain"
-                  Name="propertyEditorPropertyDescription1">
+                  x:Name="propertyEditorPropertyDescription1">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -68,7 +68,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyRenewableGeneration}"
           IncludedProperties="{Binding includedProperties1}"
           ChartType="Line"

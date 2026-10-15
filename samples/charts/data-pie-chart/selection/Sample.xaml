@@ -23,13 +23,13 @@
           DescriptionType="DataPieChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   Label="Selection Behavior: "
                   ValueType="EnumValue"
                   PropertyPath="SelectionBehavior"
-                  Name="SelectionBehaviorEditor"
+                  x:Name="SelectionBehaviorEditor"
                   ShouldOverrideDefaultEditor="true"
                   DropDownNames="{Binding dropDownNames1}"
                   DropDownValues="{Binding dropDownValues1}"
@@ -37,7 +37,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="SelectionMode"
-                  Name="SelectionModeEditor"
+                  x:Name="SelectionModeEditor"
                   Label="Selection Mode: "
                   PrimitiveValue="Brighten">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -53,7 +53,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyGlobalDemand}"
           HighlightingMode="None"
           SelectionMode="Brighten"

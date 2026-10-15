@@ -24,38 +24,34 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.ShapeFileOnViewInit();
         };
     }
 
-
-
     private ShapeDataSource Data;
-    
+
     public void ShapeFileOnViewInit()
     {
         var geoMap = this.geoMap;
-    
+
         this.Data = new ShapeDataSource()
         {
             ShapefileSource = new Uri("https://static.infragistics.com/xplatform/shapes/world_countries_all.shp"),
             DatabaseSource = new Uri("https://static.infragistics.com/xplatform/shapes/world_countries_all.dbf")
         };
-    
+
         var shapeSeries = (GeographicShapeSeries)geoMap.Series[0];
         shapeSeries.ShapefileDataSource = this.Data;
         geoMap.BackgroundContent = null;
     }
-    
-    
+
     public void ShapeFileStyling(object sender, AssigningShapeStyleEventArgs args)
     {
         // conditional styling based on the Continent field loaded from the DBF file. The event
         // covers a range of items rather than one, so the record is asked for by index.
-        var record = args.GetItems(args.StartIndex, args.EndIndex)[0] as ShapefileRecord;
+        var record = args.GetItems(args.StartIndex, args.EndIndex)[0] as Infragistics.Controls.ShapefileRecord;
         var continent = record?.Fields["Continent"] as string;
-    
+
         Color fill;
         if (continent == "Africa") {
             fill = Color.FromArgb(0xFF, 0xEC, 0xB9, 0x12);
@@ -75,7 +71,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

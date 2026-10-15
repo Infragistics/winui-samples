@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:XamDataLegend
-          Name="legend"
+          x:Name="legend"
           Target="{Binding ElementName=chart}"
           UnitsText="%"
           IncludedColumns="{Binding includedColumns1}">
@@ -32,17 +32,17 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="Birth Rate"
                   Interval="10"
                   MinimumValue="0"
                   MaximumValue="60">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Title="Death Rate"
                   Interval="1"
                   MinimumValue="4"
@@ -51,7 +51,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:BubbleSeries
-                  Name="bubbleSeries1"
+                  x:Name="bubbleSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding CountryDemographicAfrican}"
@@ -64,14 +64,14 @@
                   YMemberAsLegendLabel="Birth Rate: ">
                       <igCharts:BubbleSeries.RadiusScale>
                           <igCharts:SizeScale
-                          Name="SizeScale1"
+                          x:Name="SizeScale1"
                           MinimumValue="10"
                           MaximumValue="50">
                           </igCharts:SizeScale>
                       </igCharts:BubbleSeries.RadiusScale>
                   </igCharts:BubbleSeries>
                   <igCharts:BubbleSeries
-                  Name="bubbleSeries2"
+                  x:Name="bubbleSeries2"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding CountryDemographicEurope}"
@@ -84,14 +84,14 @@
                   YMemberAsLegendLabel="Birth Rate: ">
                       <igCharts:BubbleSeries.RadiusScale>
                           <igCharts:SizeScale
-                          Name="SizeScale2"
+                          x:Name="SizeScale2"
                           MinimumValue="10"
                           MaximumValue="50">
                           </igCharts:SizeScale>
                       </igCharts:BubbleSeries.RadiusScale>
                   </igCharts:BubbleSeries>
                   <igCharts:CrosshairLayer
-                  Name="CrosshairLayer">
+                  x:Name="CrosshairLayer">
                   </igCharts:CrosshairLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

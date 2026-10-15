@@ -23,11 +23,11 @@
           DescriptionType="Sparkline"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="FirstMarkerVisibility"
-                  Name="FirstMarkerVisibilityEditor"
+                  x:Name="FirstMarkerVisibilityEditor"
                   Label="First Markers"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -37,7 +37,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HighMarkerVisibility"
-                  Name="HighMarkerVisibilityEditor"
+                  x:Name="HighMarkerVisibilityEditor"
                   Label="High Markers"
                   ValueType="EnumValue"
                   DropDownNames="{Binding dropDownNames2}"
@@ -46,7 +46,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="LowMarkerVisibility"
-                  Name="LowMarkerVisibilityEditor"
+                  x:Name="LowMarkerVisibilityEditor"
                   Label="Low Markers"
                   ValueType="EnumValue"
                   DropDownNames="{Binding dropDownNames3}"
@@ -55,7 +55,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="NegativeMarkerVisibility"
-                  Name="NegativeMarkerVisibilityEditor"
+                  x:Name="NegativeMarkerVisibilityEditor"
                   Label="Negative Markers"
                   ValueType="EnumValue"
                   DropDownNames="{Binding dropDownNames4}"
@@ -64,7 +64,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="LastMarkerVisibility"
-                  Name="LastMarkerVisibilityEditor"
+                  x:Name="LastMarkerVisibilityEditor"
                   Label="Last Markers"
                   ValueType="EnumValue"
                   DropDownNames="{Binding dropDownNames5}"
@@ -73,7 +73,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="MarkerVisibility"
-                  Name="MarkerVisibilityEditor"
+                  x:Name="MarkerVisibilityEditor"
                   Label="All Markers"
                   ValueType="EnumValue"
                   DropDownNames="{Binding dropDownNames6}"
@@ -92,7 +92,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamSparkline
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SparklineProfitData}"
           DisplayType="Line"
           LabelMemberPath="Label"

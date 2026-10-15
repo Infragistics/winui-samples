@@ -7,7 +7,6 @@ using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
 using System.Collections;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -23,7 +22,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.DoughnutChartSelectionOnViewInit();
         };
     }
@@ -35,7 +33,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyGlobalDemand == null)
             {
-                _energyGlobalDemand = new EnergyGlobalDemand(); 
+                _energyGlobalDemand = new EnergyGlobalDemand();
             }
             return _energyGlobalDemand;
         }
@@ -72,8 +70,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             this.SelectedSlice,
             0);
     }
-    
-    
+
     public void DoughnutChartSelectionSliceClick(object sender, SliceClickEventArgs e)
     {
         // A click that selects reports which slice; a click that clears the selection reports that.
@@ -84,7 +81,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -4,7 +4,6 @@ using System.ComponentModel;
 
 using Infragistics.Controls.Charts;
 using System.Collections;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -20,7 +19,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -31,12 +29,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_selectableData == null)
             {
-                _selectableData = new SelectableData(); 
+                _selectableData = new SelectableData();
             }
             return _selectableData;
         }
     }
-
 
     public void CategoryChartCustomSelectionPointerDown(object sender, DomainChartSeriesPointerEventArgs args)
     {
@@ -44,7 +41,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var selectableData = (SelectableData)chart.ItemsSource;
         var selectedItem = args.Item as SelectableDataItem;
         if (selectedItem == null) return;
-    
+
         var selectedIndex = -1;
         for (var i = 0; i < selectableData.Count; i++)
         {
@@ -53,17 +50,17 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 selectedIndex = i; break;
             }
         }
-    
+
         if (selectedItem.SelectedValue == selectedItem.DataValue)
             selectedItem.SelectedValue = double.NaN;
         else
             selectedItem.SelectedValue = selectedItem.DataValue;
-    
+
         chart.NotifySetItem(selectableData, selectedIndex, selectedItem, selectedItem);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

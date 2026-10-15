@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,18 +30,18 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Title="Life Expectancy (in years)"
                   MinimumValue="72"
                   MaximumValue="84"
                   Interval="2">
                   </igCharts:NumericXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="Health Expenditure per Capita"
                   AbbreviateLargeNumbers="true"
                   MinimumValue="1000"
@@ -51,7 +51,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ScatterLineSeries
-                  Name="ScatterLineSeries1"
+                  x:Name="ScatterLineSeries1"
                   Title="Germany"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -62,7 +62,7 @@
                   ShowDefaultTooltip="true">
                   </igCharts:ScatterLineSeries>
                   <igCharts:ScatterLineSeries
-                  Name="ScatterLineSeries2"
+                  x:Name="ScatterLineSeries2"
                   Title="France"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -73,7 +73,7 @@
                   ShowDefaultTooltip="true">
                   </igCharts:ScatterLineSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

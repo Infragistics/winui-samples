@@ -8,7 +8,6 @@ using Infragistics.Controls.Charts;
 using Infragistics.Controls.Layouts;
 using System;
 using Microsoft.UI.Xaml;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -24,7 +23,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.PieChartAnimationOnViewInit();
         };
     }
@@ -36,7 +34,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_localData == null)
             {
-                _localData = new LocalData(); 
+                _localData = new LocalData();
             }
             return _localData;
         }
@@ -62,15 +60,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     {
         PieChartAnimation.Start(this.chart);
     }
-    
-    
+
     public void EditorButtonPieChartAnimation(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         PieChartAnimation.Toggle(this.chart);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

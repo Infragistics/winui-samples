@@ -23,11 +23,11 @@
           DescriptionType="DataChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="SeriesType"
-                  Name="SeriesType"
+                  x:Name="SeriesType"
                   Label="Series Type"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -41,7 +41,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -54,57 +54,57 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="catXAxis"
+                  x:Name="catXAxis"
                   ItemsSource="{Binding EnergyProductionByCountry}"
                   Label="Country">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="numYAxis">
+                  x:Name="numYAxis">
                   </igCharts:NumericYAxis>
                   <igCharts:CategoryYAxis
-                  Name="catYAxis"
+                  x:Name="catYAxis"
                   ItemsSource="{Binding EnergyProductionByCountry}"
                   Label="Country">
                   </igCharts:CategoryYAxis>
                   <igCharts:NumericXAxis
-                  Name="numXAxis">
+                  x:Name="numXAxis">
                   </igCharts:NumericXAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:StackedColumnSeries
-                  Name="stackedSeries"
+                  x:Name="stackedSeries"
                   ItemsSource="{Binding EnergyProductionByCountry}"
                   XAxis="{Binding ElementName=catXAxis}"
                   YAxis="{Binding ElementName=numYAxis}">
                       <igCharts:StackedColumnSeries.Series>
                           <igCharts:StackedFragmentSeries
-                          Name="coal"
+                          x:Name="coal"
                           ValueMemberPath="Coal"
                           Title="Coal">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="hydro"
+                          x:Name="hydro"
                           ValueMemberPath="Hydro"
                           Title="Hydro">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="nuclear"
+                          x:Name="nuclear"
                           ValueMemberPath="Nuclear"
                           Title="Nuclear">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="gas"
+                          x:Name="gas"
                           ValueMemberPath="Gas"
                           Title="Gas">
                           </igCharts:StackedFragmentSeries>
                           <igCharts:StackedFragmentSeries
-                          Name="oil"
+                          x:Name="oil"
                           ValueMemberPath="Oil"
                           Title="Oil">
                           </igCharts:StackedFragmentSeries>

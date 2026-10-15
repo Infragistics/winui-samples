@@ -3,10 +3,9 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
-using Infragistics.Controls;
+using Infragistics.Controls.Description;
 
 namespace Sample;
 
@@ -25,7 +24,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -36,7 +34,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyRenewableGeneration == null)
             {
-                _energyRenewableGeneration = new EnergyRenewableGeneration(); 
+                _energyRenewableGeneration = new EnergyRenewableGeneration();
             }
             return _energyRenewableGeneration;
         }
@@ -65,17 +63,16 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var chart = this.chart;
         chart.ReplayTransitionIn();
     }
-    
-    
+
     public void EditorButtonReplayTransitionInDomain(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var chart = this.chart;
         chart.ReplayTransitionIn();
-            
+
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

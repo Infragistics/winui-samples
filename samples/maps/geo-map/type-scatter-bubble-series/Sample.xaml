@@ -25,18 +25,18 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="map"
+          x:Name="map"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicProportionalSymbolSeries
-                  Name="WorldCitiesSeries"
+                  x:Name="WorldCitiesSeries"
                   ItemsSource="{Binding WorldCities}"
                   MarkerType="Circle"
                   FillMemberPath="Population"
                   RadiusMemberPath="Population"
                   LatitudeMemberPath="Y"
                   LongitudeMemberPath="X"
-                  MarkerOutline="#4d000000">
+                  MarkerOutline="#4c000000">
                       <igMaps:GeographicProportionalSymbolSeries.RadiusScale>
                           <igCharts:SizeScale
                           MinimumValue="4"

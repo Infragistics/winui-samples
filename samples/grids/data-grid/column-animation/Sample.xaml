@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=grid}"
           DescriptionType="DataGrid"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ColumnShowingAnimationMode"
-                  Name="ColumnShowingAnimationModeEditor"
+                  x:Name="ColumnShowingAnimationModeEditor"
                   Label="Adding Animation"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -37,7 +37,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ColumnExchangingAnimationMode"
-                  Name="ColumnExchangingAnimationModeEditor"
+                  x:Name="ColumnExchangingAnimationModeEditor"
                   Label="Exchange Animation"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,7 +47,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ColumnHidingAnimationMode"
-                  Name="ColumnHidingAnimationModeEditor"
+                  x:Name="ColumnHidingAnimationModeEditor"
                   Label="Hiding Animation"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -57,7 +57,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ColumnPropertyUpdatingAnimationMode"
-                  Name="ColumnPropertyUpdatingAnimationModeEditor"
+                  x:Name="ColumnPropertyUpdatingAnimationModeEditor"
                   Label="Updating Animation"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -67,7 +67,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ColumnMovingAnimationMode"
-                  Name="ColumnMovingAnimationModeEditor"
+                  x:Name="ColumnMovingAnimationModeEditor"
                   Label="Moving Animation"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -76,21 +76,21 @@
                   PrimitiveValue="SlideOver">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="HideColumnButton"
+                  x:Name="HideColumnButton"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Hide Column"
                   ButtonClicked="DataGridHideFirstVisibleColumn">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="ShowColumnButton"
+                  x:Name="ShowColumnButton"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Show Column"
                   ButtonClicked="DataGridShowLastHiddenColumn">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
-                  Name="ReloadGridButton"
+                  x:Name="ReloadGridButton"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Button"
                   PrimitiveValue="Reload Grid"
@@ -108,9 +108,9 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDataGrids:XamDataGrid
-          Name="grid"
-          ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
+          x:Name="grid"
+          ItemsSource="{Binding EmployeesSalesData}"
           IsColumnOptionsEnabled="true"
           DefaultColumnMinWidth="100"
           ColumnAddingAnimationMode="None"
@@ -121,99 +121,45 @@
           ColumnPropertyUpdatingAnimationMode="Interpolate">
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
-                  Field="Name">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="170">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  Field="Name"
+                  Width="*>170">
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
                   Field="Street"
-                  HeaderText="Address">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="150">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  HeaderText="Address"
+                  Width="*>150">
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
-                  Field="City">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  Field="City"
+                  Width="*>120">
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Salary"
+                  Width="*>120"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:DateTimeColumn
-                  Field="Birthday">
-                      <igDataGrids:DateTimeColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="170">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:DateTimeColumn.Width>
+                  Field="Birthday"
+                  Width="*>170">
                   </igDataGrids:DateTimeColumn>
                   <igDataGrids:TextColumn
-                  Field="Country">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  Field="Country"
+                  Width="*>120">
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Sales"
+                  Width="*>120"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:NumericColumn
-                  Field="Age">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
+                  Field="Age"
+                  Width="*>120">
                   </igDataGrids:NumericColumn>
                   <igDataGrids:TextColumn
-                  Field="Email">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  Field="Email"
+                  Width="*>120">
                   </igDataGrids:TextColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>

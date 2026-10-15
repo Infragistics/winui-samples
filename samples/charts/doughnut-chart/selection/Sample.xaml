@@ -23,11 +23,11 @@
           DescriptionType="DoughnutChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="SelectedSlice"
-                  Name="SelectedSlice"
+                  x:Name="SelectedSlice"
                   Label="Selected Slice"
                   ValueType="StringValue">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -36,7 +36,7 @@
         </Grid>
         <Grid>
           <igCharts:ItemLegend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:ItemLegend>
         </Grid>
@@ -49,13 +49,13 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDoughnutChart
-          Name="chart"
+          x:Name="chart"
           AllowSliceSelection="true"
           InnerExtent="0.6"
           SliceClick="DoughnutChartSelectionSliceClick">
               <igCharts:XamDoughnutChart.Series>
                   <igCharts:RingSeries
-                  Name="ringSeries"
+                  x:Name="ringSeries"
                   ItemsSource="{Binding EnergyGlobalDemand}"
                   Legend="{Binding ElementName=legend}"
                   LabelMemberPath="Summary"

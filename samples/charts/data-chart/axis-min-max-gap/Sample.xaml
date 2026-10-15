@@ -24,10 +24,10 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   UseEnhancedIntervalManagement="true"
                   EnhancedIntervalPreferMoreCategoryLabels="true"
                   ItemsSource="{Binding TemperatureAverageData}"
@@ -35,22 +35,22 @@
                   MinimumGapSize="25">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis">
+                  x:Name="yAxis">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:CategoryHighlightLayer
-                  Name="CategoryHighlightLayer">
+                  x:Name="CategoryHighlightLayer">
                   </igCharts:CategoryHighlightLayer>
                   <igCharts:ColumnSeries
-                  Name="columnSeries1"
+                  x:Name="columnSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding TemperatureAverageData}"
                   ValueMemberPath="Temperature">
                   </igCharts:ColumnSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltips">
+                  x:Name="Tooltips">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

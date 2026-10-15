@@ -24,22 +24,36 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="Chart"
+          x:Name="Chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryAngleAxis
-                  Name="angleAxis"
+                  x:Name="angleAxis"
                   ItemsSource="{Binding SankeyBudgetStages}"
                   Label="Stage">
                   </igCharts:CategoryAngleAxis>
                   <igCharts:NumericRadiusAxis
-                  Name="radiusAxis">
+                  x:Name="radiusAxis">
                   </igCharts:NumericRadiusAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
+                  <igCharts:RadialSankeySeries
+                  x:Name="radialSankey"
+                  AngleAxis="{Binding ElementName=angleAxis}"
+                  RadiusAxis="{Binding ElementName=radiusAxis}"
+                  ItemsSource="{Binding SankeyBudgetNodes}"
+                  NodeIdMemberPath="Id"
+                  NodeLabelMemberPath="Label"
+                  NodeLayerMemberPath="Layer"
+                  LinkSource="{Binding SankeyBudgetLinks}"
+                  LinkSourceMemberPath="Source"
+                  LinkTargetMemberPath="Target"
+                  LinkValueMemberPath="Value"
+                  IsTransitionInEnabled="true">
+                  </igCharts:RadialSankeySeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltips">
+                  x:Name="Tooltips">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

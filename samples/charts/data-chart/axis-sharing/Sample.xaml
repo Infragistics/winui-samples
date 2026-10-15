@@ -24,22 +24,22 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxisShared"
+                  x:Name="xAxisShared"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisRight"
+                  x:Name="yAxisRight"
                   LabelLocation="OutsideRight"
                   Title="Stock Price ($)">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisLeft"
+                  x:Name="yAxisLeft"
                   LabelLocation="OutsideLeft"
                   Title="Trade Volume"
                   MajorStrokeThickness="0"
@@ -48,14 +48,14 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ColumnSeries
-                  Name="volumeSeries"
+                  x:Name="volumeSeries"
                   XAxis="{Binding ElementName=xAxisShared}"
                   YAxis="{Binding ElementName=yAxisLeft}"
                   ItemsSource="{Binding StockTesla}"
                   ValueMemberPath="Volume">
                   </igCharts:ColumnSeries>
                   <igCharts:FinancialPriceSeries
-                  Name="stockSeries"
+                  x:Name="stockSeries"
                   XAxis="{Binding ElementName=xAxisShared}"
                   YAxis="{Binding ElementName=yAxisRight}"
                   ItemsSource="{Binding StockTesla}"

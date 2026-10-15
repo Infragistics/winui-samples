@@ -1,9 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
-
 
 namespace Sample;
 
@@ -19,7 +16,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -30,12 +26,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_calendarSeasons == null)
             {
-                _calendarSeasons = new CalendarSeasons(); 
+                _calendarSeasons = new CalendarSeasons();
             }
             return _calendarSeasons;
         }
     }
-    
+
     private CalendarMonths _calendarMonths = null;
     public CalendarMonths CalendarMonths
     {
@@ -43,16 +39,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_calendarMonths == null)
             {
-                _calendarMonths = new CalendarMonths(); 
+                _calendarMonths = new CalendarMonths();
             }
             return _calendarMonths;
         }
     }
 
-
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

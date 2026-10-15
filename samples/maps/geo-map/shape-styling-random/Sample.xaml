@@ -25,7 +25,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="geoMap"
+          x:Name="geoMap"
           Zoomable="true">
           </igMaps:XamGeographicMap>
         </Grid>

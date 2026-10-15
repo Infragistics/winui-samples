@@ -25,11 +25,11 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igMaps:XamGeographicMap
-          Name="map"
+          x:Name="map"
           Zoomable="true">
               <igMaps:XamGeographicMap.Series>
                   <igMaps:GeographicSymbolSeries
-                  Name="CitiesSeries"
+                  x:Name="CitiesSeries"
                   ItemsSource="{Binding WorldCities}"
                   MarkerType="Circle"
                   LatitudeMemberPath="Y"
@@ -38,7 +38,7 @@
                   MarkerOutline="gray">
                   </igMaps:GeographicSymbolSeries>
                   <igMaps:GeographicSymbolSeries
-                  Name="CapitalsSeries"
+                  x:Name="CapitalsSeries"
                   ItemsSource="{Binding WorldCapitals}"
                   MarkerType="Circle"
                   LatitudeMemberPath="Y"

@@ -25,7 +25,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamSparkline
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SparklineMixedData}"
           DisplayType="Line"
           LabelMemberPath="Label"

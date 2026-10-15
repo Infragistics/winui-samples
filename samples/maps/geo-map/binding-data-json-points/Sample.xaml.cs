@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -28,12 +27,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.MapBindingDataJsonPointsOnViewInit();
         };
     }
-
-
 
     public class WorldPlaceJson
     {
@@ -44,7 +40,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         public string Country { get; set; }
         public bool Cap { get; set; }
     }
-    
+
     public async void MapBindingDataJsonPointsOnViewInit()
     {
         var map = this.map;
@@ -80,7 +76,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

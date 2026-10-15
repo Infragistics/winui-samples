@@ -23,7 +23,7 @@
           DescriptionType="PieChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AnimateChart"
@@ -31,7 +31,7 @@
                   ValueType="Button"
                   PrimitiveValue="Animate Chart"
                   ButtonClicked="EditorButtonPieChartAnimation"
-                  Name="propertyEditorPropertyDescription1">
+                  x:Name="propertyEditorPropertyDescription1">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -45,7 +45,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding LocalData}"
           LabelMemberPath="Summary"
           ValueMemberPath="MarketShare"

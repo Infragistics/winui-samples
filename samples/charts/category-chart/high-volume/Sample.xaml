@@ -23,11 +23,11 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="DataPoints"
-                  Name="DataPoints"
+                  x:Name="DataPoints"
                   Label="Data Points"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -43,7 +43,7 @@
                   ValueType="Button"
                   PrimitiveValue="Generate Data"
                   ButtonClicked="EditorButtonGenerateHighVolumeData"
-                  Name="propertyEditorPropertyDescription1">
+                  x:Name="propertyEditorPropertyDescription1">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -57,7 +57,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Line"
           ToolTipType="Default"
           YAxisExtent="60"

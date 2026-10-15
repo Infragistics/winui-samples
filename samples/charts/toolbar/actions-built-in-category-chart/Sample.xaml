@@ -24,14 +24,14 @@
           </Grid.ColumnDefinitions>
           <Grid Grid.Column="0" HorizontalAlignment="Left" Margin="10 0 0 0">
             <igLayouts:XamToolbar
-            Name="toolbar"
+            x:Name="toolbar"
             Target="{Binding ElementName=chart}"
             Orientation="Horizontal">
             </igLayouts:XamToolbar>
           </Grid>
           <Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 10 0">
             <igCharts:Legend
-            Name="legend"
+            x:Name="legend"
             Orientation="Horizontal">
             </igCharts:Legend>
           </Grid>
@@ -45,7 +45,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Line"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"

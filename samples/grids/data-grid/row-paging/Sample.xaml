@@ -24,9 +24,9 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDataGrids:XamDataGrid
-          Name="grid"
-          ItemsSource="{Binding EmployeesSalesData}"
           AutoGenerateColumns="false"
+          x:Name="grid"
+          ItemsSource="{Binding EmployeesSalesData}"
           RowHeight="50"
           IsColumnOptionsEnabled="true"
           DefaultColumnMinWidth="100"
@@ -41,97 +41,53 @@
                   <igDataGrids:ImageColumn
                   Field="Photo"
                   HeaderText="Photo"
+                  Width="110"
                   IsEditable="false"
                   ContentOpacity="1"
                   HorizontalAlignment="Center">
-                      <igDataGrids:ImageColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          Value="110">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:ImageColumn.Width>
                   </igDataGrids:ImageColumn>
                   <igDataGrids:TextColumn
-                  Field="Name">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="130">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
+                  Field="Name"
+                  Width="*>130">
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Sales"
                   HeaderText="Sales"
+                  Width="*>160"
                   HorizontalAlignment="Center">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="160">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:NumericColumn
                   Field="Salary"
+                  Width="*>160"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true">
-                      <igDataGrids:NumericColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="160">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:TextColumn
                   Field="Address"
                   HeaderText="Address"
+                  Width="*>160"
                   HorizontalAlignment="Left">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="160">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:ImageColumn
                   Field="CountryFlag"
                   HeaderText="Country"
+                  Width="130"
                   IsEditable="false"
                   ContentOpacity="1"
                   HorizontalAlignment="Stretch"
                   PaddingTop="7"
                   PaddingBottom="7">
-                      <igDataGrids:ImageColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          Value="130">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:ImageColumn.Width>
                   </igDataGrids:ImageColumn>
                   <igDataGrids:DateTimeColumn
                   Field="Birthday"
                   HeaderText="Date of Birth"
+                  Width="*>160"
                   HorizontalAlignment="Right">
-                      <igDataGrids:DateTimeColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="160">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:DateTimeColumn.Width>
                   </igDataGrids:DateTimeColumn>
                   <igDataGrids:TextColumn
                   Field="Income"
+                  Width="*>120"
                   HorizontalAlignment="Center">
-                      <igDataGrids:TextColumn.Width>
-                          <igDataGrids:ColumnWidth
-                          IsStarSized="true"
-                          Value="1"
-                          MinimumWidth="120">
-                          </igDataGrids:ColumnWidth>
-                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>

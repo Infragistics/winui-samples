@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -28,19 +28,19 @@
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="DataToolTipGroupedPositionModeX"
                   PrimitiveValue="PinRight"
-                  Name="GroupedPositionXEditor"
+                  x:Name="GroupedPositionXEditor"
                   Label="Grouped X Position: ">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="DataToolTipGroupedPositionModeY"
                   PrimitiveValue="PinTop"
-                  Name="GroupedPositionYEditor"
+                  x:Name="GroupedPositionYEditor"
                   Label="Grouped Y Position: ">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="DataToolTipGroupingMode"
                   PrimitiveValue="Grouped"
-                  Name="GroupingModeEditor"
+                  x:Name="GroupingModeEditor"
                   Label="Grouping Mode: ">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
@@ -55,7 +55,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Column"
           ItemsSource="{Binding HighestGrossingMovies}"
           ToolTipType="Data"

@@ -23,11 +23,11 @@
           DescriptionType="DataChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="Series[0 as ScatterContourSeries].Thickness"
-                  Name="Thickness"
+                  x:Name="Thickness"
                   Label="Thickness"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -38,7 +38,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="Series[0 as ScatterContourSeries].ValueResolver.ValueCount"
-                  Name="Contours"
+                  x:Name="Contours"
                   Label="Contours"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -59,13 +59,13 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
           GridMode="BeforeSeries">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericXAxis
-                  Name="xAxis1"
+                  x:Name="xAxis1"
                   LabelLocation="OutsideLeft"
                   MinimumValue="-180"
                   MaximumValue="180"
@@ -73,7 +73,7 @@
                   Title="Longitude">
                   </igCharts:NumericXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis1"
+                  x:Name="yAxis1"
                   LabelLocation="OutsideBottom"
                   MinimumValue="-90"
                   MaximumValue="90"
@@ -81,14 +81,14 @@
                   Title="Latitude">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericXAxis
-                  Name="xAxis2"
+                  x:Name="xAxis2"
                   LabelLocation="OutsideTop"
                   MinimumValue="-180"
                   MaximumValue="180"
                   Interval="30">
                   </igCharts:NumericXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis2"
+                  x:Name="yAxis2"
                   LabelLocation="OutsideRight"
                   MinimumValue="-90"
                   MaximumValue="90"
@@ -98,7 +98,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ScatterContourSeries
-                  Name="series"
+                  x:Name="series"
                   XAxis="{Binding ElementName=xAxis1}"
                   YAxis="{Binding ElementName=yAxis1}"
                   ItemsSource="{Binding ScatterMagneticFieldData}"

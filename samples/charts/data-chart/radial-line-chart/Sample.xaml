@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,18 +30,18 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryAngleAxis
-                  Name="angleAxis"
+                  x:Name="angleAxis"
                   ItemsSource="{Binding FootballPlayerStats}"
                   Label="Attribute">
                   </igCharts:CategoryAngleAxis>
                   <igCharts:NumericRadiusAxis
-                  Name="radiusAxis"
+                  x:Name="radiusAxis"
                   InnerRadiusExtentScale="0.1"
                   Interval="2"
                   MinimumValue="0"
@@ -50,7 +50,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:RadialLineSeries
-                  Name="RadialLineSeries1"
+                  x:Name="RadialLineSeries1"
                   ItemsSource="{Binding FootballPlayerStats}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   ValueAxis="{Binding ElementName=radiusAxis}"
@@ -62,7 +62,7 @@
                   MarkerType="Circle">
                   </igCharts:RadialLineSeries>
                   <igCharts:RadialLineSeries
-                  Name="RadialLineSeries2"
+                  x:Name="RadialLineSeries2"
                   ItemsSource="{Binding FootballPlayerStats}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   ValueAxis="{Binding ElementName=radiusAxis}"
@@ -74,7 +74,7 @@
                   MarkerType="Circle">
                   </igCharts:RadialLineSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

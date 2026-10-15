@@ -26,22 +26,22 @@
           <igCharts:XamDataChart
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CountryRenewableElectricity}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="TWh"
                   LabelLocation="OutsideRight">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="lineSeries1"
+                  x:Name="lineSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding CountryRenewableElectricity}"
@@ -51,7 +51,7 @@
                   ShouldHideAutoCallouts="false">
                   </igCharts:LineSeries>
                   <igCharts:CalloutLayer
-                  Name="CalloutLayer1"
+                  x:Name="CalloutLayer1"
                   IsAutoCalloutBehaviorEnabled="true"
                   CalloutLeaderBrush="#8961a9"
                   CalloutOutline="#8961a9"

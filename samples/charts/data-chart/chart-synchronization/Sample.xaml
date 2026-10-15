@@ -28,7 +28,7 @@
             <RowDefinition />
           </Grid.RowDefinitions>
           <igCharts:XamDataChart
-          Name="chart1"
+          x:Name="chart1"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
           SyncChannel="ChannelA"
@@ -37,17 +37,17 @@
           Subtitle="Google Stock Prices">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis1"
+                  x:Name="xAxis1"
                   ItemsSource="{Binding StockGoogle}"
                   Label="Date">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis1">
+                  x:Name="yAxis1">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:FinancialPriceSeries
-                  Name="series1"
+                  x:Name="series1"
                   XAxis="{Binding ElementName=xAxis1}"
                   YAxis="{Binding ElementName=yAxis1}"
                   ItemsSource="{Binding StockGoogle}"
@@ -62,7 +62,7 @@
           </igCharts:XamDataChart>
           <Grid Grid.Row="1">
             <igCharts:XamDataChart
-            Name="chart2"
+            x:Name="chart2"
             IsHorizontalZoomEnabled="true"
             IsVerticalZoomEnabled="true"
             SyncChannel="ChannelA"
@@ -72,17 +72,17 @@
             SubtitleTopMargin="10">
                 <igCharts:XamDataChart.Axes>
                     <igCharts:CategoryXAxis
-                    Name="xAxis2"
+                    x:Name="xAxis2"
                     ItemsSource="{Binding StockAmazon}"
                     Label="Date">
                     </igCharts:CategoryXAxis>
                     <igCharts:NumericYAxis
-                    Name="yAxis2">
+                    x:Name="yAxis2">
                     </igCharts:NumericYAxis>
                 </igCharts:XamDataChart.Axes>
                 <igCharts:XamDataChart.Series>
                     <igCharts:FinancialPriceSeries
-                    Name="series2"
+                    x:Name="series2"
                     XAxis="{Binding ElementName=xAxis2}"
                     YAxis="{Binding ElementName=yAxis2}"
                     ItemsSource="{Binding StockAmazon}"

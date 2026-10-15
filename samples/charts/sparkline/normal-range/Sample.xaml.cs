@@ -3,9 +3,6 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
 using Infragistics.Controls.Layouts;
 
 namespace Sample;
@@ -28,7 +25,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -39,7 +35,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_sparklineMixedData == null)
             {
-                _sparklineMixedData = new SparklineMixedData(); 
+                _sparklineMixedData = new SparklineMixedData();
             }
             return _sparklineMixedData;
         }
@@ -61,9 +57,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

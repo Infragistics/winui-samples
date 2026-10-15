@@ -11,7 +11,6 @@ using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
 using Microsoft.UI.Xaml.Markup;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -27,7 +26,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -38,7 +36,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity(); 
+                _countryRenewableElectricity = new CountryRenewableElectricity();
             }
             return _countryRenewableElectricity;
         }
@@ -75,14 +73,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         fields.BadgeColor = this.AnnotationBadgeColor;
         UserAnnotationFlow.Finish(this.chart, fields);
     }
-    
-    
+
     public void EditorButtonCancelUserAnnotation(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         UserAnnotationFlow.Cancel(this.chart);
     }
-    
-    
+
     public void DataChartUserAnnotationRequested(object sender, UserAnnotationInformationEventArgs args)
     {
         var fields = new UserAnnotationFlowFields();
@@ -92,8 +88,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         fields.BadgeColor = this.AnnotationBadgeColor;
         UserAnnotationFlow.Begin(args.AnnotationInfo, fields);
     }
-    
-    
+
     public void DataChartUserAnnotationTooltip(object sender, UserAnnotationToolTipContentUpdatingEventArgs args)
     {
         // The layer hands over the tooltip's own content control, so the text replaces whatever it
@@ -110,7 +105,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="DataChart"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HighlightedValuesDisplayMode"
-                  Name="HighlightedValuesDisplayModeEditor"
+                  x:Name="HighlightedValuesDisplayModeEditor"
                   Label="Highlight Display Mode: "
                   PrimitiveValue="Hidden">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -46,22 +46,22 @@
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
           HighlightedValuesDisplayMode="Hidden"
-          Name="chart">
+          x:Name="chart">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding OlympicMedalsTopCountriesWithTotals}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   MinimumValue="0"
                   MaximumValue="400">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ColumnSeries
-                  Name="ColumnSeries1"
+                  x:Name="ColumnSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding OlympicMedalsTopCountriesWithTotals}"

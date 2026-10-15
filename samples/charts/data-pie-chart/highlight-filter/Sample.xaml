@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataPieChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding OnlineTrafficHighlightTotals}"
           HighlightedItemsSource="{Binding OnlineTrafficHighlightDesktopOnly}"
           HighlightedValuesDisplayMode="Overlay">

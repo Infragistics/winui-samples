@@ -1,6 +1,3 @@
-using Microsoft.UI.Xaml.Media;
-using Windows.UI;
-using Microsoft.UI;
 //begin data
     using System;
     using System.Collections.Generic;
@@ -45,8 +42,8 @@ using Microsoft.UI;
 
         public static List<WorldCity> Init()
         {
-            List<WorldCity> cities = new List<WorldCity>() { 
-            // console.log("WorldLocations init");            
+            List<WorldCity> cities = new List<WorldCity>() {
+            // console.log("WorldLocations init");
             new WorldCity { Cap = false, Pop = 0.468, Lat = 68.9635467529297, Lon = 33.0860404968262, Country = "Russia", Name = "Murmansk" },
             new WorldCity { Cap = false, Pop = 0.416, Lat = 64.5206680297852, Lon = 40.6461601257324, Country = "Russia", Name = "Arkhangelsk" },
             new WorldCity { Cap = false, Pop = 5.825, Lat = 59.9518890380859, Lon = 30.4533271789551, Country = "Russia", Name = "Saint Petersburg" },

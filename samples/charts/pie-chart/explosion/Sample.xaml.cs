@@ -3,7 +3,6 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Controls.Charts;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -20,7 +19,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -31,12 +29,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_localData == null)
             {
-                _localData = new LocalData(); 
+                _localData = new LocalData();
             }
             return _localData;
         }
     }
-
 
     public void PieChartExplosionSliceClick(object sender, SliceClickEventArgs e)
     {
@@ -48,7 +45,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

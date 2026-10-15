@@ -3,10 +3,9 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
+using Infragistics.Controls.Description;
 using Infragistics.Controls.Charts;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -24,7 +23,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -35,7 +33,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyProductionByCountry == null)
             {
-                _energyProductionByCountry = new EnergyProductionByCountry(); 
+                _energyProductionByCountry = new EnergyProductionByCountry();
             }
             return _energyProductionByCountry;
         }
@@ -78,7 +76,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
         return made;
     }
-    
+
     private StackedSeriesBase Make(string name)
     {
         switch (name)
@@ -95,12 +93,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
         return new StackedColumnSeries();
     }
-    
+
     public void EditorChangeStackedSeriesType(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var chart = this.chart;
         var name = args.NewValue.ToString();
-    
+
         // A bar stack grows along the other axis, so it reads the category down the side and the
         // numbers across the bottom; every other type is the other way round. Both pairs of axes
         // are declared on the chart, and the swap is which pair this stack is given.
@@ -120,18 +118,18 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             horizontal.XAxis = this.catXAxis;
             horizontal.YAxis = this.numYAxis;
         }
-    
+
         foreach (var fragment in Fragments())
         {
             stack.Series.Add(fragment);
         }
-    
+
         chart.Series.Clear();
         chart.Series.Add(stack);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

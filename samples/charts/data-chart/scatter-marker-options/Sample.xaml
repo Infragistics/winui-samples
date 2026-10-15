@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="DataChart"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="MarkerSizeHandler"
-                  Name="MarkerSizeEditor"
+                  x:Name="MarkerSizeEditor"
                   Label="Marker Size"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -38,7 +38,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="MarkerTypeHandler"
-                  Name="MarkerTypeEditor"
+                  x:Name="MarkerTypeEditor"
                   Label="Marker Type"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -52,7 +52,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -65,17 +65,17 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Title="Death Rate (per 1,000 people)"
                   MinimumValue="5"
                   MaximumValue="15">
                   </igCharts:NumericXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="Birth Rate (per 1,000 people)"
                   MinimumValue="0"
                   MaximumValue="50"
@@ -84,7 +84,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ScatterSeries
-                  Name="scatterSeries1"
+                  x:Name="scatterSeries1"
                   Title="Europe"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
@@ -96,7 +96,7 @@
                   ShowDefaultTooltip="true">
                   </igCharts:ScatterSeries>
                   <igCharts:ScatterSeries
-                  Name="scatterSeries2"
+                  x:Name="scatterSeries2"
                   Title="Africa"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"

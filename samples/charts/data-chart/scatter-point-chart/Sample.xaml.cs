@@ -1,9 +1,6 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
-
 
 namespace Sample;
 
@@ -19,7 +16,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -30,12 +26,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryDemographicEurope == null)
             {
-                _countryDemographicEurope = new CountryDemographicEurope(); 
+                _countryDemographicEurope = new CountryDemographicEurope();
             }
             return _countryDemographicEurope;
         }
     }
-    
+
     private CountryDemographicAfrican _countryDemographicAfrican = null;
     public CountryDemographicAfrican CountryDemographicAfrican
     {
@@ -43,16 +39,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryDemographicAfrican == null)
             {
-                _countryDemographicAfrican = new CountryDemographicAfrican(); 
+                _countryDemographicAfrican = new CountryDemographicAfrican();
             }
             return _countryDemographicAfrican;
         }
     }
 
-
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

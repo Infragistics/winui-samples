@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
           IsVerticalZoomEnabled="false"
@@ -43,7 +43,7 @@
           Title="Data Chart with DataAnnotationBandLayer bound to data that annotates stock rapid growth">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxisBottom"
+                  x:Name="xAxisBottom"
                   ItemsSource="{Binding StockTesla}"
                   Label="Index"
                   TickLength="0"
@@ -58,12 +58,12 @@
                   LabelAngle="90">
                   </igCharts:CategoryXAxis>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisLeft"
+                  x:Name="yAxisLeft"
                   LabelLocation="OutsideLeft"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -76,7 +76,7 @@
                   MaximumValue="550">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisRight"
+                  x:Name="yAxisRight"
                   LabelLocation="OutsideRight"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -91,7 +91,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:FinancialPriceSeries
-                  Name="series1"
+                  x:Name="series1"
                   Title="Stock Price"
                   DisplayType="Candlestick"
                   XAxis="{Binding ElementName=xAxis}"
@@ -104,12 +104,12 @@
                   ShowDefaultTooltip="false">
                   </igCharts:FinancialPriceSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltip"
+                  x:Name="Tooltip"
                   IncludedColumns="{Binding includedColumns1}"
                   LayoutMode="Vertical">
                   </igCharts:DataToolTipLayer>
                   <igCharts:DataAnnotationBandLayer
-                  Name="BandLayer"
+                  x:Name="BandLayer"
                   ItemsSource="{Binding AnnotationBandData}"
                   TargetAxis="{Binding ElementName=xAxisBottom}"
                   CenterLabelXDisplayMode="Hidden"

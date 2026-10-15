@@ -3,11 +3,10 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
+using Infragistics.Controls.Description;
 using Infragistics.Controls.Charts;
 using System;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -25,7 +24,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -36,7 +34,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_continentsBirthRate == null)
             {
-                _continentsBirthRate = new ContinentsBirthRate(); 
+                _continentsBirthRate = new ContinentsBirthRate();
             }
             return _continentsBirthRate;
         }
@@ -60,14 +58,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public void EditorChangeDataFilter(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {        
+    {
         var chart = this.chart;
         var filter = args.NewValue.ToString();
         chart.InitialFilter = "(contains(Year," + "'" + filter + "'" + "))";
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

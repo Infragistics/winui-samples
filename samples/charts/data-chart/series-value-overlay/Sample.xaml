@@ -24,67 +24,67 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding LocalData}"
                   Label="Label">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   MinimumValue="0"
                   MaximumValue="10">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ColumnSeries
-                  Name="series1"
+                  x:Name="series1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding LocalData}"
                   ValueMemberPath="Value">
                   </igCharts:ColumnSeries>
                   <igCharts:ValueOverlay
-                  Name="overlay1"
+                  x:Name="overlay1"
                   Axis="{Binding ElementName=yAxis}"
                   Value="2"
                   Thickness="5">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueOverlay
-                  Name="overlay2"
+                  x:Name="overlay2"
                   Axis="{Binding ElementName=yAxis}"
                   Value="3.6"
                   Thickness="5">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueOverlay
-                  Name="overlay3"
+                  x:Name="overlay3"
                   Axis="{Binding ElementName=yAxis}"
                   Value="5.8"
                   Thickness="5">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueOverlay
-                  Name="overlay4"
+                  x:Name="overlay4"
                   Axis="{Binding ElementName=yAxis}"
                   Value="1"
                   Thickness="5">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueOverlay
-                  Name="overlay5"
+                  x:Name="overlay5"
                   Axis="{Binding ElementName=yAxis}"
                   Value="8"
                   Thickness="5">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueOverlay
-                  Name="overlay6"
+                  x:Name="overlay6"
                   Axis="{Binding ElementName=yAxis}"
                   Value="7"
                   Thickness="5">
                   </igCharts:ValueOverlay>
                   <igCharts:ValueOverlay
-                  Name="overlay7"
+                  x:Name="overlay7"
                   Axis="{Binding ElementName=yAxis}"
                   Value="5"
                   Thickness="5">

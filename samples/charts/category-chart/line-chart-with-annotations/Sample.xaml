@@ -23,27 +23,27 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CalloutsVisible"
-                  Name="CalloutsVisible"
+                  x:Name="CalloutsVisible"
                   Label="Callouts"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CrosshairsAnnotationEnabled"
-                  Name="CrosshairsAnnotationEnabled"
+                  x:Name="CrosshairsAnnotationEnabled"
                   Label="Crosshair Annotations"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="CrosshairsDisplayMode"
-                  Name="CrosshairsDisplayMode"
+                  x:Name="CrosshairsDisplayMode"
                   Label="Crosshairs"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -53,11 +53,11 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="FinalValueAnnotationsVisible"
-                  Name="FinalValueAnnotationsVisible"
+                  x:Name="FinalValueAnnotationsVisible"
                   Label="Final Values"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
               </igLayouts:XamPropertyEditorPanel.Properties>
           </igLayouts:XamPropertyEditorPanel>
@@ -71,7 +71,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding EnergyRenewableGeneration}"
           IncludedProperties="{Binding includedProperties1}"
           ChartType="Line"

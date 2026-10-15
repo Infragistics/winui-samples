@@ -7,7 +7,6 @@ using Infragistics.Controls.Maps;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using Infragistics.Controls;
 using System.Globalization;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
@@ -27,15 +26,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.MapShapeScaleStyling();
         };
     }
 
-
-
     public ShapeScaleStyling ShapeScaleStyler;
-    
+
     /// <summary>Scale styling: a color taken from a scale across a range of values.</summary>
     public void MapShapeScaleStyling()
     {
@@ -47,16 +43,16 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         ShapeScaleStyler.ItemMinimumValue = 5000;
         ShapeScaleStyler.ItemMaximumValue = 2000000000; // 2 Billions
         ShapeScaleStyler.IsLogarithmic = true;
-    
+
         var map = this.geoMap;
-    
+
         // loading a shapefile with the geographic polygons of world countries
-        var sds = new ShapeDataSource();
+        var sds = new Infragistics.Controls.ShapeDataSource();
         sds.ImportCompleted += (object s, AsyncCompletedEventArgs e) =>
         {
             var geoSeries = new GeographicShapeSeries()
             {
-                ItemsSource = s as ShapeDataSource,
+                ItemsSource = s as Infragistics.Controls.ShapeDataSource,
                 ShapeMemberPath = "Points",
                 // the series asks for each shape's style as it draws it, which it only does when it is
                 // allowed to take one
@@ -68,7 +64,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         sds.ShapefileSource = new Uri("https://static.infragistics.com/xplatform/shapes/world_countries_all.shp");
         sds.DatabaseSource = new Uri("https://static.infragistics.com/xplatform/shapes/world_countries_all.dbf");
     }
-    
+
     public void OnStylingShape(object s, AssigningShapeStyleEventArgs args)
     {
         // the event covers a range of items rather than one, so the record is asked for by index
@@ -81,7 +77,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)
@@ -127,7 +123,7 @@ public abstract class ShapeStyling
     /// <summary>The value of one field of a shapefile record, or null when it has no such field.</summary>
     public object GetValue(string itemMemberPath, object item)
     {
-        var record = item as ShapefileRecord;
+        var record = item as Infragistics.Controls.ShapefileRecord;
         if (record != null && record.Fields != null && record.Fields.ContainsKey(itemMemberPath))
         {
             return record.Fields[itemMemberPath];

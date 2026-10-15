@@ -24,30 +24,30 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Subtitle="Renewable Energy Generated">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding EnergyRenewableGeneration}"
                   Label="Year">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="TWh"
                   LabelLocation="OutsideRight">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:LineSeries
-                  Name="series1"
+                  x:Name="series1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding EnergyRenewableGeneration}"
                   ValueMemberPath="America">
                   </igCharts:LineSeries>
                   <igCharts:CrosshairLayer
-                  Name="crosshairLayer"
+                  x:Name="crosshairLayer"
                   HorizontalLineVisibility="Collapsed"
                   Brush="dodgerblue">
                   </igCharts:CrosshairLayer>

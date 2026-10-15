@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,13 +30,13 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding CompanyIncomeStatement}"
                   Label="Date"
                   Overlap="0"
@@ -44,7 +44,7 @@
                   UseClusteringMode="true">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   AbbreviateLargeNumbers="true"
                   Title="In Millions of U.S. Dollars"
                   MinimumValue="0"
@@ -53,7 +53,7 @@
                   TitleRightMargin="0">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis2"
+                  x:Name="yAxis2"
                   AbbreviateLargeNumbers="true"
                   Title="Percentage"
                   MajorStrokeThickness="0"
@@ -65,7 +65,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ColumnSeries
-                  Name="series1"
+                  x:Name="series1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding CompanyIncomeStatement}"
@@ -74,7 +74,7 @@
                   MarkerType="Hidden">
                   </igCharts:ColumnSeries>
                   <igCharts:ColumnSeries
-                  Name="series2"
+                  x:Name="series2"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding CompanyIncomeStatement}"
@@ -83,7 +83,7 @@
                   MarkerType="Hidden">
                   </igCharts:ColumnSeries>
                   <igCharts:SplineAreaSeries
-                  Name="series3"
+                  x:Name="series3"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis2}"
                   ItemsSource="{Binding CompanyIncomeStatement}"
@@ -92,7 +92,7 @@
                   MarkerType="Circle">
                   </igCharts:SplineAreaSeries>
                   <igCharts:CalloutLayer
-                  Name="revenueCallouts"
+                  x:Name="revenueCallouts"
                   ItemsSource="{Binding CompanyIncomeStatement}"
                   IsAutoCalloutBehaviorEnabled="false"
                   TargetSeries="{Binding ElementName=series1}"
@@ -106,7 +106,7 @@
                   CalloutPositionPadding="-5">
                   </igCharts:CalloutLayer>
                   <igCharts:CalloutLayer
-                  Name="expensesCallouts"
+                  x:Name="expensesCallouts"
                   ItemsSource="{Binding CompanyIncomeStatement}"
                   IsAutoCalloutBehaviorEnabled="false"
                   TargetSeries="{Binding ElementName=series2}"
@@ -120,7 +120,7 @@
                   CalloutPositionPadding="-5">
                   </igCharts:CalloutLayer>
                   <igCharts:CalloutLayer
-                  Name="profitCallouts"
+                  x:Name="profitCallouts"
                   IsAutoCalloutBehaviorEnabled="true"
                   TargetSeries="{Binding ElementName=series3}"
                   UseValueForAutoCalloutLabels="true"

@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="editor"
+          x:Name="editor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -27,7 +27,7 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="InitialGroupsHandler"
-                  Name="InitialGroups"
+                  x:Name="InitialGroups"
                   Label="Initial Groups"
                   ValueType="EnumValue"
                   ShouldOverrideDefaultEditor="true"
@@ -48,7 +48,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SalesData}"
           ChartType="Column"
           IsHorizontalZoomEnabled="false"

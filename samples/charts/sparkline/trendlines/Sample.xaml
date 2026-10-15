@@ -23,11 +23,11 @@
           DescriptionType="Sparkline"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="TrendLineType"
-                  Name="TrendLineTypeEditor"
+                  x:Name="TrendLineTypeEditor"
                   Label="Trendline Type"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -47,7 +47,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamSparkline
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding SparklineMixedData}"
           DisplayType="Area"
           LabelMemberPath="Label"

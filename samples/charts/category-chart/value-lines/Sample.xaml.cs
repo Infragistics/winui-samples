@@ -3,11 +3,10 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
+using Infragistics.Controls.Description;
 using System;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -27,7 +26,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -38,7 +36,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity(); 
+                _countryRenewableElectricity = new CountryRenewableElectricity();
             }
             return _countryRenewableElectricity;
         }
@@ -66,14 +64,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var item = (PropertyEditorPropertyDescription)sender;
         var value = (string)item.PrimitiveValue;
         var chart = this.chart;
-           
+
         var valueLineType = (ValueLayerValueMode)Enum.Parse(typeof(ValueLayerValueMode), value);
         chart.ValueLines.Clear();
         chart.ValueLines.Add(valueLineType);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

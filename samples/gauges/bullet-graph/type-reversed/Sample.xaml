@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igGauges:XamBulletGraph
-          Name="graph1"
+          x:Name="graph1"
           Height="120px"
           Orientation="Horizontal"
           BackingBrush="#00000000"
@@ -83,7 +83,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamBulletGraph
-          Name="graph2"
+          x:Name="graph2"
           Height="120px"
           Orientation="Horizontal"
           BackingBrush="#00000000"

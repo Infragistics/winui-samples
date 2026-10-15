@@ -23,11 +23,11 @@
           DescriptionType="DataChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="Axes[1 as NumericYAxis].CrossingValue"
-                  Name="XAxisCrossingValue"
+                  x:Name="XAxisCrossingValue"
                   Label="Where the X axis crosses"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -38,7 +38,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="Axes[0 as NumericXAxis].CrossingValue"
-                  Name="YAxisCrossingValue"
+                  x:Name="YAxisCrossingValue"
                   Label="Where the Y axis crosses"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Slider"
@@ -59,7 +59,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
           PlotAreaMarginBottom="60"
@@ -68,7 +68,7 @@
           PlotAreaMarginRight="30">
               <igCharts:XamDataChart.Axes>
                   <igCharts:NumericXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Interval="40"
                   MinimumValue="-360"
                   MaximumValue="360"
@@ -80,7 +80,7 @@
                   Stroke="black">
                   </igCharts:NumericXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   MinimumValue="-1.25"
                   MaximumValue="1.25"
                   Interval="0.25"
@@ -94,7 +94,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ScatterSplineSeries
-                  Name="sinSeries"
+                  x:Name="sinSeries"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding ScatterWaveData}"
@@ -103,7 +103,7 @@
                   YMemberPath="SinValue">
                   </igCharts:ScatterSplineSeries>
                   <igCharts:ScatterSplineSeries
-                  Name="cosSeries"
+                  x:Name="cosSeries"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding ScatterWaveData}"

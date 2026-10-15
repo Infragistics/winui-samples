@@ -23,18 +23,18 @@
           DescriptionType="DataChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="ShouldConsiderAutoRotationForInitialLabels"
-                  Name="ShouldConsiderAutoRotationForInitialLabels"
+                  x:Name="ShouldConsiderAutoRotationForInitialLabels"
                   Label="Rotate Labels?"
                   ShouldOverrideDefaultEditor="true"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="AutoMarginAndAngleUpdateMode"
-                  Name="AutoMarginAndAngleUpdateMode"
+                  x:Name="AutoMarginAndAngleUpdateMode"
                   Label="AutoMarginAndAngleUpdateMode: "
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -54,7 +54,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="true"
           IsVerticalZoomEnabled="true"
           AutoMarginAndAngleUpdateMode="SizeChangingAndZoom"
@@ -62,19 +62,19 @@
           ShouldAutoExpandMarginForInitialLabels="true">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   ItemsSource="{Binding TemperatureAverageDataLongLabels}"
                   EnhancedIntervalPreferMoreCategoryLabels="true"
                   UseEnhancedIntervalManagement="true"
                   Label="Month">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis">
+                  x:Name="yAxis">
                   </igCharts:NumericYAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:ColumnSeries
-                  Name="colSeries1"
+                  x:Name="colSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   ItemsSource="{Binding TemperatureAverageDataLongLabels}"

@@ -3,13 +3,12 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Charts;
+using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -26,11 +25,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.CategoryChartHighVolumeOnViewInit();
         };
     }
-
 
     private ComponentRenderer _componentRenderer = null;
     public ComponentRenderer Renderer
@@ -53,14 +50,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var chart = this.chart;
         chart.ItemsSource = CategoryChartVolumeData.Generate(CategoryChartVolumeData.Count);
     }
-    
-    
+
     public void EditorChangeHighVolumeDataPoints(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         CategoryChartVolumeData.Count = System.Convert.ToInt32(args.NewValue);
     }
-    
-    
+
     public void EditorButtonGenerateHighVolumeData(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var chart = this.chart;
@@ -68,7 +63,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

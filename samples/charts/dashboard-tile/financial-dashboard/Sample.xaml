@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDashboards:XamDashboardTile
-          Name="dashboard"
+          x:Name="dashboard"
           ItemsSource="{Binding MultipleStocks}">
           </igDashboards:XamDashboardTile>
         </Grid>

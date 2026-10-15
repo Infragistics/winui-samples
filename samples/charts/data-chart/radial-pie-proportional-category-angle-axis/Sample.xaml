@@ -24,12 +24,12 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:ProportionalCategoryAngleAxis
-                  Name="angleAxis"
+                  x:Name="angleAxis"
                   ItemsSource="{Binding RadialProportionalData}"
                   Label="Label"
                   ValueMemberPath="Value"
@@ -39,14 +39,14 @@
                   OthersCategoryType="Number">
                   </igCharts:ProportionalCategoryAngleAxis>
                   <igCharts:NumericRadiusAxis
-                  Name="radiusAxis"
+                  x:Name="radiusAxis"
                   MinimumValue="0"
                   MaximumValue="100">
                   </igCharts:NumericRadiusAxis>
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:RadialPieSeries
-                  Name="RadialPieSeries1"
+                  x:Name="RadialPieSeries1"
                   ItemsSource="{Binding RadialProportionalData}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   ValueAxis="{Binding ElementName=radiusAxis}"

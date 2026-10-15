@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,19 +30,19 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false"
           Legend="{Binding ElementName=legend}">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxis"
+                  x:Name="xAxis"
                   Label="Month"
                   Interval="1"
                   ItemsSource="{Binding TemperatureRangeData}">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxis"
+                  x:Name="yAxis"
                   Title="Temperature (in Celsius)"
                   TitleAngle="90"
                   TitleLeftMargin="10">
@@ -50,7 +50,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:RangeAreaSeries
-                  Name="rangeAreaSeries1"
+                  x:Name="rangeAreaSeries1"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   Title="Los Angeles"
@@ -60,7 +60,7 @@
                   ItemsSource="{Binding TemperatureRangeData}">
                   </igCharts:RangeAreaSeries>
                   <igCharts:RangeAreaSeries
-                  Name="rangeAreaSeries2"
+                  x:Name="rangeAreaSeries2"
                   XAxis="{Binding ElementName=xAxis}"
                   YAxis="{Binding ElementName=yAxis}"
                   Title="New York"
@@ -70,7 +70,7 @@
                   ItemsSource="{Binding TemperatureRangeData}">
                   </igCharts:RangeAreaSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

@@ -3,10 +3,6 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
-using Infragistics.Controls.Description;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
-using Infragistics.Controls.Layouts;
 
 namespace Sample;
 
@@ -22,7 +18,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -33,7 +28,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_scatterWaveData == null)
             {
-                _scatterWaveData = new ScatterWaveData(); 
+                _scatterWaveData = new ScatterWaveData();
             }
             return _scatterWaveData;
         }
@@ -58,9 +53,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

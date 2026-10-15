@@ -17,7 +17,7 @@
       <StackPanel>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -30,18 +30,18 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           Legend="{Binding ElementName=legend}"
           IsHorizontalZoomEnabled="false"
           IsVerticalZoomEnabled="false">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryAngleAxis
-                  Name="angleAxis"
+                  x:Name="angleAxis"
                   ItemsSource="{Binding FootballPlayerStats}"
                   Label="Attribute">
                   </igCharts:CategoryAngleAxis>
                   <igCharts:NumericRadiusAxis
-                  Name="radiusAxis"
+                  x:Name="radiusAxis"
                   InnerRadiusExtentScale="0.1"
                   Interval="2"
                   MinimumValue="0"
@@ -50,7 +50,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:RadialPieSeries
-                  Name="RadialPieSeries1"
+                  x:Name="RadialPieSeries1"
                   ItemsSource="{Binding FootballPlayerStats}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   ValueAxis="{Binding ElementName=radiusAxis}"
@@ -61,7 +61,7 @@
                   Title="Ronaldo">
                   </igCharts:RadialPieSeries>
                   <igCharts:RadialPieSeries
-                  Name="RadialPieSeries2"
+                  x:Name="RadialPieSeries2"
                   ItemsSource="{Binding FootballPlayerStats}"
                   AngleAxis="{Binding ElementName=angleAxis}"
                   ValueAxis="{Binding ElementName=radiusAxis}"
@@ -72,7 +72,7 @@
                   Title="Messi">
                   </igCharts:RadialPieSeries>
                   <igCharts:DataToolTipLayer
-                  Name="dataToolTipLayer">
+                  x:Name="dataToolTipLayer">
                   </igCharts:DataToolTipLayer>
               </igCharts:XamDataChart.Series>
           </igCharts:XamDataChart>

@@ -3,7 +3,6 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Controls.Grids;
-using Infragistics.Controls;
 
 namespace Sample;
 
@@ -19,7 +18,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
             this.DataGridRegisterCountryFilterOnViewInit();
             this.DataGridRegisterCustomAgeFilterOnViewInit();
         };
@@ -32,12 +30,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData(); 
+                _employeesSalesData = new EmployeesSalesData();
             }
             return _employeesSalesData;
         }
     }
-
 
     public void DataGridRegisterCountryFilterOnViewInit()
     {
@@ -50,14 +47,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         operand.FilterRequested += OnFilter;
         grid.ActualColumns[0].FilterOperands.Add(operand);
     }
-    
+
     private void OnFilter(object sender, GridCustomFilterRequestedEventArgs args)
     {
         var prop = args.FilterFactory.Property(args.Column.Field);
         args.Expression = prop.IsEqualTo("France");
     }
-    
-    
+
     public void DataGridRegisterCustomAgeFilterOnViewInit()
     {
         var grid = this.grid;
@@ -72,7 +68,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         };
         grid.ActualColumns[2].FilterOperands.Add(salesFilter);
     }
-    
+
     public class CustomAgeFilter : FilterOperand
     {
         public CustomAgeFilter()
@@ -82,7 +78,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             EditorType = EditorType.Numeric;
             FilterRequested += OnFilter;
         }
-    
+
         private void OnFilter(object sender, GridCustomFilterRequestedEventArgs args)
         {
             var prop = args.FilterFactory.Property(args.Column.Field);
@@ -91,7 +87,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

@@ -1,9 +1,8 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
-using Infragistics.Controls;
-using Infragistics.Controls.Charts;
 
+using Infragistics.Controls.Charts;
 
 namespace Sample;
 
@@ -21,7 +20,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
-
         };
     }
 
@@ -32,16 +30,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_roadblocksToSuccess == null)
             {
-                _roadblocksToSuccess = new RoadblocksToSuccess(); 
+                _roadblocksToSuccess = new RoadblocksToSuccess();
             }
             return _roadblocksToSuccess;
         }
     }
 
-
-
     public event PropertyChangedEventHandler PropertyChanged;
-    protected void OnPropertyChanged(string propertyName)
+    private void OnPropertyChanged(string propertyName)
     {
         PropertyChangedEventHandler handler = PropertyChanged;
         if (handler != null)

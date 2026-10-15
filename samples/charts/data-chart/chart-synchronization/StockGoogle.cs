@@ -1,12 +1,10 @@
-//begin data 
+//begin data
 using System;
 using System.Collections.Generic;
 public class StockGoogle : List<StockItem> {
 
- 
 	public StockGoogle(){
-    
-    
+
      this.Add(new StockItem(){Date=new DateTime(2014,03,01,13,0,0), Open= 559.6, High= 568.2, Low= 558.4, Close= 566.9, Volume= 2182626 });
      this.Add(new StockItem(){Date=new DateTime(2014,03,02,13,0,0), Open= 562.4, High= 571.8, Low= 561.4, Close= 567.0, Volume= 2088804 });
      this.Add(new StockItem(){Date=new DateTime(2014,03,03,13,0,0), Open= 569.9, High= 587.3, Low= 564.1, Close= 569.7, Volume= 5087530 });
@@ -974,8 +972,7 @@ public class StockGoogle : List<StockItem> {
      this.Add(new StockItem(){Date=new DateTime(2018,01,29,13,0,0), Open= 1176.5, High= 1186.9, Low= 1172.0, Close= 1175.6, Volume= 1378913 });
      this.Add(new StockItem(){Date=new DateTime(2018,01,30,13,0,0), Open= 1167.8, High= 1176.5, Low= 1163.5, Close= 1163.7, Volume= 1556346 });
      this.Add(new StockItem(){Date=new DateTime(2018,01,31,13,0,0), Open= 1170.6, High= 1173.0, Low= 1159.1, Close= 1169.9, Volume= 1538688 });
-      
-	    
+
 	}
 }
 public class StockItem {

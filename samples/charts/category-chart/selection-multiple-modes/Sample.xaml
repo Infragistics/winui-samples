@@ -18,7 +18,7 @@
       <StackPanel>
         <Grid>
           <igLayouts:XamPropertyEditorPanel
-          Name="PropertyEditor"
+          x:Name="PropertyEditor"
           ComponentRenderer="{Binding Renderer}"
           Target="{Binding ElementName=chart}"
           DescriptionType="CategoryChart"
@@ -27,13 +27,13 @@
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="SelectionMode"
-                  Name="SelectionModeEditor"
+                  x:Name="SelectionModeEditor"
                   Label="Selection Mode: "
                   PrimitiveValue="SelectionColorFill">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="SelectionBehavior"
-                  Name="SelectionBehaviorEditor"
+                  x:Name="SelectionBehaviorEditor"
                   Label="Selection Behavior: "
                   PrimitiveValue="PerSeriesAndDataItemGlobalSingleSelect">
                   </igLayouts:PropertyEditorPropertyDescription>
@@ -42,7 +42,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -55,7 +55,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ChartType="Column"
           ItemsSource="{Binding EnergyRenewableConsumption}"
           Legend="{Binding ElementName=legend}"

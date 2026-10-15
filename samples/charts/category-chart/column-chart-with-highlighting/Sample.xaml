@@ -23,35 +23,35 @@
           DescriptionType="CategoryChart"
           IsHorizontal="true"
           IsWrappingEnabled="true"
-          Name="propertyEditorPanel1">
+          x:Name="propertyEditorPanel1">
               <igLayouts:XamPropertyEditorPanel.Properties>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="IsSeriesHighlightingEnabled"
-                  Name="IsSeriesHighlightingEnabled"
+                  x:Name="IsSeriesHighlightingEnabled"
                   Label="Highlight Series"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="true">
+                  PrimitiveValue="True">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="IsCategoryHighlightingEnabled"
-                  Name="IsCategoryHighlightingEnabled"
+                  x:Name="IsCategoryHighlightingEnabled"
                   Label="Highlight Category"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="false">
+                  PrimitiveValue="False">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="IsItemHighlightingEnabled"
-                  Name="IsItemHighlightingEnabled"
+                  x:Name="IsItemHighlightingEnabled"
                   Label="Highlight Item"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="Boolean"
-                  PrimitiveValue="false">
+                  PrimitiveValue="False">
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HighlightingMode"
-                  Name="HighlightingMode"
+                  x:Name="HighlightingMode"
                   Label="Highlighting Mode"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -61,7 +61,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="HighlightingBehavior"
-                  Name="HighlightingBehavior"
+                  x:Name="HighlightingBehavior"
                   Label="Highlighting Behavior"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -71,7 +71,7 @@
                   </igLayouts:PropertyEditorPropertyDescription>
                   <igLayouts:PropertyEditorPropertyDescription
                   PropertyPath="LegendHighlightingMode"
-                  Name="LegendHighlightingMode"
+                  x:Name="LegendHighlightingMode"
                   Label="Legend Highlighting"
                   ShouldOverrideDefaultEditor="true"
                   ValueType="EnumValue"
@@ -84,7 +84,7 @@
         </Grid>
         <Grid>
           <igCharts:Legend
-          Name="legend"
+          x:Name="legend"
           Orientation="Horizontal">
           </igCharts:Legend>
         </Grid>
@@ -97,7 +97,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamCategoryChart
-          Name="chart"
+          x:Name="chart"
           ItemsSource="{Binding TemperatureRangeData}"
           IncludedProperties="{Binding includedProperties1}"
           Legend="{Binding ElementName=legend}"

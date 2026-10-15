@@ -25,7 +25,7 @@
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igDashboards:XamDashboardTile
           TileTitle="Sample Gauge"
-          Name="dashboard"
+          x:Name="dashboard"
           ItemsSource="{Binding DashboardGaugeDataSource}">
           </igDashboards:XamDashboardTile>
         </Grid>

@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
         <Grid Grid.Column="1" x:Name="ContentRoot">
           <igCharts:XamDataChart
-          Name="chart"
+          x:Name="chart"
           ShouldAutoExpandMarginForInitialLabels="true"
           ComputedPlotAreaMarginMode="Series"
           IsVerticalZoomEnabled="false"
@@ -43,7 +43,7 @@
           Title="This Data Chart demonstrates the DataAnnotationStripLayer bound to data that markert events affecting stock prices.">
               <igCharts:XamDataChart.Axes>
                   <igCharts:CategoryXAxis
-                  Name="xAxisBottom"
+                  x:Name="xAxisBottom"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   LabelLeftMargin="10"
@@ -52,7 +52,7 @@
                   LabelBottomMargin="15">
                   </igCharts:CategoryXAxis>
                   <igCharts:CategoryXAxis
-                  Name="xAxisTop"
+                  x:Name="xAxisTop"
                   ItemsSource="{Binding StockTesla}"
                   Label="Date"
                   TickLength="0"
@@ -66,7 +66,7 @@
                   LabelBottomMargin="5">
                   </igCharts:CategoryXAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisLeft"
+                  x:Name="yAxisLeft"
                   LabelLocation="OutsideLeft"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -79,7 +79,7 @@
                   MaximumValue="550">
                   </igCharts:NumericYAxis>
                   <igCharts:NumericYAxis
-                  Name="yAxisRight"
+                  x:Name="yAxisRight"
                   LabelLocation="OutsideRight"
                   LabelFontSize="12"
                   LabelExtent="80"
@@ -94,7 +94,7 @@
               </igCharts:XamDataChart.Axes>
               <igCharts:XamDataChart.Series>
                   <igCharts:FinancialPriceSeries
-                  Name="series1"
+                  x:Name="series1"
                   Title="Stock Price"
                   DisplayType="Candlestick"
                   XAxis="{Binding ElementName=xAxisBottom}"
@@ -107,12 +107,12 @@
                   ShowDefaultTooltip="false">
                   </igCharts:FinancialPriceSeries>
                   <igCharts:DataToolTipLayer
-                  Name="Tooltip"
+                  x:Name="Tooltip"
                   IncludedColumns="{Binding includedColumns1}"
                   LayoutMode="Vertical">
                   </igCharts:DataToolTipLayer>
                   <igCharts:DataAnnotationStripLayer
-                  Name="StripLayer"
+                  x:Name="StripLayer"
                   ItemsSource="{Binding AnnotationStripData}"
                   TargetAxis="{Binding ElementName=xAxisTop}"
                   CenterLabelMemberPath="Label"
