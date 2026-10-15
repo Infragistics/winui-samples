@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.DataAnnotationSliceLayer;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,12 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_stockTesla == null)
             {
-                _stockTesla = new StockTesla();
+                _stockTesla = new StockTesla(); 
             }
             return _stockTesla;
         }
     }
-
+    
     private AnnotationSliceStockSplitData _annotationSliceStockSplitData = null;
     public AnnotationSliceStockSplitData AnnotationSliceStockSplitData
     {
@@ -40,12 +42,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceStockSplitData == null)
             {
-                _annotationSliceStockSplitData = new AnnotationSliceStockSplitData();
+                _annotationSliceStockSplitData = new AnnotationSliceStockSplitData(); 
             }
             return _annotationSliceStockSplitData;
         }
     }
-
+    
     private AnnotationSliceEarningsMissData _annotationSliceEarningsMissData = null;
     public AnnotationSliceEarningsMissData AnnotationSliceEarningsMissData
     {
@@ -53,12 +55,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceEarningsMissData == null)
             {
-                _annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData();
+                _annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData(); 
             }
             return _annotationSliceEarningsMissData;
         }
     }
-
+    
     private AnnotationSliceEarningsBeatData _annotationSliceEarningsBeatData = null;
     public AnnotationSliceEarningsBeatData AnnotationSliceEarningsBeatData
     {
@@ -66,11 +68,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceEarningsBeatData == null)
             {
-                _annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData();
+                _annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData(); 
             }
             return _annotationSliceEarningsBeatData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

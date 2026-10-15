@@ -21,6 +21,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -31,7 +32,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyGlobalDemand == null)
             {
-                _energyGlobalDemand = new EnergyGlobalDemand();
+                _energyGlobalDemand = new EnergyGlobalDemand(); 
             }
             return _energyGlobalDemand;
         }
@@ -54,12 +55,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void EditorButtonReplayTransitionInDomain(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var chart = this.chart;
         chart.ReplayTransitionIn();
-
+            
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.TreeMap.Overview;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countyHierarchicalData == null)
             {
-                _countyHierarchicalData = new CountyHierarchicalData();
+                _countyHierarchicalData = new CountyHierarchicalData(); 
             }
             return _countyHierarchicalData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

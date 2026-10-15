@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Grids.DataGrid.BindingDataService;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_financialDataService == null)
             {
-                FinancialDataService.FetchData().ContinueWith((t) => {_financialDataService = t.Result;  OnPropertyChanged("FinancialDataService"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+                FinancialDataService.Fetch().ContinueWith((t) => {_financialDataService = t.Result;  OnPropertyChanged("FinancialDataService"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
             }
             return _financialDataService;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

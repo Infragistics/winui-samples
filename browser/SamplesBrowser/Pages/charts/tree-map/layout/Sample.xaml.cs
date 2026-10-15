@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.TreeMap.Layout;
 
@@ -18,6 +19,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -28,7 +30,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countyHierarchicalData == null)
             {
-                _countyHierarchicalData = new CountyHierarchicalData();
+                _countyHierarchicalData = new CountyHierarchicalData(); 
             }
             return _countyHierarchicalData;
         }
@@ -49,6 +51,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

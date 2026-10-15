@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnAutoGenerationRealEstates;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_realEstateData == null)
             {
-                _realEstateData = new RealEstateData();
+                _realEstateData = new RealEstateData(); 
             }
             return _realEstateData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

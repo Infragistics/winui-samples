@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DoughnutChart.Overview;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_companyMarketShares == null)
             {
-                _companyMarketShares = new CompanyMarketShares();
+                _companyMarketShares = new CompanyMarketShares(); 
             }
             return _companyMarketShares;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

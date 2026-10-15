@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.Sparkline.UnknownValues;
 
@@ -20,6 +21,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -30,7 +32,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_sparklineUnknownData == null)
             {
-                _sparklineUnknownData = new SparklineUnknownData();
+                _sparklineUnknownData = new SparklineUnknownData(); 
             }
             return _sparklineUnknownData;
         }
@@ -51,6 +53,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

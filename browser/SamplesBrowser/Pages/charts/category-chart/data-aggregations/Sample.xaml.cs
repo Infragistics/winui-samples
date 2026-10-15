@@ -3,10 +3,10 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 using Infragistics.Controls;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
-using Infragistics.Controls.Description;
 using System;
 
 namespace SamplesBrowser.Pages.Charts.CategoryChart.DataAggregations;
@@ -25,6 +25,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
             this.PropertyEditorInitAggregationsOnViewInit();
         };
     }
@@ -36,7 +37,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_salesData == null)
             {
-                _salesData = new SalesData();
+                _salesData = new SalesData(); 
             }
             return _salesData;
         }
@@ -59,11 +60,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: System.Action
     public void PropertyEditorInitAggregationsOnViewInit()
     {
     	var editor = this.editor;
-
+            
     	var initialSummariesDropdown = new PropertyEditorPropertyDescription();
     	var sortGroupsDropdown = new PropertyEditorPropertyDescription();
     	initialSummariesDropdown.Label = "Initial Summaries";
@@ -76,31 +76,32 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     	sortGroupsDropdown.ShouldOverrideDefaultEditor = true;
     	sortGroupsDropdown.DropDownNames = new string[] { "Sales Asc", "Sales Desc" };
     	sortGroupsDropdown.DropDownValues = new string[] { "Sales Asc", "Sales Desc" };
-
+    
     	editor.Properties.Add(initialSummariesDropdown);
     	editor.Properties.Add(sortGroupsDropdown);
-
+    
+    
     	initialSummariesDropdown.Changed += this.EditorChangeUpdateInitialSummaries;
     	sortGroupsDropdown.Changed += this.EditorChangeUpdateGroupSorts;
     }
-
+    	
     public void EditorChangeUpdateInitialSummaries(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
     	var chart = this.chart;
     	var intialSummaryVal = args.NewValue.ToString();
     	chart.InitialSummaries = intialSummaryVal;
     }
-
+    
     public void EditorChangeUpdateGroupSorts(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {
+    {    
     	var chart = this.chart;
     	var groupSortsVal = args.NewValue.ToString();
     	chart.GroupSorts = groupSortsVal;
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
+    
+    
     public void EditorChangeUpdateInitialGroups(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {
+    {        
         var chart = this.chart;
         var intialGroupVal = args.NewValue.ToString();
         chart.InitialGroups = null;

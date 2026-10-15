@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.CategoryChart.SelectionMultipleModes;
 
@@ -18,6 +19,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -28,7 +30,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyRenewableConsumption == null)
             {
-                _energyRenewableConsumption = new EnergyRenewableConsumption();
+                _energyRenewableConsumption = new EnergyRenewableConsumption(); 
             }
             return _energyRenewableConsumption;
         }
@@ -50,6 +52,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

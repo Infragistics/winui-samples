@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.RadialProportionalRadialAngleAxis;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyRenewableConsumption == null)
             {
-                _energyRenewableConsumption = new EnergyRenewableConsumption();
+                _energyRenewableConsumption = new EnergyRenewableConsumption(); 
             }
             return _energyRenewableConsumption;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

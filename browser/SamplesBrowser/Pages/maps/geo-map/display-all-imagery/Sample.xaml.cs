@@ -24,8 +24,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
+
 
     private ComponentRenderer _componentRenderer = null;
     public ComponentRenderer Renderer
@@ -45,7 +47,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeImagerySource(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var map = this.map;

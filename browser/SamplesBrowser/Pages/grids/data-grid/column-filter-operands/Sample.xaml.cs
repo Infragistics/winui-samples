@@ -18,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
             this.DataGridRegisterCountryFilterOnViewInit();
             this.DataGridRegisterCustomAgeFilterOnViewInit();
         };
@@ -30,14 +31,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData();
+                _employeesSalesData = new EmployeesSalesData(); 
             }
             return _employeesSalesData;
         }
     }
 
 
-    //WPF: System.Action
     public void DataGridRegisterCountryFilterOnViewInit()
     {
         var grid = this.grid;
@@ -49,20 +49,29 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         operand.FilterRequested += OnFilter;
         grid.ActualColumns[0].FilterOperands.Add(operand);
     }
-
+    
     private void OnFilter(object sender, GridCustomFilterRequestedEventArgs args)
     {
         var prop = args.FilterFactory.Property(args.Column.Field);
         args.Expression = prop.IsEqualTo("France");
     }
-
-    //WPF: System.Action
+    
+    
     public void DataGridRegisterCustomAgeFilterOnViewInit()
     {
         var grid = this.grid;
         grid.ActualColumns[1].FilterOperands.Add(new CustomAgeFilter());
+        var salesFilter = new FilterOperand {
+            EditorType = EditorType.Numeric,
+            IsInputRequired = false,
+            DisplayName = "(Custom) In-Line Filter"
+        };
+        salesFilter.FilterRequested += (sender, args) => {
+            args.Expression = args.FilterFactory.Property("Sales").IsLessThanOrEqualTo(300000);
+        };
+        grid.ActualColumns[2].FilterOperands.Add(salesFilter);
     }
-
+    
     public class CustomAgeFilter : FilterOperand
     {
         public CustomAgeFilter()
@@ -72,18 +81,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             EditorType = EditorType.Numeric;
             FilterRequested += OnFilter;
         }
-
+    
         private void OnFilter(object sender, GridCustomFilterRequestedEventArgs args)
         {
             var prop = args.FilterFactory.Property(args.Column.Field);
             args.Expression = prop.IsEqualTo(30);
         }
-    }
-
-    //WPF: Infragistics.Controls.Grids.GridCustomFilterRequestedEventHandler
-    public void DataGridFilterSalesLessThanOrEqual300k(object sender, GridCustomFilterRequestedEventArgs args)
-    {
-        args.Expression = args.FilterFactory.Property("Sales").IsLessThanOrEqualTo(300000);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

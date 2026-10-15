@@ -19,6 +19,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -29,21 +30,20 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_selectableData == null)
             {
-                _selectableData = new SelectableData();
+                _selectableData = new SelectableData(); 
             }
             return _selectableData;
         }
     }
 
 
-    //WPF: Infragistics.Controls.Charts.DomainChartSeriesPointerEventHandler
     public void CategoryChartCustomSelectionPointerDown(object sender, DomainChartSeriesPointerEventArgs args)
     {
         var chart = this.chart;
         var selectableData = (SelectableData)chart.ItemsSource;
         var selectedItem = args.Item as SelectableDataItem;
         if (selectedItem == null) return;
-
+    
         var selectedIndex = -1;
         for (var i = 0; i < selectableData.Count; i++)
         {
@@ -52,12 +52,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 selectedIndex = i; break;
             }
         }
-
+    
         if (selectedItem.SelectedValue == selectedItem.DataValue)
             selectedItem.SelectedValue = double.NaN;
         else
             selectedItem.SelectedValue = selectedItem.DataValue;
-
+    
         chart.NotifySetItem(selectableData, selectedIndex, selectedItem, selectedItem);
     }
 

@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.DataPieChart.Selection;
 
@@ -20,6 +21,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -30,7 +32,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyGlobalDemand == null)
             {
-                _energyGlobalDemand = new EnergyGlobalDemand();
+                _energyGlobalDemand = new EnergyGlobalDemand(); 
             }
             return _energyGlobalDemand;
         }
@@ -52,6 +54,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

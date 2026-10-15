@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.BarChartSingleSource;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_onlineShoppingSearches == null)
             {
-                _onlineShoppingSearches = new OnlineShoppingSearches();
+                _onlineShoppingSearches = new OnlineShoppingSearches(); 
             }
             return _onlineShoppingSearches;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DoughnutChart.Rings;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,12 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_calendarSeasons == null)
             {
-                _calendarSeasons = new CalendarSeasons();
+                _calendarSeasons = new CalendarSeasons(); 
             }
             return _calendarSeasons;
         }
     }
-
+    
     private CalendarMonths _calendarMonths = null;
     public CalendarMonths CalendarMonths
     {
@@ -39,11 +41,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_calendarMonths == null)
             {
-                _calendarMonths = new CalendarMonths();
+                _calendarMonths = new CalendarMonths(); 
             }
             return _calendarMonths;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.CategoryChart.SplineAreaSingleSource;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,11 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

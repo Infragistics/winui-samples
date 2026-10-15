@@ -2,11 +2,12 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.CategoryChart.LineChartStyling;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
-    public string[] markerTypes1 { get; } = new string[] {  };
+    public MarkerTypeCollection markerTypes1 { get; } = new MarkerTypeCollection { MarkerType.Circle };
 
     public Sample()
     {
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -27,11 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

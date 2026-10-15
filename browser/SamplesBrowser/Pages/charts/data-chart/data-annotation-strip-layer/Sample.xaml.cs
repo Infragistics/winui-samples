@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.DataAnnotationStripLayer;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,12 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_stockTesla == null)
             {
-                _stockTesla = new StockTesla();
+                _stockTesla = new StockTesla(); 
             }
             return _stockTesla;
         }
     }
-
+    
     private AnnotationStripData _annotationStripData = null;
     public AnnotationStripData AnnotationStripData
     {
@@ -40,11 +42,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationStripData == null)
             {
-                _annotationStripData = new AnnotationStripData();
+                _annotationStripData = new AnnotationStripData(); 
             }
             return _annotationStripData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

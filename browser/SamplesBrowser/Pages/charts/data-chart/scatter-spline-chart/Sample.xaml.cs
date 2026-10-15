@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.ScatterSplineChart;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,12 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_healthDataForGermany == null)
             {
-                _healthDataForGermany = new HealthDataForGermany();
+                _healthDataForGermany = new HealthDataForGermany(); 
             }
             return _healthDataForGermany;
         }
     }
-
+    
     private HealthDataForFrance _healthDataForFrance = null;
     public HealthDataForFrance HealthDataForFrance
     {
@@ -39,11 +41,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_healthDataForFrance == null)
             {
-                _healthDataForFrance = new HealthDataForFrance();
+                _healthDataForFrance = new HealthDataForFrance(); 
             }
             return _healthDataForFrance;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

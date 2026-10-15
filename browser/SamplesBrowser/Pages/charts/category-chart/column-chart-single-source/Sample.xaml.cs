@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.CategoryChart.ColumnChartSingleSource;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_temperatureAverageData == null)
             {
-                _temperatureAverageData = new TemperatureAverageData();
+                _temperatureAverageData = new TemperatureAverageData(); 
             }
             return _temperatureAverageData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

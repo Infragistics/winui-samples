@@ -20,6 +20,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -30,14 +31,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
     }
 
 
-    //WPF: Infragistics.Controls.Layouts.ToolCommandEventHandler
     public void ToolbarToggleAnnotations(object sender, ToolCommandEventArgs e)
     {
     	var target = (XamDataChart)((XamToolbar)sender).Target;
@@ -112,6 +112,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     			break;
     	}
     }
+    	
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

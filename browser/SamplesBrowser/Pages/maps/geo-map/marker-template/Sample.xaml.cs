@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Maps.GeoMap.MarkerTemplate;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldCountries == null)
             {
-                _worldCountries = new WorldCountries();
+                _worldCountries = new WorldCountries(); 
             }
             return _worldCountries;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

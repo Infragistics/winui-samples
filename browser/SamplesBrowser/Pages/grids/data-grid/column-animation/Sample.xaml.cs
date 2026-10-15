@@ -4,8 +4,8 @@ using System.ComponentModel;
 
 using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
-using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
+using Infragistics.Controls.Layouts;
 using System;
 using System.Collections.Generic;
 
@@ -33,6 +33,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
+            this.DataGridColumnAnimationOnViewInit();
         };
     }
 
@@ -43,7 +45,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData();
+                _employeesSalesData = new EmployeesSalesData(); 
             }
             return _employeesSalesData;
         }
@@ -65,7 +67,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    public void DataGridColumnAnimationOnViewInit()
+    {
+        var grid = this.grid;
+        grid.ColumnAddingAnimationMode = ColumnShowingAnimationMode.SlideFromLeft;
+    }
+    
+    
     public void DataGridHideFirstVisibleColumn(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
@@ -79,8 +87,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             }
         }
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    
     public void DataGridShowLastHiddenColumn(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
@@ -94,10 +102,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             }
         }
     }
-
+    
+    
     public Random _random = new Random();
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
     public void DataGridReloadSalaryData(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;

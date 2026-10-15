@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DashboardTile.FinancialDashboard;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -15,6 +16,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -31,6 +33,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             return _multipleStocks;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

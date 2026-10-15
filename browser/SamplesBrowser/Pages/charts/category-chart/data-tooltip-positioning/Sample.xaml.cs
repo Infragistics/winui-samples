@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.CategoryChart.DataTooltipPositioning;
 
@@ -18,6 +19,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -28,7 +30,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_highestGrossingMovies == null)
             {
-                _highestGrossingMovies = new HighestGrossingMovies();
+                _highestGrossingMovies = new HighestGrossingMovies(); 
             }
             return _highestGrossingMovies;
         }
@@ -50,6 +52,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

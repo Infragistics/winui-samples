@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Maps.GeoMap.TypeScatterSymbolSeries;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,12 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldCities == null)
             {
-                _worldCities = new WorldCities();
+                _worldCities = new WorldCities(); 
             }
             return _worldCities;
         }
     }
-
+    
     private WorldCapitals _worldCapitals = null;
     public WorldCapitals WorldCapitals
     {
@@ -39,11 +41,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldCapitals == null)
             {
-                _worldCapitals = new WorldCapitals();
+                _worldCapitals = new WorldCapitals(); 
             }
             return _worldCapitals;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

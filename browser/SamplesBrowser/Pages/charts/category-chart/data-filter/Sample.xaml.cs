@@ -24,6 +24,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -34,7 +35,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_continentsBirthRate == null)
             {
-                _continentsBirthRate = new ContinentsBirthRate();
+                _continentsBirthRate = new ContinentsBirthRate(); 
             }
             return _continentsBirthRate;
         }
@@ -57,9 +58,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeDataFilter(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {
+    {        
         var chart = this.chart;
         var filter = args.NewValue.ToString();
         chart.InitialFilter = "(contains(Year," + "'" + filter + "'" + "))";

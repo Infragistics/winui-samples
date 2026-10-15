@@ -21,6 +21,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -31,7 +32,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_companyIncomeData == null)
             {
-                _companyIncomeData = new CompanyIncomeData();
+                _companyIncomeData = new CompanyIncomeData(); 
             }
             return _companyIncomeData;
         }
@@ -54,7 +55,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void EditorButtonReplayTransitionIn(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var series = this.chart.Series;

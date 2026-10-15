@@ -12,9 +12,9 @@ namespace SamplesBrowser.Pages.Charts.CategoryChart.MarkerOptions;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
-    public string[] dropDownValues1 { get; } = new string[] { "Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
-    public string[] dropDownNames1 { get; } = new string[] { "Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
-    public string[] markerTypes1 { get; } = new string[] {  };
+    public string[] dropDownValues1 { get; } = new string[] { "Circle", "Checkmark", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
+    public string[] dropDownNames1 { get; } = new string[] { "Circle", "Checkmark", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
+    public MarkerTypeCollection markerTypes1 { get; } = new MarkerTypeCollection { MarkerType.Circle };
 
     public Sample()
     {
@@ -24,6 +24,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -35,7 +36,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
@@ -58,13 +59,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeUpdateMarkerType(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var item = (PropertyEditorPropertyDescription)sender;
         var value = (string)item.PrimitiveValue;
         var chart = this.chart;
-
+           
         var markerVal = (MarkerType)Enum.Parse(typeof(MarkerType), value);
         chart.MarkerTypes.Clear();
         chart.MarkerTypes.Add(markerVal);

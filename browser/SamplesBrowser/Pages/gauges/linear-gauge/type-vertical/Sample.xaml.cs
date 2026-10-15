@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Gauges.LinearGauge.TypeVertical;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,8 +17,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
+
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

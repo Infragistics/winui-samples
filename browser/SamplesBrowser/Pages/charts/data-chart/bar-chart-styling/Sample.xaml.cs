@@ -2,11 +2,12 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.BarChartStyling;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
-    public string[] allowedPositions1 { get; } = new string[] {  };
+    public CalloutPlacementPositionsCollection allowedPositions1 { get; } = new CalloutPlacementPositionsCollection { CalloutPlacementPositions.Right };
 
     public Sample()
     {
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -27,11 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_onlineShoppingSearches == null)
             {
-                _onlineShoppingSearches = new OnlineShoppingSearches();
+                _onlineShoppingSearches = new OnlineShoppingSearches(); 
             }
             return _onlineShoppingSearches;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

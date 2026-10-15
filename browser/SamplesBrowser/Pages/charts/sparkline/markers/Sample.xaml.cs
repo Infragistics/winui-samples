@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.Sparkline.Markers;
 
@@ -30,6 +31,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -40,7 +42,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_sparklineProfitData == null)
             {
-                _sparklineProfitData = new SparklineProfitData();
+                _sparklineProfitData = new SparklineProfitData(); 
             }
             return _sparklineProfitData;
         }
@@ -61,6 +63,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

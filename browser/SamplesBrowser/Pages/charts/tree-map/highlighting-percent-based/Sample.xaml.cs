@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.TreeMap.HighlightingPercentBased;
 
@@ -18,6 +19,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -28,7 +30,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryTopUrbanPopData == null)
             {
-                _countryTopUrbanPopData = new CountryTopUrbanPopData();
+                _countryTopUrbanPopData = new CountryTopUrbanPopData(); 
             }
             return _countryTopUrbanPopData;
         }
@@ -48,6 +50,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

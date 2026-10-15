@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Maps.GeoMap.GeoSymbolMapWithCallouts;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldCapitals2M == null)
             {
-                _worldCapitals2M = new WorldCapitals2M();
+                _worldCapitals2M = new WorldCapitals2M(); 
             }
             return _worldCapitals2M;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

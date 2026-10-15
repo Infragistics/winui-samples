@@ -3,13 +3,14 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.CategoryChart.AnnotationsAll;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
     public string[] includedProperties1 { get; } = new string[] { "Month", "Temperature" };
-    public string[] calloutsAllowedPositions1 { get; } = new string[] {  };
+    public CalloutPlacementPositionsCollection calloutsAllowedPositions1 { get; } = new CalloutPlacementPositionsCollection { CalloutPlacementPositions.Top, CalloutPlacementPositions.Bottom };
 
     public Sample()
     {
@@ -19,6 +20,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -30,7 +32,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_temperatureAnnotatedData == null)
             {
-                _temperatureAnnotatedData = new TemperatureAnnotatedData();
+                _temperatureAnnotatedData = new TemperatureAnnotatedData(); 
             }
             return _temperatureAnnotatedData;
         }
@@ -51,6 +53,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

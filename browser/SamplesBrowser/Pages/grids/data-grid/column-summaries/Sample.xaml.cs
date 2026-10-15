@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Grids.DataGrid.ColumnSummaries;
 
@@ -22,6 +23,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -32,7 +34,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_productOrders == null)
             {
-                _productOrders = new ProductOrders();
+                _productOrders = new ProductOrders(); 
             }
             return _productOrders;
         }
@@ -53,6 +55,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

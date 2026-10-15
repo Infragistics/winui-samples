@@ -3,14 +3,14 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
-using System.Windows;
+using Windows.Foundation;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
@@ -30,6 +30,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
             this.DataGridLiveDataTickerOnViewInit();
         };
     }
@@ -41,7 +42,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_portfolioData == null)
             {
-                _portfolioData = new PortfolioData();
+                _portfolioData = new PortfolioData(); 
             }
             return _portfolioData;
         }
@@ -72,13 +73,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     public bool UseHeatBackground = true;
     public bool UseRowGrouping = true;
     public Random Random = new Random();
-
-    //WPF: System.Action
+    
     public void DataGridLiveDataTickerOnViewInit()
     {
         OnGridGroupingAdd();
     }
-
+    
     public void StopTicking()
     {
         if (IsTimerTicking)
@@ -86,7 +86,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             IsTimerTicking = false;
         }
     }
-
+    
     public void StartTicking()
     {
         if (!IsTimerTicking)
@@ -95,29 +95,29 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
         }
     }
-
+    
     public void OnTimerTick()
     {
         if (!IsTimerTicking) return;
-
+    
         var grid = this.grid;
         if (grid == null)
         {
             Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
-
+    
         var data = grid.ItemsSource as List<PortfolioDataItem>;
         if (data == null)
         {
             Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
             return;
         }
-
+    
         var stillAnimating = false;
         var useClear = IsUpdatingAllPrices;
         var updateAll = IsUpdatingAllPrices;
-
+    
         var toChangeIndexes = new List<bool>();
         foreach (var item in data)
         {
@@ -131,7 +131,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 stillAnimating = true;
             }
         }
-
+    
         var toChange = (int)Math.Round(DataVolume / 10.0);
         if (updateAll)
         {
@@ -141,7 +141,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             toChange = (int)(Random.Next(2, data.Count - 1));
         }
-
+    
         var sortingByPrice = false;
         for (var i = 0; i < grid.SortDescriptions.Count; i++)
         {
@@ -151,10 +151,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 sortingByPrice = true;
             }
         }
-
+    
         var changing = false;
         var toChangeCount = 0;
-
+    
         var now = DateTime.Now;
         var elapsedTime = now.Subtract(LastUpdateTime);
         var elapsedInterval = elapsedTime.TotalMilliseconds > Frequency;
@@ -169,7 +169,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 changing = true;
             }
         }
-
+    
         for (var i = 0; i < data.Count; i++)
         {
             var item = data[i];
@@ -187,7 +187,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                     PortfolioData.RandomizeDataValues(item);
                     grid.NotifySetItem(i, oldItem, item);
                 }
-
+    
                 if (UseHeatBackground)
                 {
                     if (item.Change > 0)
@@ -217,7 +217,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 }
             }
         }
-
+    
         if (sortingByPrice && useClear && elapsedInterval)
         {
             grid.NotifyClearItems();
@@ -226,48 +226,42 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             grid.NotifyClearItems();
         }
-
+    
         if (!sortingByPrice || !elapsedInterval)
         {
             grid.InvalidateVisibleRows();
         }
-
+    
         Task.Delay(Frequency).ContinueWith((t) => OnTimerTick(), TaskScheduler.FromCurrentSynchronizationContext());
     }
-
+    
     public void OnGridGroupingRemove()
     {
         var grid = this.grid;
         if (grid == null) return;
         grid.GroupDescriptions.Clear();
     }
-
+    
     public void OnGridGroupingAdd()
     {
         var grid = this.grid;
         if (grid == null) return;
-
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+    
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
     }
-
-    // LiveSomePricesDisabled / LiveAllPricesDisabled are owned by
-    // DataGridToggleLiveAllPrices; IsUpdatingAllPrices, IsUpdatingSomePrices,
-    // IsTimerTicking and StartTicking are owned by
-    // DataGridLiveDataTickerOnViewInit. These handlers are merged into one
-    // sample class and only ever used together.
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    
     public void DataGridToggleLiveSomePrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         if (this.LiveSomePricesDisabled) return;
-
+    
         this.IsUpdatingAllPrices = false;
         this.IsUpdatingSomePrices = !this.IsUpdatingSomePrices;
-
+    
         var liveSomeEditor = this.LiveSomePricesEditor;
-
+    
         if (this.IsTimerTicking)
         {
             this.IsTimerTicking = false;
@@ -283,24 +277,21 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             this.LiveAllPricesDisabled = true;
         }
     }
-
-    // IsUpdatingAllPrices, IsUpdatingSomePrices, IsTimerTicking and StartTicking
-    // are owned by DataGridLiveDataTickerOnViewInit; these handlers are merged
-    // into one sample class and only ever used together.
+    
+    
     public bool LiveAllPricesDisabled = false;
     public bool LiveSomePricesDisabled = false;
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
     public void DataGridToggleLiveAllPrices(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         if (LiveAllPricesDisabled) return;
-
+    
         this.IsUpdatingAllPrices = !this.IsUpdatingAllPrices;
         this.IsUpdatingSomePrices = false;
-
+    
         var liveAllEditor = this.LiveAllPricesEditor;
         var liveSomeEditor = this.LiveSomePricesEditor;
-
+    
         if (this.IsTimerTicking)
         {
             this.IsTimerTicking = false;
@@ -316,12 +307,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             LiveSomePricesDisabled = true;
         }
     }
-
-    // UseRowGrouping, OnGridGroupingAdd and OnGridGroupingRemove are owned by
-    // DataGridLiveDataTickerOnViewInit; these handlers are merged into one
-    // sample class and only ever used together.
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
+    
+    
     public void DataGridApplyLiveDataGrouping(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         this.UseRowGrouping = args.NewValue is bool b && b;
@@ -330,19 +317,16 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         else
             this.OnGridGroupingRemove();
     }
-
-    // UseHeatBackground is owned by DataGridLiveDataTickerOnViewInit; these
-    // handlers are merged into one sample class and only ever used together.
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
+    
+    
     public void DataGridToggleHeat(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         this.UseHeatBackground = args.NewValue is bool b && b;
         var grid = this.grid;
         if (grid != null) grid.InvalidateVisibleRows();
     }
-
-    //WPF: Infragistics.Controls.Grids.CellStyleRequestedEventHandler
+    
+    
     public void DataGridPriceStyleKey(object sender, CellStyleRequestedEventArgs args)
     {
         var grid = this.grid;
@@ -356,24 +340,24 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             args.StyleKey = "priceShiftDown";
         }
     }
-
-    //WPF: Infragistics.Controls.Grids.TemplateCellUpdatingEventHandler
+    
+    
     public void DataGridPriceCellUpdating(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
         var item = args.CellInfo.RowItem as PortfolioDataItem;
         if (item == null) return;
-
+    
         var priceShiftUp = item.Change >= 0;
         var color = priceShiftUp
             ? new SolidColorBrush(Color.FromArgb(0xFF, 0x4E, 0xB8, 0x62))
             : new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x13, 0x4A));
-        var arrow = priceShiftUp ? "â†‘" : "â†“";
-
+        var arrow = priceShiftUp ? "↑" : "↓";
+    
         StackPanel panel;
         TextBlock priceText;
         TextBlock arrowText;
-
+    
         if (content.Content is StackPanel existing)
         {
             panel = existing;
@@ -394,19 +378,19 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             panel.Children.Add(arrowText);
             content.Content = panel;
         }
-
+    
         priceText.Text = "$" + System.Math.Round(System.Convert.ToDouble(args.CellInfo.Value), 2).ToString("F2");
         priceText.Foreground = color;
         arrowText.Text = arrow;
         arrowText.Foreground = color;
     }
-
-    //WPF: Infragistics.Controls.Grids.DataBindingEventHandler
+    
+    
     public void DataGridPriceDataBound(object sender, DataBindingEventArgs args)
     {
         var item = args.CellInfo.RowItem as PortfolioDataItem;
         if (item == null) return;
-
+    
         if (item.PriceHeat > 0)
         {
             var p = item.PriceHeat;
@@ -414,7 +398,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             const double minR = 1.0, maxR = 0.0;
             const double minG = 1.0, maxG = 1.0;
             const double minB = 1.0, maxB = 0.0;
-
+    
             var a = minA + (maxA - minA) * p;
             var r = (byte)System.Math.Round((minR + (maxR - minR) * p) * 255.0);
             var g = (byte)System.Math.Round((minG + (maxG - minG) * p) * 255.0);
@@ -428,7 +412,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             const double minR = 1.0, maxR = 1.0;
             const double minG = 1.0, maxG = 0.0;
             const double minB = 1.0, maxB = 0.0;
-
+    
             var a = minA + (maxA - minA) * p;
             var r = (byte)System.Math.Round((minR + (maxR - minR) * p) * 255.0);
             var g = (byte)System.Math.Round((minG + (maxG - minG) * p) * 255.0);

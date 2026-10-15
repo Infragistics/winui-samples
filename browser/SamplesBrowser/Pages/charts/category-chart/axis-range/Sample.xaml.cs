@@ -27,6 +27,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -37,7 +38,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
@@ -60,15 +61,14 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeUpdateYAxisMinimumValue(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {
+    {        
         var yAxisMinimumVal = args.NewValue;
         var chart = this.chart;
         chart.YAxisMinimumValue = Convert.ToDouble(yAxisMinimumVal);
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
+    
+    
     public void EditorChangeUpdateYAxisMaximumValue(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var yAxisMaximumVal = args.NewValue;

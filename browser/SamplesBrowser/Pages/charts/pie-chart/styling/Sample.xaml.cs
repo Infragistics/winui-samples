@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.PieChart.Styling;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyGlobalDemand == null)
             {
-                _energyGlobalDemand = new EnergyGlobalDemand();
+                _energyGlobalDemand = new EnergyGlobalDemand(); 
             }
             return _energyGlobalDemand;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;

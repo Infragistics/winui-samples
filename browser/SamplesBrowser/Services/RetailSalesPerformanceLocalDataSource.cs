@@ -8,8 +8,10 @@ using Infragistics.Core.Controls.DataSource;
 public class RetailSalesPerformanceLocalDataSource : LocalDataSource
 {
 	public RetailSalesPerformanceLocalDataSource(){
-
+		
+		
 		            List<RetailSalesPerformanceDataLDSItem> data = new List<RetailSalesPerformanceDataLDSItem>();
+
 
             data.Add(new RetailSalesPerformanceDataLDSItem()
             {
@@ -911,7 +913,8 @@ public class RetailSalesPerformanceLocalDataSource : LocalDataSource
                 Revenue = 50193,
                 Profit = 10038.6
             });
-
+		
+		
 		this.ItemsSource = data;
 	}
 }
@@ -925,5 +928,6 @@ public class RetailSalesPerformanceLocalDataSource : LocalDataSource
      public double Revenue { get; set; }
      public double Profit { get; set; }
  }
+ 
 
 //end data

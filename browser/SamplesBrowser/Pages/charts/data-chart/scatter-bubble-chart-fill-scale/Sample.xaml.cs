@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
 using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace SamplesBrowser.Pages.Charts.DataChart.ScatterBubbleChartFillScale;
 
@@ -19,6 +20,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -29,7 +31,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldStats == null)
             {
-                _worldStats = new WorldStats();
+                _worldStats = new WorldStats(); 
             }
             return _worldStats;
         }
@@ -54,6 +56,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)

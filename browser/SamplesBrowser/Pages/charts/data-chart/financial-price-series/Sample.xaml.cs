@@ -2,6 +2,7 @@
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace SamplesBrowser.Pages.Charts.DataChart.FinancialPriceSeries;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_stock2Years == null)
             {
-                _stock2Years = new Stock2Years();
+                _stock2Years = new Stock2Years(); 
             }
             return _stock2Years;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;
