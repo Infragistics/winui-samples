@@ -215,6 +215,23 @@ foreach ($s in $sampleList) {
     Set-Content -Path $destCs -Value $csContent -NoNewline -Encoding UTF8
     $copiedItems.Add($destCs)
 
+    # ---- SampleViewModel.cs ----
+    # Holds the sample's own inline data types, which differ per sample under the same name, so it
+    # stays with the page (namespace rewritten) instead of being deduped into Services/. Most
+    # samples have none; skip the empty template.
+    $vmFile = Join-Path $s.SrcDir "SampleViewModel.cs"
+    if (Test-Path $vmFile) {
+        $vmContent = Get-Content $vmFile -Raw -Encoding UTF8
+        if ($vmContent -match '\b(class|struct|record|enum)\s+\w') {
+            $vmContent = $vmContent -replace 'namespace\s+\S+\s*;', "namespace $($s.Namespace);"
+            $vmContent = $vmContent -replace 'namespace\s+\S+\s*\{', "namespace $($s.Namespace) {"
+            $vmContent = $vmContent.TrimEnd() + "`n"
+            $destVm = Join-Path $destDir "SampleViewModel.cs"
+            Set-Content -Path $destVm -Value $vmContent -NoNewline -Encoding UTF8
+            $copiedItems.Add($destVm)
+        }
+    }
+
     # ---- Shared data classes -> Services/ (deduped by filename) ----
     # Anything else .cs in the sample folder is a POCO data class (global
     # namespace). Multiple samples typically share the same data class — first
@@ -223,7 +240,7 @@ foreach ($s in $sampleList) {
     # the difference is silently lost, same trade-off Blazor's ingest accepts.
     Get-ChildItem -Path $s.SrcDir -Filter "*.cs" -File | ForEach-Object {
         $name = $_.Name
-        if ($name -eq "Sample.xaml.cs") { return }
+        if ($name -eq "Sample.xaml.cs" -or $name -eq "SampleViewModel.cs") { return }
         if ($skipPerSampleCs -contains $name) { return }
 
         if ($copiedServicesByName.ContainsKey($name)) { return }
