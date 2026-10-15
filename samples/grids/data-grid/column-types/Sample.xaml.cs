@@ -2,7 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using System.Windows;
+using Windows.Foundation;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
@@ -26,6 +26,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -36,12 +37,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData();
+                _employeesSalesData = new EmployeesSalesData(); 
             }
             return _employeesSalesData;
         }
     }
-
+    
     private CountryNames _countryNames = null;
     public CountryNames CountryNames
     {
@@ -49,25 +50,24 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryNames == null)
             {
-                _countryNames = new CountryNames();
+                _countryNames = new CountryNames(); 
             }
             return _countryNames;
         }
     }
 
 
-    //WPF: Infragistics.Controls.Grids.TemplateCellUpdatingEventHandler
     public void DataGridSalesGaugeTemplate(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
         var item = (EmployeesSalesDataItem)args.CellInfo.RowItem;
         var sales = item.Sales;
-
+    
         StackPanel panel;
         Rectangle gaugeTrack;
         Rectangle gaugeBar;
         TextBlock gaugeValue;
-
+    
         if (content.Content is StackPanel existing)
         {
             panel = existing;
@@ -85,13 +85,13 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 Margin = new Thickness(16, 0, 16, 0)
             };
-
+    
             var trackGrid = new Grid { Height = 6, Margin = new Thickness(0, 8, 0, 0) };
             gaugeTrack = new Rectangle { Fill = new SolidColorBrush(Color.FromArgb(0xFF, 0xDD, 0xDD, 0xDD)), Height = 4, VerticalAlignment = VerticalAlignment.Center };
             gaugeBar = new Rectangle { Fill = new SolidColorBrush(Color.FromArgb(0xFF, 0x7F, 0x7F, 0x7F)), Height = 6, HorizontalAlignment = HorizontalAlignment.Left, VerticalAlignment = VerticalAlignment.Center };
             trackGrid.Children.Add(gaugeTrack);
             trackGrid.Children.Add(gaugeBar);
-
+    
             gaugeValue = new TextBlock
             {
                 FontFamily = new FontFamily("Verdana"),
@@ -99,27 +99,27 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
                 TextAlignment = TextAlignment.Center,
                 Margin = new Thickness(0, 2, 0, 0)
             };
-
+    
             panel.Children.Add(trackGrid);
             panel.Children.Add(gaugeValue);
             content.Content = panel;
         }
-
+    
         Brush activeBrush;
         if (sales < 400000) activeBrush = new SolidColorBrush(Color.FromArgb(0xFF, 211, 17, 3));
         else if (sales < 650000) activeBrush = new SolidColorBrush(Colors.Orange);
         else activeBrush = new SolidColorBrush(Color.FromArgb(0xFF, 21, 190, 6));
-
+    
         gaugeValue.Foreground = activeBrush;
         gaugeBar.Fill = activeBrush;
-
+    
         var gaugeFraction = System.Math.Min(1.0, sales / 990000.0);
         gaugeBar.Width = double.IsNaN(content.ActualWidth) || content.ActualWidth <= 0 ? 0 : content.ActualWidth * gaugeFraction;
-
+    
         gaugeValue.Text = "$" + (sales / 1000) + ",000";
     }
-
-    //WPF: Infragistics.Controls.Grids.TemplateCellUpdatingEventHandler
+    
+    
     public void DataGridAddressLinesTemplate(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
@@ -127,11 +127,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var street = item.Street;
         var city = item.City;
         var country = item.Country;
-
+    
         StackPanel panel;
         TextBlock line1;
         TextBlock line2;
-
+    
         if (content.Content is StackPanel existing)
         {
             panel = existing;
@@ -151,22 +151,22 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             panel.Children.Add(line2);
             content.Content = panel;
         }
-
+    
         line1.Text = street;
         line2.Text = city + ", " + country;
     }
-
-    //WPF: Infragistics.Controls.Grids.TemplateCellUpdatingEventHandler
+    
+    
     public void DataGridPhoneLinkTemplate(object sender, TemplateCellUpdatingEventArgs args)
     {
         var content = args.Content;
         var item = (EmployeesSalesDataItem)args.CellInfo.RowItem;
         var phone = item.Phone;
-
+    
         TextBlock textBlock;
         Hyperlink hyperlink;
         Run run;
-
+    
         if (content.Content is TextBlock existing && existing.Inlines.Count > 0 && existing.Inlines[0] is Hyperlink hl)
         {
             textBlock = existing;
@@ -188,7 +188,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
             textBlock.Inlines.Add(hyperlink);
             content.Content = textBlock;
         }
-
+    
         hyperlink.NavigateUri = new System.Uri("tel:" + phone);
         run.Text = phone;
     }
@@ -203,3 +203,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

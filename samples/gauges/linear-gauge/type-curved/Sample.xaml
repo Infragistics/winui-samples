@@ -4,9 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Sample"
     xmlns:ig="using:Infragistics.Controls"
-                    xmlns:igGauges="using:Infragistics.Controls.Gauges"
-                    mc:Ignorable="d">
+    xmlns:igGauges="using:Infragistics.Controls.Gauges"
+    mc:Ignorable="d">
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
@@ -14,14 +15,14 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
-                                      </StackPanel>
+      </StackPanel>
       <Grid Grid.Row="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition Width="*" />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-                <Grid Grid.Column="1">
+        <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamLinearGauge
           Name="gauge"
           Height="120px"
@@ -58,7 +59,7 @@
           ScaleInnerExtent="0.1"
           ScaleOuterExtent="0.95">
               <igGauges:XamLinearGauge.Ranges>
-                  <igGauges:LinearGraphRange
+                  <igGauges:XamLinearGraphRange
                   StartValue="0"
                   EndValue="2"
                   Brush="#009f00"
@@ -67,8 +68,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.95"
                   OuterEndExtent="0.9237">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="2"
                   EndValue="4"
                   Brush="#16a316"
@@ -77,8 +78,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.9237"
                   OuterEndExtent="0.8979">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="4"
                   EndValue="6"
                   Brush="#23a724"
@@ -87,8 +88,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8979"
                   OuterEndExtent="0.8729">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="6"
                   EndValue="8"
                   Brush="#2eab2f"
@@ -97,8 +98,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8729"
                   OuterEndExtent="0.8489">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="8"
                   EndValue="10"
                   Brush="#36af39"
@@ -107,8 +108,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8489"
                   OuterEndExtent="0.826">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="10"
                   EndValue="12"
                   Brush="#3eb342"
@@ -117,8 +118,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.826"
                   OuterEndExtent="0.8045">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="12"
                   EndValue="14"
                   Brush="#46b74a"
@@ -127,8 +128,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8045"
                   OuterEndExtent="0.7845">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="14"
                   EndValue="16"
                   Brush="#4dbb52"
@@ -137,8 +138,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7845"
                   OuterEndExtent="0.7662">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="16"
                   EndValue="18"
                   Brush="#54bf5a"
@@ -147,8 +148,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7662"
                   OuterEndExtent="0.7497">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="18"
                   EndValue="20"
                   Brush="#5bc361"
@@ -157,8 +158,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7497"
                   OuterEndExtent="0.7352">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="20"
                   EndValue="22"
                   Brush="#62c768"
@@ -167,8 +168,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7352"
                   OuterEndExtent="0.7227">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="22"
                   EndValue="24"
                   Brush="#69cb6e"
@@ -177,8 +178,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7227"
                   OuterEndExtent="0.7124">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="24"
                   EndValue="26"
                   Brush="#70cf74"
@@ -187,8 +188,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7124"
                   OuterEndExtent="0.7043">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="26"
                   EndValue="28"
                   Brush="#77d37a"
@@ -197,8 +198,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7043"
                   OuterEndExtent="0.6984">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="28"
                   EndValue="30"
                   Brush="#7fd77f"
@@ -207,8 +208,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.6984"
                   OuterEndExtent="0.6947">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="30"
                   EndValue="32"
                   Brush="#86db83"
@@ -217,8 +218,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.6947"
                   OuterEndExtent="0.6932">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="32"
                   EndValue="34"
                   Brush="#8edf87"
@@ -227,8 +228,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.6932"
                   OuterEndExtent="0.6939">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="34"
                   EndValue="36"
                   Brush="#97e38a"
@@ -237,8 +238,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.6939"
                   OuterEndExtent="0.6969">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="36"
                   EndValue="38"
                   Brush="#9fe78d"
@@ -247,8 +248,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.6969"
                   OuterEndExtent="0.7021">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="38"
                   EndValue="40"
                   Brush="#a8eb8e"
@@ -257,8 +258,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7021"
                   OuterEndExtent="0.7095">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="40"
                   EndValue="42"
                   Brush="#b2ef8e"
@@ -267,8 +268,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7095"
                   OuterEndExtent="0.7191">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="42"
                   EndValue="44"
                   Brush="#bcf28b"
@@ -277,8 +278,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7191"
                   OuterEndExtent="0.7308">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="44"
                   EndValue="46"
                   Brush="#c7f686"
@@ -287,8 +288,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7308"
                   OuterEndExtent="0.7447">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="46"
                   EndValue="48"
                   Brush="#d3f97d"
@@ -297,8 +298,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7447"
                   OuterEndExtent="0.7607">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="48"
                   EndValue="50"
                   Brush="#e0fd6a"
@@ -307,8 +308,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7607"
                   OuterEndExtent="0.7787">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="50"
                   EndValue="52"
                   Brush="#f5f732"
@@ -317,8 +318,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7787"
                   OuterEndExtent="0.7987">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="52"
                   EndValue="54"
                   Brush="#f7ef37"
@@ -327,8 +328,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.7987"
                   OuterEndExtent="0.8205">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="54"
                   EndValue="56"
                   Brush="#f9e73b"
@@ -337,8 +338,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8205"
                   OuterEndExtent="0.8442">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="56"
                   EndValue="58"
                   Brush="#fbdf3e"
@@ -347,8 +348,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8442"
                   OuterEndExtent="0.8696">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="58"
                   EndValue="60"
                   Brush="#fcd741"
@@ -357,8 +358,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8696"
                   OuterEndExtent="0.8967">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="60"
                   EndValue="62"
                   Brush="#fdcf44"
@@ -367,8 +368,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.8967"
                   OuterEndExtent="0.9252">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="62"
                   EndValue="64"
                   Brush="#fec746"
@@ -377,8 +378,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.9252"
                   OuterEndExtent="0.9552">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="64"
                   EndValue="66"
                   Brush="#ffbe48"
@@ -387,8 +388,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.9552"
                   OuterEndExtent="0.9865">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="66"
                   EndValue="68"
                   Brush="#ffb649"
@@ -397,8 +398,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="0.9865"
                   OuterEndExtent="1.0189">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="68"
                   EndValue="70"
                   Brush="#ffae4b"
@@ -407,8 +408,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.0189"
                   OuterEndExtent="1.0524">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="70"
                   EndValue="72"
                   Brush="#ffa64c"
@@ -417,8 +418,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.0524"
                   OuterEndExtent="1.0869">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="72"
                   EndValue="74"
                   Brush="#ff9d4c"
@@ -427,8 +428,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.0869"
                   OuterEndExtent="1.1224">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="74"
                   EndValue="76"
                   Brush="#ff944d"
@@ -437,8 +438,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.1224"
                   OuterEndExtent="1.1586">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="76"
                   EndValue="78"
                   Brush="#ff8b4d"
@@ -447,8 +448,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.1586"
                   OuterEndExtent="1.1955">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="78"
                   EndValue="80"
                   Brush="#ff824d"
@@ -457,8 +458,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.1955"
                   OuterEndExtent="1.2331">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="80"
                   EndValue="82"
                   Brush="#fe794d"
@@ -467,8 +468,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.2331"
                   OuterEndExtent="1.2712">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="82"
                   EndValue="84"
                   Brush="#fd6f4c"
@@ -477,8 +478,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.2712"
                   OuterEndExtent="1.3098">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="84"
                   EndValue="86"
                   Brush="#fc654b"
@@ -487,8 +488,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.3098"
                   OuterEndExtent="1.3487">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="86"
                   EndValue="88"
                   Brush="#fb5b4a"
@@ -497,8 +498,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.3487"
                   OuterEndExtent="1.3879">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="88"
                   EndValue="90"
                   Brush="#f95048"
@@ -507,8 +508,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.3879"
                   OuterEndExtent="1.4273">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="90"
                   EndValue="92"
                   Brush="#f74445"
@@ -517,8 +518,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.4273"
                   OuterEndExtent="1.4667">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="92"
                   EndValue="94"
                   Brush="#f53742"
@@ -527,8 +528,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.4667"
                   OuterEndExtent="1.5062">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="94"
                   EndValue="96"
                   Brush="#f2273e"
@@ -537,8 +538,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.5062"
                   OuterEndExtent="1.5456">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="96"
                   EndValue="98"
                   Brush="#ef1438"
@@ -547,8 +548,8 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.5456"
                   OuterEndExtent="1.5848">
-                  </igGauges:LinearGraphRange>
-                  <igGauges:LinearGraphRange
+                  </igGauges:XamLinearGraphRange>
+                  <igGauges:XamLinearGraphRange
                   StartValue="98"
                   EndValue="100"
                   Brush="#e9002c"
@@ -557,10 +558,10 @@
                   InnerEndExtent="0.1"
                   OuterStartExtent="1.5848"
                   OuterEndExtent="1.6237">
-                  </igGauges:LinearGraphRange>
+                  </igGauges:XamLinearGraphRange>
               </igGauges:XamLinearGauge.Ranges>
           </igGauges:XamLinearGauge>
         </Grid>
-              </Grid>
-          </Grid>
+      </Grid>
+    </Grid>
 </UserControl>

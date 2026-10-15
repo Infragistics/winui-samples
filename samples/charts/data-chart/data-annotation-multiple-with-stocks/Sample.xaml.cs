@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,12 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_stockTesla == null)
             {
-                _stockTesla = new StockTesla();
+                _stockTesla = new StockTesla(); 
             }
             return _stockTesla;
         }
     }
-
+    
     private AnnotationStripData _annotationStripData = null;
     public AnnotationStripData AnnotationStripData
     {
@@ -40,12 +42,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationStripData == null)
             {
-                _annotationStripData = new AnnotationStripData();
+                _annotationStripData = new AnnotationStripData(); 
             }
             return _annotationStripData;
         }
     }
-
+    
     private AnnotationLineData1 _annotationLineData1 = null;
     public AnnotationLineData1 AnnotationLineData1
     {
@@ -53,12 +55,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationLineData1 == null)
             {
-                _annotationLineData1 = new AnnotationLineData1();
+                _annotationLineData1 = new AnnotationLineData1(); 
             }
             return _annotationLineData1;
         }
     }
-
+    
     private AnnotationLineData2 _annotationLineData2 = null;
     public AnnotationLineData2 AnnotationLineData2
     {
@@ -66,12 +68,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationLineData2 == null)
             {
-                _annotationLineData2 = new AnnotationLineData2();
+                _annotationLineData2 = new AnnotationLineData2(); 
             }
             return _annotationLineData2;
         }
     }
-
+    
     private AnnotationSliceStockSplitData _annotationSliceStockSplitData = null;
     public AnnotationSliceStockSplitData AnnotationSliceStockSplitData
     {
@@ -79,12 +81,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceStockSplitData == null)
             {
-                _annotationSliceStockSplitData = new AnnotationSliceStockSplitData();
+                _annotationSliceStockSplitData = new AnnotationSliceStockSplitData(); 
             }
             return _annotationSliceStockSplitData;
         }
     }
-
+    
     private AnnotationSliceEarningsMissData _annotationSliceEarningsMissData = null;
     public AnnotationSliceEarningsMissData AnnotationSliceEarningsMissData
     {
@@ -92,12 +94,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceEarningsMissData == null)
             {
-                _annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData();
+                _annotationSliceEarningsMissData = new AnnotationSliceEarningsMissData(); 
             }
             return _annotationSliceEarningsMissData;
         }
     }
-
+    
     private AnnotationSliceEarningsBeatData _annotationSliceEarningsBeatData = null;
     public AnnotationSliceEarningsBeatData AnnotationSliceEarningsBeatData
     {
@@ -105,11 +107,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationSliceEarningsBeatData == null)
             {
-                _annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData();
+                _annotationSliceEarningsBeatData = new AnnotationSliceEarningsBeatData(); 
             }
             return _annotationSliceEarningsBeatData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -122,3 +125,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

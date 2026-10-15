@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,11 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_worldStats == null)
             {
-                _worldStats = new WorldStats();
+                _worldStats = new WorldStats(); 
             }
             return _worldStats;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -44,3 +47,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

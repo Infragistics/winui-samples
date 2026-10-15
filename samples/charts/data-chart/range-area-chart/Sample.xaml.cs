@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -16,6 +17,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -26,11 +28,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_temperatureRangeData == null)
             {
-                _temperatureRangeData = new TemperatureRangeData();
+                _temperatureRangeData = new TemperatureRangeData(); 
             }
             return _temperatureRangeData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -43,3 +46,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

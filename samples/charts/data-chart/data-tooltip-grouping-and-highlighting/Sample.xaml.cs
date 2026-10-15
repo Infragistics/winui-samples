@@ -2,7 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace Sample;
 
@@ -18,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -28,7 +29,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_olympicMedalsTopCountriesWithTotals == null)
             {
-                _olympicMedalsTopCountriesWithTotals = new OlympicMedalsTopCountriesWithTotals();
+                _olympicMedalsTopCountriesWithTotals = new OlympicMedalsTopCountriesWithTotals(); 
             }
             return _olympicMedalsTopCountriesWithTotals;
         }
@@ -41,7 +42,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 DataChartCoreDescriptionModule.Register(context);
@@ -53,6 +54,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
+
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)
     {
@@ -63,3 +65,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

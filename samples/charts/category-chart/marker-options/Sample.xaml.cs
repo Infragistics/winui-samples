@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
@@ -12,9 +11,9 @@ namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
 {
-    public string[] dropDownValues1 { get; } = new string[] { "Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
-    public string[] dropDownNames1 { get; } = new string[] { "Circle", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
-    public string[] markerTypes1 { get; } = new string[] {  };
+    public string[] dropDownValues1 { get; } = new string[] { "Circle", "Checkmark", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
+    public string[] dropDownNames1 { get; } = new string[] { "Circle", "Checkmark", "Automatic", "Triangle", "Pyramid", "Square", "Diamond", "Pentagon", "Hexagon", "Tetragram", "Pentagram", "Hexagram", "None" };
+    public MarkerTypeCollection markerTypes1 { get; } = new MarkerTypeCollection { MarkerType.Circle };
 
     public Sample()
     {
@@ -24,6 +23,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -35,7 +35,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
@@ -48,7 +48,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 CategoryChartDescriptionModule.Register(context);
@@ -58,13 +58,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeUpdateMarkerType(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var item = (PropertyEditorPropertyDescription)sender;
         var value = (string)item.PrimitiveValue;
         var chart = this.chart;
-
+           
         var markerVal = (MarkerType)Enum.Parse(typeof(MarkerType), value);
         chart.MarkerTypes.Clear();
         chart.MarkerTypes.Add(markerVal);
@@ -80,3 +79,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

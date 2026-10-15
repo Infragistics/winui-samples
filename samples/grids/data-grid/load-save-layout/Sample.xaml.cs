@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
@@ -21,6 +20,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -31,7 +31,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData();
+                _employeesSalesData = new EmployeesSalesData(); 
             }
             return _employeesSalesData;
         }
@@ -44,7 +44,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 DataGridDescriptionModule.Register(context);
@@ -55,8 +55,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     public string SavedLayout = "";
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
     public void DataGridLoadLayout(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         if (string.IsNullOrEmpty(this.SavedLayout)) return;
@@ -64,9 +63,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         if (grid == null) return;
         grid.LoadLayout(this.SavedLayout);
     }
-
     
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    public string SavedLayout = "";
+    
     public void DataGridSaveLayout(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
@@ -84,3 +84,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

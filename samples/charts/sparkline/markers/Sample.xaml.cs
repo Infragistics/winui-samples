@@ -2,7 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 
 namespace Sample;
 
@@ -30,6 +30,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -40,7 +41,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_sparklineProfitData == null)
             {
-                _sparklineProfitData = new SparklineProfitData();
+                _sparklineProfitData = new SparklineProfitData(); 
             }
             return _sparklineProfitData;
         }
@@ -53,7 +54,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 SparklineDescriptionModule.Register(context);
@@ -61,6 +62,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         return this._componentRenderer;
         }
     }
+
 
     public event PropertyChangedEventHandler PropertyChanged;
     protected void OnPropertyChanged(string propertyName)
@@ -72,3 +74,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

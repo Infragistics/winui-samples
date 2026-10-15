@@ -2,7 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 using Infragistics.Controls;
 using Infragistics.Controls.Charts;
 using System.Collections;
@@ -22,6 +22,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
             this.SelectionMatcherOnViewInit();
         };
     }
@@ -33,7 +34,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_energyRenewableConsumption == null)
             {
-                _energyRenewableConsumption = new EnergyRenewableConsumption();
+                _energyRenewableConsumption = new EnergyRenewableConsumption(); 
             }
             return _energyRenewableConsumption;
         }
@@ -46,7 +47,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 LegendDescriptionModule.Register(context);
                 CategoryChartDescriptionModule.Register(context);
@@ -59,8 +60,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     }
 
     private Timer _timer;
-
-    //WPF: System.Action
+    
     public void SelectionMatcherOnViewInit()
     {
     	_timer = new Timer((state) =>
@@ -69,32 +69,30 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     		_timer.Dispose();
     	}, null, 100, Timeout.Infinite);
     }
-
+    
     private void AddSelection()
     {
     	var chart = this.chart;
-
-    	//ChartSelection selection = new ChartSelection();
-    	//var s = chart.Series.Where(s => ((AnchoredCategorySeries)s).ValueMemberPath == "Hydro").FirstOrDefault();
-    	//selection.Item = ((IList)s.ItemsSource)[1];
-    	//SeriesMatcher matcher = new SeriesMatcher();
-    	//matcher.MemberPath = "Hydro";
-    	//matcher.MemberPathType = "ValueMemberPath";
-    	//selection.Matcher = matcher;
-
-    	//chart.SelectedSeriesItems.Add(selection);
-
-    	//SeriesMatcher matcher2 = new SeriesMatcher();
-    	//ChartSelection selection2 = new ChartSelection();
-    	//selection2 = new ChartSelection();
-    	//s = chart.Series.Where(s => ((AnchoredCategorySeries)s).ValueMemberPath == "Wind").FirstOrDefault();
-    	//selection2.Item = ((IList)s.ItemsSource)[1];
-    	//matcher2.MemberPath = "Wind";
-    	//matcher2.MemberPathType = "ValueMemberPath";
-
-    	//selection.Matcher = matcher2;
-
-    	//chart.SelectedSeriesItems.Add(selection2);
+    
+    	ChartSelection selection = new ChartSelection();
+    	selection.Item = ((IList)chart.ItemsSource)[1];
+    	SeriesMatcher matcher = new SeriesMatcher();
+    	matcher.MemberPath = "Hydro";
+    	matcher.MemberPathType = "ValueMemberPath";
+    	selection.Matcher = matcher;
+    
+    	chart.SelectedSeriesItems.Add(selection);
+    
+    	SeriesMatcher matcher2 = new SeriesMatcher();
+    	ChartSelection selection2 = new ChartSelection();
+    	selection2 = new ChartSelection();
+    	selection2.Item = ((IList)chart.ItemsSource)[1];
+    	matcher2.MemberPath = "Wind";
+    	matcher2.MemberPathType = "ValueMemberPath";
+    
+    	selection.Matcher = matcher2;
+    
+    	chart.SelectedSeriesItems.Add(selection2);
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -107,3 +105,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

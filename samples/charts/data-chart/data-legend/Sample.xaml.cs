@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,12 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryDemographicAfrican == null)
             {
-                _countryDemographicAfrican = new CountryDemographicAfrican();
+                _countryDemographicAfrican = new CountryDemographicAfrican(); 
             }
             return _countryDemographicAfrican;
         }
     }
-
+    
     private CountryDemographicEurope _countryDemographicEurope = null;
     public CountryDemographicEurope CountryDemographicEurope
     {
@@ -40,11 +42,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryDemographicEurope == null)
             {
-                _countryDemographicEurope = new CountryDemographicEurope();
+                _countryDemographicEurope = new CountryDemographicEurope(); 
             }
             return _countryDemographicEurope;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -57,3 +60,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

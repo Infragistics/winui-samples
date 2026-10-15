@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
@@ -15,7 +14,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     public string[] dropDownValues1 { get; } = new string[] { "Auto", "Average", "GlobalAverage", "GlobalMaximum", "GlobalMinimum", "Maximum", "Minimum" };
     public string[] dropDownNames1 { get; } = new string[] { "Auto", "Average", "GlobalAverage", "GlobalMaximum", "GlobalMinimum", "Maximum", "Minimum" };
     public string[] includedProperties1 { get; } = new string[] { "Year", "America", "Europe" };
-    public string[] valueLines1 { get; } = new string[] {  };
+    public ValueModeCollection valueLines1 { get; } = new ValueModeCollection { ValueLayerValueMode.Auto };
 
     public Sample()
     {
@@ -25,6 +24,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         DataContext = this;
 
         this.Loaded += (s, e) => {
+
 
         };
     }
@@ -36,7 +36,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_countryRenewableElectricity == null)
             {
-                _countryRenewableElectricity = new CountryRenewableElectricity();
+                _countryRenewableElectricity = new CountryRenewableElectricity(); 
             }
             return _countryRenewableElectricity;
         }
@@ -49,7 +49,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 LegendDescriptionModule.Register(context);
@@ -59,13 +59,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeUpdateValueLines(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
     {
         var item = (PropertyEditorPropertyDescription)sender;
         var value = (string)item.PrimitiveValue;
         var chart = this.chart;
-
+           
         var valueLineType = (ValueLayerValueMode)Enum.Parse(typeof(ValueLayerValueMode), value);
         chart.ValueLines.Clear();
         chart.ValueLines.Add(valueLineType);
@@ -81,3 +80,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

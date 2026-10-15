@@ -1,0 +1,78 @@
+<UserControl
+    x:Class="Sample.Sample"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Sample"
+    xmlns:ig="using:Infragistics.Controls"
+    xmlns:igCharts="using:Infragistics.Controls.Charts"
+    xmlns:igDataGrids="using:Infragistics.Controls.Grids"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+      <DataTemplate x:Key="DataGridSparklineTemplate">
+          <Border Height="70" Background="Transparent">
+              <igCharts:XamSparkline
+                  DisplayType="Line"
+                  ItemsSource="{Binding RowItem.OrderHistory}"
+                  ValueMemberPath="Sold"
+                  LabelMemberPath="Week"
+                  Brush="#FF15BE06" />
+          </Border>
+      </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <StackPanel>
+      </StackPanel>
+      <Grid Grid.Row="1">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" x:Name="ContentRoot">
+          <igDataGrids:XamDataGrid
+          Name="grid"
+          ItemsSource="{Binding ProductsWithHistory}"
+          AutoGenerateColumns="false"
+          RowHeight="90">
+              <igDataGrids:XamDataGrid.Columns>
+                  <igDataGrids:TextColumn
+                  Field="ProductID"
+                  HeaderText="ID"
+                  Width="*>110"
+                  HorizontalAlignment="Center">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:TextColumn
+                  Field="ProductName"
+                  HeaderText="Product"
+                  Width="*>140">
+                  </igDataGrids:TextColumn>
+                  <igDataGrids:NumericColumn
+                  Field="ProductPrice"
+                  HeaderText="Price"
+                  Width="*>110"
+                  PositivePrefix="$"
+                  ShowGroupingSeparator="true"
+                  MinFractionDigits="2">
+                  </igDataGrids:NumericColumn>
+                  <igDataGrids:TemplateColumn
+                  Field="OrderHistory"
+                  HeaderText="Order History"
+                  Width="*>180"
+                  PaddingTop="10"
+                  PaddingBottom="10"
+                  Template="{StaticResource DataGridSparklineTemplate}"
+                  Name="templateColumn1">
+                  </igDataGrids:TemplateColumn>
+              </igDataGrids:XamDataGrid.Columns>
+          </igDataGrids:XamDataGrid>
+        </Grid>
+      </Grid>
+    </Grid>
+</UserControl>

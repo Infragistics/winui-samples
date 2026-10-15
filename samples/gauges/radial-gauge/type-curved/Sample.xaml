@@ -4,9 +4,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Sample"
     xmlns:ig="using:Infragistics.Controls"
-                    xmlns:igGauges="using:Infragistics.Controls.Gauges"
-                    mc:Ignorable="d">
+    xmlns:igGauges="using:Infragistics.Controls.Gauges"
+    mc:Ignorable="d">
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto" />
@@ -14,14 +15,14 @@
         <RowDefinition Height="Auto" />
       </Grid.RowDefinitions>
       <StackPanel>
-                                      </StackPanel>
+      </StackPanel>
       <Grid Grid.Row="1">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto" />
           <ColumnDefinition Width="*" />
           <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-                <Grid Grid.Column="1">
+        <Grid Grid.Column="1" x:Name="ContentRoot">
           <igGauges:XamRadialGauge
           Name="gauge"
           MinimumValue="0"
@@ -31,6 +32,7 @@
           TransitionDuration="500"
           LabelExtent="0.55"
           LabelInterval="20"
+          Font="15px Verdana,Arial"
           ScaleStartAngle="135"
           ScaleEndAngle="45"
           ScaleBrush="#00000000"
@@ -62,7 +64,7 @@
           RangeBrushes="#3ebe2e #44d12b #62e133 #8eef46 #c3f961 #fbc624 #f38e1c #dc5815 #b8250c #840000"
           RangeOutlines="#3ebe2e #44d12b #62e133 #8eef46 #c3f961 #fbc624 #f38e1c #dc5815 #b8250c #840000">
               <igGauges:XamRadialGauge.Ranges>
-                  <igGauges:RadialGaugeRange
+                  <igGauges:XamRadialGaugeRange
                   Brush="#494949"
                   Outline="#494949"
                   StartValue="0"
@@ -71,8 +73,8 @@
                   InnerEndExtent="0.7"
                   OuterStartExtent="0.7"
                   OuterEndExtent="0.7">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#3ebe2e"
                   Outline="#3ebe2e"
                   StartValue="0"
@@ -81,8 +83,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.705"
                   OuterEndExtent="0.7225">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#44d12b"
                   Outline="#44d12b"
                   StartValue="22"
@@ -91,8 +93,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.7225"
                   OuterEndExtent="0.74">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#62e133"
                   Outline="#62e133"
                   StartValue="44"
@@ -101,8 +103,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.74"
                   OuterEndExtent="0.7575">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#8eef46"
                   Outline="#8eef46"
                   StartValue="66"
@@ -111,8 +113,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.7575"
                   OuterEndExtent="0.775">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#c3f961"
                   Outline="#c3f961"
                   StartValue="88"
@@ -121,8 +123,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.775"
                   OuterEndExtent="0.7925">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#fbc624"
                   Outline="#fbc624"
                   StartValue="110"
@@ -131,8 +133,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.7925"
                   OuterEndExtent="0.81">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#f38e1c"
                   Outline="#f38e1c"
                   StartValue="132"
@@ -141,8 +143,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.81"
                   OuterEndExtent="0.8275">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#dc5815"
                   Outline="#dc5815"
                   StartValue="154"
@@ -151,8 +153,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.8275"
                   OuterEndExtent="0.845">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#b8250c"
                   Outline="#b8250c"
                   StartValue="176"
@@ -161,8 +163,8 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.845"
                   OuterEndExtent="0.8625">
-                  </igGauges:RadialGaugeRange>
-                  <igGauges:RadialGaugeRange
+                  </igGauges:XamRadialGaugeRange>
+                  <igGauges:XamRadialGaugeRange
                   Brush="#840000"
                   Outline="#840000"
                   StartValue="198"
@@ -171,10 +173,10 @@
                   InnerEndExtent="0.705"
                   OuterStartExtent="0.8625"
                   OuterEndExtent="0.88">
-                  </igGauges:RadialGaugeRange>
+                  </igGauges:XamRadialGaugeRange>
               </igGauges:XamRadialGauge.Ranges>
           </igGauges:XamRadialGauge>
         </Grid>
-              </Grid>
-          </Grid>
+      </Grid>
+    </Grid>
 </UserControl>

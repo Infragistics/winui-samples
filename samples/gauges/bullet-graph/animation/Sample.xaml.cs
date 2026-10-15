@@ -2,11 +2,10 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
+using Infragistics.Controls.Description;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
-using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Gauges;
 
@@ -24,8 +23,10 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
+
 
     private ComponentRenderer _componentRenderer = null;
     public ComponentRenderer Renderer
@@ -34,7 +35,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 BulletGraphDescriptionModule.Register(context);
@@ -43,12 +44,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void BulletGraphAnimateToGauge1(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var gauge = this.gauge;
         if (gauge == null) return;
-
+    
         gauge.TransitionDuration = 1000;
         gauge.MinimumValue = 0;
         gauge.MaximumValue = 80;
@@ -76,18 +76,18 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.BackingBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF7, 0xF7, 0xF7));
         gauge.BackingOutline = new SolidColorBrush(Color.FromArgb(0xFF, 0xD1, 0xD1, 0xD1));
         gauge.BackingStrokeThickness = 0;
-
+    
         gauge.Ranges.Clear();
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 0,  EndValue = 40, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 40, EndValue = 80, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 0,  EndValue = 40, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 40, EndValue = 80, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    
     public void BulletGraphAnimateToGauge2(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var gauge = this.gauge;
         if (gauge == null) return;
-
+    
         gauge.TransitionDuration = 1000;
         gauge.MinimumValue = 100;
         gauge.MaximumValue = 200;
@@ -115,19 +115,19 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.BackingBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF7, 0xF7, 0xF7));
         gauge.BackingOutline = new SolidColorBrush(Color.FromArgb(0xFF, 0xD1, 0xD1, 0xD1));
         gauge.BackingStrokeThickness = 0;
-
+    
         gauge.Ranges.Clear();
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 100, EndValue = 150, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x78, 0xC8)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x78, 0xC8)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 150, EndValue = 175, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x21, 0xA7, 0xFF)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x21, 0xA7, 0xFF)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 175, EndValue = 200, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x4F, 0xB9, 0xFF)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x4F, 0xB9, 0xFF)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 100, EndValue = 150, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x78, 0xC8)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x00, 0x78, 0xC8)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 150, EndValue = 175, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x21, 0xA7, 0xFF)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x21, 0xA7, 0xFF)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 175, EndValue = 200, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x4F, 0xB9, 0xFF)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x4F, 0xB9, 0xFF)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    
     public void BulletGraphAnimateToGauge3(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var gauge = this.gauge;
         if (gauge == null) return;
-
+    
         gauge.TransitionDuration = 1000;
         gauge.MinimumValue = 0;
         gauge.MaximumValue = 120;
@@ -155,11 +155,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.BackingBrush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF7, 0xF7, 0xF7));
         gauge.BackingOutline = new SolidColorBrush(Color.FromArgb(0xFF, 0xD1, 0xD1, 0xD1));
         gauge.BackingStrokeThickness = 0;
-
+    
         gauge.Ranges.Clear();
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 0,  EndValue = 40,  Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x98, 0x00)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x98, 0x00)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 40, EndValue = 80,  Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF9, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF9, 0x62, 0x32)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
-        gauge.Ranges.Add(new LinearGraphRange { StartValue = 80, EndValue = 120, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xC6, 0x28, 0x28)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xC6, 0x28, 0x28)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 0,  EndValue = 40,  Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x98, 0x00)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xFF, 0x98, 0x00)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 40, EndValue = 80,  Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF9, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF9, 0x62, 0x32)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
+        gauge.Ranges.Add(new XamLinearGraphRange { StartValue = 80, EndValue = 120, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xC6, 0x28, 0x28)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xC6, 0x28, 0x28)), InnerStartExtent = 0.2, InnerEndExtent = 0.2, OuterStartExtent = 0.95, OuterEndExtent = 0.95 });
     }
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -172,3 +172,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

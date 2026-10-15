@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
@@ -24,6 +23,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -34,7 +34,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_continentsBirthRate == null)
             {
-                _continentsBirthRate = new ContinentsBirthRate();
+                _continentsBirthRate = new ContinentsBirthRate(); 
             }
             return _continentsBirthRate;
         }
@@ -47,7 +47,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 LegendDescriptionModule.Register(context);
@@ -57,9 +57,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionChangedEventHandler
     public void EditorChangeDataFilter(object sender, PropertyEditorPropertyDescriptionChangedEventArgs args)
-    {
+    {        
         var chart = this.chart;
         var filter = args.NewValue.ToString();
         chart.InitialFilter = "(contains(Year," + "'" + filter + "'" + "))";
@@ -75,3 +74,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

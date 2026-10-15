@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Charts;
@@ -21,6 +20,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -31,7 +31,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_companyIncomeData == null)
             {
-                _companyIncomeData = new CompanyIncomeData();
+                _companyIncomeData = new CompanyIncomeData(); 
             }
             return _companyIncomeData;
         }
@@ -44,7 +44,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 DataChartCoreDescriptionModule.Register(context);
@@ -54,7 +54,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void EditorButtonReplayTransitionIn(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var series = this.chart.Series;
@@ -74,3 +73,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

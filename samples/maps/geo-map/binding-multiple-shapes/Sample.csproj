@@ -97,6 +97,9 @@
     <Compile Include="SampleViewModel.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="WorldCities.cs">
+        <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>

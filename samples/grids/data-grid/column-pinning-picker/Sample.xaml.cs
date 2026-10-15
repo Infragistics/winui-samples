@@ -2,7 +2,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
-using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
@@ -21,6 +20,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -31,7 +31,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_employeesSalesData == null)
             {
-                _employeesSalesData = new EmployeesSalesData();
+                _employeesSalesData = new EmployeesSalesData(); 
             }
             return _employeesSalesData;
         }
@@ -44,7 +44,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
+                this._componentRenderer = new ComponentRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 DataGridDescriptionModule.Register(context);
@@ -53,7 +53,6 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
     public void DataGridPinIdAndNameColumnsLeft(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
@@ -61,8 +60,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         grid.PinColumn(grid.ActualColumns[1], PinnedPositions.Left);
         grid.PinColumn(grid.ActualColumns[2], PinnedPositions.Left);
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    
     public void DataGridPinAddressColumnsRight(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
@@ -70,8 +69,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         grid.PinColumn(grid.ActualColumns[7], PinnedPositions.Right);
         grid.PinColumn(grid.ActualColumns[8], PinnedPositions.Right);
     }
-
-    //WPF: Infragistics.Controls.Layouts.PropertyEditorPropertyDescriptionButtonClickEventHandler
+    
+    
     public void DataGridUnpinNameAndAddressColumns(object sender, PropertyEditorPropertyDescriptionButtonClickEventArgs args)
     {
         var grid = this.grid;
@@ -93,3 +92,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+

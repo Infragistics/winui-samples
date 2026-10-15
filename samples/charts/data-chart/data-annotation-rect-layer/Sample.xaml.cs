@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+
 namespace Sample;
 
 public sealed partial class Sample : UserControl, INotifyPropertyChanged
@@ -17,6 +18,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
         this.Loaded += (s, e) => {
 
+
         };
     }
 
@@ -27,12 +29,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_stockTesla == null)
             {
-                _stockTesla = new StockTesla();
+                _stockTesla = new StockTesla(); 
             }
             return _stockTesla;
         }
     }
-
+    
     private AnnotationRectData _annotationRectData = null;
     public AnnotationRectData AnnotationRectData
     {
@@ -40,11 +42,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_annotationRectData == null)
             {
-                _annotationRectData = new AnnotationRectData();
+                _annotationRectData = new AnnotationRectData(); 
             }
             return _annotationRectData;
         }
     }
+
 
 
     public event PropertyChangedEventHandler PropertyChanged;
@@ -57,3 +60,4 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         }
     }
 }
+
