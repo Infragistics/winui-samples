@@ -40,7 +40,7 @@
           LegendLabelMemberPath="Company"
           SelectedSliceOpacity="0.85"
           SelectedSliceStrokeThickness="4"
-          SelectedSliceStroke="rgba(0, 0, 0, 0.5)"
+          SelectedSliceStroke="#7f000000"
           SliceClick="PieChartSelectionSliceClick"
           ItemsSource="{Binding LocalData}"
           Legend="{Binding ElementName=legend}">

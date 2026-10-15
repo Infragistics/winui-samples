@@ -32,14 +32,14 @@
                   x:Name="lineSeries"
                   ItemsSource="{Binding WorldFlights}"
                   ShapeMemberPath="Points"
-                  ShapeStroke="rgba(196, 14, 14, 0.05)"
+                  ShapeStroke="#0cc40e0e"
                   ShapeStrokeThickness="4">
                   </igMaps:GeographicPolylineSeries>
                   <igMaps:GeographicPolylineSeries
                   x:Name="gridSeries"
                   ItemsSource="{Binding WorldGridlines}"
                   ShapeMemberPath="Points"
-                  ShapeStroke="Gray"
+                  ShapeStroke="gray"
                   ShapeStrokeThickness="1">
                   </igMaps:GeographicPolylineSeries>
                   <igMaps:GeographicSymbolSeries
