@@ -37,7 +37,8 @@
           LabelsPreTerminal="0"
           LabelsPostInitial="0"
           FontBrush="dodgerblue"
-          Font="11px Verdana">
+          FontSize="11"
+          FontFamily="Verdana">
           </igGauges:XamBulletGraph>
         </Grid>
       </Grid>

@@ -46,7 +46,7 @@
                   MarkerOutline="dodgerblue"
                   ShowDefaultTooltip="true">
                   </igMaps:GeographicSymbolSeries>
-                  <igMaps:CalloutLayer
+                  <igCharts:CalloutLayer
                   Name="CalloutLayer1"
                   ItemsSource="{Binding WorldCapitals2M}"
                   XMemberPath="X"
@@ -58,7 +58,7 @@
                   CalloutBackground="white"
                   CalloutTextColor="black"
                   CalloutStrokeThickness="2">
-                  </igMaps:CalloutLayer>
+                  </igCharts:CalloutLayer>
               </igMaps:XamGeographicMap.Series>
           </igMaps:XamGeographicMap>
         </Grid>

@@ -34,10 +34,10 @@
                   Outline="black"
                   Thickness="1">
                       <igMaps:GeographicShapeSeries.ShapefileDataSource>
-                          <igMaps:ShapeDataSource
+                          <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/WorldCountries.shp"
                           DatabaseSource="https://static.infragistics.com/xplatform/shapes/WorldCountries.dbf">
-                          </igMaps:ShapeDataSource>
+                          </ig:ShapeDataSource>
                       </igMaps:GeographicShapeSeries.ShapefileDataSource>
                   </igMaps:GeographicShapeSeries>
               </igMaps:XamGeographicMap.Series>

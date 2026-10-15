@@ -32,22 +32,22 @@
           RangeBrushes="#a4bd29 #f86232"
           RangeOutlines="#a4bd29 #f86232">
               <igGauges:XamRadialGauge.Ranges>
-                  <igGauges:XamRadialGaugeRange
+                  <igGauges:RadialGaugeRange
                   StartValue="10"
                   EndValue="25"
                   InnerStartExtent="0.5"
                   InnerEndExtent="0.5"
                   OuterStartExtent="0.57"
                   OuterEndExtent="0.57">
-                  </igGauges:XamRadialGaugeRange>
-                  <igGauges:XamRadialGaugeRange
+                  </igGauges:RadialGaugeRange>
+                  <igGauges:RadialGaugeRange
                   StartValue="25"
                   EndValue="40"
                   InnerStartExtent="0.5"
                   InnerEndExtent="0.5"
                   OuterStartExtent="0.57"
                   OuterEndExtent="0.57">
-                  </igGauges:XamRadialGaugeRange>
+                  </igGauges:RadialGaugeRange>
               </igGauges:XamRadialGauge.Ranges>
           </igGauges:XamRadialGauge>
         </Grid>

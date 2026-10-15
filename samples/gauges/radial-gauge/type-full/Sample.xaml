@@ -31,7 +31,8 @@
           Interval="5"
           LabelInterval="5"
           LabelExtent="0.71"
-          Font="15px Verdana,Arial"
+          FontSize="15"
+          FontFamily="Verdana"
           IsNeedleDraggingEnabled="true"
           NeedleEndExtent="0.5"
           NeedleShape="Triangle"
@@ -65,30 +66,30 @@
           BackingOutline="#d6d6d6"
           BackingStrokeThickness="5">
               <igGauges:XamRadialGauge.Ranges>
-                  <igGauges:XamRadialGaugeRange
+                  <igGauges:RadialGaugeRange
                   StartValue="5"
                   EndValue="15"
                   InnerStartExtent="0.5"
                   InnerEndExtent="0.5"
                   OuterStartExtent="0.57"
                   OuterEndExtent="0.57">
-                  </igGauges:XamRadialGaugeRange>
-                  <igGauges:XamRadialGaugeRange
+                  </igGauges:RadialGaugeRange>
+                  <igGauges:RadialGaugeRange
                   StartValue="15"
                   EndValue="35"
                   InnerStartExtent="0.5"
                   InnerEndExtent="0.5"
                   OuterStartExtent="0.57"
                   OuterEndExtent="0.57">
-                  </igGauges:XamRadialGaugeRange>
-                  <igGauges:XamRadialGaugeRange
+                  </igGauges:RadialGaugeRange>
+                  <igGauges:RadialGaugeRange
                   StartValue="35"
                   EndValue="45"
                   InnerStartExtent="0.5"
                   InnerEndExtent="0.5"
                   OuterStartExtent="0.57"
                   OuterEndExtent="0.57">
-                  </igGauges:XamRadialGaugeRange>
+                  </igGauges:RadialGaugeRange>
               </igGauges:XamRadialGauge.Ranges>
           </igGauges:XamRadialGauge>
         </Grid>

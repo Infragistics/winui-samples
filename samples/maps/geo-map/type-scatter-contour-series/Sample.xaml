@@ -36,11 +36,11 @@
                   ValueMemberPath="Value"
                   Thickness="4">
                       <igMaps:GeographicContourLineSeries.FillScale>
-                          <igMaps:ValueBrushScale
+                          <igCharts:ValueBrushScale
                           Brushes="#802092fc #800ec20e #80fc7820 #80fc2020"
                           MinimumValue="0"
                           MaximumValue="30">
-                          </igMaps:ValueBrushScale>
+                          </igCharts:ValueBrushScale>
                       </igMaps:GeographicContourLineSeries.FillScale>
                   </igMaps:GeographicContourLineSeries>
               </igMaps:XamGeographicMap.Series>

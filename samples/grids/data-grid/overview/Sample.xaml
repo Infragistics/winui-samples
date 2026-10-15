@@ -16,13 +16,6 @@
       </Grid.RowDefinitions>
       <StackPanel>
         <Grid>
-          <igDataGrids:DataGridToolbar
-          Name="toolbar"
-          TargetGrid="{Binding ElementName=grid}"
-          ToolbarTitle="Sales Team"
-          ColumnChooser="true"
-          ColumnPinning="true">
-          </igDataGrids:DataGridToolbar>
         </Grid>
       </StackPanel>
       <Grid Grid.Row="1">

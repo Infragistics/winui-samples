@@ -48,7 +48,7 @@
           TickStrokeThickness="1"
           TickBrush="gray">
               <igGauges:XamLinearGauge.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Outline="#00000000"
                   StartValue="-40"
                   EndValue="20"
@@ -56,8 +56,8 @@
                   InnerEndExtent="0.35"
                   OuterStartExtent="0.675"
                   OuterEndExtent="0.675">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Outline="#00000000"
                   StartValue="-40"
                   EndValue="20"
@@ -65,7 +65,7 @@
                   InnerEndExtent="0.675"
                   OuterStartExtent="1"
                   OuterEndExtent="1">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamLinearGauge.Ranges>
           </igGauges:XamLinearGauge>
         </Grid>
@@ -109,7 +109,7 @@
           TickStrokeThickness="1"
           TickBrush="gray">
               <igGauges:XamLinearGauge.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Outline="#00000000"
                   StartValue="-40"
                   EndValue="20"
@@ -117,8 +117,8 @@
                   InnerEndExtent="0.35"
                   OuterStartExtent="0.675"
                   OuterEndExtent="0.675">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Outline="#00000000"
                   StartValue="-40"
                   EndValue="20"
@@ -126,7 +126,7 @@
                   InnerEndExtent="0.675"
                   OuterStartExtent="1"
                   OuterEndExtent="1">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamLinearGauge.Ranges>
           </igGauges:XamLinearGauge>
         </Grid>

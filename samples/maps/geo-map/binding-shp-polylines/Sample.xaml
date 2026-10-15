@@ -34,10 +34,10 @@
                   ShapeStrokeThickness="3"
                   ShapeStroke="rgb(82, 82, 82, 0.4)">
                       <igMaps:GeographicPolylineSeries.ShapefileDataSource>
-                          <igMaps:ShapeDataSource
+                          <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.shp"
                           DatabaseSource="https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.dbf">
-                          </igMaps:ShapeDataSource>
+                          </ig:ShapeDataSource>
                       </igMaps:GeographicPolylineSeries.ShapefileDataSource>
                   </igMaps:GeographicPolylineSeries>
               </igMaps:XamGeographicMap.Series>

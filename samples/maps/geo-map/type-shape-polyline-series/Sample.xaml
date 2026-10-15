@@ -32,10 +32,10 @@
                   Name="GeographicPolylineSeries1"
                   Outline="red">
                       <igMaps:GeographicPolylineSeries.ShapefileDataSource>
-                          <igMaps:ShapeDataSource
+                          <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/AmericanRoads.shp"
                           DatabaseSource="https://static.infragistics.com/xplatform/shapes/AmericanRoads.dbf">
-                          </igMaps:ShapeDataSource>
+                          </ig:ShapeDataSource>
                       </igMaps:GeographicPolylineSeries.ShapefileDataSource>
                   </igMaps:GeographicPolylineSeries>
               </igMaps:XamGeographicMap.Series>

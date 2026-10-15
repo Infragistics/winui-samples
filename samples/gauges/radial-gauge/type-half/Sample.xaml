@@ -48,26 +48,27 @@
           MinorTickBrush="#00000000"
           LabelInterval="20"
           LabelExtent="0.935"
-          Font="13px Verdana,Arial"
+          FontSize="13"
+          FontFamily="Verdana"
           RangeBrushes="#32f845 #bf32f8"
           RangeOutlines="#32f845 #bf32f8">
               <igGauges:XamRadialGauge.Ranges>
-                  <igGauges:XamRadialGaugeRange
+                  <igGauges:RadialGaugeRange
                   StartValue="100"
                   EndValue="150"
                   InnerStartExtent="0.3"
                   InnerEndExtent="0.3"
                   OuterStartExtent="0.875"
                   OuterEndExtent="0.875">
-                  </igGauges:XamRadialGaugeRange>
-                  <igGauges:XamRadialGaugeRange
+                  </igGauges:RadialGaugeRange>
+                  <igGauges:RadialGaugeRange
                   StartValue="100"
                   EndValue="150"
                   InnerStartExtent="0.3"
                   InnerEndExtent="0.3"
                   OuterStartExtent="0.875"
                   OuterEndExtent="0.875">
-                  </igGauges:XamRadialGaugeRange>
+                  </igGauges:RadialGaugeRange>
               </igGauges:XamRadialGauge.Ranges>
           </igGauges:XamRadialGauge>
         </Grid>

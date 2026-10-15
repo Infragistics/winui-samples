@@ -22,7 +22,6 @@
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:BingMapsMapImagery
-                  Name="aerialImagery"
                   ApiKey="REPLACE_WITH_BING_KEY"
                   ImageryStyle="AerialWithLabels">
                   </igMaps:BingMapsMapImagery>
@@ -42,7 +41,6 @@
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:BingMapsMapImagery
-                  Name="roadImagery"
                   ApiKey="REPLACE_WITH_BING_KEY"
                   ImageryStyle="Road">
                   </igMaps:BingMapsMapImagery>

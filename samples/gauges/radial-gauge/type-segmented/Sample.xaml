@@ -32,7 +32,8 @@
           TransitionDuration="500"
           LabelInterval="10"
           LabelExtent="0.8"
-          Font="15px Verdana,Arial"
+          FontSize="15"
+          FontFamily="Verdana"
           NeedleShape="None"
           NeedlePivotShape="None"
           ScaleStartAngle="-90"
@@ -55,7 +56,7 @@
           BackingOutline="#00000000"
           BackingShape="Circular">
               <igGauges:XamRadialGauge.Ranges>
-                  <igGauges:XamRadialGaugeRange
+                  <igGauges:RadialGaugeRange
                   StartValue="0"
                   EndValue="80"
                   Brush="dodgerblue"
@@ -64,7 +65,7 @@
                   InnerEndExtent="0.6"
                   OuterStartExtent="0.7"
                   OuterEndExtent="0.7">
-                  </igGauges:XamRadialGaugeRange>
+                  </igGauges:RadialGaugeRange>
               </igGauges:XamRadialGauge.Ranges>
           </igGauges:XamRadialGauge>
         </Grid>

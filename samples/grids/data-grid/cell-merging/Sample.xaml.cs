@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 
 namespace Sample;
@@ -31,7 +32,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_financialDataService == null)
             {
-                FinancialDataService.Fetch().ContinueWith((t) => {_financialDataService = t.Result;  OnPropertyChanged("FinancialDataService"); });
+                FinancialDataService.Fetch().ContinueWith((t) => {_financialDataService = t.Result;  OnPropertyChanged("FinancialDataService"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
             }
             return _financialDataService;
         }
@@ -44,7 +45,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = new ComponentRenderer();
+                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 DataGridDescriptionModule.Register(context);

@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
@@ -35,7 +36,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = new ComponentRenderer();
+                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
                 var context = this._componentRenderer.Context;
                 PropertyEditorPanelDescriptionModule.Register(context);
                 RadialGaugeDescriptionModule.Register(context);
@@ -78,8 +79,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.FontSize = 15;
     
         gauge.Ranges.Clear();
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 0, EndValue = 5,  Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 5, EndValue = 10, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 0, EndValue = 5,  Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xA4, 0xBD, 0x29)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 5, EndValue = 10, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
     }
     
     
@@ -117,8 +118,8 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.FontSize = 13;
     
         gauge.Ranges.Clear();
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 100, EndValue = 150, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x32, 0xF8, 0x45)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x32, 0xF8, 0x45)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 150, EndValue = 200, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xBF, 0x32, 0xF8)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xBF, 0x32, 0xF8)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 100, EndValue = 150, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x32, 0xF8, 0x45)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x32, 0xF8, 0x45)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 150, EndValue = 200, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xBF, 0x32, 0xF8)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xBF, 0x32, 0xF8)), InnerStartExtent = 0.3, InnerEndExtent = 0.3, OuterStartExtent = 0.9, OuterEndExtent = 0.9 });
     }
     
     
@@ -227,9 +228,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         gauge.BackingShape = RadialGaugeBackingShape.Circular;
     
         gauge.Ranges.Clear();
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 5,  EndValue = 15, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), InnerStartExtent = 0.5, InnerEndExtent = 0.5, OuterStartExtent = 0.57, OuterEndExtent = 0.57 });
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 15, EndValue = 35, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xDC, 0x3F, 0x76)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xDC, 0x3F, 0x76)), InnerStartExtent = 0.5, InnerEndExtent = 0.5, OuterStartExtent = 0.57, OuterEndExtent = 0.57 });
-        gauge.Ranges.Add(new XamRadialGaugeRange { StartValue = 35, EndValue = 45, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x74, 0x46, 0xB9)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x74, 0x46, 0xB9)), InnerStartExtent = 0.5, InnerEndExtent = 0.5, OuterStartExtent = 0.57, OuterEndExtent = 0.57 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 5,  EndValue = 15, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xF8, 0x62, 0x32)), InnerStartExtent = 0.5, InnerEndExtent = 0.5, OuterStartExtent = 0.57, OuterEndExtent = 0.57 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 15, EndValue = 35, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0xDC, 0x3F, 0x76)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0xDC, 0x3F, 0x76)), InnerStartExtent = 0.5, InnerEndExtent = 0.5, OuterStartExtent = 0.57, OuterEndExtent = 0.57 });
+        gauge.Ranges.Add(new RadialGaugeRange { StartValue = 35, EndValue = 45, Brush = new SolidColorBrush(Color.FromArgb(0xFF, 0x74, 0x46, 0xB9)), Outline = new SolidColorBrush(Color.FromArgb(0xFF, 0x74, 0x46, 0xB9)), InnerStartExtent = 0.5, InnerEndExtent = 0.5, OuterStartExtent = 0.57, OuterEndExtent = 0.57 });
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

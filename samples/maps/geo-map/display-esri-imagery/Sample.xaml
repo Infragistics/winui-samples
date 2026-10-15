@@ -29,7 +29,6 @@
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:ArcGISOnlineMapImagery
-                  Name="streetMapImagery"
                   MapServerUri="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer">
                   </igMaps:ArcGISOnlineMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>
@@ -41,7 +40,6 @@
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:ArcGISOnlineMapImagery
-                  Name="oceansMapImagery"
                   MapServerUri="https://services.arcgisonline.com/arcgis/rest/services/Ocean/World_Ocean_Base/MapServer">
                   </igMaps:ArcGISOnlineMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>
@@ -53,7 +51,6 @@
           Zoomable="true">
               <igMaps:XamGeographicMap.BackgroundContent>
                   <igMaps:ArcGISOnlineMapImagery
-                  Name="topographicMapImagery"
                   MapServerUri="https://services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer">
                   </igMaps:ArcGISOnlineMapImagery>
               </igMaps:XamGeographicMap.BackgroundContent>

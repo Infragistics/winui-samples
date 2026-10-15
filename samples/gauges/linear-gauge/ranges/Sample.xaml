@@ -31,7 +31,7 @@
           MaximumValue="100"
           Interval="10">
               <igGauges:XamLinearGauge.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Brush="#a4bd29"
                   Outline="#f86232"
                   StartValue="0"
@@ -40,8 +40,8 @@
                   InnerEndExtent="0.075"
                   OuterStartExtent="0.25"
                   OuterEndExtent="0.4">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#a4bd29"
                   Outline="#f86232"
                   StartValue="50"
@@ -50,7 +50,7 @@
                   InnerEndExtent="0.075"
                   OuterStartExtent="0.25"
                   OuterEndExtent="0.4">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamLinearGauge.Ranges>
           </igGauges:XamLinearGauge>
         </Grid>

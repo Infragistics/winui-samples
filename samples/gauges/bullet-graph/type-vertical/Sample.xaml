@@ -39,7 +39,7 @@
           LabelInterval="5"
           LabelExtent="0">
               <igGauges:XamBulletGraph.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Brush="green"
                   Outline="green"
                   StartValue="0"
@@ -48,8 +48,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#10b401"
                   Outline="#10b401"
                   StartValue="25"
@@ -58,8 +58,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#45ec03"
                   Outline="#45ec03"
                   StartValue="50"
@@ -68,8 +68,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#2efa2e"
                   Outline="#2efa2e"
                   StartValue="75"
@@ -78,7 +78,7 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamBulletGraph.Ranges>
           </igGauges:XamBulletGraph>
         </Grid>
@@ -99,7 +99,7 @@
           LabelInterval="5"
           LabelExtent="0">
               <igGauges:XamBulletGraph.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Brush="#e29b03"
                   Outline="#e29b03"
                   StartValue="0"
@@ -108,8 +108,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#fdb417"
                   Outline="#fdb417"
                   StartValue="25"
@@ -118,8 +118,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#fdc957"
                   Outline="#fdc957"
                   StartValue="50"
@@ -128,8 +128,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#fdd682"
                   Outline="#fdd682"
                   StartValue="75"
@@ -138,7 +138,7 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamBulletGraph.Ranges>
           </igGauges:XamBulletGraph>
         </Grid>
@@ -159,7 +159,7 @@
           LabelInterval="5"
           LabelExtent="0">
               <igGauges:XamBulletGraph.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Brush="#cf0000"
                   Outline="#cf0000"
                   StartValue="0"
@@ -168,8 +168,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="red"
                   Outline="red"
                   StartValue="25"
@@ -178,8 +178,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#fd3939"
                   Outline="#fd3939"
                   StartValue="50"
@@ -188,8 +188,8 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#fa6363"
                   Outline="#fa6363"
                   StartValue="75"
@@ -198,7 +198,7 @@
                   InnerEndExtent="0.25"
                   OuterStartExtent="0.8"
                   OuterEndExtent="0.8">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamBulletGraph.Ranges>
           </igGauges:XamBulletGraph>
         </Grid>

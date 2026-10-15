@@ -92,7 +92,7 @@
           BackingOutline="#d1d1d1"
           BackingStrokeThickness="0">
               <igGauges:XamLinearGauge.Ranges>
-                  <igGauges:XamLinearGraphRange
+                  <igGauges:LinearGraphRange
                   Brush="#9fb328"
                   Outline="#9fb328"
                   StartValue="0"
@@ -101,8 +101,8 @@
                   InnerEndExtent="0.075"
                   OuterStartExtent="0.95"
                   OuterEndExtent="0.95">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#438c47"
                   Outline="#438c47"
                   StartValue="30"
@@ -111,8 +111,8 @@
                   InnerEndExtent="0.075"
                   OuterStartExtent="0.95"
                   OuterEndExtent="0.95">
-                  </igGauges:XamLinearGraphRange>
-                  <igGauges:XamLinearGraphRange
+                  </igGauges:LinearGraphRange>
+                  <igGauges:LinearGraphRange
                   Brush="#3f51b5"
                   Outline="#3f51b5"
                   StartValue="70"
@@ -121,7 +121,7 @@
                   InnerEndExtent="0.075"
                   OuterStartExtent="0.95"
                   OuterEndExtent="0.95">
-                  </igGauges:XamLinearGraphRange>
+                  </igGauges:LinearGraphRange>
               </igGauges:XamLinearGauge.Ranges>
           </igGauges:XamLinearGauge>
         </Grid>

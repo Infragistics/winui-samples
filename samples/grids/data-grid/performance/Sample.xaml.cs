@@ -2,6 +2,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System.ComponentModel;
 
+using Infragistics.Portable.Description;
 using Infragistics.Controls.Description;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (_salesPersonsData == null)
             {
-                SalesPersonsData.Fetch().ContinueWith((t) => {_salesPersonsData = t.Result;  OnPropertyChanged("SalesPersonsData"); });
+                SalesPersonsData.Fetch().ContinueWith((t) => {_salesPersonsData = t.Result;  OnPropertyChanged("SalesPersonsData"); }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
             }
             return _salesPersonsData;
         }
@@ -52,7 +53,7 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         {
             if (this._componentRenderer == null)
             {
-                this._componentRenderer = new ComponentRenderer();
+                this._componentRenderer = ComponentRendererHelper.CreateRenderer();
                 var context = this._componentRenderer.Context;
                 DataGridDescriptionModule.Register(context);
             }
