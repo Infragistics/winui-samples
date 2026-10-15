@@ -33,8 +33,14 @@
               <igDataGrids:XamDataGrid.Columns>
                   <igDataGrids:TextColumn
                   Field="Country"
-                  HeaderText="Code-behind Filter*"
-                  Width="*>170">
+                  HeaderText="Code-behind Filter*">
+                      <igDataGrids:TextColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="170">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Age"
@@ -43,9 +49,15 @@
                   <igDataGrids:NumericColumn
                   Field="Sales"
                   HeaderText="In-line Filter***"
-                  Width="*>120"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true">
+                      <igDataGrids:NumericColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="120">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>

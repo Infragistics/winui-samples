@@ -65,68 +65,126 @@
                   <igDataGrids:ImageColumn
                   Field="Photo"
                   HeaderText="写真"
-                  Width="*>120"
                   IsEditable="false"
                   PaddingTop="5"
                   PaddingBottom="5"
                   PaddingRight="10"
                   HorizontalAlignment="Stretch">
+                      <igDataGrids:ImageColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="120">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:ImageColumn.Width>
                   </igDataGrids:ImageColumn>
                   <igDataGrids:TextColumn
                   Field="Name"
-                  HeaderText="名前"
-                  Width="*>130">
+                  HeaderText="名前">
+                      <igDataGrids:TextColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="130">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:NumericColumn
                   Field="Sales"
                   HeaderText="売上高"
-                  Width="*>130"
                   HorizontalAlignment="Center">
+                      <igDataGrids:NumericColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="130">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:NumericColumn
                   Field="Salary"
                   HeaderText="給料"
-                  Width="*>130"
                   PositivePrefix="$"
                   ShowGroupingSeparator="true"
                   MaxFractionDigits="0"
                   MinFractionDigits="0">
+                      <igDataGrids:NumericColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="130">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:NumericColumn
                   Field="Age"
                   HeaderText="年齢"
-                  Width="100"
                   HorizontalAlignment="Center">
+                      <igDataGrids:NumericColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          Value="100">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:NumericColumn.Width>
                   </igDataGrids:NumericColumn>
                   <igDataGrids:DateTimeColumn
                   Field="Birthday"
-                  HeaderText="生年月日"
-                  Width="*>140">
+                  HeaderText="生年月日">
+                      <igDataGrids:DateTimeColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="140">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:DateTimeColumn.Width>
                   </igDataGrids:DateTimeColumn>
                   <igDataGrids:ImageColumn
                   Field="CountryFlag"
                   HeaderText="国旗"
-                  Width="*>110"
                   IsEditable="false"
                   PaddingTop="5"
                   PaddingBottom="5"
                   PaddingRight="10"
                   HorizontalAlignment="Stretch">
+                      <igDataGrids:ImageColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="110">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:ImageColumn.Width>
                   </igDataGrids:ImageColumn>
                   <igDataGrids:TextColumn
                   Field="Address"
-                  HeaderText="住所"
-                  Width="*>170">
+                  HeaderText="住所">
+                      <igDataGrids:TextColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="170">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
                   Field="Phone"
-                  HeaderText="電話"
-                  Width="*>130">
+                  HeaderText="電話">
+                      <igDataGrids:TextColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="130">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
                   <igDataGrids:TextColumn
                   Field="Income"
-                  HeaderText="所得"
-                  Width="*>120">
+                  HeaderText="所得">
+                      <igDataGrids:TextColumn.Width>
+                          <igDataGrids:ColumnWidth
+                          IsStarSized="true"
+                          Value="1"
+                          MinimumWidth="120">
+                          </igDataGrids:ColumnWidth>
+                      </igDataGrids:TextColumn.Width>
                   </igDataGrids:TextColumn>
               </igDataGrids:XamDataGrid.Columns>
           </igDataGrids:XamDataGrid>
