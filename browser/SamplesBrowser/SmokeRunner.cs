@@ -100,6 +100,58 @@ public static class SmokeRunner
     private static async Task RunAsync(Grid host, string shots, string filter, int settleMs, bool perms)
     {
         await Task.Delay(1000);
+        LoadMeta();
+        // SAMPLES_SMOKE_PROFILE_TYPES=A,B: construct each named type twice and log how long it took.
+        if (Environment.GetEnvironmentVariable("SAMPLES_SMOKE_PROFILE_MAP") == "1")
+        {
+            void Time(string what, Action act)
+            {
+                var sw = System.Diagnostics.Stopwatch.StartNew();
+                act();
+                _log.WriteLine($"PROFILE\t{what}\t{sw.ElapsedMilliseconds}ms");
+            }
+            var flights = new WorldFlights();
+            var airports = new WorldAirports();
+            _log.WriteLine($"PROFILE\tflights={flights.Count}\tpaths={flights.Sum(f => f.Points.Count)}\tpoints={flights.Sum(f => f.Points.Sum(p => p.Count))}\tpointType={flights[0].Points[0][0].GetType().FullName}");
+            var plain = flights.Select(f => new { Points = f.Points }).ToList();
+            var map4 = new Infragistics.Controls.Maps.XamGeographicMap();
+            var lines4 = new Infragistics.Controls.Maps.GeographicPolylineSeries { ShapeMemberPath = "Points" };
+            map4.Series.Add(lines4);
+            Time("polyline ItemsSource=anonymous wrappers (same points)", () => lines4.ItemsSource = plain);
+            var map5 = new Infragistics.Controls.Maps.XamGeographicMap();
+            var lines5 = new Infragistics.Controls.Maps.GeographicPolylineSeries { ShapeMemberPath = "Points" };
+            map5.Series.Add(lines5);
+            var half = flights.Take(flights.Count / 2).ToList();
+            Time("polyline ItemsSource=half the flights", () => lines5.ItemsSource = half);
+            var map = new Infragistics.Controls.Maps.XamGeographicMap();
+            var lines = new Infragistics.Controls.Maps.GeographicPolylineSeries { ShapeMemberPath = "Points" };
+            var symbols = new Infragistics.Controls.Maps.GeographicSymbolSeries { LatitudeMemberPath = "Lat", LongitudeMemberPath = "Lon" };
+            Time("series add (lines)", () => map.Series.Add(lines));
+            Time("series add (symbols)", () => map.Series.Add(symbols));
+            Time("polyline ItemsSource=WorldFlights", () => lines.ItemsSource = flights);
+            Time("symbol ItemsSource=WorldAirports", () => symbols.ItemsSource = airports);
+            var lines2 = new Infragistics.Controls.Maps.GeographicPolylineSeries();
+            Time("polyline ItemsSource before ShapeMemberPath", () => lines2.ItemsSource = flights);
+            Time("then ShapeMemberPath", () => lines2.ShapeMemberPath = "Points");
+            var map3 = new Infragistics.Controls.Maps.XamGeographicMap();
+            var lines3 = new Infragistics.Controls.Maps.GeographicPolylineSeries { ShapeMemberPath = "Points" };
+            Time("detached series ItemsSource", () => lines3.ItemsSource = flights);
+            Time("then add to map", () => map3.Series.Add(lines3));
+        }
+        var profile = Environment.GetEnvironmentVariable("SAMPLES_SMOKE_PROFILE_TYPES");
+        if (!string.IsNullOrEmpty(profile))
+        {
+            foreach (var name in profile.Split(','))
+            {
+                var type = typeof(SmokeRunner).Assembly.GetTypes().FirstOrDefault(t => t.Name == name);
+                for (var pass = 1; pass <= 2 && type != null; pass++)
+                {
+                    var sw = System.Diagnostics.Stopwatch.StartNew();
+                    var instance = Activator.CreateInstance(type);
+                    _log.WriteLine($"PROFILE\t{name}\tpass={pass}\t{sw.ElapsedMilliseconds}ms\tcount={(instance as System.Collections.ICollection)?.Count}");
+                }
+            }
+        }
         // Resumable: a page that took the process down left a BEGIN with nothing after it. Record it as
         // a crash and carry on from the next page instead of retrying it.
         var report = Environment.GetEnvironmentVariable("SAMPLES_SMOKE");
@@ -165,7 +217,12 @@ public static class SmokeRunner
 
                 if (perms)
                 {
-                    foreach (var panel in panels) await DrivePanelAsync(route, panel, content, host, shots);
+                    foreach (var panel in panels)
+                    {
+                        // Interaction rows reload the sample; carry on (and tear down) whatever is hosted now.
+                        var replaced = await DrivePanelAsync(route, panel, content, host, shots);
+                        if (replaced != null) previousSample = replaced;
+                    }
                 }
                 _log.WriteLine($"OK\t{route}\t{(DateTime.UtcNow - started).TotalMilliseconds:F0}ms");
             }
@@ -234,75 +291,492 @@ public static class SmokeRunner
         return Descendants(sample).OfType<FrameworkElement>().FirstOrDefault(e => e.Name == "ContentRoot") ?? sample;
     }
 
-    private static async Task DrivePanelAsync(string route, XamPropertyEditorPanel panel, FrameworkElement fallback, Grid host, string shots)
+    // ---- Driving the property editor ---------------------------------------------------------
+    //
+    // Each row is moved to a few other values through the panel's SimulateInput and the target is
+    // compared before and after. How the effect becomes visible is the row's strategy:
+    //
+    //   change           set the value, compare (the default)
+    //   hover            hover the target at a point, compare hovered-before with hovered-after
+    //   clickThenChange  click the target at a point (to select something), then change the value
+    //   press:<row>      press that Button row after the change (and before the baseline)
+    //   skip             do not drive the row (with a reason)
+    //
+    // SAMPLES_SMOKE_META names a JSON file of hand-written guidance (rules by property name, and
+    // per-sample rows with a strategy, a point, values to try, or values equivalent to the initial
+    // one). With inference on (the default), a row whose values all look inert is tried again with
+    // hover, click, and each of the panel's Button rows, and what worked is written to
+    // SAMPLES_SMOKE_LEARNED, ready to be folded into the guidance.
+    private static System.Text.Json.Nodes.JsonObject _meta;
+    private static System.Text.Json.Nodes.JsonObject _learned;
+    private static string _learnedPath;
+    private const int MaxValuesPerRow = 3;
+    private static string _lastProbe;
+    private static System.Text.Json.Nodes.JsonObject _requires;
+    private static List<RowDriver> _allDrivers = new();
+    private static readonly double[][] DefaultPoints = { new[] { 0.5, 0.5 }, new[] { 0.35, 0.45 }, new[] { 0.65, 0.55 } };
+
+    private static void LoadMeta()
+    {
+        var metaPath = Environment.GetEnvironmentVariable("SAMPLES_SMOKE_META");
+        if (!string.IsNullOrEmpty(metaPath) && File.Exists(metaPath))
+            _meta = System.Text.Json.Nodes.JsonNode.Parse(File.ReadAllText(metaPath)) as System.Text.Json.Nodes.JsonObject;
+        _learnedPath = Environment.GetEnvironmentVariable("SAMPLES_SMOKE_LEARNED");
+        _learned = new System.Text.Json.Nodes.JsonObject();
+        if (!string.IsNullOrEmpty(_learnedPath) && File.Exists(_learnedPath))
+            _learned = System.Text.Json.Nodes.JsonNode.Parse(File.ReadAllText(_learnedPath)) as System.Text.Json.Nodes.JsonObject ?? _learned;
+    }
+
+    private static void SaveLearned()
+    {
+        if (string.IsNullOrEmpty(_learnedPath)) return;
+        File.WriteAllText(_learnedPath, _learned.ToJsonString(new System.Text.Json.JsonSerializerOptions { WriteIndented = true }));
+    }
+
+    private static System.Text.Json.Nodes.JsonObject RowMeta(string route, string label)
+    {
+        var rows = _meta?["samples"]?[route]?["rows"] as System.Text.Json.Nodes.JsonObject;
+        if (rows != null && rows[label] is System.Text.Json.Nodes.JsonObject explicitRow) return explicitRow;
+        if (_meta?["rules"] is System.Text.Json.Nodes.JsonArray rules)
+        {
+            foreach (var rule in rules.OfType<System.Text.Json.Nodes.JsonObject>())
+            {
+                var pattern = (string)rule["match"];
+                var routePattern = (string)rule["routeMatch"];
+                if (routePattern != null && !System.Text.RegularExpressions.Regex.IsMatch(route, routePattern)) continue;
+                if (pattern != null && label != null && System.Text.RegularExpressions.Regex.IsMatch(label, pattern)) return rule;
+            }
+        }
+        return null;
+    }
+
+
+    // The key a row is known by in the guidance: its property path, else its name, unless the name
+    // is a generated GUID (buttons usually), in which case its label reads better.
+    private static string RowKey(PropertyEditorPropertyDescription row) =>
+        row.PropertyPath ?? (row.Name != null && !Guid.TryParse(row.Name, out _) ? row.Name : row.Label ?? row.Name);
+
+    private sealed class RowDriver
+    {
+        public string Name, Label, Original;
+        public PropertyEditorPropertyDescription Row;
+        public List<string> Values = new();
+        public Func<string, string[]> PathFor;
+        public bool IsToggle, IsButton;
+    }
+
+    private static RowDriver MakeDriver(XamPropertyEditorPanel panel, PropertyEditorPropertyDescription row, System.Text.Json.Nodes.JsonObject meta)
+    {
+        var d = new RowDriver
+        {
+            Row = row,
+            Name = panel.DescriptionType + "_" + PathToKey(row.PropertyPath ?? row.Name),
+            Label = RowKey(row),
+        };
+        var equivalent = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        if (meta?["equivalentToInitial"] is System.Text.Json.Nodes.JsonArray eq)
+            foreach (var v in eq) equivalent.Add((string)v);
+        var explicitValues = (meta?["values"] as System.Text.Json.Nodes.JsonArray)?.Select(v => v?.ToString()).ToList();
+        switch (row.ValueType)
+        {
+            case PropertyEditorValueType.EnumValue:
+                d.Original = row.PrimitiveValue?.ToString();
+                d.Values = (explicitValues ?? (row.DropDownValues ?? Array.Empty<string>()).ToList())
+                    .Where(v => !string.Equals(v, d.Original, StringComparison.OrdinalIgnoreCase) && !equivalent.Contains(v))
+                    .Take(MaxValuesPerRow).ToList();
+                d.PathFor = v => new[] { d.Name, "Combo", "select", v };
+                break;
+            case PropertyEditorValueType.Slider:
+                var min = double.IsNaN(row.Min) ? 0 : row.Min;
+                var max = double.IsNaN(row.Max) ? 100 : row.Max;
+                d.Original = row.PrimitiveValue != null
+                    ? Convert.ToDouble(row.PrimitiveValue, CultureInfo.InvariantCulture).ToString(CultureInfo.InvariantCulture)
+                    : min.ToString(CultureInfo.InvariantCulture);
+                d.Values = explicitValues ?? new[] { 0.15, 0.85 }.Select(f => (min + f * (max - min)).ToString(CultureInfo.InvariantCulture)).ToList();
+                d.PathFor = v => new[] { d.Name, "Slider", "value", v };
+                break;
+            case PropertyEditorValueType.Boolean:
+                d.IsToggle = true;
+                d.Values = new() { "toggle" };
+                d.PathFor = v => new[] { d.Name };
+                break;
+            case PropertyEditorValueType.Button:
+                d.IsButton = true;
+                d.Values = new() { "click" };
+                d.PathFor = v => new[] { d.Name };
+                break;
+            default:
+                return null;
+        }
+        return d;
+    }
+
+    private static bool Apply(XamPropertyEditorPanel panel, RowDriver d, string value)
+    {
+        var result = panel.SimulateInput(SimulatedInputType.Click, d.PathFor(value), 0, 0, null, null);
+        return result != null && result.IsHandled;
+    }
+
+    // Puts the row back the way the sample started, so the next row is seen against the sample's
+    // own state rather than whatever the last row left behind.
+    private static void Restore(XamPropertyEditorPanel panel, RowDriver d)
+    {
+        if (d.IsButton) return;
+        if (d.IsToggle) { Apply(panel, d, "toggle"); return; }
+        if (d.Original != null) Apply(panel, d, d.Original);
+    }
+
+    private static bool Pointer(FrameworkElement target, string method, double[] at)
+    {
+        var m = target.GetType().GetMethod(method, new[] { typeof(IGPoint) });
+        if (m == null) return false;
+        m.Invoke(target, new object[] { new IGPoint(at[0] * target.ActualWidth, at[1] * target.ActualHeight) });
+        return true;
+    }
+
+    private static void PointerLeave(FrameworkElement target)
+    {
+        var leave = target.GetType().GetMethod("SimulateMouseLeave", Type.EmptyTypes);
+        if (leave != null) leave.Invoke(target, null);
+        else Pointer(target, "SimulateHover", new[] { -1.0, -1.0 });
+    }
+
+    private static double[] PointFrom(System.Text.Json.Nodes.JsonObject meta) =>
+        meta?["at"] is System.Text.Json.Nodes.JsonArray a && a.Count == 2 ? new[] { (double)a[0], (double)a[1] } : null;
+
+    // One value under one strategy: returns (handled, diff, whole) where diff compares the target
+    // in the strategy's baseline state with the target after the change.
+    private static async Task<(bool Handled, double Diff, double Whole)> TryStepAsync(
+        XamPropertyEditorPanel panel, FrameworkElement target, Grid host, RowDriver d, string value,
+        string strategy, double[] at, Dictionary<string, RowDriver> buttons)
+    {
+        string press = strategy.StartsWith("press:") ? strategy.Substring(6) : null;
+        var required = new List<RowDriver>();
+        if (_requires != null)
+        {
+            foreach (var kv in _requires)
+            {
+                var other = _allDrivers.FirstOrDefault(o => o.Label == kv.Key);
+                if (other == null) continue;
+                Apply(panel, other, kv.Value?.ToString());
+                required.Add(other);
+            }
+            if (required.Count > 0) await Task.Delay(PermSettleMs);
+        }
+        async Task Prepare()
+        {
+            if (strategy == "hover") { Pointer(target, "SimulateHover", at); await Task.Delay(400); }
+            if (press != null && buttons.TryGetValue(press, out var b)) { Apply(panel, b, "click"); await Task.Delay(PermSettleMs); }
+        }
+        if (strategy == "clickThenChange") { Pointer(target, "SimulateClick", at); await Task.Delay(400); }
+        await Prepare();
+        var before = await GrabAsync(target);
+        var wholeBefore = await GrabAsync(host);
+        var probeBefore = ProbePath(target, d.Row.PropertyPath);
+        var handled = Apply(panel, d, value);
+        await Task.Delay(PermSettleMs);
+        _lastProbe = probeBefore + "->" + ProbePath(target, d.Row.PropertyPath);
+        await Prepare();
+        var after = await GrabAsync(target);
+        var whole = Diff(wholeBefore, await GrabAsync(host));
+        var diff = Diff(before, after);
+        Restore(panel, d);
+        await Task.Delay(300);
+        if (strategy == "hover") PointerLeave(target);
+        if (strategy == "clickThenChange") { Pointer(target, "SimulateClick", at); await Task.Delay(300); }
+        if (press != null && buttons.TryGetValue(press, out var b2)) { Apply(panel, b2, "click"); await Task.Delay(300); }
+        foreach (var other in required) Restore(panel, other);
+        if (required.Count > 0) await Task.Delay(300);
+        return (handled, diff, whole);
+    }
+
+
+    // Reads a property editor path ("Series[0 as ScatterContourSeries].ValueResolver.ValueCount")
+    // off the target by reflection, so a step can say whether the value actually landed.
+    private static string ProbePath(object target, string path)
+    {
+        if (target == null || string.IsNullOrEmpty(path)) return "?";
+        try
+        {
+            object current = target;
+            foreach (var raw in path.Split('.'))
+            {
+                var part = raw;
+                int? index = null;
+                var open = part.IndexOf('[');
+                if (open >= 0)
+                {
+                    var inside = part.Substring(open + 1, part.IndexOf(']') - open - 1).Split(' ')[0];
+                    index = int.Parse(inside, CultureInfo.InvariantCulture);
+                    part = part.Substring(0, open);
+                }
+                var prop = current.GetType().GetProperty(part);
+                if (prop == null) return "?no " + part;
+                current = prop.GetValue(current);
+                if (index != null) current = ((System.Collections.IList)current)[index.Value];
+                if (current == null) return "null";
+            }
+            return Convert.ToString(current, CultureInfo.InvariantCulture);
+        }
+        catch (Exception ex)
+        {
+            return "?" + ex.GetType().Name;
+        }
+    }
+
+    private static string Classify(bool handled, double diff, double whole) =>
+        diff > 0.00003 ? "CHANGED" : !handled ? "UNHANDLED" : whole > 0.00003 ? "WHOLEONLY" : "UNCHANGED";
+
+    // ---- Interaction rows: a fresh sample per value ---------------------------------------------
+    //
+    // strategy "interact" with "steps": [{ "type": "Click|DoubleClick|MouseEnter|KeyDown",
+    // "cell": [visibleRow, columnIndex] | "header": columnIndex | "at": [fx, fy], "data": [...] }].
+    // Interaction leaves state behind (active cell, selection, sort, an open editor), so the sample
+    // is reloaded for the baseline and for each value, the value set, the steps run, and the
+    // target compared with the baseline. Grid cells and headers are addressed by the automation
+    // names the grid's visual model export reports, the way the XSharpTesting grid steps do.
+    private static async Task<(FrameworkElement Sample, XamPropertyEditorPanel Panel, FrameworkElement Target)> ReloadAsync(Grid host, string route)
+    {
+        host.Children.Clear();
+        var sample = (FrameworkElement)SampleRegistry.Samples[route]();
+        var loaded = new TaskCompletionSource<bool>();
+        sample.Loaded += (s, e) => loaded.TrySetResult(true);
+        host.Children.Add(sample);
+        await Task.WhenAny(loaded.Task, Task.Delay(10000));
+        await Task.Delay(1500);
+        var panel = Descendants(sample).OfType<XamPropertyEditorPanel>().FirstOrDefault();
+        var target = FindContent(sample, panel == null ? new List<XamPropertyEditorPanel>() : new List<XamPropertyEditorPanel> { panel });
+        return (sample, panel, target);
+    }
+
+    private static string GridAutomationName(Infragistics.Controls.Grids.XamDataGrid grid, System.Text.Json.Nodes.JsonObject step)
+    {
+        var model = grid.ExportVisualModel();
+        var headers = model.HeaderLayer?.Cells?.Where(c => !string.IsNullOrEmpty(c.AutomationName)).OrderBy(c => c.X).ToList()
+            ?? new List<Infragistics.Controls.Grids.ExportData.CellModelExport>();
+        if (step["header"] != null)
+        {
+            var i = (int)step["header"];
+            return i < headers.Count ? headers[i].AutomationName : null;
+        }
+        if (step["cell"] is System.Text.Json.Nodes.JsonArray rc)
+        {
+            var row = (int)rc[0];
+            var col = (int)rc[1];
+            var cells = model.ContentLayer?.Cells?.Where(c => !string.IsNullOrEmpty(c.AutomationName)).ToList()
+                ?? new List<Infragistics.Controls.Grids.ExportData.CellModelExport>();
+            var rows = cells.Select(c => Math.Round(c.Y)).Distinct().OrderBy(y => y).ToList();
+            if (row >= rows.Count) return null;
+            var inRow = cells.Where(c => Math.Round(c.Y) == rows[row]).OrderBy(c => c.X).ToList();
+            if (col < headers.Count)
+            {
+                var x = headers[col].X;
+                var match = inRow.FirstOrDefault(c => Math.Abs(c.X - x) < 1.0);
+                if (match != null) return match.AutomationName;
+            }
+            return col < inRow.Count ? inRow[col].AutomationName : null;
+        }
+        return null;
+    }
+
+    private static async Task RunStepsAsync(FrameworkElement target, System.Text.Json.Nodes.JsonArray steps)
+    {
+        foreach (var step in steps.OfType<System.Text.Json.Nodes.JsonObject>())
+        {
+            var type = Enum.Parse<SimulatedInputType>((string)step["type"]);
+            var data = (step["data"] as System.Text.Json.Nodes.JsonArray)?.Select(d => (string)d).ToArray();
+            string[] path = null;
+            double x = 5, y = 5;
+            if (target is Infragistics.Controls.Grids.XamDataGrid grid && (step["cell"] != null || step["header"] != null))
+            {
+                var name = GridAutomationName(grid, step);
+                if (name == null) { _log.WriteLine($"STEPFAIL\t{_current}\tno automation name for {step.ToJsonString()}"); continue; }
+                path = new[] { name };
+            }
+            else if (step["at"] is System.Text.Json.Nodes.JsonArray a)
+            {
+                x = (double)a[0] * target.ActualWidth;
+                y = (double)a[1] * target.ActualHeight;
+            }
+            var m = target.GetType().GetMethod("SimulateInput");
+            if (m == null) { _log.WriteLine($"STEPFAIL\t{_current}\t{target.GetType().Name} has no SimulateInput"); return; }
+            m.Invoke(target, new object[] { type, path, x, y, data, null });
+            await Task.Delay(400);
+        }
+    }
+
+
+    // Grid state rather than pixels: every exported cell's layer, type, automation name, selection,
+    // activation, sort and background - but not its value, so random sample data does not register.
+    // Comparing two of these counts the cells whose state differs, which is what a grid
+    // interaction setting changes.
+    private static HashSet<string> GridFingerprint(Infragistics.Controls.Grids.XamDataGrid grid)
+    {
+        var set = new HashSet<string>();
+        var model = grid.ExportVisualModel();
+        foreach (var prop in model.GetType().GetProperties())
+        {
+            if (prop.GetValue(model) is not Infragistics.Controls.Grids.ExportData.GridLayerExport layer || layer.Cells == null) continue;
+            foreach (var c in layer.Cells)
+                set.Add($"{prop.Name}|{c.GetType().Name}|{c.AutomationName}|{c.SelectedStatus}|{c.ActivationStatus}|{c.SortDirection}|{c.BackgroundBrushData?.Serialize()}");
+        }
+        return set;
+    }
+
+    private static int FingerprintDiff(HashSet<string> a, HashSet<string> b) =>
+        a == null || b == null ? -1 : a.Count(x => !b.Contains(x)) + b.Count(x => !a.Contains(x));
+
+    private static async Task<FrameworkElement> DriveInteractionRowsAsync(string route, Grid host, List<(string Label, System.Text.Json.Nodes.JsonObject Meta, PropertyEditorPropertyDescription Row)> rows)
+    {
+        FrameworkElement current = null;
+        foreach (var (label, meta, row) in rows)
+        {
+            var steps = meta["steps"] as System.Text.Json.Nodes.JsonArray;
+            var baseline = await ReloadAsync(host, route);
+            current = baseline.Sample;
+            await RunStepsAsync(baseline.Target, steps);
+            await Task.Delay(PermSettleMs);
+            var before = await GrabAsync(baseline.Target);
+            var beforeState = baseline.Target is Infragistics.Controls.Grids.XamDataGrid bg ? GridFingerprint(bg) : null;
+            // Control: a second fresh baseline with the same steps. Whatever differs between the two
+            // is noise (animation, live data, timing), and a value only counts if it clearly beats it.
+            var control = await ReloadAsync(host, route);
+            current = control.Sample;
+            await RunStepsAsync(control.Target, steps);
+            await Task.Delay(PermSettleMs);
+            var noise = Diff(before, await GrabAsync(control.Target));
+            var stateNoise = control.Target is Infragistics.Controls.Grids.XamDataGrid cg ? FingerprintDiff(beforeState, GridFingerprint(cg)) : -1;
+            _log.WriteLine($"CONTROL	{route}	{label}	noise={noise:F4}	stateNoise={stateNoise}");
+            var d = baseline.Panel == null ? null : MakeDriver(baseline.Panel, row, meta);
+            if (d == null) continue;
+            foreach (var value in d.Values)
+            {
+                var fresh = await ReloadAsync(host, route);
+                current = fresh.Sample;
+                var fd = MakeDriver(fresh.Panel, fresh.Panel.Properties.Cast<PropertyEditorPropertyDescription>().First(r => RowKey(r) == label), meta);
+                var handled = Apply(fresh.Panel, fd, value);
+                await Task.Delay(PermSettleMs);
+                var probe = ProbePath(fresh.Target, row.PropertyPath);
+                await RunStepsAsync(fresh.Target, steps);
+                await Task.Delay(PermSettleMs);
+                var after = await GrabAsync(fresh.Target);
+                var diff = Diff(before, after);
+                var stateDiff = fresh.Target is Infragistics.Controls.Grids.XamDataGrid fg ? FingerprintDiff(beforeState, GridFingerprint(fg)) : -1;
+                // Grids are judged on state (cells whose state differs beyond the control), anything else on pixels.
+                var outcome = stateDiff >= 0
+                    ? (stateDiff > Math.Max(0, stateNoise) ? "CHANGED" : "UNCHANGED")
+                    : noise > 0.00003 && diff <= noise * 2 ? "NOISY" : Classify(handled, diff, diff);
+                _log.WriteLine($"PERM	{route}	{label}={value}	{outcome}	probe={probe}	diff={diff:F4}	noise={noise:F4}	state={stateDiff}/{stateNoise}	strategy=interact");
+            }
+        }
+        return current;
+    }
+
+    private static async Task<FrameworkElement> DrivePanelAsync(string route, XamPropertyEditorPanel panel, FrameworkElement fallback, Grid host, string shots)
     {
         var target = panel.Target is FrameworkElement t && t.ActualWidth > 0 && t.ActualHeight > 0 ? t : fallback;
         var rows = (panel.Properties ?? panel.ActualProperties)?.Cast<PropertyEditorPropertyDescription>().ToList()
             ?? new List<PropertyEditorPropertyDescription>();
-        var done = 0;
-        foreach (var row in rows)
+        var infer = Environment.GetEnvironmentVariable("SAMPLES_SMOKE_INFER") != "0";
+        var drivers = rows.Select(r => (Row: r, Meta: RowMeta(route, RowKey(r)))).ToList();
+        _allDrivers = drivers.Select(x => MakeDriver(panel, x.Row, x.Meta)).Where(x => x != null).ToList();
+        var buttons = new Dictionary<string, RowDriver>();
+        foreach (var (row, meta) in drivers)
         {
-            if (done >= MaxPermsPerSample) break;
-            var rowName = panel.DescriptionType + "_" + PathToKey(row.PropertyPath ?? row.Name);
-            var label = row.PropertyPath ?? row.Name ?? row.Label;
-            List<(string Value, string[] Path)> steps;
-            switch (row.ValueType)
+            var d = row.ValueType == PropertyEditorValueType.Button ? MakeDriver(panel, row, meta) : null;
+            if (d != null) buttons[d.Label] = d;
+        }
+        var done = 0;
+        var interactions = new List<(string Label, System.Text.Json.Nodes.JsonObject Meta, PropertyEditorPropertyDescription Row)>();
+        foreach (var (row, meta) in drivers)
+        {
+            if ((string)meta?["strategy"] == "interact")
             {
-                case PropertyEditorValueType.EnumValue:
-                    var current = row.PrimitiveValue?.ToString();
-                    steps = (row.DropDownValues ?? Array.Empty<string>())
-                        .Where(v => !string.Equals(v, current, StringComparison.OrdinalIgnoreCase))
-                        .Take(2)
-                        .Select(v => (v, new[] { rowName, "Combo", "select", v }))
-                        .ToList();
-                    break;
-                case PropertyEditorValueType.Slider:
-                    var min = double.IsNaN(row.Min) ? 0 : row.Min;
-                    var max = double.IsNaN(row.Max) ? 100 : row.Max;
-                    steps = new[] { 0.15, 0.85 }
-                        .Select(f => (min + f * (max - min)).ToString(CultureInfo.InvariantCulture))
-                        .Select(v => (v, new[] { rowName, "Slider", "value", v }))
-                        .ToList();
-                    break;
-                case PropertyEditorValueType.Boolean:
-                    steps = new() { ("toggle", new[] { rowName }) };
-                    break;
-                case PropertyEditorValueType.Button:
-                    steps = new() { ("click", new[] { rowName }) };
-                    break;
-                default:
-                    _log.WriteLine($"NOACTION\t{route}\t{label}\t{row.ValueType}");
-                    continue;
+                interactions.Add((RowKey(row), meta, row));
+                continue;
             }
-            foreach (var step in steps)
+            if (done >= MaxPermsPerSample) break;
+            var label = RowKey(row);
+            _requires = null;
+            var strategy = (string)meta?["strategy"] ?? "change";
+            if (strategy == "skip")
+            {
+                _log.WriteLine($"SKIP\t{route}\t{label}\t{(string)meta?["reason"]}");
+                continue;
+            }
+            var d = MakeDriver(panel, row, meta);
+            if (d == null)
+            {
+                _log.WriteLine($"NOACTION\t{route}\t{label}\t{row.ValueType}");
+                continue;
+            }
+            var at = PointFrom(meta);
+            _requires = meta?["requires"] as System.Text.Json.Nodes.JsonObject;
+            var outcomes = new List<(string Value, string Outcome, double Diff, double Whole)>();
+            foreach (var value in d.Values)
             {
                 if (done >= MaxPermsPerSample) break;
                 done++;
-                var before = await GrabAsync(target);
-                var wholeBefore = await GrabAsync(host);
-                string outcome;
                 try
                 {
-                    var result = panel.SimulateInput(SimulatedInputType.Click, step.Path, 0, 0, null, null);
-                    await Task.Delay(PermSettleMs);
-                    var after = await GrabAsync(target);
-                    if (!string.IsNullOrEmpty(shots))
+                    var r = await TryStepAsync(panel, target, host, d, value, strategy, at ?? DefaultPoints[0], buttons);
+                    outcomes.Add((value, Classify(r.Handled, r.Diff, r.Whole) + "	probe=" + _lastProbe, r.Diff, r.Whole));
+                    if (!string.IsNullOrEmpty(shots) && done <= 2)
                         await CaptureAsync(host, Path.Combine(shots, route.Replace("/", "__") + $"__perm{done}.png"));
-                    var diff = Diff(before, after);
-                    // The whole sample too, panel included: a weaker signal (the edited row itself
-                    // redraws) but it does not depend on picking the right target.
-                    var whole = Diff(wholeBefore, await GrabAsync(host));
-                    outcome = result == null || !result.IsHandled
-                        ? $"UNHANDLED\tdiff={diff:F4}\twhole={whole:F4}"
-                        : (diff > 0.0005 ? "CHANGED" : whole > 0.0005 ? "WHOLEONLY" : "UNCHANGED") + $"\tdiff={diff:F4}\twhole={whole:F4}";
                 }
                 catch (Exception ex)
                 {
-                    outcome = "ERROR\t" + Flatten(ex);
+                    outcomes.Add((value, "ERROR\t" + Flatten(ex), 0, 0));
                 }
-                _log.WriteLine($"PERM\t{route}\t{label}={step.Value}\t{outcome}");
             }
+            foreach (var o in outcomes)
+                _log.WriteLine($"PERM\t{route}\t{label}={o.Value}\t{o.Outcome}\tdiff={o.Diff:F4}\twhole={o.Whole:F4}\tstrategy={strategy}");
+
+            // Inference: every value looked inert under the given strategy (and the row is not a
+            // button, whose own effect is the thing being pressed), so try the others.
+            var inert = outcomes.Count > 0 && outcomes.All(o => !o.Outcome.StartsWith("CHANGED") && !o.Outcome.StartsWith("ERROR"));
+            var known = (string)meta?["knownIssue"];
+            if (inert && known != null) _log.WriteLine($"KNOWN	{route}	{label}	{known}");
+            if (!infer || !inert || d.IsButton || meta?["strategy"] != null || known != null || meta?["requires"] != null) continue;
+            var candidates = new List<(string Strategy, double[] At)>();
+            if (target.GetType().GetMethod("SimulateHover", new[] { typeof(IGPoint) }) != null)
+            {
+                foreach (var p in at != null ? new[] { at } : DefaultPoints) candidates.Add(("hover", p));
+                foreach (var p in at != null ? new[] { at } : DefaultPoints) candidates.Add(("clickThenChange", p));
+            }
+            foreach (var b in buttons.Keys) candidates.Add(("press:" + b, null));
+            var probe = d.Values[0];
+            string found = null;
+            double[] foundAt = null;
+            foreach (var c in candidates)
+            {
+                try
+                {
+                    var r = await TryStepAsync(panel, target, host, d, probe, c.Strategy, c.At ?? DefaultPoints[0], buttons);
+                    var outcome = Classify(r.Handled, r.Diff, r.Whole);
+                    _log.WriteLine($"INFER\t{route}\t{label}={probe}\t{outcome}\tdiff={r.Diff:F4}\tstrategy={c.Strategy}\tat={(c.At == null ? "" : string.Join(",", c.At))}");
+                    if (outcome == "CHANGED") { found = c.Strategy; foundAt = c.At; break; }
+                }
+                catch (Exception ex)
+                {
+                    _log.WriteLine($"INFER\t{route}\t{label}={probe}\tERROR\t{Flatten(ex)}\tstrategy={c.Strategy}");
+                }
+            }
+            var sample = _learned[route] as System.Text.Json.Nodes.JsonObject;
+            if (sample == null) { sample = new System.Text.Json.Nodes.JsonObject { ["rows"] = new System.Text.Json.Nodes.JsonObject() }; _learned[route] = sample; }
+            var entry = new System.Text.Json.Nodes.JsonObject
+            {
+                ["strategy"] = found ?? "unknown",
+                ["inferred"] = true,
+                ["valueType"] = row.ValueType.ToString(),
+                ["inertUnderChange"] = new System.Text.Json.Nodes.JsonArray(outcomes.Select(o => (System.Text.Json.Nodes.JsonNode)o.Value).ToArray()),
+            };
+            if (foundAt != null) entry["at"] = new System.Text.Json.Nodes.JsonArray(foundAt[0], foundAt[1]);
+            ((System.Text.Json.Nodes.JsonObject)sample["rows"])[label] = entry;
+            SaveLearned();
+            _log.WriteLine($"LEARNED\t{route}\t{label}\t{found ?? "unknown"}");
         }
+        return interactions.Count > 0 ? await DriveInteractionRowsAsync(route, host, interactions) : null;
     }
 
     private static string PathToKey(string path) => path?

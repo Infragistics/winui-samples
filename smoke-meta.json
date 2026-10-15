@@ -1,0 +1,252 @@
+{
+  "$comment": "How to see the effect of a property editor row. Keyed by sample route, then by the row's key: its PropertyPath, else its Name, else (for generated GUID names, usually buttons) its Label. strategy: change (default) | hover | clickThenChange | press:<row key> | skip. 'at' is a point as fractions of the target's size. 'values' overrides the values tried. 'equivalentToInitial' lists values that look the same as the starting one. 'requires' sets other rows first (and restores them after). 'knownIssue' records a row that is expected not to show a change, and why. Rules apply by regex on the row key when the sample has no entry for that row. strategy 'interact' reloads the sample per value and runs 'steps' ({type: Click|DoubleClick|MouseEnter|KeyDown, cell: [visibleRow, column] | header: column | at: [fx, fy], data: [...]}); grid cells and headers resolve to automation names from the grid's visual model export. 'routeMatch' limits a rule to matching sample routes.",
+  "rules": [
+    {
+      "match": "^(IsSeriesHighlightingEnabled|IsCategoryHighlightingEnabled|IsItemHighlightingEnabled|HighlightingMode|HighlightingBehavior|LegendHighlightingMode|CrosshairsSnapToData|CrosshairsDisplayMode|CrosshairsAnnotationEnabled)$",
+      "strategy": "hover",
+      "note": "Only visible while the pointer is over the plot area."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^EnterBehavior$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "Click",
+          "cell": [
+            1,
+            1
+          ]
+        },
+        {
+          "type": "KeyDown",
+          "data": [
+            "Enter"
+          ]
+        }
+      ],
+      "note": "Activate a cell, press Enter: where the active cell goes."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^EnterBehaviorAfterEdit$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "DoubleClick",
+          "cell": [
+            1,
+            1
+          ]
+        },
+        {
+          "type": "KeyDown",
+          "data": [
+            "Enter"
+          ]
+        }
+      ],
+      "note": "Edit a cell, press Enter: where the active cell goes after the edit."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^EditMode$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "DoubleClick",
+          "cell": [
+            1,
+            1
+          ]
+        }
+      ],
+      "note": "Double-click a cell: whether (and how) an editor opens."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^EditModeClickAction$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "Click",
+          "cell": [
+            1,
+            1
+          ]
+        }
+      ],
+      "note": "Single click: opens the editor only with SingleClick."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^SelectionMode$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "Click",
+          "cell": [
+            1,
+            1
+          ]
+        }
+      ],
+      "note": "Click a cell: what gets selected."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^HeaderClickAction$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "Click",
+          "header": 0
+        },
+        {
+          "type": "Click",
+          "header": 1
+        }
+      ],
+      "note": "Click two headers: one sorted column or several."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^(IsRowHoverEnabled|RowHoverBackground)$",
+      "strategy": "interact",
+      "steps": [
+        {
+          "type": "MouseEnter",
+          "cell": [
+            2,
+            1
+          ]
+        }
+      ],
+      "note": "Hover a row."
+    },
+    {
+      "routeMatch": "^grids/",
+      "match": "^(ColumnMovingMode|ColumnMovingSeparatorWidth|ColumnMovingAnimationMode|ColumnResizingMode|ColumnResizingAnimationMode|ColumnResizingSeparatorWidth)$",
+      "strategy": "skip",
+      "reason": "interaction:grid-drag",
+      "note": "Needs a column or column-edge drag (DragSequence) - left to XSharpTesting."
+    }
+  ],
+  "samples": {
+    "charts/category-chart/axis-gap": {
+      "rows": {
+        "XAxisMaximumGap": {
+          "requires": {
+            "XAxisGap": "1.5"
+          },
+          "note": "The maximum only shows when the gap exceeds it; the sample starts the gap at 0.5."
+        }
+      }
+    },
+    "charts/category-chart/high-volume": {
+      "rows": {
+        "DataPoints": {
+          "strategy": "press:GenerateData",
+          "note": "Learned: the point count is used when the data is regenerated."
+        }
+      }
+    },
+    "charts/category-chart/line-chart-with-annotations": {
+      "rows": {
+        "CalloutsVisible": {
+          "strategy": "hover",
+          "at": [
+            0.5,
+            0.5
+          ],
+          "note": "Learned."
+        }
+      }
+    },
+    "charts/data-chart/axis-crossing": {
+      "rows": {
+        "Axes[1 as NumericYAxis].CrossingValue": {
+          "knownIssue": "sample",
+          "note": "Sample JSON swaps the paths: the row named XAxisCrossingValue (range +-1.25, the Y range) drives the Y axis, whose crossing is an X value in +-360, so it moves less than a pixel. The YAxisCrossingValue row drives the X axis."
+        }
+      }
+    },
+    "charts/data-chart/axis-label-rotation": {
+      "rows": {
+        "ShouldConsiderAutoRotationForInitialLabels": {
+          "knownIssue": "unexplained",
+          "note": "Likely only matters when the initial labels are crowded enough to rotate."
+        },
+        "AutoMarginAndAngleUpdateMode": {
+          "knownIssue": "unexplained",
+          "note": "Likely only shows when labels re-fit (resize, zoom)."
+        }
+      }
+    },
+    "charts/data-chart/type-scatter-contour-series": {
+      "rows": {
+        "Series[0 as ScatterContourSeries].ValueResolver.ValueCount": {
+          "knownIssue": "product",
+          "note": "The value never lands (probe 10->10 while the sibling Thickness row lands): the panel's description overlay does not carry the nested ValueResolver through. ValueCount is also an int while the slider produces doubles."
+        }
+      }
+    },
+    "charts/data-chart/radial-label-mode": {
+      "rows": {
+        "Axes[0 as CategoryAngleAxis].LabelMode": {
+          "equivalentToInitial": [
+            "Center"
+          ],
+          "note": "Auto resolves to Center (CategoryAngleAxis handles them in the same case), so only ClosestPoint shows a difference."
+        }
+      }
+    },
+    "charts/data-pie-chart/selection": {
+      "rows": {
+        "SelectionBehavior": {
+          "strategy": "skip",
+          "reason": "interaction:chart",
+          "note": "Single and multi select look the same with one slice selected; it needs two slices clicked after the change. (chart.SimulateClick at a slice works on WinUI; SimulateInput on charts is WPF only.)"
+        },
+        "SelectionMode": {
+          "strategy": "skip",
+          "reason": "sample",
+          "note": "The row has no ValueType or dropdown values in the sample JSON, so it is not driveable as written."
+        }
+      }
+    },
+    "charts/sparkline/markers": {
+      "rows": {
+        "FirstMarkerVisibility": {
+          "requires": {
+            "MarkerVisibility": "Collapsed"
+          }
+        },
+        "HighMarkerVisibility": {
+          "requires": {
+            "MarkerVisibility": "Collapsed"
+          }
+        },
+        "LowMarkerVisibility": {
+          "requires": {
+            "MarkerVisibility": "Collapsed"
+          }
+        },
+        "NegativeMarkerVisibility": {
+          "requires": {
+            "MarkerVisibility": "Collapsed"
+          }
+        },
+        "LastMarkerVisibility": {
+          "requires": {
+            "MarkerVisibility": "Collapsed"
+          }
+        }
+      },
+      "note": "With MarkerVisibility Visible every point already has a marker of the same size, so the special markers only show with the general ones collapsed."
+    },
+    "charts/sparkline/normal-range": {
+      "note": "The editor's Normal Range Minimum starts at 25 while the sparkline has 15 (sample JSON)."
+    }
+  }
+}

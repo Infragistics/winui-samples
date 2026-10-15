@@ -1,0 +1,342 @@
+{
+  "charts/category-chart/axis-gap": {
+    "rows": {
+      "XAxisMaximumGap": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "1.5",
+          "1.3",
+          "1.0"
+        ]
+      }
+    }
+  },
+  "charts/category-chart/high-volume": {
+    "rows": {
+      "DataPoints": {
+        "strategy": "press:GenerateData",
+        "inferred": true,
+        "valueType": "Slider",
+        "inertUnderChange": [
+          "158500",
+          "851500"
+        ]
+      }
+    }
+  },
+  "charts/category-chart/line-chart-with-annotations": {
+    "rows": {
+      "CalloutsVisible": {
+        "strategy": "hover",
+        "inferred": true,
+        "valueType": "Boolean",
+        "inertUnderChange": [
+          "toggle"
+        ],
+        "at": [
+          0.5,
+          0.5
+        ]
+      }
+    }
+  },
+  "charts/data-chart/axis-crossing": {
+    "rows": {
+      "Axes[1 as NumericYAxis].CrossingValue": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "Slider",
+        "inertUnderChange": [
+          "-0.875",
+          "0.875"
+        ]
+      }
+    }
+  },
+  "charts/data-chart/axis-label-rotation": {
+    "rows": {
+      "ShouldConsiderAutoRotationForInitialLabels": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "Boolean",
+        "inertUnderChange": [
+          "toggle"
+        ]
+      },
+      "AutoMarginAndAngleUpdateMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "None",
+          "SizeChanging"
+        ]
+      }
+    }
+  },
+  "charts/data-chart/type-scatter-contour-series": {
+    "rows": {
+      "Series[0 as ScatterContourSeries].ValueResolver.ValueCount": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "Slider",
+        "inertUnderChange": [
+          "3.1",
+          "12.9"
+        ]
+      }
+    }
+  },
+  "charts/sparkline/markers": {
+    "rows": {
+      "FirstMarkerVisibility": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Collapsed"
+        ]
+      },
+      "HighMarkerVisibility": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Collapsed"
+        ]
+      },
+      "LowMarkerVisibility": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Collapsed"
+        ]
+      },
+      "NegativeMarkerVisibility": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Collapsed"
+        ]
+      },
+      "LastMarkerVisibility": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Collapsed"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/cell-activation": {
+    "rows": {
+      "EnterBehavior": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "MoveDown",
+          "MoveLeft",
+          "MoveRight"
+        ]
+      },
+      "EnterBehaviorAfterEdit": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "MoveLeft",
+          "MoveRight",
+          "MoveUp"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/cell-editing": {
+    "rows": {
+      "EditMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "None",
+          "CellBatch",
+          "Row"
+        ]
+      },
+      "EditModeClickAction": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "DoubleClick"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/cell-selection": {
+    "rows": {
+      "SelectionMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "None",
+          "SingleCell",
+          "SingleRow"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/column-animation": {
+    "rows": {
+      "ColumnShowingAnimationMode": {
+        "strategy": "press:cce1ffc0-a6ec-4220-8598-697c5a973de1",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Auto",
+          "None",
+          "SlideFromRight"
+        ]
+      },
+      "ColumnHidingAnimationMode": {
+        "strategy": "press:cce1ffc0-a6ec-4220-8598-697c5a973de1",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Auto",
+          "None"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/column-filter-expressions": {
+    "rows": {
+      "9ecbf04f-c451-40e0-88cd-069be01f33f4": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Street",
+          "City",
+          "Country"
+        ]
+      },
+      "493b5e5c-3bb4-4b43-bf9d-2e0f7fe699bb": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "StartsWith",
+          "EndsWith"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/column-moving": {
+    "rows": {
+      "ColumnMovingMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "None"
+        ]
+      },
+      "ColumnMovingSeparatorWidth": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "Slider",
+        "inertUnderChange": [
+          "1.6",
+          "4.4"
+        ]
+      },
+      "ColumnMovingAnimationMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "SlideOver",
+          "None"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/column-resizing": {
+    "rows": {
+      "ColumnResizingMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Immediate",
+          "None"
+        ]
+      },
+      "ColumnResizingAnimationMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Interpolate",
+          "None"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/column-sorting": {
+    "rows": {
+      "HeaderClickAction": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "SortByMultipleColumns",
+          "SortByOneColumnOnly",
+          "SortByOneColumnOnlyTriState"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/row-group-descriptions": {
+    "rows": {
+      "GroupHeaderDisplayMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Split"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/row-highlighting": {
+    "rows": {
+      "IsRowHoverEnabled": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "Boolean",
+        "inertUnderChange": [
+          "toggle"
+        ]
+      },
+      "RowHoverBackground": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "",
+          "red",
+          "green"
+        ]
+      }
+    }
+  }
+}
