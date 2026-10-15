@@ -8,6 +8,7 @@ using Infragistics.Controls.Layouts;
 using Infragistics.Controls.Grids;
 #if !TESTING
 using Infragistics.Controls.DataSource;
+using Infragistics.Core.Controls.DataSource;
 using Infragistics.Controls;
 #endif
 

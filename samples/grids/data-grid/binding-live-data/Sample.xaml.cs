@@ -248,9 +248,9 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var grid = this.grid;
         if (grid == null) return;
     
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
-        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Category", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Type",     SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
+        grid.GroupDescriptions.Add(new ColumnGroupDescription { Field = "Contract", SortDirection = Infragistics.Core.Controls.DataSource.ListSortDirection.Descending });
     }
     
     

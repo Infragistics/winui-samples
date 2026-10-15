@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using Infragistics.Controls;
+using System.Globalization;
 using Microsoft.UI.Xaml.Media;
 using Windows.UI;
 using Microsoft.UI;
@@ -50,12 +51,12 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
         var map = this.geoMap;
     
         // loading a shapefile with the geographic polygons of world countries
-        var sds = new ShapefileConverter();
+        var sds = new ShapeDataSource();
         sds.ImportCompleted += (object s, AsyncCompletedEventArgs e) =>
         {
             var geoSeries = new GeographicShapeSeries()
             {
-                ItemsSource = s as ShapefileConverter,
+                ItemsSource = s as ShapeDataSource,
                 ShapeMemberPath = "Points",
                 // the series asks for each shape's style as it draws it, which it only does when it is
                 // allowed to take one

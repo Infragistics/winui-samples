@@ -36,11 +36,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
     public void MapDisplayHeatImageryOnViewInit()
     {
         var map = this.map;
-        map.ZoomToGeographic(new Rect(-134.5, 16.0, 70.0, 37.0));
+        map.ZoomToGeographic(new Infragistics.Controls.IGRect(-134.5, 16.0, 70.0, 37.0));
     
         var root = "https://static.infragistics.com/xplatform/shapes/";
     
-        var sds = new ShapefileConverter();
+        var sds = new ShapeDataSource();
         sds.ImportCompleted += (s, e) =>
         {
             var latitudes = new List<double>();

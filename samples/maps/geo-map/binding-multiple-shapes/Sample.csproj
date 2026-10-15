@@ -16,8 +16,6 @@
     <WindowsPackageType>None</WindowsPackageType>
     <WinUISDKReferences>true</WinUISDKReferences>
     <LangVersion>latest</LangVersion>
-    <!-- Sources are listed explicitly below, including generated library files. -->
-    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
 
   <ItemGroup>
@@ -98,9 +96,6 @@
     </Compile>
     <Compile Include="SampleViewModel.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="WorldCities.cs">
-        <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
 
