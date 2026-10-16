@@ -170,17 +170,22 @@
       "rows": {
         "ShouldConsiderAutoRotationForInitialLabels": {
           "hostSize": [
-            420,
-            360
+            360,
+            320
           ],
-          "note": "Auto rotation only kicks in when the labels are cramped, so the row is driven with the chart narrowed."
+          "note": "Auto rotation only kicks in when the labels are cramped, so the chart is narrowed after the change (and for the baseline), making the labels re-fit.",
+          "strategy": "resize"
         },
         "AutoMarginAndAngleUpdateMode": {
           "hostSize": [
-            420,
-            360
+            360,
+            320
           ],
-          "note": "Only shows when labels need re-fitting, so the row is driven with the chart narrowed."
+          "note": "Only shows when labels need re-fitting, so the chart is narrowed after the change (and for the baseline), making the labels re-fit. SizeChanging looks the same as the sample's SizeChangingAndZoom without a zoom.",
+          "strategy": "resize",
+          "equivalentToInitial": [
+            "SizeChanging"
+          ]
         }
       }
     },

@@ -455,7 +455,8 @@ public static class SmokeRunner
         string press = strategy.StartsWith("press:") ? strategy.Substring(6) : null;
         // Some settings only matter when the component is cramped (label rotation, for one).
         var oldSize = (host.Width, host.Height);
-        if (_hostSize != null)
+        var resize = strategy == "resize" && _hostSize != null;
+        if (_hostSize != null && !resize)
         {
             host.Width = _hostSize[0];
             host.Height = _hostSize[1];
@@ -473,8 +474,13 @@ public static class SmokeRunner
             }
             if (required.Count > 0) await Task.Delay(PermSettleMs);
         }
+        async Task Unprepare()
+        {
+            if (resize) { host.Width = oldSize.Width; host.Height = oldSize.Height; await Task.Delay(PermSettleMs); }
+        }
         async Task Prepare()
         {
+            if (resize) { host.Width = _hostSize[0]; host.Height = _hostSize[1]; await Task.Delay(PermSettleMs); }
             if (strategy == "hover") { Pointer(target, "SimulateHover", at); await Task.Delay(400); }
             if (press != null && buttons.TryGetValue(press, out var b)) { Apply(panel, b, "click"); await Task.Delay(PermSettleMs); }
         }
@@ -482,6 +488,7 @@ public static class SmokeRunner
         await Prepare();
         var before = await GrabAsync(target);
         var wholeBefore = await GrabAsync(host);
+        await Unprepare();
         var probeBefore = ProbePath(target, d.Row.PropertyPath);
         var handled = Apply(panel, d, value);
         await Task.Delay(PermSettleMs);
@@ -499,6 +506,7 @@ public static class SmokeRunner
         await Prepare();
         var after = await GrabAsync(target);
         var whole = Diff(wholeBefore, await GrabAsync(host));
+        await Unprepare();
         var diff = Diff(before, after);
         Restore(panel, d);
         await Task.Delay(300);
@@ -507,7 +515,7 @@ public static class SmokeRunner
         if (press != null && buttons.TryGetValue(press, out var b2)) { Apply(panel, b2, "click"); await Task.Delay(300); }
         foreach (var other in required) Restore(panel, other);
         if (required.Count > 0) await Task.Delay(300);
-        if (_hostSize != null)
+        if (_hostSize != null && !resize)
         {
             host.Width = oldSize.Width;
             host.Height = oldSize.Height;
