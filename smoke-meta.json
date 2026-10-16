@@ -164,32 +164,28 @@
       }
     },
     "charts/data-chart/axis-crossing": {
-      "rows": {
-        "Axes[1 as NumericYAxis].CrossingValue": {
-          "knownIssue": "sample",
-          "note": "Sample JSON swaps the paths: the row named XAxisCrossingValue (range +-1.25, the Y range) drives the Y axis, whose crossing is an X value in +-360, so it moves less than a pixel. The YAxisCrossingValue row drives the X axis."
-        }
-      }
+      "note": "Fixed in the sample JSON: the two crossing rows' property paths were swapped."
     },
     "charts/data-chart/axis-label-rotation": {
       "rows": {
         "ShouldConsiderAutoRotationForInitialLabels": {
-          "knownIssue": "unexplained",
-          "note": "Likely only matters when the initial labels are crowded enough to rotate."
+          "hostSize": [
+            420,
+            360
+          ],
+          "note": "Auto rotation only kicks in when the labels are cramped, so the row is driven with the chart narrowed."
         },
         "AutoMarginAndAngleUpdateMode": {
-          "knownIssue": "unexplained",
-          "note": "Likely only shows when labels re-fit (resize, zoom)."
+          "hostSize": [
+            420,
+            360
+          ],
+          "note": "Only shows when labels need re-fitting, so the row is driven with the chart narrowed."
         }
       }
     },
     "charts/data-chart/type-scatter-contour-series": {
-      "rows": {
-        "Series[0 as ScatterContourSeries].ValueResolver.ValueCount": {
-          "knownIssue": "product",
-          "note": "The value never lands (probe 10->10 while the sibling Thickness row lands): the panel's description overlay does not carry the nested ValueResolver through. ValueCount is also an int while the slider produces doubles."
-        }
-      }
+      "note": "The ValueCount row needs the resolver's concrete type in its path ('ValueResolver as LinearContourValueResolver.ValueCount'): looked up on the declared ContourValueResolver base it has no metadata and the panel emitted valueCount: null. The panel's JSON builder now accepts 'as Type' on sub-object parts."
     },
     "charts/data-chart/radial-label-mode": {
       "rows": {
@@ -235,7 +231,9 @@
         "NegativeMarkerVisibility": {
           "requires": {
             "MarkerVisibility": "Collapsed"
-          }
+          },
+          "knownIssue": "sample",
+          "note": "SparklineProfitData has no negative values, so negative markers never draw."
         },
         "LastMarkerVisibility": {
           "requires": {
@@ -246,7 +244,7 @@
       "note": "With MarkerVisibility Visible every point already has a marker of the same size, so the special markers only show with the general ones collapsed."
     },
     "charts/sparkline/normal-range": {
-      "note": "The editor's Normal Range Minimum starts at 25 while the sparkline has 15 (sample JSON)."
+      "note": "Fixed in the sample JSON: the editor's Normal Range Minimum now starts at 15, matching the sparkline."
     }
   }
 }

@@ -313,6 +313,8 @@ public static class SmokeRunner
     private const int MaxValuesPerRow = 3;
     private static string _lastProbe;
     private static System.Text.Json.Nodes.JsonObject _requires;
+    private static double[] _hostSize;
+    private static Grid _host;
     private static List<RowDriver> _allDrivers = new();
     private static readonly double[][] DefaultPoints = { new[] { 0.5, 0.5 }, new[] { 0.35, 0.45 }, new[] { 0.65, 0.55 } };
 
@@ -451,6 +453,14 @@ public static class SmokeRunner
         string strategy, double[] at, Dictionary<string, RowDriver> buttons)
     {
         string press = strategy.StartsWith("press:") ? strategy.Substring(6) : null;
+        // Some settings only matter when the component is cramped (label rotation, for one).
+        var oldSize = (host.Width, host.Height);
+        if (_hostSize != null)
+        {
+            host.Width = _hostSize[0];
+            host.Height = _hostSize[1];
+            await Task.Delay(PermSettleMs);
+        }
         var required = new List<RowDriver>();
         if (_requires != null)
         {
@@ -476,6 +486,16 @@ public static class SmokeRunner
         var handled = Apply(panel, d, value);
         await Task.Delay(PermSettleMs);
         _lastProbe = probeBefore + "->" + ProbePath(target, d.Row.PropertyPath);
+        if (Environment.GetEnvironmentVariable("SAMPLES_SMOKE_DUMP_DESC") == "1")
+        {
+            try
+            {
+                var impl = panel.GetType().GetField("_implementation", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.GetValue(panel);
+                var json = impl?.GetType().GetMethod("GetDescription", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)?.Invoke(impl, null);
+                _log.WriteLine("DESC	" + _current + "	" + d.Label + "=" + value + "	" + System.Text.RegularExpressions.Regex.Replace(json?.ToString() ?? "", @"\s+", " "));
+            }
+            catch (Exception ex) { _log.WriteLine($"DESC	{_current}	{Flatten(ex)}"); }
+        }
         await Prepare();
         var after = await GrabAsync(target);
         var whole = Diff(wholeBefore, await GrabAsync(host));
@@ -487,6 +507,12 @@ public static class SmokeRunner
         if (press != null && buttons.TryGetValue(press, out var b2)) { Apply(panel, b2, "click"); await Task.Delay(300); }
         foreach (var other in required) Restore(panel, other);
         if (required.Count > 0) await Task.Delay(300);
+        if (_hostSize != null)
+        {
+            host.Width = oldSize.Width;
+            host.Height = oldSize.Height;
+            await Task.Delay(300);
+        }
         return (handled, diff, whole);
     }
 
@@ -502,6 +528,8 @@ public static class SmokeRunner
             foreach (var raw in path.Split('.'))
             {
                 var part = raw;
+                var asAt = part.IndexOf(" as ");
+                if (asAt > 0 && part.IndexOf('[') < 0) part = part.Substring(0, asAt);
                 int? index = null;
                 var open = part.IndexOf('[');
                 if (open >= 0)
@@ -698,6 +726,7 @@ public static class SmokeRunner
             if (done >= MaxPermsPerSample) break;
             var label = RowKey(row);
             _requires = null;
+            _hostSize = null;
             var strategy = (string)meta?["strategy"] ?? "change";
             if (strategy == "skip")
             {
@@ -712,6 +741,7 @@ public static class SmokeRunner
             }
             var at = PointFrom(meta);
             _requires = meta?["requires"] as System.Text.Json.Nodes.JsonObject;
+            _hostSize = meta?["hostSize"] is System.Text.Json.Nodes.JsonArray hs && hs.Count == 2 ? new[] { (double)hs[0], (double)hs[1] } : null;
             var outcomes = new List<(string Value, string Outcome, double Diff, double Whole)>();
             foreach (var value in d.Values)
             {
