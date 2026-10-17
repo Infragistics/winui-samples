@@ -25,6 +25,7 @@ public partial class App : Application
         WinUILinearGaugeDashboardTileFeature.Register();
         WinUIGeographicMapDashboardTileFeature.Register();
         Services.ComponentAssemblyPreloader.Start();
+        if (SmokeRunner.TryStart(this)) return;
 
         _window = new MainWindow();
         _window.Activate();

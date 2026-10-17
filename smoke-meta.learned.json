@@ -1,0 +1,60 @@
+{
+  "grids/data-grid/column-animation": {
+    "rows": {
+      "ColumnShowingAnimationMode": {
+        "strategy": "press:12146ffb-5e0e-4e9d-abee-5ac1b515f092",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Auto",
+          "None",
+          "SlideFromRight"
+        ]
+      },
+      "ColumnHidingAnimationMode": {
+        "strategy": "press:12146ffb-5e0e-4e9d-abee-5ac1b515f092",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Auto",
+          "None"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/column-filter-expressions": {
+    "rows": {
+      "Column": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Street",
+          "City",
+          "Country"
+        ]
+      },
+      "Mode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "StartsWith",
+          "EndsWith"
+        ]
+      }
+    }
+  },
+  "grids/data-grid/row-group-descriptions": {
+    "rows": {
+      "GroupHeaderDisplayMode": {
+        "strategy": "unknown",
+        "inferred": true,
+        "valueType": "EnumValue",
+        "inertUnderChange": [
+          "Split"
+        ]
+      }
+    }
+  }
+}
