@@ -44,7 +44,7 @@
 	</ItemGroup>
 	<!-- Infragistics references: using NuGet packages (version 26.1.762).
        Local file references kept commented out below for now. -->
-	<!--<ItemGroup>
+	<ItemGroup>
 		<PackageReference Include="Infragistics.WinUI.Core.Trial" Version="26.1.1000-alpha.15" />
 		<PackageReference Include="Infragistics.WinUI.Charts.Trial" Version="26.1.1000-alpha.15" />
 		<PackageReference Include="Infragistics.WinUI.DataVisualization.Trial" Version="26.1.1000-alpha.15" />
@@ -57,12 +57,12 @@
 		<PackageReference Include="Infragistics.WinUI.Sparkline.Trial" Version="26.1.1000-alpha.15" />
 		<PackageReference Include="Infragistics.WinUI.Maps.Trial" Version="26.1.1000-alpha.15" />
 		<PackageReference Include="Infragistics.WinUI.SkiaSharp.Trial" Version="26.1.1000-alpha.15" />
-	</ItemGroup>-->
+	</ItemGroup>
 
 	 <!--Local dev-tools build references: kept here for quick toggle back to
        a source build. Uncomment this block (and remove the PackageReferences
        above) to use it.-->
-  <ItemGroup>
+  <!--<ItemGroup>
     <Reference Include="Infragistics.Core">
       <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.Core.dll</HintPath>
     </Reference>
@@ -133,7 +133,7 @@
 	  <Reference Include="Infragistics.DataVisualization.SkiaSharp.WinUI">
 		  <HintPath>c:\work\dev-tools\XPlatform\Main\Source\Build\WinUI\Infragistics.DataVisualization.SkiaSharp.WinUI.dll</HintPath>
 	  </Reference>
-  </ItemGroup>
+  </ItemGroup>-->
   
 
 	<!-- Assets included as content files -->

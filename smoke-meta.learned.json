@@ -2,7 +2,7 @@
   "grids/data-grid/column-animation": {
     "rows": {
       "ColumnShowingAnimationMode": {
-        "strategy": "press:be6270c0-3fe6-4da9-9a26-040a1f63b5ed",
+        "strategy": "press:12146ffb-5e0e-4e9d-abee-5ac1b515f092",
         "inferred": true,
         "valueType": "EnumValue",
         "inertUnderChange": [
@@ -12,7 +12,7 @@
         ]
       },
       "ColumnHidingAnimationMode": {
-        "strategy": "press:be6270c0-3fe6-4da9-9a26-040a1f63b5ed",
+        "strategy": "press:12146ffb-5e0e-4e9d-abee-5ac1b515f092",
         "inferred": true,
         "valueType": "EnumValue",
         "inertUnderChange": [

@@ -42,9 +42,11 @@ public sealed partial class Sample : UserControl, INotifyPropertyChanged
 
     public void SelectionMatcherOnViewInit()
     {
+    	// The timer fires on a pool thread; the chart can only be touched from the UI thread.
+    	var dispatcher = Microsoft.UI.Dispatching.DispatcherQueue.GetForCurrentThread();
     	_timer = new Timer((state) =>
     	{
-    		AddSelection();
+    		dispatcher.TryEnqueue(() => AddSelection());
     		_timer.Dispose();
     	}, null, 100, Timeout.Infinite);
     }

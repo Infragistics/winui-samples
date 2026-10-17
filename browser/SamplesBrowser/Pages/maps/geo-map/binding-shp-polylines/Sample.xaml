@@ -32,7 +32,7 @@
                   x:Name="GeographicPolylineSeries1"
                   ShapeFilterResolution="0"
                   ShapeStrokeThickness="3"
-                  ShapeStroke="rgb(82, 82, 82, 0.4)">
+                  ShapeStroke="#66525252">
                       <igMaps:GeographicPolylineSeries.ShapefileDataSource>
                           <ig:ShapeDataSource
                           ShapefileSource="https://static.infragistics.com/xplatform/shapes/WorldCableRoutes.shp"
