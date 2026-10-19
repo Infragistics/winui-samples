@@ -8,6 +8,12 @@ public partial class App : Application
 
     public App()
     {
+        Infragistics.Controls.Dashboards.WinUIDataChartDashboardTileFeature.Register();
+        Infragistics.Controls.Dashboards.WinUIGeographicMapDashboardTileFeature.Register();
+        Infragistics.Controls.Dashboards.WinUILinearGaugeDashboardTileFeature.Register();
+        Infragistics.Controls.Dashboards.WinUIPieChartDashboardTileFeature.Register();
+        Infragistics.Controls.Dashboards.WinUIRadialGaugeDashboardTileFeature.Register();
+
         this.InitializeComponent();
     }
 
