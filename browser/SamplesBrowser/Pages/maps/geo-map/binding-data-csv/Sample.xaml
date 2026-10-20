@@ -24,7 +24,7 @@
         </Grid.ColumnDefinitions>
                 <Grid Grid.Column="1">
           <igMaps:XamGeographicMap
-          Name="map"
+          x:Name="map"
           Zoomable="true">
           </igMaps:XamGeographicMap>
         </Grid>
